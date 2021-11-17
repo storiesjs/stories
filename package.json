@@ -1,0 +1,10 @@
+{
+  "name": "@stories/main",
+  "version": "0.0.1",
+  "description": "Stories is an open source tool for vieweing UI components working in isolation.",
+  "main": "index.js",
+  "repository": "git@github.com:storiesjs/storiesjs.git",
+  "author": "akserg <akserg@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
