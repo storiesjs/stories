@@ -26,11 +26,10 @@
     "*.d.ts"
   ],
   "scripts": {
-    "prepare": "node ../../scripts/prepare.js"
   },
   "dependencies":{},
   "devDependencies": {},
   "publishConfig": {
     "access": "public"
-  },
+  }
 }
