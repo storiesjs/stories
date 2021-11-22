@@ -1,0 +1,44 @@
+{
+  "name": "@stories/main",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": [
+    "lib/stories-viewer",
+    "lib/stories-react",
+    "demo/demo-react"
+  ],
+  "description": "",
+  "scripts": {
+    "lint": "eslint '**/*.ts?(x)' --fix",
+    "format": "prettier --write '**/*.{js,jsx,ts,tsx,md,mdx}'",
+    "build": "yarn workspace @stories/stories-viewer run build && yarn workspace @stories/stories-react run build",
+    "prepare": "husky install",
+    "clean": "yarn workspaces run clean",
+    "dev:react": "yarn workspace @stories/stories-react start",
+    "demo:react": "yarn workspace demo-react start"
+  },
+  "repository": "git@github.com:storiesjs/storiesjs.git",
+  "author": "akserg <akserg@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.0.0",
+    "@typescript-eslint/parser": "^4.0.0",
+    "@babel/eslint-parser": "^7.16.3",
+    "esbuild": "^0.12.21",
+    "eslint": "^7.5.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "husky": "^7.0.1",
+    "lerna": "^4.0.0",
+    "lerna-changelog": "^2.1.0",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1"
+  },
+  "resolutions": {}
+}
