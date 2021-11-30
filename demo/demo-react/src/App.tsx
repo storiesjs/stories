@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { StoryViewer } from '@stories/stories-react';
-
 import logo from './logo.svg';
 import './App.css';
 
@@ -21,7 +19,7 @@ function App() {
         >
           Learn React
         </a>
-        <StoryViewer/>
+        
       </header>
     </div>
   );

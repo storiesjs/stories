@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Meta, Stories } from "./types";
 
 export function useStory(file: any) {
@@ -16,6 +16,16 @@ export function useStory(file: any) {
                     _stories[key] = data;
                 }
             });
+            // for (const key in file) {
+            //     if (Object.prototype.hasOwnProperty.call(file, key)) {
+            //         const data = file[key];
+            //         if (key === 'default') {
+            //             setMeta(data);
+            //         } else {
+            //             stories[key] = data;
+            //         }
+            //     }
+            // }
             setStories(_stories);
         } else {
             setMeta(undefined);

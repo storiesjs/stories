@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import Frame from 'react-frame-component';
 import { StoryObject } from ".";
 import { StoryRenderer } from "./StoryRenderer";

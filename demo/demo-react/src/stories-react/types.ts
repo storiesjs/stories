@@ -193,10 +193,10 @@ export type DefaultModuleExport = {
     "default": Meta<Args>;
 };
 
-// export type Names = "default" | "__esModule" | string;
+export type Names = "default" | "__esModule" | string;
 
 export type NamedModuleExport = {
-    [key: string]: Meta<Args> | Story<Args>;
+    [key: Names]: Meta<Args> | Story<Args>;
 };
 
 export type ModuleExport = DefaultModuleExport & NamedModuleExport;
