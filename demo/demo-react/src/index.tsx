@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
-import App from './Stories';
+import App from './App';
+import Stories from './Stories';
 import reportWebVitals from './reportWebVitals';
+
+let app: ReactElement;
+
+if (process.env.STORIES) {
+  app = <Stories/>;
+} else {
+  app = <App/>;
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {app}
   </React.StrictMode>,
   document.getElementById('root')
 );
