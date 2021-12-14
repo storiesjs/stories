@@ -1,6 +1,7 @@
 import { FC, useEffect, useMemo, useRef, useState } from "react";
 import { modulesToStories, ModuleExports, StoryViewer } from ".";
-import { StoriesNavigator } from "./StoriesNavigator";
+// import { StoriesNavigator } from "./StoriesNavigator";
+import '@stories/navigator-widget';
 
 export type StoryViewerProps = {
     modules: ModuleExports,
@@ -27,6 +28,8 @@ export const StoriesViewer: FC<StoryViewerProps> = ({ modules }) => {
     const [mountTarget] = useState("story-frame-root");
     const [initialContent] = useState(`<!DOCTYPE html><html><title>Story</title><head></head><body style='height:100%;width: 100%'><div id="${mountTarget}"></div></body></html>`)
     const frame = useRef<any>(null);
+
+    const navigation = useRef(null);
 
     function loadListener() {
         if (frame && frame.current) {
@@ -63,9 +66,16 @@ export const StoriesViewer: FC<StoryViewerProps> = ({ modules }) => {
         }
     }, [frame, path]);
 
+    useEffect(() => {
+        if (navigation.current) {
+            (navigation.current as any).stories = stories;
+        }
+    }, [stories, navigation.current]);
+
     return (
         <div style={{display: 'flex', flexDirection: 'row', height: '100vh', backgroundColor: 'cyan'}}>
-            <StoriesNavigator stories={stories}/>
+            {/* <StoriesNavigator stories={stories}/> */}
+            <stories-navigator bg-color="red" stories="" ref={navigation}></stories-navigator>
             <section style={{flexShrink: 1, height: '100vh', width: '100%', backgroundColor: 'lightcoral'}}>
             {
                 path ? <StoryViewer story={stories[path]} frame={frame} initialContent={initialContent} mountTarget={mountTarget} /> : <div>No story selected</div>

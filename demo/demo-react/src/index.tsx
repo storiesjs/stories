@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 
 let app: ReactElement;
 
-if (process.env.STORIES) {
+if (!process.env.STORIES) {
   app = <Stories/>;
 } else {
   app = <App/>;
