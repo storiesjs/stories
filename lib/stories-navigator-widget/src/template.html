@@ -25,10 +25,23 @@
     <% preact.headEnd %>
   </head>
   <body>
-    <stories-navigator bg-color="red" stories=""></stories-navigator>
+    <div style="display: flex; flex-direction: row; height: 100vh; background-color: cyan;">
+      <stories-navigator bg-color="red" stories=""></stories-navigator>
+      <section style="flex-shrink: 1; height: 100vh; width: 100%; background-color: lightcoral">
+        <story-viewer>
+          <stories-frame>
+            <div>Test me</div>
+          </stories-frame>
+        </story-viewer>
+      </section>
+    </div>
     <script>
       const nav = document.querySelector('stories-navigator')
       console.log('nav', nav)
+      const viewer = document.querySelector('story-viewer')
+      console.log('viewer', viewer)
+      const frame = document.querySelector('stories-frame')
+      console.log('frame', frame)
     </script>
     <% preact.bodyEnd %>
   </body>
