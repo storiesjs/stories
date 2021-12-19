@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, Story } from './stories-react';
+import { type } from './stories-api';
 
 import { View, ViewType } from "./View";
 
@@ -14,8 +14,8 @@ export default {
         ),
     ],
     parameters: {}
-}  as Meta<ViewType>;
+}  as type.Meta<ViewType>;
 
-export const ByName: Story<ViewType> = () => <View name="Test"/>
+export const ByName: type.Story<ViewType> = () => <View name="Test"/>
 
-export const ByAge: Story<ViewType> = () => <View age={30} />
+export const ByAge: type.Story<ViewType> = () => <View age={30} />

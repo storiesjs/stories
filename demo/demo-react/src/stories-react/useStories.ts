@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { Meta, Stories } from "./types";
+import { useEffect, useState } from "react";
+import { type } from "../stories-api";
 
 export function useStory(file: any) {
-    const [meta, setMeta] = useState<Meta<any> | undefined>();
-    const [stories, setStories] = useState<Stories>({});
+    const [meta, setMeta] = useState<type.Meta<any> | undefined>();
+    const [stories, setStories] = useState<type.Stories>({});
 
     useEffect(() => {
         if (file) {
-            const _stories: Stories = {};
+            const _stories: type.Stories = {};
             Object.keys(file).forEach(key => {
                 const data = file[key];
                 if (key === 'default') {

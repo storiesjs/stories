@@ -1,20 +1,18 @@
-import { parseKind, sanitize, storyNameFromExport, toId } from "@componentdriven/csf";
-import React from "react";
-import { Args, Meta, ModuleExports, Story, StoryObject, StoryObjects } from ".";
+import { csf, type } from "../stories-api";
 
-export function modulesToStories(modules: ModuleExports/*, render: (args: Args, context: StoryContext) => React.ReactElement, play?: () => void*/): StoryObjects {
-    const result: StoryObjects = {};
+export function modulesToStories(modules: type.ModuleExports): type.StoryObjects {
+    const result: type.StoryObjects = {};
     modules.forEach(moduleExport => {
         const { default: meta, "__esModule": esModule, ...namedStories } = moduleExport;
         if (esModule) {
             const { title } = meta;
-            const moduleId = sanitize(title);
+            const moduleId = csf.sanitize(title);
             Object.keys(namedStories).forEach(key => {
-                const namedStory = namedStories[key] as Story<Args>;
-                const storyId = toId(moduleId, key);
-                const exportName = storyNameFromExport(key);
+                const namedStory = namedStories[key] as type.Story<type.Args>;
+                const storyId = csf.toId(moduleId, key);
+                const exportName = csf.storyNameFromExport(key);
                 const storyName = namedStory.storyName ? namedStory.storyName : exportName;
-                const storyKind = parseKind(meta.title, {rootSeparator: '/', groupSeparator: '/'})
+                const storyKind = csf.parseKind(meta.title, {rootSeparator: '/', groupSeparator: '/'})
                 const story = prepareStoryForRenderer(storyId, storyName, storyKind, namedStory, meta/*, render, play*/);
                 result[storyId] = story;
             });
@@ -26,13 +24,13 @@ export function modulesToStories(modules: ModuleExports/*, render: (args: Args, 
     return result;
 }
 
-function prepareStoryForRenderer(storyId: string, storyName: string, storyKind: any, namedStory: Story<Args>, meta: Meta<Args>/*, render: (args: Args, context: StoryContext) => React.ReactElement, play?: () => void*/): StoryObject {
+function prepareStoryForRenderer(storyId: string, storyName: string, storyKind: any, namedStory: type.Story<type.Args>, meta: type.Meta<type.Args>): type.StoryObject {
     return {
         storyId,
         storyName,
         storyKind,
-        decorators: [...(namedStory.decorators || [])],
-        parameters: { ...namedStory.parameters },
+        decorators: [...(meta.decorators || [])],
+        parameters: { ...meta.parameters },
         args: { ...namedStory.args },
         argTypes: { ...namedStory.argTypes },
         story: namedStory,
@@ -40,7 +38,7 @@ function prepareStoryForRenderer(storyId: string, storyName: string, storyKind: 
             id: storyId,
             name: storyName,
             kind: storyKind,
-            parameters: { ...namedStory.parameters },
+            parameters: { ...meta.parameters },
             args: { ...namedStory.args },
             argTypes: { ...namedStory.argTypes },
             globals: {},

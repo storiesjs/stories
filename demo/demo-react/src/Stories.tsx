@@ -1,9 +1,9 @@
-import { ModuleExports } from './stories-react';
+import { type } from './stories-api';
 import './App.css';
 import { StoriesViewer } from './stories-react/StoriesViewer';
 import * as ViewStories from './View.stories';
 
-const modules: ModuleExports = [
+const modules: type.ModuleExports = [
   ViewStories
 ];
 

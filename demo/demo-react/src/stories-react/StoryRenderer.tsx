@@ -1,14 +1,14 @@
-import React, { FC, createElement } from "react";
-import type { Args, StoryObject } from './types';
+import { FC, createElement } from "react";
+import type { type } from '../stories-api';
 
 export type StoryRendererProps = {
-  story: StoryObject;
+  story: type.StoryObject;
 };
 
 export const StoryRenderer: FC<StoryRendererProps> = ({ story }) => {
   const {decorators, parameters, storyContext } = story;
 
-  const renderComponent = (parameters: Args | undefined) => {
+  const renderComponent = (parameters: type.Args | undefined) => {
       return createElement(story.story, {...parameters});
   };
 

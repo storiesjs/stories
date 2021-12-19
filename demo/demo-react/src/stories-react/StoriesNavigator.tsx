@@ -1,6 +1,6 @@
-import { StoryObjects } from ".";
+import { type } from "../stories-api";
 
-export function StoriesNavigator({stories}:{stories: StoryObjects}) {
+export function StoriesNavigator({stories}:{stories: type.StoryObjects}) {
     return (
         <nav style={{ flexShrink: 0, height: '100vh', width: '200px', backgroundColor: "lightblue" }}>
             <h1>Navigation</h1>
