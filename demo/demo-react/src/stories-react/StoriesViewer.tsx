@@ -34,4 +34,26 @@ export const StoriesViewer: FC<StoryViewerProps> = ({ modules }) => {
             </section>
         </div>
     );
+
+    /*
+    const extentions = {
+        ui: {},
+        mock: {},
+        services: {}
+    };
+
+    const [story, setStory] = useState<StoryObject | undefined>();
+
+    const onSelectStory = (story: StoryObject) => {
+        setStory(story);
+    };
+
+    return (
+        <stories-app stories={stories} onSelectStory={this.onSelectStory} extentions={extentions}>
+            <StoriesFrame>
+                <StoriesRendere  story={story}/>
+            </StoriesFrame>
+        </stories-app>
+    );
+    */
 };

@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@lit-labs/react": "1.0.1",
+    "@stories/app": "^0.1.0",
     "@stories/stories-react": "^0.1.0",
     "@stories/navigator-widget": "^0.1.0",
     "@testing-library/jest-dom": "^5.11.4",
@@ -12,6 +14,8 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "lit": "2.0.2",
+    "lit-element-state": "1.7.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",

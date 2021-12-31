@@ -4,6 +4,7 @@
     "lib/stories-react",
     "lib/stories-navigator-widget",
     "lib/stories-viewer-widget",
+    "lib/stories-app",
     "demo/demo-react"
   ],
   "npmClient": "yarn",

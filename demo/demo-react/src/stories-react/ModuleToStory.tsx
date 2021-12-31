@@ -3,8 +3,8 @@ import { csf, type } from "../stories-api";
 export function modulesToStories(modules: type.ModuleExports): type.StoryObjects {
     const result: type.StoryObjects = {};
     modules.forEach(moduleExport => {
-        const { default: meta, "__esModule": esModule, ...namedStories } = moduleExport;
-        if (esModule) {
+        const { default: meta, ...namedStories } = moduleExport;
+        if (namedStories) {
             const { title } = meta;
             const moduleId = csf.sanitize(title);
             Object.keys(namedStories).forEach(key => {
@@ -17,7 +17,7 @@ export function modulesToStories(modules: type.ModuleExports): type.StoryObjects
                 result[storyId] = story;
             });
         } else {
-            console.error("Incorrect module because it doesnt have __esModule property.")
+            console.error("Incorrect module because it doesnt have named stories.")
         }
     });
 
