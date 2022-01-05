@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { StoryComponent, StoryComponents } from "@stories/stories-common";
+import { StoryComponents } from "@stories/stories-common";
 export namespace Components {
     interface StoriesApp {
         /**
@@ -45,7 +45,12 @@ declare global {
 }
 declare namespace LocalJSX {
     interface StoriesApp {
-        "onStorySelected"?: (event: CustomEvent<StoryComponent>) => void;
+        "onStorySelected"?: (event: CustomEvent<{
+    storyId: string;
+    kinds: string[];
+    name: string;
+    storyFn: (context?: unknown) => unknown;
+  }>) => void;
         /**
           * Stories
          */

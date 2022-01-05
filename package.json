@@ -5,6 +5,7 @@
   "workspaces": [
     "lib/stories-common",
     "lib/stories-react",
+    "lib/stories-angular",
     "lib/stories-ui",
     "demo/demo-react"
   ],

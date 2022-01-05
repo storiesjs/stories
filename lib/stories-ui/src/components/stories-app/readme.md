@@ -14,9 +14,9 @@
 
 ## Events
 
-| Event           | Description | Type                                                                                 |
-| --------------- | ----------- | ------------------------------------------------------------------------------------ |
-| `storySelected` |             | `CustomEvent<{ storyId: string; kinds: string[]; name: string; storyFn: StoryFn; }>` |
+| Event           | Description | Type                                                                                                        |
+| --------------- | ----------- | ----------------------------------------------------------------------------------------------------------- |
+| `storySelected` |             | `CustomEvent<{ storyId: string; kinds: string[]; name: string; storyFn: (context?: unknown) => unknown; }>` |
 
 
 ----------------------------------------------
