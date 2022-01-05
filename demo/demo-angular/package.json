@@ -1,5 +1,5 @@
 {
-  "name": "@stories/stories-angular",
+  "name": "demo-angular",
   "version": "0.1.0",
   "scripts": {
     "ng": "ng",
@@ -10,22 +10,24 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~12.0.4",
-    "@angular/common": "~12.0.4",
-    "@angular/compiler": "~12.0.4",
-    "@angular/core": "~12.0.4",
-    "@angular/forms": "~12.0.4",
-    "@angular/platform-browser": "~12.0.4",
-    "@angular/platform-browser-dynamic": "~12.0.4",
-    "@angular/router": "~12.0.4",
+    "@angular/animations": "~12.0.5",
+    "@angular/common": "~12.0.5",
+    "@angular/compiler": "~12.0.5",
+    "@angular/core": "~12.0.5",
+    "@angular/forms": "~12.0.5",
+    "@angular/platform-browser": "~12.0.5",
+    "@angular/platform-browser-dynamic": "~12.0.5",
+    "@angular/router": "~12.0.5",
+    "@stories/stories-common": "^0.1.0",
+    "@stories/stories-angular": "^0.1.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.0.5",
-    "@angular/cli": "~12.0.4",
-    "@angular/compiler-cli": "~12.0.4",
+    "@angular/cli": "~12.0.5",
+    "@angular/compiler-cli": "~12.0.5",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "jasmine-core": "~3.7.0",
@@ -34,7 +36,6 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "ng-packagr": "^12.0.0",
     "typescript": "~4.2.3"
   }
 }

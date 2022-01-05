@@ -14,9 +14,9 @@
 
 ## Events
 
-| Event           | Description | Type                                                                                                        |
-| --------------- | ----------- | ----------------------------------------------------------------------------------------------------------- |
-| `storySelected` |             | `CustomEvent<{ storyId: string; kinds: string[]; name: string; storyFn: (context?: unknown) => unknown; }>` |
+| Event           | Description                                                                                                    | Type                                                                                                        |
+| --------------- | -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `storySelected` | Unfortunatelly we cannot use EventEmitter<StoryComponent> because of the bug in @stencil/angular-output-target | `CustomEvent<{ storyId: string; kinds: string[]; name: string; storyFn: (context?: unknown) => unknown; }>` |
 
 
 ----------------------------------------------

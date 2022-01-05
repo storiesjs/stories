@@ -2,13 +2,17 @@
   "name": "@stories/main",
   "version": "0.0.1",
   "private": true,
-  "workspaces": [
-    "lib/stories-common",
-    "lib/stories-react",
-    "lib/stories-angular",
-    "lib/stories-ui",
-    "demo/demo-react"
-  ],
+  "workspaces": {
+    "packages": [
+      "lib/stories-common",
+      "lib/stories-react",
+      "lib/stories-angular",
+      "lib/stories-ui",
+      "demo/demo-react",
+      "demo/demo-angular"
+    ],
+    "nohoist": ["**/webpack"]
+  },
   "description": "",
   "scripts": {
     "lint": "eslint '**/*.ts?(x)' --fix",
@@ -42,7 +46,6 @@
   },
   "resolutions": {
     "babel-loader": "8.1.0",
-    "jest": "26.6.0",
-    "webpack": "4.44.2"
+    "jest": "26.6.0"
   }
 }

@@ -4,7 +4,8 @@
     "lib/stories-react",
     "lib/stories-angular",
     "lib/stories-ui",
-    "demo/demo-react"
+    "demo/demo-react",
+    "demo/demo-angular"
   ],
   "npmClient": "yarn",
   "useWorkspaces": true,
