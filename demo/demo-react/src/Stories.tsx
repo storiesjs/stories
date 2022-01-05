@@ -1,22 +1,29 @@
+import { StoriesApp, StoriesNavigator, StoriesViewer, StoriesReactRenderer } from '@stories/stories-react';
+import { modulesToStories, StoryComponent, StoryModules } from '@stories/stories-common';
+
 import './App.css';
-import './stories-app';
-import { StoriesReactRenderer, useStories } from './stories-app';
 
-// import '@stories/app';
-import * as ViewStories from './View.stories';
+import { modules } from './stories-map';
+import { useState } from 'react';
 
-const modules = [ViewStories];
+const stories = modulesToStories(modules as unknown as StoryModules);
+console.log('main', stories)
 
 function Stories() {
-  const [storiesAppRef, story] = useStories(modules);
+  const [story, setStory] = useState<StoryComponent | undefined>();
   
+  const storySelected = (event: CustomEvent<StoryComponent>) => { 
+    console.log('storySelected', event.detail);
+    setStory(event.detail);
+  }
+
   return (
-    <stories-app ref={storiesAppRef}>
-      <stories-navigator slot="navigator"></stories-navigator>
-      <stories-viewer slot="viewer">
-        { story && <StoriesReactRenderer story={story}/> }
-      </stories-viewer>
-    </stories-app>
+    <StoriesApp stories={stories} onStorySelected={storySelected}>
+      <StoriesNavigator slot="navigator"/>
+      <StoriesViewer slot="viewer">
+        <StoriesReactRenderer story={story}/>
+      </StoriesViewer>
+    </StoriesApp>
   );
 }
 

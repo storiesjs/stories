@@ -1,21 +1,21 @@
 import React from 'react';
-import { type } from './stories-api';
+import { Meta, Story } from '@stories/stories-common';
 
-import { View, ViewType } from "./View";
+import { View } from "./View";
 
 export default {
     title: "Stories/View component",
     component: View,
-    decorators: [
-        (StoryFn) => (
-            <section className="decorator">
-                <StoryFn/>
-            </section>
-        ),
-    ],
-    parameters: {}
-}  as type.Meta<ViewType>;
+    // decorators: [
+    //     (StoryFn) => (
+    //         <section className="decorator">
+    //             <StoryFn/>
+    //         </section>
+    //     ),
+    // ],
+    // parameters: {}
+}  as Meta;
 
-export const ByName: type.Story<ViewType> = () => <View name="Test"/>
+export const ByName: Story = () => <View name="Test"/>
 
-export const ByAge: type.Story<ViewType> = () => <View age={30} />
+export const ByAge: Story = () => <View age={30} />
