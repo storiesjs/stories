@@ -1,0 +1,2 @@
+export const mountTargetId = "story-root";
+export const initialContent = `<!DOCTYPE html><html><title>Story</title><head></head><body style='height:100%;width: 100%'><div id="${mountTargetId}"></div></body></html>`;

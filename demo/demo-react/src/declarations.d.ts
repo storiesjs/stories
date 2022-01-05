@@ -1,5 +1,1 @@
-declare namespace JSX {
-  interface IntrinsicElements {
-    "stories-navigator": any;
-  }
-}
+declare module 'lit-element-state';

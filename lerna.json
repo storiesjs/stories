@@ -1,9 +1,8 @@
 {
   "packages": [
-    "lib/stories-viewer",
+    "lib/stories-common",
     "lib/stories-react",
-    "lib/stories-navigator-widget",
-    "lib/stories-viewer-widget",
+    "lib/stories-ui",
     "demo/demo-react"
   ],
   "npmClient": "yarn",

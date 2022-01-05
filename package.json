@@ -3,10 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "workspaces": [
-    "lib/stories-viewer",
+    "lib/stories-common",
     "lib/stories-react",
-    "lib/stories-navigator-widget",
-    "lib/stories-viewer-widget",
+    "lib/stories-ui",
     "demo/demo-react"
   ],
   "description": "",
