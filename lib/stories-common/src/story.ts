@@ -15,7 +15,7 @@ export type Story = StoryFn & {
 
 export type Meta = {
   title?: string;
-  component?: StoryFn;
+  component?: unknown;
 };
 
 export type DefaultName = "default";
@@ -34,6 +34,7 @@ export type StoryComponent = {
   storyId: string;
   kinds: string[];
   name: string;
+  component?: unknown;
   storyFn: StoryFn;
 }
 

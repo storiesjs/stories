@@ -1,5 +1,5 @@
 {
-  "name": "@stories/stories-angular",
+  "name": "stories-angular",
   "version": "0.1.0",
   "scripts": {
     "ng": "ng",

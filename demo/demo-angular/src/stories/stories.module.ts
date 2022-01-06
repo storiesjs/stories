@@ -1,32 +1,24 @@
 import { NgModule } from '@angular/core';
-import type { ModuleWithProviders } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { StoriesApp } from '@stories/stories-angular';
-import type { StoryModules } from '@stories/stories-common';
+import { StoriesAngularModule } from '@stories/stories-angular';
+import type { StoryModules, StoryModule } from '@stories/stories-common';
+
+import * as ButtonStories from '../app/button/button.component.stories';
+import { ButtonModule } from '../app/button/button.module';
+
+import { StoriesComponent } from './stories.component';
+
+const modules: StoryModules = [ButtonStories as unknown as StoryModule];
 
 @NgModule({
   declarations: [
-    StoriesApp
+    StoriesComponent
   ],
   imports: [
     BrowserModule,
+    StoriesAngularModule.withStories(modules),
+    ButtonModule
   ],
-  providers: [
-  ],
-  exports: []
+  bootstrap: [StoriesComponent]
 })
-export class StoriesModule {
-  static stories: StoryModules = [];
-
-  static withStories(stories: StoryModules): ModuleWithProviders<StoriesModule> {
-    StoriesModule.stories = stories;
-
-    // const service = new StoriesService();
-    // service.setStories(stories);
-
-    return {
-      ngModule: StoriesModule,
-      // providers: [{provide: StoriesService, useFactory: () => service}]
-    }
-  }
-}
+export class StoriesModule {}

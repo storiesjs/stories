@@ -3,6 +3,7 @@
     "lib/stories-common",
     "lib/stories-react",
     "lib/stories-angular",
+    "lib/stories-angular/dist/stories-angular",
     "lib/stories-ui",
     "demo/demo-react",
     "demo/demo-angular"

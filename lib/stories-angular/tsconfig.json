@@ -14,16 +14,16 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2017",
+    "target": "es2015",
     "paths": {
       "stories-angular": [
         "dist/stories-angular/stories-angular",
         "dist/stories-angular"
       ]
     },
-    "module": "es2020",
+    "module": "es2015",
     "lib": [
-      "es2018",
+      "es2015",
       "dom"
     ]
   },
