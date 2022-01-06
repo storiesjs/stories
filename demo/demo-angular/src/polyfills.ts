@@ -63,3 +63,5 @@ import 'zone.js';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+ import { applyPolyfills } from '@stories/stories-ui/loader';
+ applyPolyfills();
