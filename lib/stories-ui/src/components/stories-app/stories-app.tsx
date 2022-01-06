@@ -2,7 +2,7 @@
 import { Component, Prop, h, Event, Listen } from '@stencil/core';
 import type { EventEmitter } from '@stencil/core';
 import { getFirstStoryId, getStoryIdFromUrl, setStoryIdInUrl } from '@stories/stories-common';
-import type { StoryComponents, StoryComponent } from '@stories/stories-common';
+import type { StoryComponents } from '@stories/stories-common';
 
 import state from '../../store/store';
 
@@ -13,7 +13,15 @@ import state from '../../store/store';
 })
 export class StoriesApp {
 
-  @Event({ bubbles: true, composed: true }) storySelected: EventEmitter<StoryComponent>;
+  /**
+   * Unfortunatelly we cannot use EventEmitter<StoryComponent> because of the bug in @stencil/angular-output-target
+   */
+  @Event({ bubbles: true, composed: true }) storySelected: EventEmitter<{
+    storyId: string;
+    kinds: string[];
+    name: string;
+    storyFn: (context?: unknown) => unknown;
+  }>;
 
   /**
    * Stories

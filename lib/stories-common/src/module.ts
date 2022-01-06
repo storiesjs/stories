@@ -35,6 +35,7 @@ function createStoryComponent(storyId: string, storyName: string, storyKind: {ro
         storyId,
         kinds: storyKind.groups,
         name: storyName,
+        component: meta.component,
         storyFn: story
     };
 }
