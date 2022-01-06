@@ -1,4 +1,4 @@
 dist/
 esm/
-lib/stories-ui/dist/
-lib/stories-ui/loader/
+/lib/stories-ui/dist/
+/lib/stories-ui/loader/
