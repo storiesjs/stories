@@ -17,6 +17,7 @@ import { StoryModules, StoryModule, modulesToStories, StoryComponent } from '@st
 import * as HelloWorldStory from './components/HelloWorld.stories';
 import StoryRenderer from './StoriesVueRenderer.vue';
 
+// https://v3.vuejs.org/guide/migration/custom-elements-interop.html#_2-x-syntax
 // Tell Vue to ignore all components defined in the stories-ui package.
 Vue.config.ignoredElements = [/stories-\w*/];
 
