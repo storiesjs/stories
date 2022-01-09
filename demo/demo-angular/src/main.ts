@@ -1,10 +1,12 @@
 import { enableProdMode } from '@angular/core';
 import type { Type } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { defineCustomElements } from '@stories/stories-ui/loader';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 import { StoriesModule } from './stories/stories.module';
+
 
 if (environment.production) {
   enableProdMode();
@@ -13,6 +15,7 @@ if (environment.production) {
 let ngModule: Type<unknown>;
 
 if (environment.stories) {
+  defineCustomElements(window);
   ngModule = StoriesModule;
 } else {
   ngModule = AppModule;

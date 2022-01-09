@@ -6,7 +6,8 @@
     "lib/stories-angular/dist/stories-angular",
     "lib/stories-ui",
     "demo/demo-react",
-    "demo/demo-angular"
+    "demo/demo-angular",
+    "demo/demo-vue-2"
   ],
   "npmClient": "yarn",
   "useWorkspaces": true,

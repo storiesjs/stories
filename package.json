@@ -10,9 +10,15 @@
       "lib/stories-angular/dist/stories-angular",
       "lib/stories-ui",
       "demo/demo-react",
-      "demo/demo-angular"
+      "demo/demo-angular",
+      "demo/demo-vue-2"
     ],
-    "nohoist": ["**/webpack"]
+    "nohoist": [
+      "**/webpack",
+      "**/webpack/**",
+      "**/@vue/cli-plugin-eslint", 
+      "**/@vue/cli-plugin-eslint/**"
+    ]
   },
   "description": "",
   "scripts": {
