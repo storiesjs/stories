@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { ComponentRef, Type} from '@angular/core';
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
-import { ComponentRef, ViewContainerRef, ComponentFactoryResolver, Type} from '@angular/core';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { ViewContainerRef, ComponentFactoryResolver} from '@angular/core';
 import { Component, Input, EventEmitter } from '@angular/core';
-import type { StoryComponent } from '@stories/stories-common';
 import type { Subscription } from 'rxjs';
 
+import type { StoryComponent } from './types';
 
 @Component({
   selector: 'stories-angular-renderer',
@@ -67,30 +68,28 @@ export class StoriesAngularRendererComponent {
         const compFactory = this.resolver.resolveComponentFactory(this.story.component as Type<unknown>);
         this.compRef = this.vcRef.createComponent(compFactory);
         this.compRef.location.nativeElement.id = 'innerComp';
-        console.log('story', this.story);
+        console.log('StoriesAngularRendererComponent.story', this.story);
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const res = this.story.storyFn.apply(this.compRef.instance) as any;
-        console.log('story res', res);
-        // TODO: Restore property assigning
-        // if (res.props) {
-        //   Object.keys(res.props).forEach(prop => {
-        //     console.log('type prop', this.compRef!.instance[prop])
-        //     if (this.compRef!.instance[prop] instanceof EventEmitter) {
-        //       const subscription = (this.compRef!.instance[prop] as EventEmitter<any>).subscribe((response: any) => res.props[prop](response));
-        //       this.subscriptions.push(subscription);
-        //     } else {
-        //       this.compRef!.instance[prop] = res.props[prop];
-        //     }
-        //   });
-        // }
+        console.log('StoriesAngularRendererComponent.res', res);
+        if (res.props) {
+          Object.keys(res.props).forEach(prop => {
+            const field = (this.compRef?.instance as any)[prop] as unknown;
+            console.log('StoriesAngularRendererComponent.field', field)
+            if (field instanceof EventEmitter) {
+              const subscription = (field as EventEmitter<any>).subscribe((response: any) => res.props[prop](response));
+              this.subscriptions.push(subscription);
+            } else {
+              (this.compRef?.instance as any)[prop] = res.props[prop];
+            }
+          });
+        }
 
-        // TODO: restore args assigning
-        // if (this.story.args) {
-        //   Object.keys(this.story.args).forEach(arg => {
-        //     this.compRef!.instance[arg] = this.story!.args[arg];
-        //   });
-        // }
+        if (this.story.args) {
+          Object.keys(this.story.args).forEach(arg => {
+            (this.compRef?.instance as any)[arg] = (this.story?.args as any)[arg];
+          });
+        }
         // Find component to mountTarget in frame or its body
         target.appendChild(this.compRef.location.nativeElement);
       }

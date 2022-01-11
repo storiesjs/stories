@@ -6,16 +6,17 @@ import { View } from "./View";
 export default {
     title: "Stories/View component",
     component: View,
-    // decorators: [
-    //     (StoryFn) => (
-    //         <section className="decorator">
-    //             <StoryFn/>
-    //         </section>
-    //     ),
-    // ],
-    // parameters: {}
+    decorators: [
+        (story) => (
+            <section className="decorator">
+                {story}
+            </section>
+        ),
+    ],
+    parameters: {}
 }  as Meta;
 
 export const ByName: Story = () => <View name="Test"/>
 
 export const ByAge: Story = () => <View age={30} />
+ByAge.storyName = "By Name";

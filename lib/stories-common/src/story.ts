@@ -156,7 +156,7 @@ export type StoryAnnotations<
   /**
    * Override the display name in the UI
    */
-  name?: StoryName;
+  storyName?: StoryName;
 
   /**
    * Dynamic data that are provided (and possibly updated by) Stories and its addons.

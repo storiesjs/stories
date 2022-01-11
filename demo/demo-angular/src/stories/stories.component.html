@@ -1,4 +1,4 @@
-<stories-app [stories]="stories">
+<stories-app [stories]="stories" (story)="setStory">
   <stories-navigator slot="navigator">Navigator</stories-navigator>
   <stories-viewer slot="viewer">
     Viewer

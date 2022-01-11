@@ -1,7 +1,5 @@
-// import { Meta, Story } from '@storybook/angular';
-// import { Meta, Story } from '@stories/stories-angular';
 
-import type { Meta, Story } from '@stories/stories-common';
+import type { Meta, Story } from '@stories/stories-angular';
 
 import { ButtonComponent } from './button.component';
 
@@ -14,19 +12,19 @@ export default {
   component: ButtonComponent,
 } as Meta;
 
-// function eventListener(event: MouseEvent) {
-//   console.log('Mouse event', event.type);
-// }
+function eventListener(event: MouseEvent) {
+  console.log('Mouse event', event.type);
+}
 
 export const Primary: Story = () => ({});
 Primary.storyName = 'I am the primary';
 
-// export const Labled: Story = () => ({
-//   props: {
-//     label: 'Button',
-//     onClick: eventListener
-//   },
-// });
+export const Labled: Story = () => ({
+  props: {
+    label: 'Button',
+    onClick: eventListener
+  },
+});
 
 // //👇 We create a “template” of how args map to rendering
 const Template: Story = (args) => ({
@@ -35,14 +33,14 @@ const Template: Story = (args) => ({
 
 // // 👇 Each story then reuses that template
 export const Primary2 = Template.bind({});
-// Primary2.args = {
-//   label: 'Button2',
-//   backgroundColor: '#ff0',
-// };
+Primary2.args = {
+  label: 'Button2',
+  backgroundColor: '#ff0',
+};
 
 
 export const Tertiary= Template.bind({});
-// Tertiary.args={
-//   ...Primary2.args,
-//   label: 'Icons: 📚📕📈🤓!',
-// };
+Tertiary.args={
+  ...Primary2.args,
+  label: 'Icons: 📚📕📈🤓!',
+};
