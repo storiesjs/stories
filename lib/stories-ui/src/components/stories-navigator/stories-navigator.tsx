@@ -12,7 +12,7 @@ import state from '../../store/store';
 export class StoriesNavigator {
 
   render(): JSX.Element {
-    console.log('render.StoriesNavigator');
+    console.log('StoriesNavigator.render');
     const stories = state.stories as StoryComponents;
     if (stories && Object.keys(stories).length) {
       return (

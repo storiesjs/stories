@@ -45,15 +45,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface StoriesApp {
-        /**
-          * Unfortunatelly we cannot use EventEmitter<StoryComponent> because of the bug in @stencil/angular-output-target
-         */
-        "onStorySelected"?: (event: CustomEvent<{
-    storyId: string;
-    kinds: string[];
-    name: string;
-    storyFn: (context?: unknown) => unknown;
-  }>) => void;
+        "onStory"?: (event: CustomEvent<any>) => void;
         /**
           * Stories
          */

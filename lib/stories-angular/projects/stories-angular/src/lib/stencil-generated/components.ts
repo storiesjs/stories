@@ -10,9 +10,9 @@ import { Components } from '@stories/stories-ui';
 
 export declare interface StoriesApp extends Components.StoriesApp {
   /**
-   * Unfortunatelly we cannot use EventEmitter<StoryComponent> because of the bug in @stencil/angular-output-target 
+   *  
    */
-  storySelected: EventEmitter<CustomEvent<{ storyId: string; kinds: string[]; name: string; storyFn: (context?: unknown) => unknown; }>>;
+  story: EventEmitter<CustomEvent<any>>;
 
 }
 
@@ -31,7 +31,7 @@ export class StoriesApp {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['storySelected']);
+    proxyOutputs(this, this.el, ['story']);
   }
 }
 

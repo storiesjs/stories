@@ -1,21 +1,21 @@
-import type { StoryComponent, Context } from "@stories/stories-common";
 import React, { createElement } from "react";
 import type { FC } from "react";
 
+import type { StoryComponent, StoryContext } from ".";
+
 export interface StoriesReactRendererProps {
     story?: StoryComponent;
-    context?: Context;
+    context?: StoryContext;
 }
 
 const EMPTY: JSX.Element = <></>;
 
-type ReactStory = (context?: Context) => JSX.Element;
-
 export const StoriesReactRenderer: FC<StoriesReactRendererProps> = ({ story, context }) => {
-    console.log('render.StoriesReactRenderer')
+    console.log('StoriesReactRenderer.render', story, context)
     if (story) {
-        const Component  = story.storyFn as ReactStory;
-        return createElement(Component, context);
+        const Component  = story.storyFn;
+        const args = (context && context.args) || story.args;
+        return createElement(Component, args);
     }
     return EMPTY;
 };

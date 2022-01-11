@@ -13,15 +13,7 @@ import state from '../../store/store';
 })
 export class StoriesApp {
 
-  /**
-   * Unfortunatelly we cannot use EventEmitter<StoryComponent> because of the bug in @stencil/angular-output-target
-   */
-  @Event({ bubbles: true, composed: true }) storySelected: EventEmitter<{
-    storyId: string;
-    kinds: string[];
-    name: string;
-    storyFn: (context?: unknown) => unknown;
-  }>;
+  @Event({ bubbles: true, composed: true }) story: EventEmitter;
 
   /**
    * Stories
@@ -40,21 +32,21 @@ export class StoriesApp {
     // We have to update the URL's hash to keep it in sync
     setStoryIdInUrl(path);
     // Set story in state
-    const story = state.story = path ? state.stories[path] : undefined;
-    console.log('onHash', path, story);
+    const selected = state.story = path ? state.stories[path] : undefined;
+    console.log('StoriesApp.onHash', path, selected);
     // Send custom event about selected story
-    this.storySelected.emit(story);
+    this.story.emit(selected);
   };
 
   componentWillLoad(): void {
-    console.log('componentWillLoad', this.stories);
+    console.log('StoriesApp.componentWillLoad', this.stories);
     state.stories = this.stories;
     // Update internal state and sync it with hash
     this.onHash();
   }
 
   render(): JSX.Element[] {
-    console.log('render.StoriesApp');
+    console.log('StoriesApp.render');
     return [
       <slot name="navigator"></slot>,
       <slot name="viewer"></slot>
