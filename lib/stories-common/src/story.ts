@@ -1,41 +1,234 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
-export type StoryId = string;
-export type StoryKind = string;
+// **** COMMON Types
+
+/**
+ * Name of the story
+ */
 export type StoryName = string;
+/**
+ * Component title
+ */
+export type ComponentTitle = string;
 
-export type Context = unknown;
+// **** ARGUMENTS 
 
-export type ReturnType = unknown;
-
-export type StoryFn = (context?: Context) => ReturnType;
-
-export type Story = StoryFn & {
-  storyName?: string;
+/**
+ * Input type for addons
+ */
+export type InputType = {
+  name?: string;
+  description?: string;
+  defaultValue?: unknown;
+  type?: unknown;
+  [key: string]: unknown;
 }
 
-export type Meta = {
-  title?: string;
-  component?: unknown;
+/**
+ * Agruments
+ */
+export type Args = Record<string, unknown>;
+/**
+ * Argument types
+ */
+export type ArgTypes<TArgs = Args> = { [name in keyof TArgs]: InputType };
+
+// **** FRAMEWORK
+
+export type StoryFnReturnType = unknown;
+
+/**
+ * Definition of any framework
+ */
+export type AnyFramework = { component: unknown; storyResult: StoryFnReturnType };
+
+// **** Context and StoryFn
+
+/**
+ * Execution context of the story
+ */
+export type StoryContext<
+  TFramework extends AnyFramework = AnyFramework,
+  TArgs = Args
+> = {
+  component?: TFramework['component'];
+  subcomponents?: Record<string, TFramework['component']>;
+
+  args: TArgs;
+  argTypes: ArgTypes<TArgs>;
 };
 
-export type DefaultName = "default";
+/**
+ * Story function with arguments and context calling from decorators
+ */
+export type ArgsStoryFn<
+  TFramework extends AnyFramework = AnyFramework, 
+  TArgs = Args
+> = (
+  args: TArgs,
+  context: StoryContext<TFramework, TArgs>
+) => TFramework['storyResult'];
+
+// **** DECORATORs
+
+/**
+ * Decorator function
+ */
+export type DecoratorFunction<
+  TFramework extends AnyFramework = AnyFramework, 
+  TArgs = Args
+> = (
+  storyFn: ArgsStoryFn<TFramework, TArgs>,
+  context: StoryContext<TFramework, TArgs>
+) => TFramework['storyResult'];
+
+// **** COMPONENT and STORY ANNOTATIONS
+
+/**
+ * Component annotations
+ */
+export type ComponentAnnotations<
+  TFramework extends AnyFramework = AnyFramework,
+  TArgs = Args
+> = {
+  /**
+   * Title of the component which will be presented in the navigation. **Should be unique.**
+   *
+   * Components can be organized in a nested structure using "/" as a separator.
+   *
+   * This property is optional
+   *
+   * @example
+   * export default {
+   *   ...
+   *   title: 'Design System/Atoms/Button'
+   * }
+   */
+  title?: ComponentTitle;
+
+  /**
+   * The primary component for your story.
+   *
+   * Used by addons for automatic prop table generation and display of other component metadata.
+   */
+  component?: TFramework['component'];
+
+  /**
+   * Auxiliary subcomponents that are part of the stories.
+   *
+   * Used by addons for automatic prop table generation and display of other component metadata.
+   *
+   * @example
+   * import { Button, ButtonGroup } from './components';
+   *
+   * export default {
+   *   ...
+   *   subcomponents: { Button, ButtonGroup }
+   * }
+   *
+   * By defining them each component will have its tab in the args table.
+   */
+  subcomponents?: Record<string, TFramework['component']>;
+
+  /**
+   * Wrapper components that wrap a story.
+   *
+   * Decorators defined in Meta will be applied to every story variation.
+   */
+  decorators?: Array<DecoratorFunction<TFramework, Args>>;
+
+  /**
+   * Dynamic data that are provided (and possibly updated by) Stories and its addons.
+   */
+  args?: Partial<TArgs>;
+
+  /**
+   * ArgTypes encode basic metadata for args, such as `name`, `description`, `defaultValue` for an arg. These get automatically filled in by Stories Docs.
+   */
+  argTypes?: Partial<ArgTypes<TArgs>>;
+};
+
+/**
+ * Story annotations
+ */
+export type StoryAnnotations<
+  TArgs = Args
+> = {
+  /**
+   * Override the display name in the UI
+   */
+  name?: StoryName;
+
+  /**
+   * Dynamic data that are provided (and possibly updated by) Stories and its addons.
+   */
+  args?: Partial<TArgs>;
+
+  /**
+   * ArgTypes encode basic metadata for args, such as `name`, `description`, `defaultValue` for an arg. 
+   * These get automatically filled in by Stories Docs.
+   */
+  argTypes?: Partial<ArgTypes<TArgs>>;
+};
+
+// **** STORY and META
+
+/**
+ * Universal story function
+ */
+export type StoryFn<
+  TFramework extends AnyFramework = AnyFramework, 
+  TArgs = Args
+> = (
+  args?: TArgs
+) => TFramework['storyResult'];
+
+/**
+ * The structure to define story with annotations
+ */
+export type Story<
+    TFramework extends AnyFramework = AnyFramework,
+    TArgs = Args
+> = 
+    StoryFn<TFramework, TArgs> & 
+    StoryAnnotations<TArgs>;
+
+/**
+ * Metadata to configure the stories for a component.
+ */
+export type Meta<
+    TFramework extends AnyFramework = AnyFramework,
+    TArgs = Args
+> = ComponentAnnotations<TFramework, TArgs>;
+
+// **** STORY MODULES
+
+export type DefaultExport = "default";
 export type EsModuleName = "__esModule";
-export type Name = string;
+export type NamedExport = string;
 
-export type Default = Record<DefaultName, Meta>;
-// export type EsModule = Record<EsModuleName, string>;
-export type NamedStory = Record<Name, Story>;
+export type Default = Record<DefaultExport, Meta>;
+export type EsModule = Record<EsModuleName, string> | undefined;
+export type NamedStory = Record<NamedExport, Story> | undefined;
 
-export type StoryModule = Default & NamedStory;
+export type StoryModule = Default & EsModule & NamedStory;
 
 export type StoryModules = StoryModule[];
 
-export type StoryComponent = {
+// **** STORY COMPONENT
+
+export type StoryComponent<
+  TFramework extends AnyFramework = AnyFramework,
+  TArgs = Args
+> = {
   storyId: string;
   kinds: string[];
   name: string;
-  component?: unknown;
-  storyFn: StoryFn;
+  storyFn: StoryFn<TFramework, Args>;
+  component?: TFramework['component'];
+  subcomponents?: Record<string, TFramework['component']>;
+  decorators?: Array<DecoratorFunction<TFramework, Args>>;
+  args?: Partial<TArgs>;
+  argTypes?: Partial<ArgTypes<TArgs>>;
 }
 
 export type StoryComponents = Record<string, StoryComponent>;

@@ -1,5 +1,5 @@
-import { StoriesApp, StoriesNavigator, StoriesViewer, StoriesReactRenderer } from '@stories/stories-react';
-import { modulesToStories, StoryComponent, StoryModules } from '@stories/stories-common';
+import { StoriesApp, StoriesNavigator, StoriesViewer, StoriesReactRenderer, StoryComponent } from '@stories/stories-react';
+import { modulesToStories, StoryModules } from '@stories/stories-common';
 
 import './App.css';
 
@@ -12,13 +12,13 @@ console.log('main', stories)
 function Stories() {
   const [story, setStory] = useState<StoryComponent | undefined>();
   
-  const storySelected = (event: CustomEvent<StoryComponent>) => { 
+  const storySelected = (event: CustomEvent) => { 
     console.log('storySelected', event.detail);
     setStory(event.detail);
   }
 
   return (
-    <StoriesApp stories={stories} onStorySelected={storySelected}>
+    <StoriesApp stories={stories} onStory={storySelected}>
       <StoriesNavigator slot="navigator"/>
       <StoriesViewer slot="viewer">
         <StoriesReactRenderer story={story}/>

@@ -12,7 +12,7 @@ import state from '../../store/store';
 export class StoriesViewer {
 
   render(): JSX.Element {
-    console.log('render.StoriesViewer');
+    console.log('StoriesViewer.render');
     const story = state.story as StoryComponent;
     if (story) {
       return <section><slot></slot></section>;
