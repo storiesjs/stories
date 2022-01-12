@@ -1,15 +1,4 @@
 {
-  "packages": [
-    "lib/stories-common",
-    "lib/stories-react",
-    "lib/stories-angular",
-    "lib/stories-angular/dist/stories-angular",
-    "lib/stories-ui",
-    "demo/demo-react",
-    "demo/demo-angular",
-    "demo/demo-vue-2",
-    "demo/demo-vue-3"
-  ],
   "npmClient": "yarn",
   "useWorkspaces": true,
   "command": {

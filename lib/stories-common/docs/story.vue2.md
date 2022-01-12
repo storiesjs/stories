@@ -19,7 +19,7 @@ export const Basic = () => ({
 
 export const WithProp = () => ({
   components: { MyComponent },
-    template: '<MyComponent prop="value"/>',
+  template: '<MyComponent prop="value"/>',
 });
 ```
 
@@ -36,8 +36,8 @@ export const Text = () => ({
 
 // ------ with ARGS
 ```typescript
-export const Text = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
+export const Text = (args) => ({
+  props: args,
   components: { Button },
   template: '<Button @onClick="onClick" :label="label" />'
 });

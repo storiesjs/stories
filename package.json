@@ -5,10 +5,11 @@
   "workspaces": {
     "packages": [
       "lib/stories-common",
+      "lib/stories-ui",
       "lib/stories-react",
       "lib/stories-angular",
       "lib/stories-angular/dist/stories-angular",
-      "lib/stories-ui",
+      "lib/stories-vue2",
       "demo/demo-react",
       "demo/demo-angular",
       "demo/demo-vue-2",
@@ -18,7 +19,9 @@
       "**/webpack",
       "**/webpack/**",
       "**/@vue/cli-plugin-eslint", 
-      "**/@vue/cli-plugin-eslint/**"
+      "**/@vue/cli-plugin-eslint/**",
+      "**/vue-hot-reload-api",
+      "**/vue-hot-reload-api/**"
     ]
   },
   "description": "",

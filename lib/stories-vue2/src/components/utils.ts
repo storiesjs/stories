@@ -1,4 +1,5 @@
-import { VueConstructor } from 'vue';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ComponentOptions, VueConstructor } from 'vue';
 
 function getType(fn: any) {
   const match = fn && fn.toString().match(/^\s*function (\w+)/);
@@ -15,7 +16,7 @@ function resolveDefault({ type, default: def }: any) {
   return def;
 }
 
-export function extractProps(component: VueConstructor) {
+export function extractProps(component: ComponentOptions<Vue> | VueConstructor): any {
   // this options business seems not good according to the types
   return Object.entries((component as any).options.props || {})
     .map(([name, prop]) => ({ [name]: resolveDefault(prop) }))

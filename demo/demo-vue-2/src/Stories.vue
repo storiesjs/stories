@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <stories-app :stories.prop="stories" @storySelected="storySelected">
+    <stories-app :stories.prop="stories" @story="storySelected">
       <stories-navigator slot="navigator"></stories-navigator>
       <stories-viewer slot="viewer">
-        <story-renderer :story="story"></story-renderer>
+        <story-vue-renderer :story="story"></story-vue-renderer>
       </stories-viewer>
     </stories-app>
   </div>
@@ -15,7 +15,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import { StoryModules, StoryModule, modulesToStories, StoryComponent } from '@stories/stories-common';
 
 import * as HelloWorldStory from './components/HelloWorld.stories';
-import StoryRenderer from './StoriesVueRenderer.vue';
+import { StoryVueRenderer } from '@stories/stories-vue2';
 
 // https://v3.vuejs.org/guide/migration/custom-elements-interop.html#_2-x-syntax
 // Tell Vue to ignore all components defined in the stories-ui package.
@@ -31,7 +31,7 @@ console.log('HelloWorldStory', HelloWorldStory)
 const modules: StoryModules = [HelloWorldStory as unknown as StoryModule];
 
 @Component({
-  components: {StoryRenderer}
+  components: {StoryVueRenderer}
 })
 export default class Stories extends Vue {
   stories = modulesToStories(modules as unknown as StoryModules);
