@@ -2,7 +2,7 @@
   <stories-app :stories.prop="stories" @storySelected="storySelected">
     <stories-navigator slot="navigator"></stories-navigator>
     <stories-viewer slot="viewer">
-      <story-renderer :story="story"></story-renderer>
+      <story-vue-renderer :story="story"></story-vue-renderer>
     </stories-viewer>
   </stories-app>
 </template>
@@ -13,7 +13,7 @@ import { defineComponent } from 'vue';
 import { StoryModules, StoryModule, modulesToStories, StoryComponent } from '@stories/stories-common';
 
 import * as HelloWorldStory from './components/HelloWorld.stories';
-import StoryRenderer from './StoriesVueRenderer.vue';
+import StoryVueRenderer from '../StoriesVueRenderer.vue';
 
 // https://v3.vuejs.org/guide/web-components.html#vue-and-web-components
 // Bind the custom elements to the window object
@@ -33,7 +33,7 @@ console.log('_stories', _stories);
 export default defineComponent({
   name: 'Stories',
   components: {
-    StoryRenderer
+    StoryVueRenderer
   },
   data() {
     return {
