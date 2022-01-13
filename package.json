@@ -10,12 +10,11 @@
     "nohoist": [
       "**/webpack",
       "**/vue",
-      "**/vue-class-component",
-      "**/vue-hot-reload-api",
-      "**/vue-property-decorator",
-      "**/vue-template-compiler",
-      "**/vue-style-loader",
-      "**/@vue"
+      "**/vue**",
+      "**/vue/**",
+      "**/@vue",
+      "**/@vue**",
+      "**/@vue/**"
     ]
   },
   "description": "",
@@ -33,8 +32,8 @@
   "license": "MIT",
   "main": "index.js",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.0.0",
-    "@typescript-eslint/parser": "^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
     "@babel/eslint-parser": "^7.16.3",
     "esbuild": "^0.12.21",
     "eslint": "^7.5.0",
@@ -45,6 +44,7 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
+    "eslint-plugin-vue": "^6.2.2",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "rimraf": "^2.6.1",

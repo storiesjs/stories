@@ -1,6 +1,12 @@
 {
   "name": "@stories/stories-angular",
   "version": "0.1.0",
+  "main": "dist/bundles/stories-stories-angular.umd.js",
+  "module": "dist/fesm2015/stories-stories-angular.js",
+  "es2015": "dist/fesm2015/stories-stories-angular.js",
+  "esm2015": "dist/esm2015/stories-stories-angular.js",
+  "fesm2015": "dist/fesm2015/stories-stories-angular.js",
+  "typings": "dist/stories-stories-angular.d.ts",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

@@ -69,7 +69,7 @@ function decorateStory(
   return decorators.reduce(
     (decorated: any, decorator: any) => 
       (context: StoryContext<VueFramework>) => {
-      let story: StoryFnVueReturnType;
+      let story!: StoryFnVueReturnType;
 
       const decoratedStory: StoryFnVueReturnType = decorator((update: any) => {
         story = decorated({ ...(context as any), ...sanitizeStoryContextUpdate(update) });

@@ -86,7 +86,7 @@ export function decorateStory(
   return decorators.reduce(
     (decorated: any, decorator) => 
       (context: StoryContext<VueFramework>) => {
-        let story: VueFramework['storyResult'];
+        let story!: VueFramework['storyResult'];
 
         const decoratedStory: VueFramework['storyResult'] = decorator((update) => {
           story = decorated({ ...context, ...sanitizeStoryContextUpdate(update) });

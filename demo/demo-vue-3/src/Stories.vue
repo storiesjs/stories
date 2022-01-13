@@ -1,5 +1,5 @@
 <template>
-  <stories-app :stories.prop="stories" @storySelected="storySelected">
+  <stories-app :stories.prop="stories" @story="storySelected">
     <stories-navigator slot="navigator"></stories-navigator>
     <stories-viewer slot="viewer">
       <story-vue-renderer :story="story"></story-vue-renderer>
@@ -13,7 +13,7 @@ import { defineComponent } from 'vue';
 import { StoryModules, StoryModule, modulesToStories, StoryComponent } from '@stories/stories-common';
 
 import * as HelloWorldStory from './components/HelloWorld.stories';
-import StoryVueRenderer from '../StoriesVueRenderer.vue';
+import { StoryVueRenderer } from '@stories/stories-vue3';
 
 // https://v3.vuejs.org/guide/web-components.html#vue-and-web-components
 // Bind the custom elements to the window object
@@ -24,11 +24,6 @@ applyPolyfills().then(() => {
 console.log('HelloWorldStory', HelloWorldStory)
 
 const modules: StoryModules = [HelloWorldStory as unknown as StoryModule];
-const _stories = modulesToStories(modules as StoryModules);
-// const _story = _stories[Object.keys(_stories)[0]]
-
-console.log('_stories', _stories);
-// console.log('_story', _story);
 
 export default defineComponent({
   name: 'Stories',
@@ -37,15 +32,14 @@ export default defineComponent({
   },
   data() {
     return {
-      stories: _stories,
+      stories: modulesToStories(modules as StoryModules),
       story: null as (StoryComponent | null),
-      // story: _story,
     }
   },
   methods: {
-    storySelected(event: any) { //CustomEvent<StoryComponent>) {
+    storySelected(event: CustomEvent<StoryComponent>) {
       console.log('!!! storySelected', event.detail);
-      // this.story = event.detail;
+      this.story = event.detail;
     }
   }
 });
