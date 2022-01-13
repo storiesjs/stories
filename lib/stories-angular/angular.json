@@ -3,6 +3,7 @@
   "cli": {
     "analytics": false
   },
+  "license": "GPL-2.0",
   "version": 1,
   "newProjectRoot": ".",
   "projects": {

@@ -1,6 +1,7 @@
 {
   "name": "demo-vue-2",
   "version": "0.1.0",
+  "license": "GPL-2.0",
   "private": true,
   "scripts": {
     "start": "vue-cli-service serve",

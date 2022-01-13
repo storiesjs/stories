@@ -1,11 +1,10 @@
+import { useState } from 'react';
 import { StoriesApp, StoriesNavigator, StoriesViewer, StoriesReactRenderer, StoryComponent } from '@stories/stories-react';
 import { modulesToStories, StoryModules } from '@stories/stories-common';
 
 import './App.css';
 
-import { modules } from './stories-map';
-import { useState } from 'react';
-
+import modules from './stories-map';
 const stories = modulesToStories(modules as unknown as StoryModules);
 console.log('main', stories)
 

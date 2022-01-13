@@ -1,6 +1,7 @@
 {
   "name": "@stories/stories-vue2",
   "version": "0.1.0",
+  "license": "GPL-2.0",
   "private": true,
   "sideEffects": false,
   "files": ["dist/*", "types/*"],

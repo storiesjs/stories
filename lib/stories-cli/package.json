@@ -1,0 +1,33 @@
+{
+  "name": "@stories/stories-cli",
+  "version": "0.1.0",
+  "license": "GPL-2.0",
+  "description": "Common utils, types and functions for Stories",
+  "author": "AKKOMTECH",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "stories-cli": "./bin/stories-cli.js"
+  },
+  "main": "dist/index.cjs",
+  "source": "src/index.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "microbundle",
+    "dev": "microbundle watch"
+  },
+  "devDependencies": {
+    "@componentdriven/csf": "0.0.2-alpha.0",
+    "@types/node": "^12.0.0",
+    "@types/yargs": "^16.0.1",
+    "microbundle": "^0.13.0"
+  },
+  "dependencies": {
+    "change-case": "^4.1.2",
+    "fast-glob": "^3.2.5",
+    "yargs": "^16.2.0"
+  }
+}

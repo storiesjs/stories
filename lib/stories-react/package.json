@@ -2,6 +2,7 @@
   "name": "@stories/stories-react",
   "sideEffects": false,
   "version": "0.1.0",
+  "license": "GPL-2.0",
   "private": true,
   "description": "React specific wrapper for component-library",
   "repository": {
