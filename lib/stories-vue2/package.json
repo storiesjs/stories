@@ -9,7 +9,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name stories-vue2 src/index.ts",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "clean": "rimraf dist"
   },
   "peerDependencies": {
     "@stories/stories-common": "0.1.0",
