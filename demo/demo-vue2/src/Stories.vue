@@ -37,7 +37,7 @@ export default class Stories extends Vue {
   stories = modulesToStories(modules as unknown as StoryModules);
   story: StoryComponent | null = null;
 
-  storySelected(event: CustomEvent<StoryComponent>) {
+  storySelected(event: CustomEvent<StoryComponent>): void {
     console.log('storySelected', event.detail);
     this.story = event.detail;
   }

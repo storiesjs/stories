@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component } from 'vue';
 
 function getType(fn: any) {
@@ -15,7 +16,7 @@ function resolveDefault({ type, default: def }: any) {
   return def;
 }
 
-export function extractProps(component: Component) {
+export function extractProps(component: Component): any {
   // this options business seems not good according to the types
   return Object.entries((component as any).options.props || {})
     .map(([name, prop]) => ({ [name]: resolveDefault(prop) }))

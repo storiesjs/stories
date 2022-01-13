@@ -84,26 +84,25 @@ export function decorateStory(
   decorators: DecoratorFunction<VueFramework>[]
 ): any {
   return decorators.reduce(
-    (decorated: any, decorator) => (
-      context: StoryContext<VueFramework>
-    ) => {
-      let story;
+    (decorated: any, decorator) => 
+      (context: StoryContext<VueFramework>) => {
+        let story!: VueFramework['storyResult'];
 
-      const decoratedStory = decorator((update) => {
-        story = decorated({ ...context, ...sanitizeStoryContextUpdate(update) });
-        return story;
-      }, context);
+        const decoratedStory: VueFramework['storyResult'] = decorator((update) => {
+          story = decorated({ ...context, ...sanitizeStoryContextUpdate(update) });
+          return story;
+        }, context);
 
-      if (!story) {
-        story = decorated(context);
-      }
+        if (!story) {
+          story = decorated(context);
+        }
 
-      if (decoratedStory === story) {
-        return story;
-      }
+        if (decoratedStory === story) {
+          return story;
+        }
 
-      return prepare(decoratedStory, story as any);
-    },
+        return prepare(decoratedStory, story as any);
+      },
     (context) => prepare(storyFn(context))
   );
 }
@@ -116,7 +115,7 @@ const StoryVueRenderer = Vue.extend({
   render(h: CreateElement) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const story = (this as any).story as StoryComponent;
-    console.log("StoryRenderer_story", story);
+    console.log("StoryVueRenderer.story", story);
     if (story) {
       const storyFn: StoryFn = story.storyFn;
       const decorators: DecoratorFunction[] = story.decorators || [];

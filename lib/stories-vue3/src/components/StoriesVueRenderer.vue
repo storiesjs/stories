@@ -1,14 +1,9 @@
 <script lang="ts">
-import { Context, StoryComponent, StoryFn } from "@stories/stories-common";
 import { ConcreteComponent, Component, ComponentOptions, defineComponent, h } from 'vue';
-import { extractProps } from "./utils";
-import { CreateElement } from "vue/types/umd";
+
+import { DecoratorFunction, StoryComponent, StoryContext, StoryFn, StoryFnVueReturnType, LegacyStoryFn, VueFramework } from './types';
 
 export const VALUES = "STORIES_VALUES";
-
-type DecoratorFunction = (fn: Partial<StoryFn>, c: Context) => unknown;
-
-type VueStory = (context?: Context) => ConcreteComponent;
 
 /*
   This normalizes a functional component into a render method in ComponentOptions.
@@ -43,10 +38,10 @@ export function sanitizeStoryContextUpdate({
 }
 
 function prepare(
-  rawStory: VueStory,
+  rawStory: StoryFnVueReturnType,
   innerStory?: ConcreteComponent
 ): Component | null {
-  let story = rawStory as unknown as ComponentOptions;
+  let story = rawStory as ComponentOptions;
 
   if (story == null) {
     return null;
@@ -67,12 +62,16 @@ function prepare(
   };
 }
 
-function decorateStory(storyFn: VueStory, decorators: DecoratorFunction[]) {
-  const callbackfn =
-    (decorated: VueStory, decorator: any) => (context: Context) => {
-      let story!: ConcreteComponent; //: VueFramework['storyResult'];
+function decorateStory(
+  storyFn: LegacyStoryFn<VueFramework>, 
+  decorators: DecoratorFunction<VueFramework>[]
+) {
+  return decorators.reduce(
+    (decorated: any, decorator: any) => 
+      (context: StoryContext<VueFramework>) => {
+      let story!: StoryFnVueReturnType;
 
-      const decoratedStory/*: VueFramework['storyResult']*/ = decorator((update: any) => {
+      const decoratedStory: StoryFnVueReturnType = decorator((update: any) => {
         story = decorated({ ...(context as any), ...sanitizeStoryContextUpdate(update) });
         return story;
       }, context);
@@ -85,26 +84,27 @@ function decorateStory(storyFn: VueStory, decorators: DecoratorFunction[]) {
         return story;
       }
 
-      return prepare(decoratedStory, story); // as VueFramework['storyResult'];
-    };
-
-  return decorators.reduce(callbackfn as any, (context) =>
-    prepare(storyFn(context) as VueStory)
+      return prepare(decoratedStory, story) as StoryFnVueReturnType;
+    }, 
+    (context) => prepare(storyFn(context) as StoryFnVueReturnType)
   );
 }
 
-const StoryRenderer = defineComponent({
-  name: "StoryRenderer",
+const StoryVueRenderer = defineComponent({
+  name: "StoryVueRenderer",
   props: {
     story: Object,
   },
   render() {
-    const _story = (this as any).story as StoryComponent;
-    console.log("StoryRenderer_story", _story);
-    if (_story) {
-      const storyFn: VueStory = _story.storyFn as VueStory;
-      const decorators: DecoratorFunction[] = []; //_story.decorators;
-      const context: Context = {};
+    const story = (this as any).story as StoryComponent;
+    console.log("StoryVueRenderer.story", story);
+    if (story) {
+      const storyFn: StoryFn = story.storyFn;
+      const decorators: DecoratorFunction[] = story.decorators || [];
+      const context: StoryContext = {
+        args: story.args || {}, 
+        argTypes: {}
+      };
       const r = decorateStory(storyFn, decorators) as any;
       const r1 = r(context);
       console.log("rendering", r1);
@@ -114,27 +114,5 @@ const StoryRenderer = defineComponent({
   },
 });
 
-/*
-const StoryRenderer = Vue.extend({
-  name: "StoryRenderer",
-  props: {
-    story: Object,
-  },
-  render(h: any) {
-    const _story = (this as any).story as StoryComponent;
-    console.log("StoryRenderer_story", _story);
-    if (_story) {
-      const storyFn: StoryFn = _story.storyFn;
-      const decorators: DecoratorFunction[] = []; //_story.decorators;
-      const context: Context = {};
-      const r = decorateStory(storyFn, decorators) as any;
-      const r1 = r(context);
-      console.log("rendering", r1);
-      return h(r1);
-    }
-    return h("div", "No story selected");
-  },
-});
-*/
-export default StoryRenderer;
+export default StoryVueRenderer;
 </script>

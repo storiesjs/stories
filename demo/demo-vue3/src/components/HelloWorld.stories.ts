@@ -18,6 +18,12 @@ export const Primary: Story = () => ({
 });
 Primary.storyName = 'I am the primary';
 
+export const Secondary: Story = () => ({
+  components: { HelloWorld },
+  template: '<HelloWorld msg="With icons 😄👍😍💯"/>',
+});
+Secondary.storyName = 'I am the second';
+
 //👇 We create a “template” of how args map to rendering
 // const Template = (args, context) => ({
 //   components: { HelloWorld },
