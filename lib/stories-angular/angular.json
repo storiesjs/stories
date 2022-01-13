@@ -4,25 +4,25 @@
     "analytics": false
   },
   "version": 1,
-  "newProjectRoot": "projects",
+  "newProjectRoot": ".",
   "projects": {
     "stories-angular": {
       "projectType": "library",
-      "root": "projects/stories-angular",
-      "sourceRoot": "projects/stories-angular/src",
+      "root": "stories-angular",
+      "sourceRoot": "src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/stories-angular/ng-package.json"
+            "project": "ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/stories-angular/tsconfig.lib.prod.json"
+              "tsConfig": "tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/stories-angular/tsconfig.lib.json"
+              "tsConfig": "tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -30,9 +30,9 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/stories-angular/src/test.ts",
-            "tsConfig": "projects/stories-angular/tsconfig.spec.json",
-            "karmaConfig": "projects/stories-angular/karma.conf.js"
+            "main": "src/test.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js"
           }
         }
       }
