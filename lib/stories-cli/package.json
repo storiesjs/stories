@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "change-case": "^4.1.2",
+    "chokidar": "3.5.2",
     "fast-glob": "^3.2.5",
     "yargs": "^16.2.0"
   }
