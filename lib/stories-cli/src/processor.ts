@@ -1,4 +1,4 @@
-import { parse, format } from 'path';
+import { parse, format, sep } from 'path';
 
 import { camelCase } from 'camel-case';
 
@@ -14,33 +14,23 @@ function prepareImports(paths: string[]): Import[] {
 
   const imports = paths.map((path, i) => {
     const parsed = parse(path);
-
     const name = camelCase(parsed.name);
+
     if (!names.has(name)) {
       names.add(name);
     } else {
       names.add(`${name}_${i}`);
     }
 
-    // const name = (() => {
-    //   const symbolName = camelCase(parsed.name);
-
-    //   if (!names.has(symbolName)) {
-    //     return symbolName;
-    //   }
-
-    //   return `${symbolName}_${i}`;
-    // })();
-
-    // names.add(name);
-
-    const importPath = `./${format(parsed)}`;
-
-    // const importPath = `./${format({
-    //   ...parsed,
-    //   base: undefined,
-    //   ext: undefined,
-    // })}`;
+    let importPath = format({
+      ...parsed,
+      base: undefined,
+      ext: undefined,
+    });
+    if (!importPath.startsWith('.')) {
+      // Add leading symbol to import path
+      importPath = '.' + sep + importPath;
+    }
 
     return { name, originalPath: path, importPath };
   })

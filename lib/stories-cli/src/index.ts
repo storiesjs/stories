@@ -3,8 +3,8 @@
 import { writeFileSync } from 'fs';
 
 import { options } from './command';
-import { generateOutput } from './generator';
 import { logger } from './logger';
+import { generateOutput } from './processor';
 import { runOnce } from './runner';
 
 const ignorePaths = ['**/node_modules/**'];

@@ -10,7 +10,7 @@
 <script lang="ts">
 import { applyPolyfills, defineCustomElements } from '@stories/stories-ui/loader';
 import { defineComponent } from 'vue';
-import { StoryModules, StoryModule, modulesToStories, StoryComponent } from '@stories/stories-common';
+import { StoryModules, modulesToStories, StoryComponent } from '@stories/stories-common';
 
 import { StoryVueRenderer } from '@stories/stories-vue3';
 

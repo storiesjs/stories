@@ -27,10 +27,6 @@ applyPolyfills().then(() => {
   defineCustomElements(window);
 });
 
-// console.log('HelloWorldStory', HelloWorldStory)
-
-// const modules: StoryModules = [HelloWorldStory as unknown as StoryModule];
-
 @Component({
   components: {StoryVueRenderer}
 })
