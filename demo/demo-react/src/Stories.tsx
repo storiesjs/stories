@@ -4,7 +4,7 @@ import { modulesToStories, StoryModules } from '@stories/stories-common';
 
 import './App.css';
 
-import modules from './stories-map';
+import modules from './stories-list';
 const stories = modulesToStories(modules as unknown as StoryModules);
 console.log('main', stories)
 

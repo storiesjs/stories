@@ -8,7 +8,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "scan": "stories-cli --from ./src --output ./stories/stories-list.ts"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +24,7 @@
     "@stories/stories-common": "^0.1.0",
     "@stories/stories-ui": "^0.1.0",
     "@stories/stories-angular": "^0.1.0",
+    "@stories/stories-cli": "^0.1.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"

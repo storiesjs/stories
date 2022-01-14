@@ -12,18 +12,15 @@ import { applyPolyfills, defineCustomElements } from '@stories/stories-ui/loader
 import { defineComponent } from 'vue';
 import { StoryModules, StoryModule, modulesToStories, StoryComponent } from '@stories/stories-common';
 
-import * as HelloWorldStory from './components/HelloWorld.stories';
 import { StoryVueRenderer } from '@stories/stories-vue3';
+
+import modules from './stories-list';
 
 // https://v3.vuejs.org/guide/web-components.html#vue-and-web-components
 // Bind the custom elements to the window object
 applyPolyfills().then(() => {
   defineCustomElements(window);
 });
-
-console.log('HelloWorldStory', HelloWorldStory)
-
-const modules: StoryModules = [HelloWorldStory as unknown as StoryModule];
 
 export default defineComponent({
   name: 'Stories',
@@ -32,7 +29,7 @@ export default defineComponent({
   },
   data() {
     return {
-      stories: modulesToStories(modules as StoryModules),
+      stories: modulesToStories(modules as unknown as StoryModules),
       story: null as (StoryComponent | null),
     }
   },

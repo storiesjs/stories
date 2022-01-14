@@ -8,7 +8,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "scan": "stories-cli --from ./src --output ./stories-list.ts"
   },
   "dependencies": {
     "@stories/stories-common": "^0.1.0",
@@ -19,6 +20,7 @@
     "vue-property-decorator": "^9.1.2"
   },
   "devDependencies": {
+    "@stories/stories-cli": "^0.1.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-service": "~4.5.0",

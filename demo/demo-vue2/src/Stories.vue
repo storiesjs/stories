@@ -12,10 +12,11 @@
 <script lang="ts">
 import { applyPolyfills, defineCustomElements } from '@stories/stories-ui/loader';
 import { Component, Vue } from 'vue-property-decorator';
-import { StoryModules, StoryModule, modulesToStories, StoryComponent } from '@stories/stories-common';
+import { StoryModules, modulesToStories, StoryComponent } from '@stories/stories-common';
 
-import * as HelloWorldStory from './components/HelloWorld.stories';
 import { StoryVueRenderer } from '@stories/stories-vue2';
+
+import modules from './stories-list';
 
 // https://v3.vuejs.org/guide/migration/custom-elements-interop.html#_2-x-syntax
 // Tell Vue to ignore all components defined in the stories-ui package.
@@ -26,9 +27,9 @@ applyPolyfills().then(() => {
   defineCustomElements(window);
 });
 
-console.log('HelloWorldStory', HelloWorldStory)
+// console.log('HelloWorldStory', HelloWorldStory)
 
-const modules: StoryModules = [HelloWorldStory as unknown as StoryModule];
+// const modules: StoryModules = [HelloWorldStory as unknown as StoryModule];
 
 @Component({
   components: {StoryVueRenderer}
