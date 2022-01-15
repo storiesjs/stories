@@ -36,6 +36,25 @@ export class StoriesApp {
 }
 
 
+export declare interface StoriesLayout extends Components.StoriesLayout {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined
+})
+@Component({
+  selector: 'stories-layout',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class StoriesLayout {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
 export declare interface StoriesNavigator extends Components.StoriesNavigator {}
 
 @ProxyCmp({

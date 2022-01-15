@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StoriesApp, StoriesNavigator, StoriesViewer, StoriesReactRenderer, StoryComponent } from '@stories/stories-react';
+import { StoriesApp, StoriesNavigator, StoriesViewer, StoriesReactRenderer, StoryComponent, StoriesLayout } from '@stories/stories-react';
 import { modulesToStories, StoryModules } from '@stories/stories-common';
 
 import './App.css';
@@ -18,10 +18,12 @@ function Stories() {
 
   return (
     <StoriesApp stories={stories} onStory={storySelected}>
-      <StoriesNavigator slot="navigator"/>
-      <StoriesViewer slot="viewer">
-        <StoriesReactRenderer story={story}/>
-      </StoriesViewer>
+      <StoriesLayout>
+        <StoriesNavigator slot="navigator"/>
+        <StoriesViewer slot="viewer">
+          <StoriesReactRenderer story={story}/>
+        </StoriesViewer>
+      </StoriesLayout>
     </StoriesApp>
   );
 }

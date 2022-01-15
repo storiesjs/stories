@@ -1,5 +1,6 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { StoriesApp } from './stories-app';
+
+import { StoriesApp } from '../stories-app';
 
 describe('stories-app', () => {
   it('renders', async () => {

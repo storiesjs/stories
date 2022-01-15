@@ -47,9 +47,6 @@ export class StoriesApp {
 
   render(): JSX.Element[] {
     console.log('StoriesApp.render');
-    return [
-      <slot name="navigator"></slot>,
-      <slot name="viewer"></slot>
-    ];
+    return <slot></slot>;
   }
 }

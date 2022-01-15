@@ -1,9 +1,11 @@
 <template>
   <stories-app :stories.prop="stories" @story="storySelected">
-    <stories-navigator slot="navigator"></stories-navigator>
-    <stories-viewer slot="viewer">
-      <story-vue-renderer :story="story"></story-vue-renderer>
-    </stories-viewer>
+    <stories-layout>
+      <stories-navigator slot="navigator"></stories-navigator>
+      <stories-viewer slot="viewer">
+        <story-vue-renderer :story="story"></story-vue-renderer>
+      </stories-viewer>
+    </stories-layout>
   </stories-app>
 </template>
 
