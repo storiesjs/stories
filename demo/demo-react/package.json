@@ -1,11 +1,13 @@
 {
   "name": "demo-react",
   "version": "0.1.0",
+  "license": "GPL-2.0",
   "private": true,
   "dependencies": {
     "@stories/stories-common": "^0.1.0",
     "@stories/stories-ui": "^0.1.0",
     "@stories/stories-react": "^0.1.0",
+    "@stories/stories-cli": "^0.1.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -23,7 +25,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "scan": "stories-cli --from ./src"
   },
   "eslintConfig": {
     "extends": [

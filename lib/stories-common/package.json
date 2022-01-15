@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Common utils, types and functions for Stories",
   "author": "AKKOMTECH",
-  "license": "MIT",
+  "license": "GPL-2.0",
   "private": true,
   "main": "dist/stories-common.js",
   "umd:main": "dist/stories-common.umd.js",

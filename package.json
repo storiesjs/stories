@@ -29,7 +29,7 @@
   },
   "repository": "git@github.com:storiesjs/storiesjs.git",
   "author": "akserg <akserg@gmail.com>",
-  "license": "MIT",
+  "license": "GPL-2.0",
   "main": "index.js",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.18.0",
