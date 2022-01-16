@@ -1,19 +1,19 @@
 import { newSpecPage } from '@stencil/core/testing';
 
-import { StoriesNavigator } from '../stories-navigator';
+import { StoriesLayout } from '../stories-layout';
 
-describe('stories-navigator', () => {
+describe('stories-layout', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [StoriesNavigator],
-      html: `<stories-navigator></stories-navigator>`,
+      components: [StoriesLayout],
+      html: `<stories-layout></stories-layout>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-navigator>
+      <stories-layout>
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </stories-navigator>
+      </stories-layout>
     `);
   });
 });

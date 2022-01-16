@@ -3,13 +3,14 @@ import { CUSTOM_ELEMENTS_SCHEMA, ModuleWithProviders} from '@angular/core';
 import { NgModule } from '@angular/core';
 import type { StoryModules } from '@stories/stories-common';
 
-import { StoriesApp, StoriesNavigator, StoriesViewer } from './stencil-generated/components';
+import { StoriesApp, StoriesLayout, StoriesNavigator, StoriesViewer } from './stencil-generated/components';
 import { StoriesAngularRendererComponent } from './stories-angular-renderer.component';
 import { StoriesAngularService } from './stories-angular.service';
 
 @NgModule({
   declarations: [
     StoriesApp,
+    StoriesLayout,
     StoriesNavigator,
     StoriesViewer,
     StoriesAngularRendererComponent
@@ -19,6 +20,7 @@ import { StoriesAngularService } from './stories-angular.service';
   ],
   exports: [
     StoriesApp,
+    StoriesLayout,
     StoriesNavigator,
     StoriesViewer,
     StoriesAngularRendererComponent

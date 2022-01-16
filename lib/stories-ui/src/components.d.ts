@@ -13,6 +13,8 @@ export namespace Components {
          */
         "stories": StoryComponents;
     }
+    interface StoriesLayout {
+    }
     interface StoriesNavigator {
     }
     interface StoriesViewer {
@@ -24,6 +26,12 @@ declare global {
     var HTMLStoriesAppElement: {
         prototype: HTMLStoriesAppElement;
         new (): HTMLStoriesAppElement;
+    };
+    interface HTMLStoriesLayoutElement extends Components.StoriesLayout, HTMLStencilElement {
+    }
+    var HTMLStoriesLayoutElement: {
+        prototype: HTMLStoriesLayoutElement;
+        new (): HTMLStoriesLayoutElement;
     };
     interface HTMLStoriesNavigatorElement extends Components.StoriesNavigator, HTMLStencilElement {
     }
@@ -39,6 +47,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "stories-app": HTMLStoriesAppElement;
+        "stories-layout": HTMLStoriesLayoutElement;
         "stories-navigator": HTMLStoriesNavigatorElement;
         "stories-viewer": HTMLStoriesViewerElement;
     }
@@ -51,12 +60,15 @@ declare namespace LocalJSX {
          */
         "stories"?: StoryComponents;
     }
+    interface StoriesLayout {
+    }
     interface StoriesNavigator {
     }
     interface StoriesViewer {
     }
     interface IntrinsicElements {
         "stories-app": StoriesApp;
+        "stories-layout": StoriesLayout;
         "stories-navigator": StoriesNavigator;
         "stories-viewer": StoriesViewer;
     }
@@ -66,6 +78,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "stories-app": LocalJSX.StoriesApp & JSXBase.HTMLAttributes<HTMLStoriesAppElement>;
+            "stories-layout": LocalJSX.StoriesLayout & JSXBase.HTMLAttributes<HTMLStoriesLayoutElement>;
             "stories-navigator": LocalJSX.StoriesNavigator & JSXBase.HTMLAttributes<HTMLStoriesNavigatorElement>;
             "stories-viewer": LocalJSX.StoriesViewer & JSXBase.HTMLAttributes<HTMLStoriesViewerElement>;
         }

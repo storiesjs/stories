@@ -1,7 +1,9 @@
 <stories-app [stories]="stories" (story)="setStory">
-  <stories-navigator slot="navigator">Navigator</stories-navigator>
-  <stories-viewer slot="viewer">
-    Viewer
-    <stories-angular-renderer [story]="story"></stories-angular-renderer>
-  </stories-viewer>
+  <stories-layout>
+    <stories-navigator slot="navigator">Navigator</stories-navigator>
+    <stories-viewer slot="viewer">
+      Viewer
+      <stories-angular-renderer [story]="story"></stories-angular-renderer>
+    </stories-viewer>
+  </stories-layout>
 </stories-app>
