@@ -24,7 +24,7 @@ type ArgvType = {
 
 const args = yargs(hideBin(process.argv))
 .command(
-  'scan',
+  'scan <patterns...>',
   'Search and save list of stories in file',
   (y) => {
     return y
