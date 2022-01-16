@@ -1,5 +1,5 @@
-# StoriesJS
-[StoriesJS](https://storiesjs.org) is an set of open source libraries for vieweing and developing UI components and pages working in isolation. You can develop UI for different frameworks and libraries. Here is the list of tested and supporting now (in alphabet order):
+# Stories
+[Stories](https://storiesjs.org) is an set of open source libraries for vieweing and developing UI components and pages working in isolation. You can develop UI for different frameworks and libraries. Here is the list of tested and supporting now (in alphabet order):
 - Angular 12
 - React 17
 - Vue 2
