@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 // **** COMMON Types
 
@@ -18,15 +19,15 @@ export type ComponentTitle = string;
 export type InputType = {
   name?: string;
   description?: string;
-  defaultValue?: unknown;
-  type?: unknown;
-  [key: string]: unknown;
+  defaultValue?: any;
+  type?: any;
+  [key: string]: any;
 }
 
 /**
  * Agruments
  */
-export type Args = Record<string, unknown>;
+export type Args = Record<string, any>;
 /**
  * Argument types
  */
@@ -34,12 +35,12 @@ export type ArgTypes<TArgs = Args> = { [name in keyof TArgs]: InputType };
 
 // **** FRAMEWORK
 
-export type StoryFnReturnType = unknown;
+export type StoryFnReturnType = any;
 
 /**
  * Definition of any framework
  */
-export type AnyFramework = { component: unknown; storyResult: StoryFnReturnType };
+export type AnyFramework = { component: any; storyResult: StoryFnReturnType };
 
 // **** Context and StoryFn
 
@@ -202,15 +203,12 @@ export type Meta<
 
 // **** STORY MODULES
 
-export type DefaultExport = "default";
-export type EsModuleName = "__esModule";
-export type NamedExport = string;
-
-export type Default = Record<DefaultExport, Meta>;
-export type EsModule = Record<EsModuleName, string> | undefined;
-export type NamedStory = Record<NamedExport, Story> | undefined;
-
-export type StoryModule = Default & EsModule & NamedStory;
+export type StoryModule = {
+  "default"?: Meta;
+  "__esModule"?: boolean;
+  [k: string]: Story | any;
+}
+// Default & EsModule & NamedStory;
 
 export type StoryModules = StoryModule[];
 

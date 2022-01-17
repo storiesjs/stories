@@ -2,7 +2,7 @@
 import { Component, h } from '@stencil/core';
 import type { StoryComponents, StoryComponent } from '@stories/stories-common';
 
-import state from '../../store/store';
+import { state } from '../../store';
 
 @Component({
   tag: 'stories-navigator',

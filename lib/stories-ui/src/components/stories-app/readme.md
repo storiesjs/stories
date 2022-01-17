@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type                                                   | Default |
-| --------- | --------- | ----------- | ------------------------------------------------------ | ------- |
-| `stories` | --        | Stories     | `{ [x: string]: StoryComponent<AnyFramework, Args>; }` | `{}`    |
+| Property  | Attribute | Description   | Type            | Default |
+| --------- | --------- | ------------- | --------------- | ------- |
+| `modules` | --        | Story Modules | `StoryModule[]` | `[]`    |
 
 
 ## Events
