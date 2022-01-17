@@ -1,4 +1,5 @@
 <script lang="ts">
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Vue, { ComponentOptions, RenderContext, VueConstructor } from "vue";
 import { extractProps } from "./utils";
 import { CreateElement } from "vue/types/umd";
