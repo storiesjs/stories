@@ -5,27 +5,87 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { StoryComponents } from "@stories/stories-common";
+import { ActionEvent, ActionItem, ActionItems, Commands, ToolEvent } from "./components/types";
+import { StoryModules } from "@stories/stories-common";
 export namespace Components {
+    interface StoriesActionBar {
+        /**
+          * Action items
+         */
+        "actionItems": ActionItems;
+    }
+    interface StoriesActionButton {
+        /**
+          * ActionItem property
+         */
+        "actionItem": ActionItem;
+    }
     interface StoriesApp {
         /**
-          * Stories
+          * Story Modules
          */
-        "stories": StoryComponents;
+        "modules": StoryModules;
+    }
+    interface StoriesIcon {
+        /**
+          * Icon name
+         */
+        "name": string;
     }
     interface StoriesLayout {
     }
     interface StoriesNavigator {
     }
+    interface StoriesTabBar {
+    }
+    interface StoriesToolBar {
+    }
+    interface StoriesToolButton {
+        /**
+          * command property
+         */
+        "command": Commands;
+        /**
+          * disabled property
+         */
+        "disabled": boolean;
+        /**
+          * icon property
+         */
+        "icon": string;
+    }
+    interface StoriesToolZoom {
+    }
+    interface StoriesViewZoom {
+        "zoom": number;
+    }
     interface StoriesViewer {
     }
 }
 declare global {
+    interface HTMLStoriesActionBarElement extends Components.StoriesActionBar, HTMLStencilElement {
+    }
+    var HTMLStoriesActionBarElement: {
+        prototype: HTMLStoriesActionBarElement;
+        new (): HTMLStoriesActionBarElement;
+    };
+    interface HTMLStoriesActionButtonElement extends Components.StoriesActionButton, HTMLStencilElement {
+    }
+    var HTMLStoriesActionButtonElement: {
+        prototype: HTMLStoriesActionButtonElement;
+        new (): HTMLStoriesActionButtonElement;
+    };
     interface HTMLStoriesAppElement extends Components.StoriesApp, HTMLStencilElement {
     }
     var HTMLStoriesAppElement: {
         prototype: HTMLStoriesAppElement;
         new (): HTMLStoriesAppElement;
+    };
+    interface HTMLStoriesIconElement extends Components.StoriesIcon, HTMLStencilElement {
+    }
+    var HTMLStoriesIconElement: {
+        prototype: HTMLStoriesIconElement;
+        new (): HTMLStoriesIconElement;
     };
     interface HTMLStoriesLayoutElement extends Components.StoriesLayout, HTMLStencilElement {
     }
@@ -39,6 +99,36 @@ declare global {
         prototype: HTMLStoriesNavigatorElement;
         new (): HTMLStoriesNavigatorElement;
     };
+    interface HTMLStoriesTabBarElement extends Components.StoriesTabBar, HTMLStencilElement {
+    }
+    var HTMLStoriesTabBarElement: {
+        prototype: HTMLStoriesTabBarElement;
+        new (): HTMLStoriesTabBarElement;
+    };
+    interface HTMLStoriesToolBarElement extends Components.StoriesToolBar, HTMLStencilElement {
+    }
+    var HTMLStoriesToolBarElement: {
+        prototype: HTMLStoriesToolBarElement;
+        new (): HTMLStoriesToolBarElement;
+    };
+    interface HTMLStoriesToolButtonElement extends Components.StoriesToolButton, HTMLStencilElement {
+    }
+    var HTMLStoriesToolButtonElement: {
+        prototype: HTMLStoriesToolButtonElement;
+        new (): HTMLStoriesToolButtonElement;
+    };
+    interface HTMLStoriesToolZoomElement extends Components.StoriesToolZoom, HTMLStencilElement {
+    }
+    var HTMLStoriesToolZoomElement: {
+        prototype: HTMLStoriesToolZoomElement;
+        new (): HTMLStoriesToolZoomElement;
+    };
+    interface HTMLStoriesViewZoomElement extends Components.StoriesViewZoom, HTMLStencilElement {
+    }
+    var HTMLStoriesViewZoomElement: {
+        prototype: HTMLStoriesViewZoomElement;
+        new (): HTMLStoriesViewZoomElement;
+    };
     interface HTMLStoriesViewerElement extends Components.StoriesViewer, HTMLStencilElement {
     }
     var HTMLStoriesViewerElement: {
@@ -46,30 +136,95 @@ declare global {
         new (): HTMLStoriesViewerElement;
     };
     interface HTMLElementTagNameMap {
+        "stories-action-bar": HTMLStoriesActionBarElement;
+        "stories-action-button": HTMLStoriesActionButtonElement;
         "stories-app": HTMLStoriesAppElement;
+        "stories-icon": HTMLStoriesIconElement;
         "stories-layout": HTMLStoriesLayoutElement;
         "stories-navigator": HTMLStoriesNavigatorElement;
+        "stories-tab-bar": HTMLStoriesTabBarElement;
+        "stories-tool-bar": HTMLStoriesToolBarElement;
+        "stories-tool-button": HTMLStoriesToolButtonElement;
+        "stories-tool-zoom": HTMLStoriesToolZoomElement;
+        "stories-view-zoom": HTMLStoriesViewZoomElement;
         "stories-viewer": HTMLStoriesViewerElement;
     }
 }
 declare namespace LocalJSX {
-    interface StoriesApp {
-        "onStory"?: (event: CustomEvent<any>) => void;
+    interface StoriesActionBar {
         /**
-          * Stories
+          * Action items
          */
-        "stories"?: StoryComponents;
+        "actionItems"?: ActionItems;
+    }
+    interface StoriesActionButton {
+        /**
+          * ActionItem property
+         */
+        "actionItem"?: ActionItem;
+        /**
+          * Action Event
+         */
+        "onAction"?: (event: CustomEvent<ActionEvent>) => void;
+    }
+    interface StoriesApp {
+        /**
+          * Story Modules
+         */
+        "modules"?: StoryModules;
+        "onStory"?: (event: CustomEvent<any>) => void;
+    }
+    interface StoriesIcon {
+        /**
+          * Icon name
+         */
+        "name"?: string;
     }
     interface StoriesLayout {
     }
     interface StoriesNavigator {
     }
+    interface StoriesTabBar {
+    }
+    interface StoriesToolBar {
+    }
+    interface StoriesToolButton {
+        /**
+          * command property
+         */
+        "command"?: Commands;
+        /**
+          * disabled property
+         */
+        "disabled"?: boolean;
+        /**
+          * icon property
+         */
+        "icon"?: string;
+        /**
+          * Action Event
+         */
+        "onAction"?: (event: CustomEvent<ToolEvent>) => void;
+    }
+    interface StoriesToolZoom {
+    }
+    interface StoriesViewZoom {
+        "zoom"?: number;
+    }
     interface StoriesViewer {
     }
     interface IntrinsicElements {
+        "stories-action-bar": StoriesActionBar;
+        "stories-action-button": StoriesActionButton;
         "stories-app": StoriesApp;
+        "stories-icon": StoriesIcon;
         "stories-layout": StoriesLayout;
         "stories-navigator": StoriesNavigator;
+        "stories-tab-bar": StoriesTabBar;
+        "stories-tool-bar": StoriesToolBar;
+        "stories-tool-button": StoriesToolButton;
+        "stories-tool-zoom": StoriesToolZoom;
+        "stories-view-zoom": StoriesViewZoom;
         "stories-viewer": StoriesViewer;
     }
 }
@@ -77,9 +232,17 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "stories-action-bar": LocalJSX.StoriesActionBar & JSXBase.HTMLAttributes<HTMLStoriesActionBarElement>;
+            "stories-action-button": LocalJSX.StoriesActionButton & JSXBase.HTMLAttributes<HTMLStoriesActionButtonElement>;
             "stories-app": LocalJSX.StoriesApp & JSXBase.HTMLAttributes<HTMLStoriesAppElement>;
+            "stories-icon": LocalJSX.StoriesIcon & JSXBase.HTMLAttributes<HTMLStoriesIconElement>;
             "stories-layout": LocalJSX.StoriesLayout & JSXBase.HTMLAttributes<HTMLStoriesLayoutElement>;
             "stories-navigator": LocalJSX.StoriesNavigator & JSXBase.HTMLAttributes<HTMLStoriesNavigatorElement>;
+            "stories-tab-bar": LocalJSX.StoriesTabBar & JSXBase.HTMLAttributes<HTMLStoriesTabBarElement>;
+            "stories-tool-bar": LocalJSX.StoriesToolBar & JSXBase.HTMLAttributes<HTMLStoriesToolBarElement>;
+            "stories-tool-button": LocalJSX.StoriesToolButton & JSXBase.HTMLAttributes<HTMLStoriesToolButtonElement>;
+            "stories-tool-zoom": LocalJSX.StoriesToolZoom & JSXBase.HTMLAttributes<HTMLStoriesToolZoomElement>;
+            "stories-view-zoom": LocalJSX.StoriesViewZoom & JSXBase.HTMLAttributes<HTMLStoriesViewZoomElement>;
             "stories-viewer": LocalJSX.StoriesViewer & JSXBase.HTMLAttributes<HTMLStoriesViewerElement>;
         }
     }

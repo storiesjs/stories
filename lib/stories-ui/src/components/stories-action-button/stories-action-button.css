@@ -1,0 +1,40 @@
+:host {
+  display: block;
+}
+
+button {
+  margin: 0;
+  border: 0 none;
+  padding: 4px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  color: var(--stories-color-default-text, black);
+  background: var(--stories-background-content, white);
+
+  font-size: 12px;
+  line-height: 16px;
+  font-family: var(--stories-typography-fonts-base);
+  font-weight: var(--stories-typography-weight-bold, bold);
+
+  border-top: 1px solid var(--stories-app-border-color, gray);
+  border-left: 1px solid var(--stories-app-border-color, gray);
+  margin-left: -1px;
+
+  border-radius: 4px 0 0 0;
+}
+
+button:not(:last-child) {
+  border-right: 1px solid var(--stories-app-border-color, gray);
+}
+
+button + * {
+  border-left: 1px solid var(--stories-app-border-color, gray);
+  border-radius: 0;
+}
+
+button:focus {
+  box-shadow: var(--stories-color-secondary, lightgray) 0 -3px 0 0 inset;
+  outline: 0 none;
+}

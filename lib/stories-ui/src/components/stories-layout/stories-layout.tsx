@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Component, Host, h } from '@stencil/core';
+import { Component, h } from '@stencil/core';
 
 @Component({
   tag: 'stories-layout',
@@ -8,14 +8,15 @@ import { Component, Host, h } from '@stencil/core';
 })
 export class StoriesLayout {
 
-  render(): JSX.Element {
+  render(): JSX.Element[] {
     console.log('StoriesLayout.render');
-    return (
-      <Host>
-        <slot name="navigator"></slot>
+    return [
+      <slot name="navigator"></slot>,
+      <div class="main">
+        <slot name="toolbar"></slot>
         <slot name="viewer"></slot>
-      </Host>
-    );
+      </div>,
+    ];
   }
 
 }

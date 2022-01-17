@@ -2,8 +2,9 @@ import type { OnInit } from '@angular/core';
 import { HostListener } from '@angular/core';
 import { Component } from '@angular/core';
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
-import { StoriesAngularService, StoryComponents } from '@stories/stories-angular';
+import { StoriesAngularService } from '@stories/stories-angular';
 import type { StoryComponent } from '@stories/stories-angular';
+import type { StoryModules } from '@stories/stories-common';
 
 @Component({
   selector: 'app-root',
@@ -11,24 +12,19 @@ import type { StoryComponent } from '@stories/stories-angular';
   styleUrls: ['./stories.component.css']
 })
 export class StoriesComponent implements OnInit {
-  stories: StoryComponents = {};
+  modules: StoryModules = [];
   story: StoryComponent | undefined;
 
   constructor(private service: StoriesAngularService) {}
 
   ngOnInit(): void {
-      this.stories = this.service.stories;
-      console.log('StoriesComponent.stories', this.stories);
-      if (this.stories && Object.keys(this.stories).length) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        this.story = this.stories[Object.keys(this.stories)[0]] as any;
-      }
-      console.log('StoriesComponent.story', this.story);
+      this.modules = this.service.modules;
+      console.log('StoriesComponent.modules', this.modules);
   }
 
   @HostListener('story', ['$event.detail'])
-  setStory(event: StoryComponent): void {
-    console.log('StoriesComponent.setStory', event);
-    this.story = event;
+  setStory(story: StoryComponent): void {
+    console.log('StoriesComponent.setStory', story);
+    this.story = story;
   }
 }

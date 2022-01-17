@@ -3,7 +3,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, ModuleWithProviders} from '@angular/core';
 import { NgModule } from '@angular/core';
 import type { StoryModules } from '@stories/stories-common';
 
-import { StoriesApp, StoriesLayout, StoriesNavigator, StoriesViewer } from './stencil-generated/components';
+import { StoriesApp, StoriesLayout, StoriesNavigator, StoriesViewer, StoriesToolBar, StoriesToolZoom } from './stencil-generated/components';
 import { StoriesAngularRendererComponent } from './stories-angular-renderer.component';
 import { StoriesAngularService } from './stories-angular.service';
 
@@ -13,7 +13,9 @@ import { StoriesAngularService } from './stories-angular.service';
     StoriesLayout,
     StoriesNavigator,
     StoriesViewer,
-    StoriesAngularRendererComponent
+    StoriesAngularRendererComponent,
+    StoriesToolBar,
+    StoriesToolZoom,
   ],
   providers: [
     StoriesAngularService
@@ -23,7 +25,9 @@ import { StoriesAngularService } from './stories-angular.service';
     StoriesLayout,
     StoriesNavigator,
     StoriesViewer,
-    StoriesAngularRendererComponent
+    StoriesAngularRendererComponent,
+    StoriesToolBar,
+    StoriesToolZoom,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
@@ -31,11 +35,11 @@ import { StoriesAngularService } from './stories-angular.service';
 })
 export class StoriesAngularModule {
 
-  static withStories(stories: StoryModules): ModuleWithProviders<StoriesAngularModule> {
+  static withStories(modules: StoryModules): ModuleWithProviders<StoriesAngularModule> {
     const service = new StoriesAngularService();
-    service.setStories(stories);
+    service.setModules(modules);
 
-    console.log('StoriesAngularModule', stories)
+    console.log('StoriesAngularModule', modules)
 
     return {
       ngModule: StoriesAngularModule,

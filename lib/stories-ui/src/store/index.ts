@@ -4,16 +4,14 @@ import type { StoryComponent, StoryComponents } from '@stories/stories-common';
 
 export type StoriesStateType = {
   stories: StoryComponents,
-  story: StoryComponent | undefined
+  story: StoryComponent | undefined,
+  zoom: number,
 };
 
-const { state, onChange } = createStore<StoriesStateType>({
+export const store = createStore<StoriesStateType>({
   stories: {} as StoryComponents,
-  story: undefined
+  story: undefined,
+  zoom: 1.0,
 });
 
-onChange('story', value => {
-  console.log('*** store changed', value);
-});
-
-export default state;
+export const state = store.state;

@@ -1,12 +1,9 @@
 import { useState } from 'react';
-import { StoriesApp, StoriesNavigator, StoriesViewer, StoriesReactRenderer, StoryComponent, StoriesLayout } from '@stories/stories-react';
-import { modulesToStories, StoryModules } from '@stories/stories-common';
+import { StoriesApp, StoriesNavigator, StoriesViewer, StoriesReactRenderer, StoryComponent, StoriesLayout, StoriesToolBar, StoriesToolZoom } from '@stories/stories-react';
 
 import './App.css';
 
 import modules from './stories-list';
-const stories = modulesToStories(modules as unknown as StoryModules);
-console.log('main', stories)
 
 function Stories() {
   const [story, setStory] = useState<StoryComponent | undefined>();
@@ -17,12 +14,15 @@ function Stories() {
   }
 
   return (
-    <StoriesApp stories={stories} onStory={storySelected}>
+    <StoriesApp modules={modules} onStory={storySelected}>
       <StoriesLayout>
         <StoriesNavigator slot="navigator"/>
         <StoriesViewer slot="viewer">
           <StoriesReactRenderer story={story}/>
         </StoriesViewer>
+        <StoriesToolBar slot="toolbar">
+          <StoriesToolZoom slot="left"/>
+        </StoriesToolBar>
       </StoriesLayout>
     </StoriesApp>
   );
