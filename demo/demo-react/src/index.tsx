@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Stories from './Stories';
+import Stories from './stories/Stories';
 import reportWebVitals from './reportWebVitals';
 
 let app: ReactElement;

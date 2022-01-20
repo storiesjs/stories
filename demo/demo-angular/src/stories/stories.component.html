@@ -1,11 +1,31 @@
 <stories-app [modules]="modules" (story)="setStory">
-  <stories-layout>
-    <stories-navigator slot="navigator">Navigator</stories-navigator>
-    <stories-viewer slot="viewer">
-      <stories-angular-renderer [story]="story"></stories-angular-renderer>
-    </stories-viewer>
-    <stories-tool-bar slot="toolbar">
-      <stories-tool-zoom slot="left"></stories-tool-zoom>
-    </stories-tool-bar>
-  </stories-layout>
+  <stories-split-pane split="horizontal" minSize="150" defaultSize="250">
+    <stories-sidebar slot="slot1"></stories-sidebar>
+    <div slot="slot2">
+      <stories-tool-bar>
+        <stories-tool-zoom slot="left"></stories-tool-zoom>
+      </stories-tool-bar>
+      <stories-split-pane split="vertical"  minSize="250" defaultSize="500">
+        <stories-preview slot="slot1">
+          <stories-angular-renderer [story]="story"></stories-angular-renderer>
+        </stories-preview>
+        <stories-tabs slot="slot2">
+          <stories-tab-bar>
+            <stories-tab-button tab="actions">
+              <stories-label color="primary">Actions</stories-label>
+            </stories-tab-button>
+            <stories-tab-button tab="controls">
+              <stories-label color="primary">Controls</stories-label>
+            </stories-tab-button>
+          </stories-tab-bar>
+          <stories-tab tab="actions">
+            <stories-addon-actions></stories-addon-actions>
+          </stories-tab>
+          <stories-tab tab="controls">
+            <stories-addon-controls></stories-addon-controls>
+          </stories-tab>
+        </stories-tabs>
+      </stories-split-pane>
+    </div>
+  </stories-split-pane>
 </stories-app>

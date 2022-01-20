@@ -28,12 +28,12 @@ export class StoriesActionBar {
   }
 }
 
-import type { ActionEvent as IStoriesActionButtonActionEvent } from '@stories/stories-ui';
+import type { ActionEvent as IActionButtonActionEvent } from '@stories/stories-ui';
 export declare interface StoriesActionButton extends Components.StoriesActionButton {
   /**
    * Action Event 
    */
-  action: EventEmitter<CustomEvent<IStoriesActionButtonActionEvent>>;
+  action: EventEmitter<CustomEvent<IActionButtonActionEvent>>;
 
 }
 
@@ -57,11 +57,68 @@ export class StoriesActionButton {
 }
 
 
+export declare interface StoriesAddonActions extends Components.StoriesAddonActions {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined
+})
+@Component({
+  selector: 'stories-addon-actions',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class StoriesAddonActions {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface StoriesAddonControls extends Components.StoriesAddonControls {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined
+})
+@Component({
+  selector: 'stories-addon-controls',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class StoriesAddonControls {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface StoriesAddons extends Components.StoriesAddons {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined
+})
+@Component({
+  selector: 'stories-addons',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class StoriesAddons {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+import type { StoryComponent as IAppStoryComponent } from '@stories/stories-ui';
 export declare interface StoriesApp extends Components.StoriesApp {
   /**
    *  
    */
-  story: EventEmitter<CustomEvent<any>>;
+  story: EventEmitter<CustomEvent<IAppStoryComponent>>;
 
 }
 
@@ -106,17 +163,19 @@ export class StoriesIcon {
 }
 
 
-export declare interface StoriesLayout extends Components.StoriesLayout {}
+export declare interface StoriesLabel extends Components.StoriesLabel {}
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
+  defineCustomElementFn: undefined,
+  inputs: ['color', 'position']
 })
 @Component({
-  selector: 'stories-layout',
+  selector: 'stories-label',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  inputs: ['color', 'position']
 })
-export class StoriesLayout {
+export class StoriesLabel {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -125,17 +184,85 @@ export class StoriesLayout {
 }
 
 
-export declare interface StoriesNavigator extends Components.StoriesNavigator {}
+export declare interface StoriesPreview extends Components.StoriesPreview {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined
 })
 @Component({
-  selector: 'stories-navigator',
+  selector: 'stories-preview',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>'
 })
-export class StoriesNavigator {
+export class StoriesPreview {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface StoriesSidebar extends Components.StoriesSidebar {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined
+})
+@Component({
+  selector: 'stories-sidebar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class StoriesSidebar {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface StoriesSplitPane extends Components.StoriesSplitPane {
+  /**
+   *  
+   */
+  sizechanged: EventEmitter<CustomEvent<number>>;
+
+}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['defaultSize', 'isResizing', 'minSize', 'split']
+})
+@Component({
+  selector: 'stories-split-pane',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['defaultSize', 'isResizing', 'minSize', 'split']
+})
+export class StoriesSplitPane {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['sizechanged']);
+  }
+}
+
+
+export declare interface StoriesTab extends Components.StoriesTab {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['tab']
+})
+@Component({
+  selector: 'stories-tab',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['tab']
+})
+export class StoriesTab {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -147,14 +274,57 @@ export class StoriesNavigator {
 export declare interface StoriesTabBar extends Components.StoriesTabBar {}
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
+  defineCustomElementFn: undefined,
+  inputs: ['color', 'selectedTab']
 })
 @Component({
   selector: 'stories-tab-bar',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  inputs: ['color', 'selectedTab']
 })
 export class StoriesTabBar {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface StoriesTabButton extends Components.StoriesTabButton {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['disabled', 'layout', 'selected', 'tab']
+})
+@Component({
+  selector: 'stories-tab-button',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['disabled', 'layout', 'selected', 'tab']
+})
+export class StoriesTabButton {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface StoriesTabs extends Components.StoriesTabs {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  methods: ['select', 'getTab', 'getSelected']
+})
+@Component({
+  selector: 'stories-tabs',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class StoriesTabs {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -181,12 +351,12 @@ export class StoriesToolBar {
   }
 }
 
-import type { ToolEvent as IStoriesToolButtonToolEvent } from '@stories/stories-ui';
+import type { ToolEvent as IToolButtonToolEvent } from '@stories/stories-ui';
 export declare interface StoriesToolButton extends Components.StoriesToolButton {
   /**
    * Action Event 
    */
-  action: EventEmitter<CustomEvent<IStoriesToolButtonToolEvent>>;
+  action: EventEmitter<CustomEvent<IToolButtonToolEvent>>;
 
 }
 
@@ -229,38 +399,19 @@ export class StoriesToolZoom {
 }
 
 
-export declare interface StoriesViewZoom extends Components.StoriesViewZoom {}
+export declare interface StoriesZoom extends Components.StoriesZoom {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
   inputs: ['zoom']
 })
 @Component({
-  selector: 'stories-view-zoom',
+  selector: 'stories-zoom',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['zoom']
 })
-export class StoriesViewZoom {
-  protected el: HTMLElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
-    c.detach();
-    this.el = r.nativeElement;
-  }
-}
-
-
-export declare interface StoriesViewer extends Components.StoriesViewer {}
-
-@ProxyCmp({
-  defineCustomElementFn: undefined
-})
-@Component({
-  selector: 'stories-viewer',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
-})
-export class StoriesViewer {
+export class StoriesZoom {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();

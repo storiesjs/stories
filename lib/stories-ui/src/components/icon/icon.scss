@@ -1,0 +1,14 @@
+@import "../../themes/ionic.globals";
+
+:host {
+  display: inline;
+}
+
+svg {
+  width: 14px;
+  height: 14px;
+}
+
+path {
+  fill: currentColor;
+}

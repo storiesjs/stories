@@ -1,9 +1,0 @@
-:host {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  max-width: 100%;
-  display: flex;
-  background: var(--stories-actionbar-background-content, white);
-  z-index: 1;
-}

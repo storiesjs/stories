@@ -1,0 +1,49 @@
+@import "../../themes/ionic.globals";
+
+button {
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: bold;
+  height: 28px;
+  justify-content: center;
+  margin-top: 6px;
+  padding: 8px 7px;
+}
+
+/* button > svg {
+  width: 14px;
+}; */
+
+button:hover, button:focus-visible {
+  // background: transparentize(var(--stories-color-secondary), 0.88);
+  // color: var(--stories-color-secondary);
+  color: var(--color-hover);
+  background: var(--background-hover);
+  opacity: var(--background-hover-opacity);
+}
+
+button:focus-visible {
+  outline: auto, /* Ensures links have the same focus style */
+}
+
+button:focus:not(:focus-visible) {
+  outline: 'none'
+}
+
+button.active {
+  // background-color: var(--stories-background-hoverable);
+  // color: var(--stories-color-secondary);
+  color: var(--color-hover);
+  background: var(--background-hover);
+}
+
+button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

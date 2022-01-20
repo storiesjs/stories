@@ -10,9 +10,10 @@
     "url": "https://github.com/ionic-team/ionic.git"
   },
   "scripts": {
-    "build": "npm run clean && npm run compile",
+    "build": "yarn run clean && yarn run compile",
+    "build.watch": "yarn run clean && yarn run compile --watch",
     "clean": "rimraf dist",
-    "compile": "npm run tsc",
+    "compile": "yarn run tsc",
     "tsc": "tsc -p .",
     "rollup": "rollup -c"
   },

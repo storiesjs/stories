@@ -1,0 +1,11 @@
+@import "../../themes/ionic.globals";
+
+:host {
+  display: block;
+  background-color: lightblue;
+}
+nav {
+  flex-shrink: 0;
+  height: 100vh;
+  width: 200px;
+}

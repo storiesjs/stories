@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ActionEvent, ActionItem, ActionItems, Commands, ToolEvent } from "./components/types";
-import { StoryModules } from "@stories/stories-common";
+import { ActionEvent, ActionItem, ActionItems, Color, Commands, TabBarChangedEventDetail, TabButtonClickEventDetail, TabButtonLayout, ToolEvent } from "./types";
+import { StoryComponent, StoryModules } from "@stories/stories-common";
 export namespace Components {
     interface StoriesActionBar {
         /**
@@ -20,6 +20,12 @@ export namespace Components {
          */
         "actionItem": ActionItem;
     }
+    interface StoriesAddonActions {
+    }
+    interface StoriesAddonControls {
+    }
+    interface StoriesAddons {
+    }
     interface StoriesApp {
         /**
           * Story Modules
@@ -32,11 +38,81 @@ export namespace Components {
          */
         "name": string;
     }
-    interface StoriesLayout {
+    interface StoriesLabel {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
+         */
+        "color"?: Color;
+        /**
+          * The position determines where and how the label behaves inside an item.
+         */
+        "position"?: 'fixed' | 'stacked' | 'floating';
     }
-    interface StoriesNavigator {
+    interface StoriesPreview {
+    }
+    interface StoriesSidebar {
+    }
+    interface StoriesSplitPane {
+        "defaultSize": number;
+        "isResizing": boolean;
+        "minSize": number;
+        "split": "horizontal" | "vertical";
+    }
+    interface StoriesSplitPanel {
+        "isResizing": boolean;
+        "minSize": number;
+        "split": "horizontal" | "vertical";
+    }
+    interface StoriesTab {
+        "active": boolean;
+        /**
+          * A tab id must be provided for each `ion-tab`. It's used internally to reference the selected tab or by the router to switch between them.
+         */
+        "tab": string;
     }
     interface StoriesTabBar {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
+         */
+        "color"?: Color;
+        /**
+          * The selected tab component
+         */
+        "selectedTab"?: string;
+    }
+    interface StoriesTabButton {
+        /**
+          * If `true`, the user cannot interact with the tab button.
+         */
+        "disabled": boolean;
+        /**
+          * Set the layout of the text and icon in the tab bar. It defaults to `'icon-start'`.
+         */
+        "layout"?: TabButtonLayout;
+        /**
+          * The selected tab component
+         */
+        "selected": boolean;
+        /**
+          * A tab id must be provided for each `ion-tab`. It's used internally to reference the selected tab or by the router to switch between them.
+         */
+        "tab"?: string;
+    }
+    interface StoriesTabs {
+        /**
+          * Get the currently selected tab.
+         */
+        "getSelected": () => Promise<string | undefined>;
+        /**
+          * Get a specific tab by the value of its `tab` property or an element reference.
+          * @param tab The tab instance to select. If passed a string, it should be the value of the tab's `tab` property.
+         */
+        "getTab": (tab: string | HTMLStoriesTabElement) => Promise<HTMLStoriesTabElement | undefined>;
+        /**
+          * Select a tab by the value of its `tab` property or an element reference.
+          * @param tab The tab instance to select. If passed a string, it should be the value of the tab's `tab` property.
+         */
+        "select": (tab: string | HTMLStoriesTabElement) => Promise<boolean>;
     }
     interface StoriesToolBar {
     }
@@ -56,10 +132,8 @@ export namespace Components {
     }
     interface StoriesToolZoom {
     }
-    interface StoriesViewZoom {
+    interface StoriesZoom {
         "zoom": number;
-    }
-    interface StoriesViewer {
     }
 }
 declare global {
@@ -75,6 +149,24 @@ declare global {
         prototype: HTMLStoriesActionButtonElement;
         new (): HTMLStoriesActionButtonElement;
     };
+    interface HTMLStoriesAddonActionsElement extends Components.StoriesAddonActions, HTMLStencilElement {
+    }
+    var HTMLStoriesAddonActionsElement: {
+        prototype: HTMLStoriesAddonActionsElement;
+        new (): HTMLStoriesAddonActionsElement;
+    };
+    interface HTMLStoriesAddonControlsElement extends Components.StoriesAddonControls, HTMLStencilElement {
+    }
+    var HTMLStoriesAddonControlsElement: {
+        prototype: HTMLStoriesAddonControlsElement;
+        new (): HTMLStoriesAddonControlsElement;
+    };
+    interface HTMLStoriesAddonsElement extends Components.StoriesAddons, HTMLStencilElement {
+    }
+    var HTMLStoriesAddonsElement: {
+        prototype: HTMLStoriesAddonsElement;
+        new (): HTMLStoriesAddonsElement;
+    };
     interface HTMLStoriesAppElement extends Components.StoriesApp, HTMLStencilElement {
     }
     var HTMLStoriesAppElement: {
@@ -87,23 +179,59 @@ declare global {
         prototype: HTMLStoriesIconElement;
         new (): HTMLStoriesIconElement;
     };
-    interface HTMLStoriesLayoutElement extends Components.StoriesLayout, HTMLStencilElement {
+    interface HTMLStoriesLabelElement extends Components.StoriesLabel, HTMLStencilElement {
     }
-    var HTMLStoriesLayoutElement: {
-        prototype: HTMLStoriesLayoutElement;
-        new (): HTMLStoriesLayoutElement;
+    var HTMLStoriesLabelElement: {
+        prototype: HTMLStoriesLabelElement;
+        new (): HTMLStoriesLabelElement;
     };
-    interface HTMLStoriesNavigatorElement extends Components.StoriesNavigator, HTMLStencilElement {
+    interface HTMLStoriesPreviewElement extends Components.StoriesPreview, HTMLStencilElement {
     }
-    var HTMLStoriesNavigatorElement: {
-        prototype: HTMLStoriesNavigatorElement;
-        new (): HTMLStoriesNavigatorElement;
+    var HTMLStoriesPreviewElement: {
+        prototype: HTMLStoriesPreviewElement;
+        new (): HTMLStoriesPreviewElement;
+    };
+    interface HTMLStoriesSidebarElement extends Components.StoriesSidebar, HTMLStencilElement {
+    }
+    var HTMLStoriesSidebarElement: {
+        prototype: HTMLStoriesSidebarElement;
+        new (): HTMLStoriesSidebarElement;
+    };
+    interface HTMLStoriesSplitPaneElement extends Components.StoriesSplitPane, HTMLStencilElement {
+    }
+    var HTMLStoriesSplitPaneElement: {
+        prototype: HTMLStoriesSplitPaneElement;
+        new (): HTMLStoriesSplitPaneElement;
+    };
+    interface HTMLStoriesSplitPanelElement extends Components.StoriesSplitPanel, HTMLStencilElement {
+    }
+    var HTMLStoriesSplitPanelElement: {
+        prototype: HTMLStoriesSplitPanelElement;
+        new (): HTMLStoriesSplitPanelElement;
+    };
+    interface HTMLStoriesTabElement extends Components.StoriesTab, HTMLStencilElement {
+    }
+    var HTMLStoriesTabElement: {
+        prototype: HTMLStoriesTabElement;
+        new (): HTMLStoriesTabElement;
     };
     interface HTMLStoriesTabBarElement extends Components.StoriesTabBar, HTMLStencilElement {
     }
     var HTMLStoriesTabBarElement: {
         prototype: HTMLStoriesTabBarElement;
         new (): HTMLStoriesTabBarElement;
+    };
+    interface HTMLStoriesTabButtonElement extends Components.StoriesTabButton, HTMLStencilElement {
+    }
+    var HTMLStoriesTabButtonElement: {
+        prototype: HTMLStoriesTabButtonElement;
+        new (): HTMLStoriesTabButtonElement;
+    };
+    interface HTMLStoriesTabsElement extends Components.StoriesTabs, HTMLStencilElement {
+    }
+    var HTMLStoriesTabsElement: {
+        prototype: HTMLStoriesTabsElement;
+        new (): HTMLStoriesTabsElement;
     };
     interface HTMLStoriesToolBarElement extends Components.StoriesToolBar, HTMLStencilElement {
     }
@@ -123,31 +251,33 @@ declare global {
         prototype: HTMLStoriesToolZoomElement;
         new (): HTMLStoriesToolZoomElement;
     };
-    interface HTMLStoriesViewZoomElement extends Components.StoriesViewZoom, HTMLStencilElement {
+    interface HTMLStoriesZoomElement extends Components.StoriesZoom, HTMLStencilElement {
     }
-    var HTMLStoriesViewZoomElement: {
-        prototype: HTMLStoriesViewZoomElement;
-        new (): HTMLStoriesViewZoomElement;
-    };
-    interface HTMLStoriesViewerElement extends Components.StoriesViewer, HTMLStencilElement {
-    }
-    var HTMLStoriesViewerElement: {
-        prototype: HTMLStoriesViewerElement;
-        new (): HTMLStoriesViewerElement;
+    var HTMLStoriesZoomElement: {
+        prototype: HTMLStoriesZoomElement;
+        new (): HTMLStoriesZoomElement;
     };
     interface HTMLElementTagNameMap {
         "stories-action-bar": HTMLStoriesActionBarElement;
         "stories-action-button": HTMLStoriesActionButtonElement;
+        "stories-addon-actions": HTMLStoriesAddonActionsElement;
+        "stories-addon-controls": HTMLStoriesAddonControlsElement;
+        "stories-addons": HTMLStoriesAddonsElement;
         "stories-app": HTMLStoriesAppElement;
         "stories-icon": HTMLStoriesIconElement;
-        "stories-layout": HTMLStoriesLayoutElement;
-        "stories-navigator": HTMLStoriesNavigatorElement;
+        "stories-label": HTMLStoriesLabelElement;
+        "stories-preview": HTMLStoriesPreviewElement;
+        "stories-sidebar": HTMLStoriesSidebarElement;
+        "stories-split-pane": HTMLStoriesSplitPaneElement;
+        "stories-split-panel": HTMLStoriesSplitPanelElement;
+        "stories-tab": HTMLStoriesTabElement;
         "stories-tab-bar": HTMLStoriesTabBarElement;
+        "stories-tab-button": HTMLStoriesTabButtonElement;
+        "stories-tabs": HTMLStoriesTabsElement;
         "stories-tool-bar": HTMLStoriesToolBarElement;
         "stories-tool-button": HTMLStoriesToolButtonElement;
         "stories-tool-zoom": HTMLStoriesToolZoomElement;
-        "stories-view-zoom": HTMLStoriesViewZoomElement;
-        "stories-viewer": HTMLStoriesViewerElement;
+        "stories-zoom": HTMLStoriesZoomElement;
     }
 }
 declare namespace LocalJSX {
@@ -167,12 +297,18 @@ declare namespace LocalJSX {
          */
         "onAction"?: (event: CustomEvent<ActionEvent>) => void;
     }
+    interface StoriesAddonActions {
+    }
+    interface StoriesAddonControls {
+    }
+    interface StoriesAddons {
+    }
     interface StoriesApp {
         /**
           * Story Modules
          */
         "modules"?: StoryModules;
-        "onStory"?: (event: CustomEvent<any>) => void;
+        "onStory"?: (event: CustomEvent<StoryComponent>) => void;
     }
     interface StoriesIcon {
         /**
@@ -180,11 +316,74 @@ declare namespace LocalJSX {
          */
         "name"?: string;
     }
-    interface StoriesLayout {
+    interface StoriesLabel {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
+         */
+        "color"?: Color;
+        /**
+          * The position determines where and how the label behaves inside an item.
+         */
+        "position"?: 'fixed' | 'stacked' | 'floating';
     }
-    interface StoriesNavigator {
+    interface StoriesPreview {
+    }
+    interface StoriesSidebar {
+    }
+    interface StoriesSplitPane {
+        "defaultSize"?: number;
+        "isResizing"?: boolean;
+        "minSize"?: number;
+        "onSizechanged"?: (event: CustomEvent<number>) => void;
+        "split"?: "horizontal" | "vertical";
+    }
+    interface StoriesSplitPanel {
+        "isResizing"?: boolean;
+        "minSize"?: number;
+        "onSizechanged"?: (event: CustomEvent<number>) => void;
+        "split"?: "horizontal" | "vertical";
+    }
+    interface StoriesTab {
+        "active"?: boolean;
+        /**
+          * A tab id must be provided for each `ion-tab`. It's used internally to reference the selected tab or by the router to switch between them.
+         */
+        "tab": string;
     }
     interface StoriesTabBar {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
+         */
+        "color"?: Color;
+        "onStoriesTabBarChanged"?: (event: CustomEvent<TabBarChangedEventDetail>) => void;
+        /**
+          * The selected tab component
+         */
+        "selectedTab"?: string;
+    }
+    interface StoriesTabButton {
+        /**
+          * If `true`, the user cannot interact with the tab button.
+         */
+        "disabled"?: boolean;
+        /**
+          * Set the layout of the text and icon in the tab bar. It defaults to `'icon-start'`.
+         */
+        "layout"?: TabButtonLayout;
+        /**
+          * Emitted when the tab bar is clicked
+         */
+        "onStoriesTabButtonClick"?: (event: CustomEvent<TabButtonClickEventDetail>) => void;
+        /**
+          * The selected tab component
+         */
+        "selected"?: boolean;
+        /**
+          * A tab id must be provided for each `ion-tab`. It's used internally to reference the selected tab or by the router to switch between them.
+         */
+        "tab"?: string;
+    }
+    interface StoriesTabs {
     }
     interface StoriesToolBar {
     }
@@ -208,24 +407,30 @@ declare namespace LocalJSX {
     }
     interface StoriesToolZoom {
     }
-    interface StoriesViewZoom {
+    interface StoriesZoom {
         "zoom"?: number;
-    }
-    interface StoriesViewer {
     }
     interface IntrinsicElements {
         "stories-action-bar": StoriesActionBar;
         "stories-action-button": StoriesActionButton;
+        "stories-addon-actions": StoriesAddonActions;
+        "stories-addon-controls": StoriesAddonControls;
+        "stories-addons": StoriesAddons;
         "stories-app": StoriesApp;
         "stories-icon": StoriesIcon;
-        "stories-layout": StoriesLayout;
-        "stories-navigator": StoriesNavigator;
+        "stories-label": StoriesLabel;
+        "stories-preview": StoriesPreview;
+        "stories-sidebar": StoriesSidebar;
+        "stories-split-pane": StoriesSplitPane;
+        "stories-split-panel": StoriesSplitPanel;
+        "stories-tab": StoriesTab;
         "stories-tab-bar": StoriesTabBar;
+        "stories-tab-button": StoriesTabButton;
+        "stories-tabs": StoriesTabs;
         "stories-tool-bar": StoriesToolBar;
         "stories-tool-button": StoriesToolButton;
         "stories-tool-zoom": StoriesToolZoom;
-        "stories-view-zoom": StoriesViewZoom;
-        "stories-viewer": StoriesViewer;
+        "stories-zoom": StoriesZoom;
     }
 }
 export { LocalJSX as JSX };
@@ -234,16 +439,24 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "stories-action-bar": LocalJSX.StoriesActionBar & JSXBase.HTMLAttributes<HTMLStoriesActionBarElement>;
             "stories-action-button": LocalJSX.StoriesActionButton & JSXBase.HTMLAttributes<HTMLStoriesActionButtonElement>;
+            "stories-addon-actions": LocalJSX.StoriesAddonActions & JSXBase.HTMLAttributes<HTMLStoriesAddonActionsElement>;
+            "stories-addon-controls": LocalJSX.StoriesAddonControls & JSXBase.HTMLAttributes<HTMLStoriesAddonControlsElement>;
+            "stories-addons": LocalJSX.StoriesAddons & JSXBase.HTMLAttributes<HTMLStoriesAddonsElement>;
             "stories-app": LocalJSX.StoriesApp & JSXBase.HTMLAttributes<HTMLStoriesAppElement>;
             "stories-icon": LocalJSX.StoriesIcon & JSXBase.HTMLAttributes<HTMLStoriesIconElement>;
-            "stories-layout": LocalJSX.StoriesLayout & JSXBase.HTMLAttributes<HTMLStoriesLayoutElement>;
-            "stories-navigator": LocalJSX.StoriesNavigator & JSXBase.HTMLAttributes<HTMLStoriesNavigatorElement>;
+            "stories-label": LocalJSX.StoriesLabel & JSXBase.HTMLAttributes<HTMLStoriesLabelElement>;
+            "stories-preview": LocalJSX.StoriesPreview & JSXBase.HTMLAttributes<HTMLStoriesPreviewElement>;
+            "stories-sidebar": LocalJSX.StoriesSidebar & JSXBase.HTMLAttributes<HTMLStoriesSidebarElement>;
+            "stories-split-pane": LocalJSX.StoriesSplitPane & JSXBase.HTMLAttributes<HTMLStoriesSplitPaneElement>;
+            "stories-split-panel": LocalJSX.StoriesSplitPanel & JSXBase.HTMLAttributes<HTMLStoriesSplitPanelElement>;
+            "stories-tab": LocalJSX.StoriesTab & JSXBase.HTMLAttributes<HTMLStoriesTabElement>;
             "stories-tab-bar": LocalJSX.StoriesTabBar & JSXBase.HTMLAttributes<HTMLStoriesTabBarElement>;
+            "stories-tab-button": LocalJSX.StoriesTabButton & JSXBase.HTMLAttributes<HTMLStoriesTabButtonElement>;
+            "stories-tabs": LocalJSX.StoriesTabs & JSXBase.HTMLAttributes<HTMLStoriesTabsElement>;
             "stories-tool-bar": LocalJSX.StoriesToolBar & JSXBase.HTMLAttributes<HTMLStoriesToolBarElement>;
             "stories-tool-button": LocalJSX.StoriesToolButton & JSXBase.HTMLAttributes<HTMLStoriesToolButtonElement>;
             "stories-tool-zoom": LocalJSX.StoriesToolZoom & JSXBase.HTMLAttributes<HTMLStoriesToolZoomElement>;
-            "stories-view-zoom": LocalJSX.StoriesViewZoom & JSXBase.HTMLAttributes<HTMLStoriesViewZoomElement>;
-            "stories-viewer": LocalJSX.StoriesViewer & JSXBase.HTMLAttributes<HTMLStoriesViewerElement>;
+            "stories-zoom": LocalJSX.StoriesZoom & JSXBase.HTMLAttributes<HTMLStoriesZoomElement>;
         }
     }
 }

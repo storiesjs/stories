@@ -1,27 +1,50 @@
 <template>
   <div id="app">
     <stories-app :modules.prop="modules" @story="storySelected">
-      <stories-layout>
-        <stories-navigator slot="navigator"></stories-navigator>
-        <stories-viewer slot="viewer">
-          <story-vue-renderer :story="story"></story-vue-renderer>
-        </stories-viewer>
-        <stories-tool-bar slot="toolbar">
-          <stories-tool-zoom slot="left"></stories-tool-zoom>
-        </stories-tool-bar>
-      </stories-layout>
+      <stories-split-pane split="horizontal" minSize="150" defaultSize="250">
+        <stories-sidebar slot="slot1"></stories-sidebar>
+        <div slot="slot2">
+          <stories-tool-bar>
+            <stories-tool-zoom slot="left"></stories-tool-zoom>
+          </stories-tool-bar>
+          <stories-split-pane split="vertical" minSize="250" defaultSize="500">
+            <stories-preview slot="slot1">
+              <story-vue-renderer :story="story"></story-vue-renderer>
+            </stories-preview>
+            <stories-tabs slot="slot2">
+              <stories-tab-bar>
+                <stories-tab-button tab="actions">
+                  <stories-label color="primary">Actions</stories-label>
+                </stories-tab-button>
+                <stories-tab-button tab="controls">
+                  <stories-label color="primary">Controls</stories-label>
+                </stories-tab-button>
+              </stories-tab-bar>
+              <stories-tab tab="actions">
+                <stories-addon-actions></stories-addon-actions>
+              </stories-tab>
+              <stories-tab tab="controls">
+                <stories-addon-controls></stories-addon-controls>
+              </stories-tab>
+            </stories-tabs>
+          </stories-split-pane>
+        </div>
+      </stories-split-pane>
     </stories-app>
   </div>
 </template>
 
 <script lang="ts">
-import { applyPolyfills, defineCustomElements } from '@stories/stories-ui/loader';
-import { Component, Vue } from 'vue-property-decorator';
-import { StoryComponent } from '@stories/stories-common';
+import {
+  applyPolyfills,
+  defineCustomElements,
+} from "@stories/stories-ui/loader";
+import { Component, Vue } from "vue-property-decorator";
+import { StoryComponent } from "@stories/stories-common";
 
-import { StoryVueRenderer } from '@stories/stories-vue2';
+import { StoryVueRenderer } from "@stories/stories-vue2";
 
-import storyModules from './stories-list';
+import storyModules from "./stories-list";
 
 // https://v3.vuejs.org/guide/migration/custom-elements-interop.html#_2-x-syntax
 // Tell Vue to ignore all components defined in the stories-ui package.
@@ -33,14 +56,14 @@ applyPolyfills().then(() => {
 });
 
 @Component({
-  components: {StoryVueRenderer}
+  components: { StoryVueRenderer },
 })
 export default class Stories extends Vue {
   modules = storyModules;
   story: StoryComponent | null = null;
 
   storySelected(event: CustomEvent<StoryComponent>): void {
-    console.log('storySelected', event.detail);
+    console.log("storySelected", event.detail);
     this.story = event.detail;
   }
 }
@@ -51,7 +74,7 @@ export default class Stories extends Vue {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   color: #2c3e50;
   margin-top: 0px;
 }

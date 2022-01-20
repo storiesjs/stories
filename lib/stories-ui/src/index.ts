@@ -1,2 +1,3 @@
 export { Components, JSX } from './components';
-export * from './components/types';
+export * from './types';
+export type { StoryModules, StoryComponent } from '@stories/stories-common';

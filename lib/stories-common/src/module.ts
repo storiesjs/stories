@@ -4,9 +4,9 @@ import type { StoryModules, StoryComponent, StoryComponents, Story, Meta } from 
 
 export function modulesToStories(modules: StoryModules): StoryComponents {
     const result: StoryComponents = {};
-    modules.forEach(module => {
+    modules.forEach(mInst => {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { default: meta = {}, "__esModule": esModule = undefined, ...stories } = module;
+        const { default: meta = {}, "__esModule": esModule = undefined, ...stories } = mInst;
         if (stories) {
             const title = meta.title || '';
             const moduleId = sanitize(title);
