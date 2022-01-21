@@ -58,11 +58,6 @@ export namespace Components {
         "minSize": number;
         "split": "horizontal" | "vertical";
     }
-    interface StoriesSplitPanel {
-        "isResizing": boolean;
-        "minSize": number;
-        "split": "horizontal" | "vertical";
-    }
     interface StoriesTab {
         "active": boolean;
         /**
@@ -203,12 +198,6 @@ declare global {
         prototype: HTMLStoriesSplitPaneElement;
         new (): HTMLStoriesSplitPaneElement;
     };
-    interface HTMLStoriesSplitPanelElement extends Components.StoriesSplitPanel, HTMLStencilElement {
-    }
-    var HTMLStoriesSplitPanelElement: {
-        prototype: HTMLStoriesSplitPanelElement;
-        new (): HTMLStoriesSplitPanelElement;
-    };
     interface HTMLStoriesTabElement extends Components.StoriesTab, HTMLStencilElement {
     }
     var HTMLStoriesTabElement: {
@@ -269,7 +258,6 @@ declare global {
         "stories-preview": HTMLStoriesPreviewElement;
         "stories-sidebar": HTMLStoriesSidebarElement;
         "stories-split-pane": HTMLStoriesSplitPaneElement;
-        "stories-split-panel": HTMLStoriesSplitPanelElement;
         "stories-tab": HTMLStoriesTabElement;
         "stories-tab-bar": HTMLStoriesTabBarElement;
         "stories-tab-button": HTMLStoriesTabButtonElement;
@@ -332,12 +320,6 @@ declare namespace LocalJSX {
     }
     interface StoriesSplitPane {
         "defaultSize"?: number;
-        "isResizing"?: boolean;
-        "minSize"?: number;
-        "onSizechanged"?: (event: CustomEvent<number>) => void;
-        "split"?: "horizontal" | "vertical";
-    }
-    interface StoriesSplitPanel {
         "isResizing"?: boolean;
         "minSize"?: number;
         "onSizechanged"?: (event: CustomEvent<number>) => void;
@@ -422,7 +404,6 @@ declare namespace LocalJSX {
         "stories-preview": StoriesPreview;
         "stories-sidebar": StoriesSidebar;
         "stories-split-pane": StoriesSplitPane;
-        "stories-split-panel": StoriesSplitPanel;
         "stories-tab": StoriesTab;
         "stories-tab-bar": StoriesTabBar;
         "stories-tab-button": StoriesTabButton;
@@ -448,7 +429,6 @@ declare module "@stencil/core" {
             "stories-preview": LocalJSX.StoriesPreview & JSXBase.HTMLAttributes<HTMLStoriesPreviewElement>;
             "stories-sidebar": LocalJSX.StoriesSidebar & JSXBase.HTMLAttributes<HTMLStoriesSidebarElement>;
             "stories-split-pane": LocalJSX.StoriesSplitPane & JSXBase.HTMLAttributes<HTMLStoriesSplitPaneElement>;
-            "stories-split-panel": LocalJSX.StoriesSplitPanel & JSXBase.HTMLAttributes<HTMLStoriesSplitPanelElement>;
             "stories-tab": LocalJSX.StoriesTab & JSXBase.HTMLAttributes<HTMLStoriesTabElement>;
             "stories-tab-bar": LocalJSX.StoriesTabBar & JSXBase.HTMLAttributes<HTMLStoriesTabBarElement>;
             "stories-tab-button": LocalJSX.StoriesTabButton & JSXBase.HTMLAttributes<HTMLStoriesTabButtonElement>;

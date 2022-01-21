@@ -23,7 +23,7 @@ Get a specific tab by the value of its `tab` property or an element reference.
 
 #### Returns
 
-Type: `Promise<any>`
+Type: `Promise<HTMLStoriesTabElement>`
 
 
 

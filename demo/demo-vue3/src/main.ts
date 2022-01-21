@@ -4,7 +4,6 @@ import Stories from './Stories.vue'
 
 let app: Component;
 
-console.log('process.env', process.env);
 if (process.env.VUE_APP_STORIES) {
   app = Stories;
 } else {

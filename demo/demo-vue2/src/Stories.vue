@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <stories-app :modules.prop="modules" @story="storySelected">
-      <stories-split-pane split="horizontal" minSize="150" defaultSize="250">
+      <stories-split-pane split="horizontal" min-size="150" default-size="250">
         <stories-sidebar slot="slot1"></stories-sidebar>
         <div slot="slot2">
           <stories-tool-bar>
             <stories-tool-zoom slot="left"></stories-tool-zoom>
           </stories-tool-bar>
-          <stories-split-pane split="vertical" minSize="250" defaultSize="500">
+          <stories-split-pane split="vertical" min-size="250" default-size="500">
             <stories-preview slot="slot1">
               <story-vue-renderer :story="story"></story-vue-renderer>
             </stories-preview>

@@ -1,5 +1,5 @@
 {
-  "name": "demo-vue-2",
+  "name": "demo-vue2",
   "version": "0.1.0",
   "license": "GPL-2.0",
   "private": true,
@@ -9,7 +9,8 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "clean": "rimraf dist",
-    "scan": "stories-cli --from ./src --output ./stories-list.ts"
+    "scan": "stories-cli --from ./src --output ./stories-list.ts",
+    "stories": "VUE_APP_STORIES=true vue-cli-service serve"
   },
   "dependencies": {
     "@stories/stories-common": "^0.1.0",
