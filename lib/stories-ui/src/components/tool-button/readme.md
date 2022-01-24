@@ -16,9 +16,9 @@
 
 ## Events
 
-| Event    | Description  | Type                                                |
-| -------- | ------------ | --------------------------------------------------- |
-| `action` | Action Event | `CustomEvent<{ command: string; data?: unknown; }>` |
+| Event           | Description  | Type                                                |
+| --------------- | ------------ | --------------------------------------------------- |
+| `storiesAction` | Action Event | `CustomEvent<{ command: string; data?: unknown; }>` |
 
 
 ## Dependencies

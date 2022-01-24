@@ -1,17 +1,35 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
-import { createStore } from "@stencil/store";
+import type { ObservableMap } from "@stencil/store";
+import { createStore as createStencilStore } from "@stencil/store";
 import type { StoryComponent, StoryComponents } from '@stories/stories-common';
+
+import type { Addon, AddonState } from "..";
+
+/**
+ * Create store
+ * @param defaultState Default state
+ * @returns
+ */
+export function createStore<T>(defaultState?: T): ObservableMap<T> {
+  return createStencilStore<T>(defaultState);
+}
 
 export type StoriesStateType = {
   stories: StoryComponents,
   story: StoryComponent | undefined,
   zoom: number,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  addons: Record<string, Addon<AddonState>>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  actions: any[]
 };
 
 const store = createStore<StoriesStateType>({
   stories: {} as StoryComponents,
   story: undefined,
   zoom: 1.0,
+  addons: {},
+  actions: []
 });
 
 /**

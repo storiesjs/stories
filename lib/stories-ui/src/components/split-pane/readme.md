@@ -17,9 +17,9 @@
 
 ## Events
 
-| Event         | Description | Type                  |
-| ------------- | ----------- | --------------------- |
-| `sizechanged` |             | `CustomEvent<number>` |
+| Event               | Description | Type                  |
+| ------------------- | ----------- | --------------------- |
+| `storiesSizeChange` |             | `CustomEvent<number>` |
 
 
 ----------------------------------------------

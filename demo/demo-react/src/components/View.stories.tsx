@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@stories/stories-react';
 
-import { View } from "./View";
+import { View, ViewType } from "./View";
 
 export default {
     title: "Stories/View component",
@@ -15,9 +15,9 @@ export default {
     ],
     argTypes: { onClick: { action: 'clicked' } },
     parameters: {}
-}  as Meta;
+}  as Meta<ViewType>;
 
-export const ByName: Story = () => <View name="Test"/>
+export const ByName: Story<ViewType> = () => <View name="Test"/>
 
-export const ByAge: Story = () => <View age={30} />
+export const ByAge: Story<ViewType> = () => <View age={30} />
 ByAge.storyName = "By Name";

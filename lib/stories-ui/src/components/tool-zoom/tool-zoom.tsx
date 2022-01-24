@@ -25,9 +25,9 @@ export class ToolZoom {
 
   render(): JSX.Element[] {
     return [
-      <stories-tool-button command="zoomIn" icon="zoomIn" onAction={this.actionHandler}></stories-tool-button>,
-      <stories-tool-button command="zoomOut" icon="zoomOut" onAction={this.actionHandler}></stories-tool-button>,
-      <stories-tool-button command="zoomReset" icon="zoomReset" onAction={this.actionHandler}></stories-tool-button>,
+      <stories-tool-button command="zoomIn" icon="zoomIn" onStoriesAction={this.actionHandler}></stories-tool-button>,
+      <stories-tool-button command="zoomOut" icon="zoomOut" onStoriesAction={this.actionHandler}></stories-tool-button>,
+      <stories-tool-button command="zoomReset" icon="zoomReset" onStoriesAction={this.actionHandler}></stories-tool-button>,
     ];
   }
 

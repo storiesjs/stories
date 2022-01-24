@@ -220,7 +220,7 @@ export type StoryComponent<
 > = {
   storyId: string;
   kinds: string[];
-  name: string;
+  storyName: string;
   storyFn: StoryFn<TFramework, Args>;
   component?: TFramework['component'];
   subcomponents?: Record<string, TFramework['component']>;

@@ -14,7 +14,7 @@ export class ToolButton {
   /**
    * Action Event
    */
-  @Event({ bubbles: true, composed: true }) action: EventEmitter<ToolEvent>;
+  @Event({ bubbles: true, composed: true }) storiesAction: EventEmitter<ToolEvent>;
 
   /**
    * disabled property
@@ -36,7 +36,7 @@ export class ToolButton {
    */
   clickHandler(event: MouseEvent): void {
     event.preventDefault();
-    this.action.emit({command: this.command});
+    this.storiesAction.emit({command: this.command});
   }
 
   render(): JSX.Element {

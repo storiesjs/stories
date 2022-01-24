@@ -20,7 +20,7 @@ export class Sidebar {
           <h1>Navigation</h1>
           {Object.keys(stories).map(key => {
             const story: StoryComponent = stories[key];
-            return <li><a href={`/#path=${key}`}>{story.name}</a></li>;
+            return <li><a href={`/#path=${key}`}>{story.storyName}</a></li>;
           })}
         </nav>
       );

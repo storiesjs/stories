@@ -14,9 +14,9 @@
 
 ## Events
 
-| Event    | Description  | Type                       |
-| -------- | ------------ | -------------------------- |
-| `action` | Action Event | `CustomEvent<ActionEvent>` |
+| Event            | Description  | Type                       |
+| ---------------- | ------------ | -------------------------- |
+| `stories-action` | Action Event | `CustomEvent<ActionEvent>` |
 
 
 ## Dependencies

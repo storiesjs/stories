@@ -13,7 +13,7 @@ import { state } from '../../store';
 })
 export class App {
 
-  @Event({ bubbles: true, composed: true }) story: EventEmitter<StoryComponent>;
+  @Event({ bubbles: true, composed: true }) storyChange: EventEmitter<StoryComponent>;
 
   /**
    * Story Modules
@@ -35,7 +35,7 @@ export class App {
     const selected = state.story = path ? state.stories[path] : undefined;
     console.log('App.onHash', path, selected);
     // Send custom event about selected story
-    this.story.emit(selected);
+    this.storyChange.emit(selected);
   };
 
   componentWillLoad(): void {

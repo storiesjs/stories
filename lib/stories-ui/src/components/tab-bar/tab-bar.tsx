@@ -28,14 +28,14 @@ export class TabBar {
   @Watch('selectedTab')
   selectedTabChanged(): void {
     if (this.selectedTab !== undefined) {
-      this.storiesTabBarChanged.emit({
+      this.storiesTabBarChange.emit({
         tab: this.selectedTab
       });
     }
   }
 
   /** @internal */
-  @Event() storiesTabBarChanged!: EventEmitter<TabBarChangedEventDetail>;
+  @Event() storiesTabBarChange!: EventEmitter<TabBarChangedEventDetail>;
 
   componentWillLoad(): void {
     this.selectedTabChanged();

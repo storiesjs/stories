@@ -13,7 +13,7 @@ export class ActionButton {
   /**
    * Action Event
    */
-  @Event({ bubbles: true, composed: true }) action: EventEmitter<ActionEvent>;
+  @Event({ bubbles: true, composed: true, eventName: 'stories-action' }) storiesAction: EventEmitter<ActionEvent>;
 
   /**
    * ActionItem property
@@ -25,7 +25,7 @@ export class ActionButton {
    */
   clickHandler(event: MouseEvent): void {
     event.preventDefault();
-    this.action.emit({command: this.actionItem.command});
+    this.storiesAction.emit({command: this.actionItem.command});
   }
 
   render(): JSX.Element {

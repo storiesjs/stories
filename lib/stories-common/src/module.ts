@@ -15,7 +15,7 @@ export function modulesToStories(modules: StoryModules): StoryComponents {
                     const story = stories[key] as Story;
                     const storyId = toId(moduleId, key);
                     const storyExportName = storyNameFromExport(key);
-                    const storyName = story.name || storyExportName;
+                    const storyName = story.storyName || storyExportName;
                     const storyKind = parseKind(title, {rootSeparator: '/', groupSeparator: '/'})
                     const storyComponent = createStoryComponent(storyId, storyName, storyKind, story, meta/*, render, play*/);
                     result[storyId] = storyComponent;
@@ -34,7 +34,7 @@ function createStoryComponent(storyId: string, storyName: string, storyKind: {ro
     return {
         storyId,
         kinds: storyKind.groups,
-        name: storyName,
+        storyName,
         storyFn: story,
         component: meta.component,
         subcomponents: meta.subcomponents,

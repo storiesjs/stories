@@ -19,7 +19,7 @@ export class SplitPane {
   top: number;
   value: number;
 
-  @Event({ bubbles: true, composed: true }) sizechanged: EventEmitter<number>;
+  @Event({ bubbles: true, composed: true }) storiesSizeChange: EventEmitter<number>;
 
   componentDidLoad(): void {
     if (this.defaultSize > 0 || this.minSize > 0) {
@@ -71,7 +71,7 @@ export class SplitPane {
   pointerUp = (e: PointerEvent): void => {
     e.preventDefault();
 		this.isResizing = false;
-		this.sizechanged.emit(this.value);
+		this.storiesSizeChange.emit(this.value);
 		this.el.removeEventListener("pointermove", this.pointerMove);
 		this.el.removeEventListener("pointerup", this.pointerUp);
 	}
