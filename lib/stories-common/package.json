@@ -19,11 +19,14 @@
     "build3": "tsc -p tsconfig.json",
     "build": "microbundle -o dist/ --sourcemap false --compress false",
     "dev": "microbundle watch -o dist/ --sourcemap false --compress false",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "test.watch": "jest --watch"
   },
   "devDependencies": {
     "@componentdriven/csf": "0.0.2-alpha.0",
     "@types/node": "^12.0.0",
-    "microbundle": "^0.13.0"
+    "microbundle": "^0.13.0",
+    "ts-jest": "^26.5.6",
+    "@types/jest": "^26.0.24"
   }
 }

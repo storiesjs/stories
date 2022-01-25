@@ -1,16 +1,21 @@
-import type { StoryComponents } from ".";
-
-// Get a URL hash, return the path.
+/**
+ * Found the storyId from the URL's hash as defined in the following format:
+ *  #path=storiId
+ *
+ * @returns The storyId or undefined
+ */
 export function getStoryIdFromUrl(): string | undefined {
     const hash = window.location.hash;
     const match = /#.*path=(?<path>[^&]+)/.exec(hash || "");
     return match?.groups?.path;
 }
 
-export function getFirstStoryId(stories: StoryComponents): string | undefined {
-    return stories ? Object.keys(stories) ? Object.keys(stories)[0] : undefined : undefined;
-}
-
-export function setStoryIdInUrl(value: string | undefined): void {
-    document.location.hash = `#path=${value ? value : ''}`;
+/**
+ * Set story Id on URL's hash as following:
+ *  #path=storiId
+ *
+ * @param storyId The storyId
+ */
+export function setStoryIdInUrl(storyId: string | undefined): void {
+    window.location.hash = `#path=${storyId ? storyId : ''}`;
 }
