@@ -24,7 +24,9 @@
     "build": "stencil build --docs",
     "build.watch": "stencil build --docs --watch",
     "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll",
+    "test.e2e": "stencil test --e2e",
+    "test.watch": "stencil test --spec --watchAll",
+    "test.e2e.watch": "stencil test --e2e --watchAll",
     "generate": "stencil generate"
   },
   "dependencies": {

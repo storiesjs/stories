@@ -58,7 +58,6 @@ export async function registerAddon(addon: Addon<AddonState>, defaultState?: Add
   if (!addonsManager) {
     throw Error("Cannot find stories-addons. Please add it to your application")
   }
-  console.log('utils.registerAddon', addonsManager)
   // Register addon with addon ID
   addonsManager.registerAddon(addon, defaultState);
 }

@@ -11,7 +11,7 @@ describe('stories-action-button', () => {
     expect(page.root).toEqualHtml(`
       <stories-action-button>
         <mock:shadow-root>
-          <slot></slot>
+          <button></button>
         </mock:shadow-root>
       </stories-action-button>
     `);

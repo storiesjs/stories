@@ -11,7 +11,16 @@ describe('stories-tool-bar', () => {
     expect(page.root).toEqualHtml(`
       <stories-tool-bar>
         <mock:shadow-root>
-          <slot></slot>
+          <div class="bar">
+            <div class="inner">
+              <div class="left side">
+                <slot name="left"></slot>
+              </div>
+              <div class="right side">
+                <slot name="right"></slot>
+              </div>
+            </div>
+          </div>
         </mock:shadow-root>
       </stories-tool-bar>
     `);

@@ -11,7 +11,6 @@ describe('stories-action-bar', () => {
     expect(page.root).toEqualHtml(`
       <stories-action-bar>
         <mock:shadow-root>
-          <slot></slot>
         </mock:shadow-root>
       </stories-action-bar>
     `);

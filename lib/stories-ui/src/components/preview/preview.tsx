@@ -11,7 +11,6 @@ import { state } from '../../store';
 export class Preview {
 
   render(): JSX.Element {
-    console.log('Preview.render');
     const zoom = state.zoom;
     return (
       <stories-zoom zoom={zoom}>

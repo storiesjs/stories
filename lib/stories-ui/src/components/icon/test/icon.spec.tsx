@@ -11,7 +11,9 @@ describe('stories-icon', () => {
     expect(page.root).toEqualHtml(`
       <stories-icon>
         <mock:shadow-root>
-          <slot></slot>
+          <svg viewBox="0 0 1024 1024">
+            <path></path>
+          </svg>
         </mock:shadow-root>
       </stories-icon>
     `);

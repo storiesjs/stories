@@ -9,7 +9,7 @@ describe('stories-tab', () => {
       html: `<stories-tab></stories-tab>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-tab>
+      <stories-tab aria-hidden="true" aria-labelledby="tab-button-undefined" class="stories-page tab-hidden" role="tabpanel">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>

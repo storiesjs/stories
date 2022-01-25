@@ -11,7 +11,9 @@ describe('stories-sidebar', () => {
     expect(page.root).toEqualHtml(`
       <stories-sidebar>
         <mock:shadow-root>
-          <slot></slot>
+          <div>
+            No stories
+          </div>
         </mock:shadow-root>
       </stories-sidebar>
     `);

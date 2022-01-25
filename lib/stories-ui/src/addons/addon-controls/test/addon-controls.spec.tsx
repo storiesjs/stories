@@ -11,7 +11,7 @@ describe('stories-addon-controls', () => {
     expect(page.root).toEqualHtml(`
       <stories-addon-controls>
         <mock:shadow-root>
-          <slot></slot>
+          <div>Addon Controls</div>
         </mock:shadow-root>
       </stories-addon-controls>
     `);

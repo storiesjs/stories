@@ -18,14 +18,12 @@ export class Zoom {
 
   @Watch('div')
   watchStateHandler(newDiv: HTMLDivElement): void {
-    const height = this.height = newDiv.getBoundingClientRect().height;
-    console.log('Zoom.height', height);
+    this.height = newDiv.getBoundingClientRect().height;
   }
 
 
   render(): JSX.Element {
     const style = zoomStyle ? computeZoomStyle(this.zoom) : computeTransformStyle(this.height, this.zoom);
-    console.log('Zoom.style', zoomStyle, style);
     return (
       <Host style={style}>
         <div ref={(el) => this.div = el as HTMLDivElement} class="innerZoomElementWrapper">

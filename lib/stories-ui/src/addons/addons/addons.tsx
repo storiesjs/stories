@@ -14,7 +14,6 @@ export class Addons {
   @Method()
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async registerAddon(addon: Addon<AddonState>, defaultState?: AddonState): Promise<void> {
-    console.log('Addons.registerAddon', defaultState)
     const addons = state.addons;
     if (addons[addon.id]) {
       throw new Error(`Please remove duplicate addon ${addon.id}`);

@@ -11,7 +11,9 @@ describe('stories-split-pane', () => {
     expect(page.root).toEqualHtml(`
       <stories-split-pane>
         <mock:shadow-root>
-          <slot></slot>
+          <slot name="slot1"></slot>
+          <div id="median"></div>
+          <slot name="slot2"></slot>
         </mock:shadow-root>
       </stories-split-pane>
     `);

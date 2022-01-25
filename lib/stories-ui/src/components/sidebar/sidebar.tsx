@@ -12,7 +12,6 @@ import { state } from '../../store';
 export class Sidebar {
 
   render(): JSX.Element {
-    console.log('Sidebar.render');
     const stories = state.stories as StoryComponents;
     if (stories && Object.keys(stories).length) {
       return (

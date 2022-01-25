@@ -11,7 +11,9 @@ describe('stories-tabs', () => {
     expect(page.root).toEqualHtml(`
       <stories-tabs>
         <mock:shadow-root>
-          <slot></slot>
+          <div class="tabs-inner">
+            <slot></slot>
+          </div>
         </mock:shadow-root>
       </stories-tabs>
     `);

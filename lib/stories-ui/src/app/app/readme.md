@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description   | Type            | Default |
-| --------- | --------- | ------------- | --------------- | ------- |
-| `modules` | --        | Story Modules | `StoryModule[]` | `[]`    |
+| Property  | Attribute | Description   | Type                                                                                                                                         | Default |
+| --------- | --------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `modules` | --        | Story Modules | `StoryModule[]`                                                                                                                              | `[]`    |
+| `store`   | --        | Story Modules | `{ stories: StoryComponents; story: StoryComponent<AnyFramework, Args>; zoom: number; addons: Record<string, Addon<any>>; actions: any[]; }` | `state` |
 
 
 ## Events

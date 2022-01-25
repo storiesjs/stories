@@ -125,13 +125,13 @@ export declare interface StoriesApp extends Components.StoriesApp {
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['modules']
+  inputs: ['modules', 'store']
 })
 @Component({
   selector: 'stories-app',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['modules']
+  inputs: ['modules', 'store']
 })
 export class StoriesApp {
   protected el: HTMLElement;

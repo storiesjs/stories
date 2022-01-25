@@ -8,6 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ActionEvent, ActionItem, ActionItems, CheckboxChangeEventDetail, Color, Commands, InputChangeEventDetail, RouterDirection, SearchbarChangeEventDetail, StyleEventDetail, TabBarChangedEventDetail, TabButtonClickEventDetail, TabButtonLayout, TextFieldTypes, ToolEvent } from "./types";
 import { Addon, AddonState } from ".";
 import { StoryComponent, StoryModules } from "@stories/stories-common";
+import { StoriesStateType } from "./store";
 export namespace Components {
     interface StoriesActionBar {
         /**
@@ -34,6 +35,10 @@ export namespace Components {
           * Story Modules
          */
         "modules": StoryModules;
+        /**
+          * Story Modules
+         */
+        "store": StoriesStateType;
     }
     interface StoriesBadge {
         /**
@@ -709,7 +714,7 @@ declare namespace LocalJSX {
         /**
           * ActionItem property
          */
-        "actionItem"?: ActionItem;
+        "actionItem": ActionItem;
         /**
           * Action Event
          */
@@ -727,6 +732,10 @@ declare namespace LocalJSX {
          */
         "modules"?: StoryModules;
         "onStoryChange"?: (event: CustomEvent<StoryComponent>) => void;
+        /**
+          * Story Modules
+         */
+        "store"?: StoriesStateType;
     }
     interface StoriesBadge {
         /**

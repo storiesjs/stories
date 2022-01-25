@@ -9,7 +9,7 @@ describe('stories-footer', () => {
       html: `<stories-footer></stories-footer>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-footer>
+      <stories-footer role="contentinfo">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>

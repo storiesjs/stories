@@ -13,15 +13,6 @@
 | `selectedTab` | `selected-tab` | The selected tab component                                                                                                                                                                                                                                             | `string` | `undefined` |
 
 
-## CSS Custom Properties
-
-| Name           | Description               |
-| -------------- | ------------------------- |
-| `--background` | Background of the tab bar |
-| `--border`     | Border of the tab bar     |
-| `--color`      | Color of the tab bar      |
-
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

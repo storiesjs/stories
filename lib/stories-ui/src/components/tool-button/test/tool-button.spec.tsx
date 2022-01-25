@@ -11,7 +11,9 @@ describe('stories-tool-button', () => {
     expect(page.root).toEqualHtml(`
       <stories-tool-button>
         <mock:shadow-root>
-          <slot></slot>
+          <button>
+            <stories-icon></stories-icon>
+          </button>
         </mock:shadow-root>
       </stories-tool-button>
     `);

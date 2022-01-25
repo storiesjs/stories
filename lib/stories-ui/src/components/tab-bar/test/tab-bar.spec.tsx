@@ -9,7 +9,7 @@ describe('stories-tab-bar', () => {
       html: `<stories-tab-bar></stories-tab-bar>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-tab-bar>
+      <stories-tab-bar role="tablist">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>

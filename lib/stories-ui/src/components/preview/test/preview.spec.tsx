@@ -11,7 +11,9 @@ describe('stories-preview', () => {
     expect(page.root).toEqualHtml(`
       <stories-preview>
         <mock:shadow-root>
-          <slot></slot>
+          <stories-zoom zoom="1">
+            <slot></slot>
+          </stories-zoom>
         </mock:shadow-root>
       </stories-preview>
     `);

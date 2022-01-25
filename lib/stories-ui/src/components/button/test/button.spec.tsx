@@ -9,9 +9,16 @@ describe('stories-button', () => {
       html: `<stories-button></stories-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-button>
+      <stories-button class="button button-solid ion-activatable ion-focusable">
         <mock:shadow-root>
-          <slot></slot>
+          <button class="button-native" part="native" type="button">
+            <span class="button-inner">
+              <slot name="icon-only"></slot>
+              <slot name="start"></slot>
+              <slot></slot>
+              <slot name="end"></slot>
+            </span>
+          </button>
         </mock:shadow-root>
       </stories-button>
     `);

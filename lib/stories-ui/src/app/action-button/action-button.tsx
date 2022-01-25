@@ -18,7 +18,7 @@ export class ActionButton {
   /**
    * ActionItem property
    */
-  @Prop() actionItem: ActionItem;
+  @Prop() actionItem!: ActionItem;
 
   /**
    * Handle mouse event and generate ActionEvent
@@ -30,7 +30,7 @@ export class ActionButton {
 
   render(): JSX.Element {
     return (
-      <button disabled={this.actionItem.disabled} onClick={this.clickHandler}>{this.actionItem.title}</button>
+      <button disabled={this.actionItem?.disabled} onClick={this.clickHandler}>{this.actionItem?.title}</button>
     );
   }
 

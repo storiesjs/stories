@@ -11,7 +11,9 @@ describe('stories-tool-zoom', () => {
     expect(page.root).toEqualHtml(`
       <stories-tool-zoom>
         <mock:shadow-root>
-          <slot></slot>
+          <stories-tool-button command="zoomIn" icon="zoomIn"></stories-tool-button>
+          <stories-tool-button command="zoomOut" icon="zoomOut"></stories-tool-button>
+          <stories-tool-button command="zoomReset" icon="zoomReset"></stories-tool-button>
         </mock:shadow-root>
       </stories-tool-zoom>
     `);

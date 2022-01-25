@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property     | Attribute | Description         | Type                                                                                   | Default     |
-| ------------ | --------- | ------------------- | -------------------------------------------------------------------------------------- | ----------- |
-| `actionItem` | --        | ActionItem property | `{ command: string; title: string \| Element; disabled?: boolean; active?: boolean; }` | `undefined` |
+| Property                  | Attribute | Description         | Type                                                                                   | Default     |
+| ------------------------- | --------- | ------------------- | -------------------------------------------------------------------------------------- | ----------- |
+| `actionItem` _(required)_ | --        | ActionItem property | `{ command: string; title: string \| Element; disabled?: boolean; active?: boolean; }` | `undefined` |
 
 
 ## Events

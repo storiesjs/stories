@@ -23,12 +23,10 @@ export class AddonActions implements Addon<AddonActionsState> {
   @State() state: ObservableMap<AddonActionsState>;
 
   async componentDidLoad(): Promise<void> {
-    console.log('componentWillLoad', this.state);
-    registerAddon(this, {actions: ["test", "test2", "test3", "test4", "test5", "test6", "test7", "test8", "test9" ]});
+    registerAddon(this, {actions: []});
   }
 
   render(): JSX.Element {
-    console.log('render', this.state);
     if (this.state) {
       const actions = (this.state as AddonActionsState).actions;
       return (
