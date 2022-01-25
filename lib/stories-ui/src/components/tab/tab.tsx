@@ -13,7 +13,7 @@ export class Tab {
   @Prop({ mutable: true }) active = false;
 
   /**
-   * A tab id must be provided for each `ion-tab`. It's used internally to reference
+   * A tab id must be provided for each `stories-tab`. It's used internally to reference
    * the selected tab or by the router to switch between them.
    */
   @Prop() tab!: string;

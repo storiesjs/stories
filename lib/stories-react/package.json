@@ -15,7 +15,9 @@
     "clean": "rimraf dist",
     "compile": "yarn run tsc",
     "tsc": "tsc -p .",
-    "rollup": "rollup -c"
+    "rollup": "rollup -c",
+    "test": "jest --coverage",
+    "test.watch": "jest --watch"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -42,7 +44,7 @@
   },
   "jest": {
     "preset": "ts-jest",
-    "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js",
+    "setupFilesAfterEnv": ["./jest.setup.js"],
     "testPathIgnorePatterns": [
       "node_modules",
       "dist"

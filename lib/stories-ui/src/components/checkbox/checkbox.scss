@@ -1,4 +1,4 @@
-@import "../../themes/ionic.globals";
+@import "../../themes/stories.globals";
 
 // Checkbox
 // --------------------------------------------------
@@ -21,9 +21,9 @@
    * @prop --checkmark-color: Color of the checkbox checkmark when checked
    * @prop --checkmark-width: Stroke width of the checkbox checkmark
    */
-  --background-checked: #{ion-color(primary, base)};
-  --border-color-checked: #{ion-color(primary, base)};
-  --checkmark-color: #{ion-color(primary, contrast)};
+  --background-checked: #{stories-color(primary, base)};
+  --border-color-checked: #{stories-color(primary, base)};
+  --checkmark-color: #{stories-color(primary, contrast)};
   --checkmark-width: 1;
   --transition: none;
 
@@ -34,7 +34,7 @@
   z-index: $z-index-item-input;
 }
 
-:host(.ion-color) {
+:host(.stories-color) {
   --background-checked: #{current-color(base)};
   --border-color-checked: #{current-color(base)};
   --checkmark-color: #{current-color(contrast)};

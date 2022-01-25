@@ -15,7 +15,7 @@ let checkboxIds = 0;
 })
 export class Checkbox {
 
-  private inputId = `ion-cb-${checkboxIds++}`;
+  private inputId = `stories-cb-${checkboxIds++}`;
   private focusEl?: HTMLElement;
 
   @Element() el!: HTMLElement;
@@ -142,7 +142,7 @@ export class Checkbox {
         aria-hidden={disabled ? 'true' : null}
         aria-labelledby={label ? labelId : null}
         class={createColorClasses(color, {
-          'in-item': hostContext('ion-item', el),
+          'in-item': hostContext('stories-item', el),
           'checkbox-checked': checked,
           'checkbox-disabled': disabled,
           'checkbox-indeterminate': indeterminate,

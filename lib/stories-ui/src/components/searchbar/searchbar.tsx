@@ -64,10 +64,8 @@ export class Searchbar {
    * Set the input's placeholder.
    * `placeholder` can accept either plaintext or HTML as a string.
    * To display characters normally reserved for HTML, they
-   * must be escaped. For example `<Ionic>` would become
-   * `&lt;Ionic&gt;`
-   *
-   * For more information: [Security Documentation](https://ionicframework.com/docs/faq/security)
+   * must be escaped. For example `<Stories>` would become
+   * `&lt;Stories&gt;`
    */
   @Prop() placeholder = 'Search';
 
@@ -176,7 +174,7 @@ export class Searchbar {
   }
 
   /**
-   * Sets focus on the specified `ion-searchbar`. Use this method instead of the global
+   * Sets focus on the specified `stories-searchbar`. Use this method instead of the global
    * `input.focus()`.
    */
   @Method()
@@ -206,7 +204,6 @@ export class Searchbar {
       ev.stopPropagation();
     }
 
-    // setTimeout() fixes https://github.com/ionic-team/ionic/issues/7527
     // wait for 4 frames
     setTimeout(() => {
       const value = this.getValue();

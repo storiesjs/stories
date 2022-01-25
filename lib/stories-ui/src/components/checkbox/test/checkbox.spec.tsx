@@ -14,10 +14,10 @@ describe('stories-checkbox', () => {
           <svg class="checkbox-icon" part="container" viewBox="0 0 24 24">
             <path d="M5.9,12.5l3.8,3.8l8.8-8.8" part="mark"></path>
           </svg>
-          <label htmlfor="ion-cb-0"></label>
-          <input aria-checked="false" id="ion-cb-0" type="checkbox">
+          <label htmlfor="stories-cb-0"></label>
+          <input aria-checked="false" id="stories-cb-0" type="checkbox">
         </mock:shadow-root>
-        <input class="aux-input" name="ion-cb-0" type="hidden" value="">
+        <input class="aux-input" name="stories-cb-0" type="hidden" value="">
       </stories-checkbox>
     `);
   });

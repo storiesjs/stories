@@ -1,20 +1,20 @@
 
 // Global Utility Functions
-@import "./ionic.functions.string";
+@import "./stories.functions.string";
 
 // Global Color Functions
-@import "./ionic.functions.color";
+@import "./stories.functions.color";
 
 // Global Mixins
-@import "./ionic.mixins";
+@import "./stories.mixins";
 
 // Default Theme
-@import "./ionic.theme.default";
+@import "./stories.theme.default";
 
 
 // Default General
 // --------------------------------------------------
-$font-family-base:                  var(--ion-font-family, inherit) !default;
+$font-family-base:                  var(--stories-font-family, inherit) !default;
 
 // Global app direction
 $app-direction: null !default;

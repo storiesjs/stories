@@ -1,4 +1,4 @@
-@import "../../themes/ionic.globals";
+@import "../../themes/stories.globals";
 
 :host {
   /**
@@ -7,7 +7,7 @@
    * @prop --color: Color of the tab bar
    */
 
-  @include padding-horizontal(var(--ion-safe-area-left), var(--ion-safe-area-right));
+  @include padding-horizontal(var(--stories-safe-area-left), var(--stories-safe-area-right));
 
   display: flex;
 
@@ -17,7 +17,7 @@
   width: auto;
   height: 40px;
 
-  padding-bottom: var(--ion-safe-area-bottom, 0);
+  padding-bottom: var(--stories-safe-area-bottom, 0);
 
   border-top: var(--border);
 
@@ -53,8 +53,8 @@
   background: #{current-color(base)};
 }
 
-// :host(.tab-bar-translucent) ::slotted(stories-tab-button.ion-focused),
-:host(.stories-color) ::slotted(stories-tab-button.ion-focused) {
+// :host(.tab-bar-translucent) ::slotted(stories-tab-button.stories-focused),
+:host(.stories-color) ::slotted(stories-tab-button.stories-focused) {
   background: var(--background-focused)
 }
 
@@ -63,7 +63,7 @@
 // }
 
 // :host([slot="top"]) {
-//   padding-top: var(--ion-safe-area-top, 0);
+//   padding-top: var(--stories-safe-area-top, 0);
 //   padding-bottom: 0;
 
 //   border-top: 0;

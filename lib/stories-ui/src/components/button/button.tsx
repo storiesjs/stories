@@ -104,9 +104,9 @@ export class Button {
   @Event() storiesClick!: EventEmitter<void>;
 
   componentWillLoad(): void {
-    this.inToolbar = !!this.el.closest('ion-buttons');
-    this.inListHeader = !!this.el.closest('ion-list-header');
-    this.inItem = !!this.el.closest('ion-item') || !!this.el.closest('ion-item-divider');
+    this.inToolbar = !!this.el.closest('stories-buttons');
+    this.inListHeader = !!this.el.closest('stories-list-header');
+    this.inItem = !!this.el.closest('stories-item') || !!this.el.closest('stories-item-divider');
     this.inheritedAttributes = inheritAttributes(this.el, ['aria-label']);
   }
 
@@ -152,12 +152,12 @@ export class Button {
           [`${buttonType}-${shape}`]: shape !== undefined,
           [`${buttonType}-${fill}`]: true,
           [`${buttonType}-strong`]: strong,
-          'in-toolbar': hostContext('ion-toolbar', this.el),
-          'in-toolbar-color': hostContext('ion-toolbar[color]', this.el),
+          'in-toolbar': hostContext('stories-toolbar', this.el),
+          'in-toolbar-color': hostContext('stories-toolbar[color]', this.el),
           'button-has-icon-only': hasIconOnly,
           'button-disabled': disabled,
-          'ion-activatable': true,
-          'ion-focusable': true,
+          'stories-activatable': true,
+          'stories-focusable': true,
         })}
         onClick={this.handleClick}
       >

@@ -54,7 +54,7 @@ Type: `Promise<HTMLInputElement>`
 
 ### `setFocus() => Promise<void>`
 
-Sets focus on the native `input` in `ion-input`. Use this method instead of the global
+Sets focus on the native `input` in `stories-input`. Use this method instead of the global
 `input.focus()`.
 
 #### Returns

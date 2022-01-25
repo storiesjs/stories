@@ -16,7 +16,7 @@
 <!-- Button with badge on left and right -->
 <stories-button>
   <stories-badge slot="start">11</stories-badge>
-  <stories-label>My Button</ion-label>
+  <stories-label>My Button</stories-label>
   <stories-badge slot="end">22</stories-badge>
 </stories-item>
 ```

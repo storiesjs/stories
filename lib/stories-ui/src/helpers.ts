@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * Elements inside of web components sometimes need to inherit global attributes
- * set on the host. For example, the inner input in `ion-input` should inherit
- * the `title` attribute that developers set directly on `ion-input`. This
+ * set on the host. For example, the inner input in `stories-input` should inherit
+ * the `title` attribute that developers set directly on `stories-input`. This
  * helper function should be called in componentWillLoad and assigned to a variable
  * that is later used in the render function.
  *
@@ -38,9 +38,9 @@ export const hasShadowDom = (el: HTMLElement): boolean => {
 };
 
 export const findItemLabel = (componentEl: HTMLElement): HTMLStoriesLabelElement | null => {
-  const itemEl = componentEl.closest('ion-item');
+  const itemEl = componentEl.closest('stories-item');
   if (itemEl) {
-    return itemEl.querySelector('ion-label');
+    return itemEl.querySelector('stories-label');
   }
   return null;
 };
@@ -70,7 +70,7 @@ export const debounce = (func: (...args: any[]) => void, wait = 0): any => {
 };
 
 /**
- * This method is used for Ionic's input components that use Shadow DOM. In
+ * This method is used for input components that use Shadow DOM. In
  * order to properly label the inputs to work with screen readers, we need
  * to get the text content of the label outside of the shadow root and pass
  * it to the input inside of the shadow root.
@@ -86,7 +86,7 @@ export const getAriaLabel = (componentEl: HTMLElement, inputId: string): { label
   let labelText;
 
   // If the user provides their own label via the aria-labelledby attr
-  // we should use that instead of looking for an ion-label
+  // we should use that instead of looking for an stories-label
   const labelledBy = componentEl.getAttribute('aria-labelledby');
 
   // Grab the id off of the component in case they are using

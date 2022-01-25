@@ -16,7 +16,7 @@ let inputIds = 0;
 export class Input {
 
   private nativeInput?: HTMLInputElement;
-  private inputId = `ion-input-${inputIds++}`;
+  private inputId = `stories-input-${inputIds++}`;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private inheritedAttributes: Record<string, any> = {};
 
@@ -199,7 +199,7 @@ export class Input {
   }
 
   /**
-   * Sets focus on the native `input` in `ion-input`. Use this method instead of the global
+   * Sets focus on the native `input` in `stories-input`. Use this method instead of the global
    * `input.focus()`.
    */
   @Method()
@@ -210,7 +210,7 @@ export class Input {
   }
 
   /**
-   * Sets blur on the native `input` in `ion-input`. Use this method instead of the global
+   * Sets blur on the native `input` in `stories-input`. Use this method instead of the global
    * `input.blur()`.
    * @internal
    */

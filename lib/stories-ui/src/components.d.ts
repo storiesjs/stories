@@ -98,7 +98,7 @@ export namespace Components {
     }
     interface StoriesButtons {
         /**
-          * If true, buttons will disappear when its parent toolbar has fully collapsed if the toolbar is not the first toolbar. If the toolbar is the first toolbar, the buttons will be hidden and will only be shown once all toolbars have fully collapsed.  Only applies in `ios` mode with `collapse` set to `true` on `ion-header`.  Typically used for [Collapsible Large Titles](https://ionicframework.com/docs/api/title#collapsible-large-titles)
+          * If true, buttons will disappear when its parent toolbar has fully collapsed if the toolbar is not the first toolbar. If the toolbar is the first toolbar, the buttons will be hidden and will only be shown once all toolbars have fully collapsed.
          */
         "collapse": boolean;
     }
@@ -310,11 +310,11 @@ export namespace Components {
          */
         "required": boolean;
         /**
-          * Sets blur on the native `input` in `ion-input`. Use this method instead of the global `input.blur()`.
+          * Sets blur on the native `input` in `stories-input`. Use this method instead of the global `input.blur()`.
          */
         "setBlur": () => Promise<void>;
         /**
-          * Sets focus on the native `input` in `ion-input`. Use this method instead of the global `input.focus()`.
+          * Sets focus on the native `input` in `stories-input`. Use this method instead of the global `input.focus()`.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -380,7 +380,7 @@ export namespace Components {
          */
         "inputmode"?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
         /**
-          * Set the input's placeholder. `placeholder` can accept either plaintext or HTML as a string. To display characters normally reserved for HTML, they must be escaped. For example `<Ionic>` would become `&lt;Ionic&gt;`  For more information: [Security Documentation](https://ionicframework.com/docs/faq/security)
+          * Set the input's placeholder. `placeholder` can accept either plaintext or HTML as a string. To display characters normally reserved for HTML, they must be escaped. For example `<Stories>` would become `&lt;Stories&gt;`
          */
         "placeholder": string;
         /**
@@ -388,7 +388,7 @@ export namespace Components {
          */
         "searchIcon"?: string;
         /**
-          * Sets focus on the specified `ion-searchbar`. Use this method instead of the global `input.focus()`.
+          * Sets focus on the specified `stories-searchbar`. Use this method instead of the global `input.focus()`.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -419,7 +419,7 @@ export namespace Components {
     interface StoriesTab {
         "active": boolean;
         /**
-          * A tab id must be provided for each `ion-tab`. It's used internally to reference the selected tab or by the router to switch between them.
+          * A tab id must be provided for each `stories-tab`. It's used internally to reference the selected tab or by the router to switch between them.
          */
         "tab": string;
     }
@@ -447,7 +447,7 @@ export namespace Components {
          */
         "selected": boolean;
         /**
-          * A tab id must be provided for each `ion-tab`. It's used internally to reference the selected tab or by the router to switch between them.
+          * A tab id must be provided for each `stories-tab`. It's used internally to reference the selected tab or by the router to switch between them.
          */
         "tab"?: string;
     }
@@ -807,7 +807,7 @@ declare namespace LocalJSX {
     }
     interface StoriesButtons {
         /**
-          * If true, buttons will disappear when its parent toolbar has fully collapsed if the toolbar is not the first toolbar. If the toolbar is the first toolbar, the buttons will be hidden and will only be shown once all toolbars have fully collapsed.  Only applies in `ios` mode with `collapse` set to `true` on `ion-header`.  Typically used for [Collapsible Large Titles](https://ionicframework.com/docs/api/title#collapsible-large-titles)
+          * If true, buttons will disappear when its parent toolbar has fully collapsed if the toolbar is not the first toolbar. If the toolbar is the first toolbar, the buttons will be hidden and will only be shown once all toolbars have fully collapsed.
          */
         "collapse"?: boolean;
     }
@@ -1137,7 +1137,7 @@ declare namespace LocalJSX {
          */
         "onStoriesStyle"?: (event: CustomEvent<StyleEventDetail>) => void;
         /**
-          * Set the input's placeholder. `placeholder` can accept either plaintext or HTML as a string. To display characters normally reserved for HTML, they must be escaped. For example `<Ionic>` would become `&lt;Ionic&gt;`  For more information: [Security Documentation](https://ionicframework.com/docs/faq/security)
+          * Set the input's placeholder. `placeholder` can accept either plaintext or HTML as a string. To display characters normally reserved for HTML, they must be escaped. For example `<Stories>` would become `&lt;Stories&gt;`
          */
         "placeholder"?: string;
         /**
@@ -1173,7 +1173,7 @@ declare namespace LocalJSX {
     interface StoriesTab {
         "active"?: boolean;
         /**
-          * A tab id must be provided for each `ion-tab`. It's used internally to reference the selected tab or by the router to switch between them.
+          * A tab id must be provided for each `stories-tab`. It's used internally to reference the selected tab or by the router to switch between them.
          */
         "tab": string;
     }
@@ -1206,7 +1206,7 @@ declare namespace LocalJSX {
          */
         "selected"?: boolean;
         /**
-          * A tab id must be provided for each `ion-tab`. It's used internally to reference the selected tab or by the router to switch between them.
+          * A tab id must be provided for each `stories-tab`. It's used internally to reference the selected tab or by the router to switch between them.
          */
         "tab"?: string;
     }

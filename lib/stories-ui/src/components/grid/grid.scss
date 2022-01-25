@@ -1,28 +1,28 @@
-@import "../../themes/ionic.globals";
+@import "../../themes/stories.globals";
 @import "./grid.mixins";
 
 // Grid
 // --------------------------------------------------
 
 /// @prop - The padding for the grid
-$grid-padding:               var(--ion-grid-padding, 5px) !default;
+$grid-padding:               var(--stories-grid-padding, 5px) !default;
 
 /// @prop - The padding for the grid at different breakpoints
 $grid-paddings: (
-  xs: var(--ion-grid-padding-xs, $grid-padding),
-  sm: var(--ion-grid-padding-sm, $grid-padding),
-  md: var(--ion-grid-padding-md, $grid-padding),
-  lg: var(--ion-grid-padding-lg, $grid-padding),
-  xl: var(--ion-grid-padding-xl, $grid-padding)
+  xs: var(--stories-grid-padding-xs, $grid-padding),
+  sm: var(--stories-grid-padding-sm, $grid-padding),
+  md: var(--stories-grid-padding-md, $grid-padding),
+  lg: var(--stories-grid-padding-lg, $grid-padding),
+  xl: var(--stories-grid-padding-xl, $grid-padding)
 ) !default;
 
 /// @prop - Width of the grid for different screen sizes when fixed is enabled
 $grid-widths: (
-  xs: var(--ion-grid-width-xs, var(--ion-grid-width, 100%)),
-  sm: var(--ion-grid-width-sm, var(--ion-grid-width, 540px)),
-  md: var(--ion-grid-width-md, var(--ion-grid-width, 720px)),
-  lg: var(--ion-grid-width-lg, var(--ion-grid-width, 960px)),
-  xl: var(--ion-grid-width-xl, var(--ion-grid-width, 1140px))
+  xs: var(--stories-grid-width-xs, var(--stories-grid-width, 100%)),
+  sm: var(--stories-grid-width-sm, var(--stories-grid-width, 540px)),
+  md: var(--stories-grid-width-md, var(--stories-grid-width, 720px)),
+  lg: var(--stories-grid-width-lg, var(--stories-grid-width, 960px)),
+  xl: var(--stories-grid-width-xl, var(--stories-grid-width, 1140px))
 ) !default;
 
 
@@ -31,19 +31,19 @@ $grid-widths: (
 
 :host {
   /**
-   * @prop --ion-grid-padding: Padding for the Grid
-   * @prop --ion-grid-padding-xs: Padding for the Grid on xs screens
-   * @prop --ion-grid-padding-sm: Padding for the Grid on sm screens
-   * @prop --ion-grid-padding-md: Padding for the Grid on md screens
-   * @prop --ion-grid-padding-lg: Padding for the Grid on lg screens
-   * @prop --ion-grid-padding-xl: Padding for the Grid on xl screens
+   * @prop --stories-grid-padding: Padding for the Grid
+   * @prop --stories-grid-padding-xs: Padding for the Grid on xs screens
+   * @prop --stories-grid-padding-sm: Padding for the Grid on sm screens
+   * @prop --stories-grid-padding-md: Padding for the Grid on md screens
+   * @prop --stories-grid-padding-lg: Padding for the Grid on lg screens
+   * @prop --stories-grid-padding-xl: Padding for the Grid on xl screens
    *
-   * @prop --ion-grid-width: Width of the fixed Grid
-   * @prop --ion-grid-width-xs: Width of the fixed Grid on xs screens
-   * @prop --ion-grid-width-sm: Width of the fixed Grid on sm screens
-   * @prop --ion-grid-width-md: Width of the fixed Grid on md screens
-   * @prop --ion-grid-width-lg: Width of the fixed Grid on lg screens
-   * @prop --ion-grid-width-xl: Width of the fixed Grid on xl screens
+   * @prop --stories-grid-width: Width of the fixed Grid
+   * @prop --stories-grid-width-xs: Width of the fixed Grid on xs screens
+   * @prop --stories-grid-width-sm: Width of the fixed Grid on sm screens
+   * @prop --stories-grid-width-md: Width of the fixed Grid on md screens
+   * @prop --stories-grid-width-lg: Width of the fixed Grid on lg screens
+   * @prop --stories-grid-width-xl: Width of the fixed Grid on xl screens
    */
 
   @include make-breakpoint-padding($grid-paddings);
@@ -65,11 +65,11 @@ $grid-widths: (
 // --------------------------------------------------
 
 // Remove the padding from grid and all immediate children columns
-:host(.ion-no-padding) {
-  --ion-grid-column-padding: 0;
-  --ion-grid-column-padding-xs: 0;
-  --ion-grid-column-padding-sm: 0;
-  --ion-grid-column-padding-md: 0;
-  --ion-grid-column-padding-lg: 0;
-  --ion-grid-column-padding-xl: 0;
+:host(.stories-no-padding) {
+  --stories-grid-column-padding: 0;
+  --stories-grid-column-padding-xs: 0;
+  --stories-grid-column-padding-sm: 0;
+  --stories-grid-column-padding-md: 0;
+  --stories-grid-column-padding-lg: 0;
+  --stories-grid-column-padding-xl: 0;
 }

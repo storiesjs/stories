@@ -1,4 +1,4 @@
-@import "../../themes/ionic.globals";
+@import "../../themes/stories.globals";
 
 // Searchbar
 // --------------------------------------------------
@@ -37,17 +37,17 @@
   box-sizing: border-box;
 }
 
-:host(.ion-color) {
+:host(.stories-color) {
   color: current-color(contrast);
 }
 
-:host(.ion-color) .searchbar-input {
+:host(.stories-color) .searchbar-input {
   background: current-color(base);
 }
 
-:host(.ion-color) .searchbar-clear-button,
-:host(.ion-color) .searchbar-cancel-button,
-:host(.ion-color) .searchbar-search-icon {
+:host(.stories-color) .searchbar-clear-button,
+:host(.stories-color) .searchbar-cancel-button,
+:host(.stories-color) .searchbar-search-icon {
   color: inherit;
 }
 

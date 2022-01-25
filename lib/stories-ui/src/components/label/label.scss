@@ -1,4 +1,4 @@
-@import "../../themes/ionic.globals";
+@import "../../themes/stories.globals";
 
 
 // Label
@@ -29,7 +29,7 @@
   color: current-color(base);
 }
 
-:host(.ion-text-wrap),
+:host(.stories-text-wrap),
 :host([text-wrap]) {
   white-space: normal;
 }
