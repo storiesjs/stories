@@ -1,6 +1,7 @@
 import { parseKind, sanitize, storyNameFromExport, toId } from "@componentdriven/csf";
+import deepmerge from 'deepmerge';
 
-import type { StoryModules, StoryComponent, StoryComponents, Story, Meta } from ".";
+import type { StoryModules, StoryComponent, StoryComponents, Story, Meta, Args } from ".";
 
 /**
  * Convert [modules](StoryModules) into [stories](StoryComponents)
@@ -74,9 +75,17 @@ export function createStoryComponent(storyId: string, storyName: string, storyKi
         storyFn: story,
         component: meta.component,
         subcomponents: meta.subcomponents,
-        decorators: meta.decorators,
-        args: story.args || meta.args,
-        argTypes: story.argTypes || meta.argTypes
+        // Merging arrays of decorators from meta and story by concatenating them.
+        decorators: deepmerge(meta.decorators || [], story.decorators || []),
+        // Merge args from two objects story and meta deeply, returning a new merged object with the elements from both story and meta.
+        // If an element at the same key is present for both story and meta, the value from story will appear in the result.
+        // Merging creates a new object, so that neither story or meta is modified.
+        args: deepmerge<Args>(meta.args || {}, story.args || {}),
+        argTypes: story.argTypes || meta.argTypes,
+        // Merge parameters from two objects story and meta deeply, returning a new merged object with the elements from both story and meta.
+        // If an element at the same key is present for both story and meta, the value from story will appear in the result.
+        // Merging creates a new object, so that neither story or meta is modified.
+        parameters: deepmerge<Args>(meta.parameters || {}, story.parameters || {}),
     };
 }
 

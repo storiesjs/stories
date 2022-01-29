@@ -5,6 +5,7 @@ import {
   StoriesPreview,
   StoriesReactRenderer,
   StoryComponent,
+  StoryContext,
   StoriesToolBar,
   StoriesToolZoom,
   StoriesSplitPane,
@@ -13,7 +14,6 @@ import {
   StoriesTab,
   StoriesTabs,
   StoriesTabBar,
-  StoriesAddons,
   StoriesAddonActions,
   StoriesAddonControls,
 } from '@stories/stories-react';
@@ -22,18 +22,24 @@ import {
 import './variables.css';
 
 import modules from './stories-list';
+// import { StoriesReactRenderer } from './StoriesReactRenderer';
 
 function Stories() {
   const [story, setStory] = useState<StoryComponent | undefined>();
+  const [context, setContext] = useState<StoryContext | undefined>();
 
   const storyChange = (event: CustomEvent) => {
     console.log('storyChange', event.detail);
     setStory(event.detail);
   }
 
+  const storyContextChange = (event: CustomEvent) => {
+    console.log('storyContextChange', event.detail);
+    setContext(event.detail);
+  }
+
   return (
-    <StoriesApp modules={modules} onStoryChange={storyChange}>
-      <StoriesAddons>
+    <StoriesApp modules={modules} onStoryChange={storyChange} onStoryContextChange={storyContextChange}>
         <StoriesSplitPane split="horizontal" minSize={150} defaultSize={250}>
           <StoriesSidebar slot="slot1" />
           <div slot="slot2">
@@ -42,7 +48,7 @@ function Stories() {
             </StoriesToolBar>
             <StoriesSplitPane split="vertical" minSize={250} defaultSize={500}>
               <StoriesPreview slot="slot1">
-                <StoriesReactRenderer story={story} />
+                <StoriesReactRenderer story={story} context={context}/>
               </StoriesPreview>
               <StoriesTabs slot="slot2">
                 <StoriesTabBar>
@@ -65,7 +71,6 @@ function Stories() {
             </StoriesSplitPane>
           </div>
         </StoriesSplitPane>
-      </StoriesAddons>
     </StoriesApp>
   );
 }

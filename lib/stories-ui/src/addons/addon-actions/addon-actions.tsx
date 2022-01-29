@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Component, Host, h, Element, State } from '@stencil/core';
+import { Component, Host, h, Element, State, Method } from '@stencil/core';
 import type { ObservableMap } from '@stencil/store';
+import type { StoryComponent, StoryContext } from '@stories/stories-common';
 
 import type { Addon, AddonState } from '../..';
 import { registerAddon } from '../../utils';
@@ -17,10 +18,18 @@ export type AddonActionsState = {
   shadow: true,
 })
 export class AddonActions implements Addon<AddonActionsState> {
-  id: "ADDON_ACTIONS";
   @Element() el!: HTMLElement;
-  title: () => "Actions";
   @State() state: ObservableMap<AddonActionsState>;
+  id = "ADDON_ACTIONS";
+
+  title(): string {
+    return "Actions";
+  }
+
+  @Method()
+  async reset(story: StoryComponent, context: StoryContext): Promise<void> {
+    console.log('AddonActions.reset', story, context);
+  }
 
   async componentDidLoad(): Promise<void> {
     registerAddon(this, {actions: []});

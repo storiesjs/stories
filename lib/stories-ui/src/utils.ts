@@ -1,3 +1,5 @@
+import type { StoryComponent, StoryContext } from "@stories/stories-common";
+
 import type { Addon, AddonState, Color, CssClassMap } from "./types";
 
 export const hostContext = (selector: string, el: HTMLElement): boolean => {
@@ -53,21 +55,30 @@ export const openURL = async (url: string | undefined | null): Promise<boolean> 
 /*** ADDONS ***/
 
 export async function registerAddon(addon: Addon<AddonState>, defaultState?: AddonState): Promise<void> {
-  // Find AddonManager
-  const addonsManager: HTMLStoriesAddonsElement = addon.el.closest("stories-addons");
-  if (!addonsManager) {
-    throw Error("Cannot find stories-addons. Please add it to your application")
+  // Find StoriesApp
+  const storiesApp: HTMLStoriesAppElement = addon.el.closest("stories-app");
+  if (!storiesApp) {
+    throw Error("Cannot find stories-app. Please add it to your application")
   }
   // Register addon with addon ID
-  addonsManager.registerAddon(addon, defaultState);
+  storiesApp.registerAddon(addon, defaultState);
 }
 
 export async function findAddon(el: HTMLElement, id: string): Promise<Addon<AddonState>> {
-  // Find AddonManager
-  const addonsManager: HTMLStoriesAddonsElement = el.closest("stories-addons");
-  if (!addonsManager) {
-    throw Error("Cannot find stories-addons. Please add it to your application")
+  // Find StoriesApp
+  const storiesApp: HTMLStoriesAppElement = el.closest("stories-app");
+  if (!storiesApp) {
+    throw Error("Cannot find stories-app. Please add it to your application")
   }
 
-  return addonsManager.findAddon(id);
+  return storiesApp.findAddon(id);
+}
+
+export function createContext(story: StoryComponent): StoryContext {
+  const context: StoryContext = {
+    args: {...story.args},
+    argTypes: {...story.argTypes},
+    parameters: {...story.parameters}
+  };
+  return context;
 }

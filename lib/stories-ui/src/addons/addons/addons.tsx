@@ -1,8 +1,10 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Component, h, Method } from '@stencil/core';
+import { Component, h, Method, State, Watch } from '@stencil/core';
+import type { StoryComponent, StoryContext } from '@stories/stories-common';
 
 import type { Addon, AddonState } from '../..';
 import { state, createStore } from '../../store';
+import { createContext } from '../../utils';
 
 @Component({
   tag: 'stories-addons',
@@ -10,6 +12,17 @@ import { state, createStore } from '../../store';
   shadow: true,
 })
 export class Addons {
+
+  @State() story = state.story;
+
+  @Watch('story')
+  storyChanged(newStory: StoryComponent): void {
+    console.log('storyChanged. story', newStory);
+    // Create context for story
+    const context: StoryContext = createContext(newStory);
+    console.log('storyChanged. context', context);
+    state.context = context;
+  }
 
   @Method()
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import type { ObservableMap } from "@stencil/store";
+import type { StoryComponent, StoryContext } from "@stories/stories-common";
 
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 export type Commands = "zoomIn" | "zoomOut" | "zoomReset";
@@ -86,4 +87,5 @@ export type Addon<AddonState> = {
   paramKey?: string;
   disabled?: boolean;
   hidden?: boolean;
+  reset(story: StoryComponent, context: StoryContext): Promise<void>
 };

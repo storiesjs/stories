@@ -7,17 +7,30 @@ export default {
     title: "Stories/View component",
     component: View,
     decorators: [
-        (story) => (
-            <section className="decorator">
-                {story}
-            </section>
-        ),
+        ( Story: any) => {
+            // console.log('*** context', context)
+            return (
+                <section style={{ margin: '3em' }}>
+                    <Story/>
+                </section>
+            )
+        },
     ],
-    argTypes: { onClick: { action: 'clicked' } },
+    args: {name: 'Potter'},
+    // argTypes: { onClick: { action: 'clicked' } },
     parameters: {}
 }  as Meta<ViewType>;
 
 export const ByName: Story<ViewType> = () => <View name="Test"/>
 
 export const ByAge: Story<ViewType> = () => <View age={30} />
-ByAge.storyName = "By Name";
+ByAge.storyName = "By Lovely Age";
+
+// export const ByArgs: Story<ViewType> = (args) => <View {...args}/>
+
+const Template: Story<ViewType> = (args: any) => <View {...args} />;
+
+export const ByArgs: Story<ViewType> = Template.bind({});
+ByArgs.args = {
+    name: 'Harry Potter'
+};

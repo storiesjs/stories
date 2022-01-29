@@ -60,7 +60,8 @@ export class StoriesActionButton {
 export declare interface StoriesAddonActions extends Components.StoriesAddonActions {}
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
+  defineCustomElementFn: undefined,
+  methods: ['reset']
 })
 @Component({
   selector: 'stories-addon-actions',
@@ -79,7 +80,8 @@ export class StoriesAddonActions {
 export declare interface StoriesAddonControls extends Components.StoriesAddonControls {}
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
+  defineCustomElementFn: undefined,
+  methods: ['reset']
 })
 @Component({
   selector: 'stories-addon-controls',
@@ -115,17 +117,23 @@ export class StoriesAddons {
 }
 
 import type { StoryComponent as IAppStoryComponent } from '@stories/stories-ui';
+import type { StoryContext as IAppStoryContext } from '@stories/stories-ui';
 export declare interface StoriesApp extends Components.StoriesApp {
   /**
    *  
    */
   storyChange: EventEmitter<CustomEvent<IAppStoryComponent>>;
+  /**
+   *  
+   */
+  storyContextChange: EventEmitter<CustomEvent<IAppStoryContext>>;
 
 }
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['modules', 'store']
+  inputs: ['modules', 'store'],
+  methods: ['registerAddon', 'findAddon']
 })
 @Component({
   selector: 'stories-app',
@@ -138,7 +146,7 @@ export class StoriesApp {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['storyChange']);
+    proxyOutputs(this, this.el, ['storyChange', 'storyContextChange']);
   }
 }
 

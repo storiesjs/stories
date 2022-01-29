@@ -6,8 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ActionEvent, ActionItem, ActionItems, CheckboxChangeEventDetail, Color, Commands, InputChangeEventDetail, RouterDirection, SearchbarChangeEventDetail, StyleEventDetail, TabBarChangedEventDetail, TabButtonClickEventDetail, TabButtonLayout, TextFieldTypes, ToolEvent } from "./types";
+import { StoryComponent, StoryContext, StoryModules } from "@stories/stories-common";
 import { Addon, AddonState } from ".";
-import { StoryComponent, StoryModules } from "@stories/stories-common";
 import { StoriesStateType } from "./store";
 export namespace Components {
     interface StoriesActionBar {
@@ -23,18 +23,22 @@ export namespace Components {
         "actionItem": ActionItem;
     }
     interface StoriesAddonActions {
+        "reset": (story: StoryComponent, context: StoryContext) => Promise<void>;
     }
     interface StoriesAddonControls {
+        "reset": (story: StoryComponent, context: StoryContext) => Promise<void>;
     }
     interface StoriesAddons {
         "findAddon": (id: string) => Promise<Addon<AddonState>>;
         "registerAddon": (addon: Addon<AddonState>, defaultState?: AddonState) => Promise<void>;
     }
     interface StoriesApp {
+        "findAddon": (id: string) => Promise<Addon<AddonState>>;
         /**
           * Story Modules
          */
         "modules": StoryModules;
+        "registerAddon": (addon: Addon<AddonState>, defaultState?: AddonState) => Promise<void>;
         /**
           * Story Modules
          */
@@ -732,6 +736,7 @@ declare namespace LocalJSX {
          */
         "modules"?: StoryModules;
         "onStoryChange"?: (event: CustomEvent<StoryComponent>) => void;
+        "onStoryContextChange"?: (event: CustomEvent<StoryContext>) => void;
         /**
           * Story Modules
          */

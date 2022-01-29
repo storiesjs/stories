@@ -11,6 +11,10 @@ export type StoryName = string;
  */
 export type ComponentTitle = string;
 
+// **** PARAMETERS
+
+export type Parameters = Record<string, any>;
+
 // **** ARGUMENTS 
 
 /**
@@ -56,6 +60,8 @@ export type StoryContext<
 
   args: TArgs;
   argTypes: ArgTypes<TArgs>;
+
+  parameters: Parameters;
 };
 
 /**
@@ -146,18 +152,32 @@ export type ComponentAnnotations<
    * ArgTypes encode basic metadata for args, such as `name`, `description`, `defaultValue` for an arg. These get automatically filled in by Stories Docs.
    */
   argTypes?: Partial<ArgTypes<TArgs>>;
+
+  /**
+   * Custom metadata for a componrnt.
+   */
+  parameters?: Parameters;
 };
 
 /**
  * Story annotations
  */
 export type StoryAnnotations<
+  TFramework extends AnyFramework = AnyFramework,
   TArgs = Args
 > = {
   /**
    * Override the display name in the UI
    */
   storyName?: StoryName;
+
+  /**
+   * Wrapper components that wrap a story.
+   *
+   * Decorators defined in Meta will be applied to every story variation.
+   */
+  decorators?: Array<DecoratorFunction<TFramework, Args>>;
+
 
   /**
    * Dynamic data that are provided (and possibly updated by) Stories and its addons.
@@ -169,6 +189,11 @@ export type StoryAnnotations<
    * These get automatically filled in by Stories Docs.
    */
   argTypes?: Partial<ArgTypes<TArgs>>;
+
+  /**
+   * Custom metadata for a story.
+   */
+  parameters?: Parameters;
 };
 
 // **** STORY and META
@@ -191,7 +216,7 @@ export type Story<
     TArgs = Args
 > = 
     StoryFn<TFramework, TArgs> & 
-    StoryAnnotations<TArgs>;
+    StoryAnnotations<TFramework, TArgs>;
 
 /**
  * Metadata to configure the stories for a component.
@@ -227,6 +252,7 @@ export type StoryComponent<
   decorators?: Array<DecoratorFunction<TFramework, Args>>;
   args?: Partial<TArgs>;
   argTypes?: Partial<ArgTypes<TArgs>>;
+  parameters?: Parameters;
 }
 
 export type StoryComponents = Record<string, StoryComponent>;

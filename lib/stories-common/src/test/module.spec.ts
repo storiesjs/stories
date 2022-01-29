@@ -9,7 +9,8 @@ const storyModule: StoryModule = {
         subcomponents: [],
         decorators: [],
         args: {},
-        argTypes: {}
+        argTypes: {}, 
+        parameters: {}
     },
     '__esModule': true,
     'myStory': {}
@@ -38,6 +39,7 @@ describe('module', () => {
                 "decorators": [],
                 "args": {},
                 "argTypes": {},
+                parameters: {}
             });
         });
     });
@@ -191,6 +193,7 @@ describe('module', () => {
                     "component": {},
                     "decorators": [],
                     "kinds": ["title"],
+                    "parameters": {},
                     "storyFn": {},
                     "storyId": "title--my-story",
                     "storyName": "My Story",
@@ -215,6 +218,7 @@ describe('module', () => {
                     "component": {},
                     "decorators": [],
                     "kinds": ["title"],
+                    "parameters": {},
                     "storyFn": () => '',
                     "storyId": "title--mystory",
                     "storyName": "My Story",

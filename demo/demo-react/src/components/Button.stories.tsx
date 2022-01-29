@@ -15,9 +15,9 @@ export default {
         <Story />
       </div>
     ),
-    (Component) => (
+    (Story) => (
       <div style={{padding: '2rem', background: 'green'}}>
-        <Component/>
+        <Story/>
       </div>
     )
   ],
