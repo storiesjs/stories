@@ -4,6 +4,8 @@
 import { Meta, Story } from '@stories/stories-react';
 import React, { useState } from 'react';
 
+import { action } from '@stories/stories-ui';
+
 import { Button, ButtonType } from './Button';
 
 export default {
@@ -23,7 +25,7 @@ export default {
   ],
 } as Meta<ButtonType>;
 
-export const PrimaryButton: Story<ButtonType> = () => <Button primary>Button</Button>;
+export const PrimaryButton: Story<ButtonType> = () => <Button primary onClick={action('clicked')}>Button</Button>;
 PrimaryButton.storyName = "NewPrimaryButton";
 
 /*

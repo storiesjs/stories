@@ -34,7 +34,8 @@
     "@stencil/core": "^2.11.0",
     "@stencil/react-output-target": "^0.2.0",
     "@stencil/store": "^1.5.0",
-    "@stories/stories-common": "^0.1.0"
+    "@stories/stories-common": "^0.1.0",
+    "telejson": "5.3.3"
   },
   "devDependencies": {
     "@stencil/sass": "1.5.2",

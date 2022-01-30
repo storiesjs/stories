@@ -17,7 +17,7 @@ export default {
         },
     ],
     args: {name: 'Potter'},
-    // argTypes: { onClick: { action: 'clicked' } },
+    argTypes: { onClick: { action: 'clicked' } },
     parameters: {}
 }  as Meta<ViewType>;
 
