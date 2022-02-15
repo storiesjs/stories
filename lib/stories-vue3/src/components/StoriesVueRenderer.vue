@@ -1,4 +1,7 @@
 <script lang="ts">
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { ConcreteComponent, Component, ComponentOptions, defineComponent, h } from 'vue';
 
 import { DecoratorFunction, StoryComponent, StoryContext, StoryFn, StoryFnVueReturnType, LegacyStoryFn, VueFramework } from './types';
@@ -69,9 +72,9 @@ function decorateStory(
   return decorators.reduce(
     (decorated: any, decorator: any) => 
       (context: StoryContext<VueFramework>) => {
-      let story!: StoryFnVueReturnType;
+      let story!: VueFramework['storyResult'];
 
-      const decoratedStory: StoryFnVueReturnType = decorator((update: any) => {
+      const decoratedStory: VueFramework['storyResult'] = decorator((update: any) => {
         story = decorated({ ...(context as any), ...sanitizeStoryContextUpdate(update) });
         return story;
       }, context);
@@ -84,9 +87,9 @@ function decorateStory(
         return story;
       }
 
-      return prepare(decoratedStory, story) as StoryFnVueReturnType;
+      return prepare(decoratedStory, story as any);
     }, 
-    (context) => prepare(storyFn(context) as StoryFnVueReturnType)
+    (context: any) => prepare(storyFn(context))
   );
 }
 
@@ -103,7 +106,9 @@ const StoryVueRenderer = defineComponent({
       const decorators: DecoratorFunction[] = story.decorators || [];
       const context: StoryContext = {
         args: story.args || {}, 
-        argTypes: {}
+        argTypes: {},
+        parameters: {},
+        initialArgs: {}
       };
       const r = decorateStory(storyFn, decorators) as any;
       const r1 = r(context);

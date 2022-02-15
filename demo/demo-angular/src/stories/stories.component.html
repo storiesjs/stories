@@ -1,4 +1,4 @@
-<stories-app [modules]="modules" (story)="setStory">
+<stories-app [modules]="modules" (storyChange)="setStory" (storyContextChange)="setContext">
   <stories-split-pane split="horizontal" minSize="150" defaultSize="250">
     <stories-sidebar slot="slot1"></stories-sidebar>
     <div slot="slot2">

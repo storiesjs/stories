@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <stories-app :modules.prop="modules" @story="storySelected">
+    <stories-app :modules.prop="modules" @storyChange="storySelected" @storyContextChange="contextSelected">
       <stories-split-pane split="horizontal" min-size="150" default-size="250">
         <stories-sidebar slot="slot1"></stories-sidebar>
         <div slot="slot2">
@@ -38,9 +38,9 @@
 import {
   applyPolyfills,
   defineCustomElements,
-} from "@stories/stories-ui/loader";
+} from "@stories/stories-components/loader";
 import { Component, Vue } from "vue-property-decorator";
-import { StoryComponent } from "@stories/stories-common";
+import { StoryComponent, StoryContext } from "@stories/stories-components";
 
 import { StoryVueRenderer } from "@stories/stories-vue2";
 
@@ -61,10 +61,16 @@ applyPolyfills().then(() => {
 export default class Stories extends Vue {
   modules = storyModules;
   story: StoryComponent | null = null;
+  context: StoryContext | null = null;
 
   storySelected(event: CustomEvent<StoryComponent>): void {
     console.log("storySelected", event.detail);
     this.story = event.detail;
+  }
+
+  contextSelected(event: CustomEvent<StoryContext>): void {
+    console.log("contextSelected", event.detail);
+    this.context = event.detail;
   }
 }
 </script>

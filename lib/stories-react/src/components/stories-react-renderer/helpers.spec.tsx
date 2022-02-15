@@ -78,6 +78,8 @@ describe('helpers', () => {
                 kinds: [],
                 storyName: 'storyName',
                 storyFn: jest.fn((args) => (<button {...args}></button>)),
+                args: {},
+                argTypes: {}
             };
             const decoratedStory = prepareStory(story);
             // console.log('result', result)
@@ -106,6 +108,8 @@ describe('helpers', () => {
                 kinds: [],
                 storyName: 'storyName',
                 storyFn: jest.fn((props: {label: string, onClick: (evt: any) => void}) => (<button onClick={props.onClick}>{props.label}</button>)),
+                args: {},
+                argTypes: {}
             };
             const decoratedStory = prepareStory(story);
             // console.log('result', result)
@@ -140,7 +144,9 @@ describe('helpers', () => {
                             <Story />
                         </div>
                     ),
-                ]
+                ],
+                args: {},
+                argTypes: {}
             };
             const decoratedStory = prepareStory(story);
             // console.log('result', result)

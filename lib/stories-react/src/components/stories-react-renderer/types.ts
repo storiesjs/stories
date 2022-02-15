@@ -1,4 +1,4 @@
-import type { Args, Meta as BesaMeta, Story as BaseStory, StoryFn, StoryComponent as BaseStoryComponent, StoryContext as BaseStoryContext } from "@stories/stories-common";
+import type { Args, Meta as BesaMeta, Story as BaseStory, StoryFn, StoryComponent as BaseStoryComponent, StoryContext as BaseStoryContext } from "@stories/stories-components";
 import type { ComponentType, ReactElement } from "react";
 
 export type StoryFnReactReturnType = ReactElement<unknown>;

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 import { render, fireEvent } from '@testing-library/react';
 // import { screen } from '@testing-library/react';
@@ -31,7 +32,7 @@ describe('<StoriesReactRenderer />', () => {
         "kinds": ["title"],
         "storyName": "My Story",
         "component": Button,
-        "storyFn": (args) => <Button {...args}/>,
+        "storyFn": (args: any) => <Button {...args}/>,
         "subcomponents": undefined,
         "decorators": [],
         "args": {},
@@ -67,7 +68,7 @@ describe('<StoriesReactRenderer />', () => {
         "kinds": ["title"],
         "storyName": "My Story",
         "component": Button,
-        "storyFn": (args) => <Button {...args}/>,
+        "storyFn": (args: any) => <Button {...args}/>,
         "subcomponents": undefined,
         "decorators": [],
         "args": {label, onClick},
@@ -79,7 +80,8 @@ describe('<StoriesReactRenderer />', () => {
         // "subcomponents": undefined,
         "args": {label: 'My Button', onClick: onClick},
         "argTypes": {},
-        "parameters": {}
+        "parameters": {},
+        initialArgs: {}
       };
     });
 

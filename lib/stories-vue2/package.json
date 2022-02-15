@@ -14,8 +14,7 @@
     "clean": "rimraf dist"
   },
   "peerDependencies": {
-    "@stories/stories-common": "0.1.0",
-    "@stories/stories-ui": "0.1.0",
+    "@stories/stories-components": "0.1.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {

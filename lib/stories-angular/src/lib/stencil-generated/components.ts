@@ -3,7 +3,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, NgZone } from '@angular/core';
 import { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';
 
-import { Components } from '@stories/stories-ui';
+import { Components } from '@stories/stories-components';
 
 
 
@@ -28,12 +28,12 @@ export class StoriesActionBar {
   }
 }
 
-import type { ActionEvent as IActionButtonActionEvent } from '@stories/stories-ui';
+import type { ActionEvent as IActionButtonActionEvent } from '@stories/stories-components';
 export declare interface StoriesActionButton extends Components.StoriesActionButton {
   /**
    * Action Event 
    */
-  stories-action: EventEmitter<CustomEvent<IActionButtonActionEvent>>;
+  storiesAction: EventEmitter<CustomEvent<IActionButtonActionEvent>>;
 
 }
 
@@ -52,7 +52,7 @@ export class StoriesActionButton {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['stories-action']);
+    proxyOutputs(this, this.el, ['storiesAction']);
   }
 }
 
@@ -61,7 +61,7 @@ export declare interface StoriesAddonActions extends Components.StoriesAddonActi
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  methods: ['reset']
+  methods: ['storyContextChanged']
 })
 @Component({
   selector: 'stories-addon-actions',
@@ -81,7 +81,7 @@ export declare interface StoriesAddonControls extends Components.StoriesAddonCon
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  methods: ['reset']
+  methods: ['storyContextChanged']
 })
 @Component({
   selector: 'stories-addon-controls',
@@ -101,7 +101,7 @@ export declare interface StoriesAddons extends Components.StoriesAddons {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  methods: ['registerAddon', 'findAddon']
+  methods: ['registerAddon', 'unregisterAddon', 'findAddon', 'storyContextChanged']
 })
 @Component({
   selector: 'stories-addons',
@@ -116,8 +116,8 @@ export class StoriesAddons {
   }
 }
 
-import type { StoryComponent as IAppStoryComponent } from '@stories/stories-ui';
-import type { StoryContext as IAppStoryContext } from '@stories/stories-ui';
+import type { StoryComponent as IAppStoryComponent } from '@stories/stories-components';
+import type { StoryContext as IAppStoryContext } from '@stories/stories-components';
 export declare interface StoriesApp extends Components.StoriesApp {
   /**
    *  
@@ -132,8 +132,7 @@ export declare interface StoriesApp extends Components.StoriesApp {
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['modules', 'store'],
-  methods: ['registerAddon', 'findAddon']
+  inputs: ['modules', 'store']
 })
 @Component({
   selector: 'stories-app',
@@ -228,7 +227,7 @@ export class StoriesButtons {
   }
 }
 
-import type { CheckboxChangeEventDetail as ICheckboxCheckboxChangeEventDetail } from '@stories/stories-ui';
+import type { CheckboxChangeEventDetail as ICheckboxCheckboxChangeEventDetail } from '@stories/stories-components';
 export declare interface StoriesCheckbox extends Components.StoriesCheckbox {
   /**
    * Emitted when the checked property has changed. 
@@ -346,7 +345,7 @@ export class StoriesIcon {
   }
 }
 
-import type { InputChangeEventDetail as IInputInputChangeEventDetail } from '@stories/stories-ui';
+import type { InputChangeEventDetail as IInputInputChangeEventDetail } from '@stories/stories-components';
 export declare interface StoriesInput extends Components.StoriesInput {
   /**
    * Emitted when a keyboard input occurred. 
@@ -465,7 +464,7 @@ export class StoriesRow {
   }
 }
 
-import type { SearchbarChangeEventDetail as ISearchbarSearchbarChangeEventDetail } from '@stories/stories-ui';
+import type { SearchbarChangeEventDetail as ISearchbarSearchbarChangeEventDetail } from '@stories/stories-components';
 export declare interface StoriesSearchbar extends Components.StoriesSearchbar {
   /**
    * Emitted when a keyboard input occurred. 
@@ -663,7 +662,7 @@ export class StoriesToolBar {
   }
 }
 
-import type { ToolEvent as IToolButtonToolEvent } from '@stories/stories-ui';
+import type { ToolEvent as IToolButtonToolEvent } from '@stories/stories-components';
 export declare interface StoriesToolButton extends Components.StoriesToolButton {
   /**
    * Action Event 

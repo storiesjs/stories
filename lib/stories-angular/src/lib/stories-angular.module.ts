@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import { CUSTOM_ELEMENTS_SCHEMA, ModuleWithProviders } from '@angular/core';
 import { NgModule } from '@angular/core';
-import type { StoryModules } from '@stories/stories-common';
+import type { StoryModules } from '@stories/stories-components';
 
 import {
   StoriesAddonActions,
