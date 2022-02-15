@@ -1,0 +1,19 @@
+@import "../../themes/stories.globals";
+
+// Footer
+// --------------------------------------------------
+
+stories-footer {
+  display: block;
+  position: relative;
+
+  order: 1;
+
+  width: 100%;
+
+  z-index: $z-index-toolbar;
+}
+
+stories-footer stories-toolbar:last-of-type {
+  padding-bottom: var(--stories-safe-area-bottom, 0);
+}

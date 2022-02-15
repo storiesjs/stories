@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import { StoriesAngularService } from '@stories/stories-angular';
 import type { StoryComponent } from '@stories/stories-angular';
-import type { StoryModules } from '@stories/stories-common';
+import type { StoryContext, StoryModules } from '@stories/stories-components';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +14,7 @@ import type { StoryModules } from '@stories/stories-common';
 export class StoriesComponent implements OnInit {
   modules: StoryModules = [];
   story: StoryComponent | undefined;
+  context: StoryContext | undefined;
 
   constructor(private service: StoriesAngularService) {}
 
@@ -22,9 +23,15 @@ export class StoriesComponent implements OnInit {
       console.log('StoriesComponent.modules', this.modules);
   }
 
-  @HostListener('story', ['$event.detail'])
+  @HostListener('storyChange', ['$event.detail'])
   setStory(story: StoryComponent): void {
     console.log('StoriesComponent.setStory', story);
     this.story = story;
+  }
+
+  @HostListener('storyContextChange', ['$event.detail'])
+  setContext(context: StoryContext): void {
+    console.log('StoriesComponent.setContext', context);
+    this.context = context;
   }
 }

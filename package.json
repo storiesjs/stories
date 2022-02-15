@@ -24,8 +24,10 @@
     "format": "prettier --write '**/*.{js,jsx,ts,tsx,md,mdx}'",
     "build": "yarn workspace @stories/stories-common run build && yarn workspace @stories/stories-ui run build && yarn workspace @stories/stories-react run build && yarn workspace @stories/stories-angular run build && yarn workspace @stories/stories-vue2 run build && yarn workspace @stories/stories-vue3 run build",
     "clean": "yarn workspaces run clean",
-    "dev:react": "yarn workspace @stories/stories-react watch",
-    "demo:react": "yarn workspace demo-react start"
+    "demo:angular": "yarn workspace demo-angular start",
+    "demo:react": "yarn workspace demo-react stories",
+    "demo:vue2": "yarn workspace demo-vue2 stories",
+    "demo:vue3": "yarn workspace demo-vue3 stories"
   },
   "repository": "git@github.com:storiesjs/storiesjs.git",
   "author": "akserg <akserg@gmail.com>",
@@ -45,6 +47,7 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
     "eslint-plugin-vue": "^6.2.2",
+    "lerna": "^4.0.0",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "rimraf": "^2.6.1",

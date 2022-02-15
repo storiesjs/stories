@@ -1,4 +1,4 @@
-import type { Args, Meta as BesaMeta, Story as BaseStory, StoryFn, StoryComponent as BaseStoryComponent, StoryContext as BaseStoryContext } from "@stories/stories-common";
+import type { Args, Meta as BesaMeta, Story as BaseStory, StoryFn, StoryComponent as BaseStoryComponent, StoryContext as BaseStoryContext } from "@stories/stories-components";
 import type { ComponentType, ReactElement } from "react";
 
 export type StoryFnReactReturnType = ReactElement<unknown>;
@@ -22,7 +22,7 @@ export type Meta<TArgs = Args> = BesaMeta<ReactFramework, TArgs>;
 /**
  * Story function that represents a CSFv3 component example.
  */
-export type Story<TArgs = Args> = BaseStory<ReactFramework, TArgs>; // & JSX.IntrinsicElements | JSXElementConstructor<any>;
+export type Story<TArgs = Args> = BaseStory<ReactFramework, TArgs>;
 
 /**
  * Story component for React Rendener 

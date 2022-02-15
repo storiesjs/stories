@@ -1,0 +1,45 @@
+ion-color(primary, base) -> story-color()
+
+--ion-color => --stories-color
+
+--ion-background-color => --stories-background-color
+
+--ion-text-color => --stories-text-color
+
+--ion-grid-column-padding -> --stories-grid-column-padding
+
+--ion-grid-columns -> --stories-grid-columns
+
+--ion-safe-area-bottom => --stories-safe-area-bottom
+
+--ion-grid-padding => --stories-grid-padding
+
+--ion-grid-width => --stories-grid-width
+
+--ion-safe-area-left => --stories-safe-area-left
+
+--ion-safe-area-right => --stories-safe-area-right
+
+--ion-safe-area-top => --stories-safe-area-top
+
+--ion-font-family => --stories-font-family
+
+--ion-overlay-background-color => --stories-overlay-background-color
+
+--ion-placeholder-color => --stories-placeholder-color
+
+
+---------- Absent variables -------
+--ion-item-background
+--ion-card-background
+--ion-border-color
+--ion-toolbar-background
+--ion-tab-bar-background
+
+---------- File names
+
+ionic.globals:
+- ionic.functions.string
+- ionic.functions.color
+- ionic.mixins
+- ionic.theme.default

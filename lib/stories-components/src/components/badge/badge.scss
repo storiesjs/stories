@@ -1,0 +1,78 @@
+@import "../../themes/stories.globals";
+
+// Badge
+// --------------------------------------------------
+
+/// @prop - Padding top of the badge
+$badge-padding-top:               3px !default;
+
+/// @prop - Padding end of the badge
+$badge-padding-end:               8px !default;
+
+/// @prop - Padding bottom of the badge
+$badge-padding-bottom:            $badge-padding-top !default;
+
+/// @prop - Padding start of the badge
+$badge-padding-start:             $badge-padding-end !default;
+
+/// @prop - Minimum width of the badge
+$badge-min-width:                 10px !default;
+
+/// @prop - Font size of the badge
+$badge-font-size:                 13px !default;
+
+/// @prop - Font weight of the badge
+$badge-font-weight:               bold !default;
+
+// Badge
+// --------------------------------------------------
+
+:host {
+  /**
+   * @prop --background: Background of the badge
+   * @prop --color: Text color of the badge
+   *
+   * @prop --padding-top: Top padding of the badge
+   * @prop --padding-end: Right padding if direction is left-to-right, and left padding if direction is right-to-left of the badge
+   * @prop --padding-bottom: Bottom padding of the badge
+   * @prop --padding-start: Left padding if direction is left-to-right, and right padding if direction is right-to-left of the badge
+   */
+  --background: #{stories-color(primary, base)};
+  --color: #{stories-color(primary, contrast)};
+  --padding-top: #{$badge-padding-top};
+  --padding-end: #{$badge-padding-end};
+  --padding-bottom: #{$badge-padding-bottom};
+  --padding-start: #{$badge-padding-start};
+
+  @include font-smoothing();
+  @include padding(var(--padding-top), var(--padding-end), var(--padding-bottom), var(--padding-start));
+
+  display: inline-block;
+
+  min-width: $badge-min-width;
+
+  background: var(--background);
+  color: var(--color);
+
+  font-family: $font-family-base;
+  font-size: $badge-font-size;
+  font-weight: $badge-font-weight;
+
+  line-height: 1;
+
+  text-align: center;
+
+  white-space: nowrap;
+
+  contain: content;
+  vertical-align: baseline;
+}
+
+:host(.stories-color) {
+  background: #{current-color(base)};
+  color: #{current-color(contrast)};
+}
+
+:host(:empty) {
+  display: none;
+}

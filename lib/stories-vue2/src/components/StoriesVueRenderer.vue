@@ -1,5 +1,7 @@
 <script lang="ts">
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import Vue, { ComponentOptions, RenderContext, VueConstructor } from "vue";
 import { extractProps } from "./utils";
 import { CreateElement } from "vue/types/umd";
@@ -89,7 +91,7 @@ export function decorateStory(
       (context: StoryContext<VueFramework>) => {
         let story!: VueFramework['storyResult'];
 
-        const decoratedStory: VueFramework['storyResult'] = decorator((update) => {
+        const decoratedStory: VueFramework['storyResult'] = decorator((update: any) => {
           story = decorated({ ...context, ...sanitizeStoryContextUpdate(update) });
           return story;
         }, context);
@@ -104,7 +106,7 @@ export function decorateStory(
 
         return prepare(decoratedStory, story as any);
       },
-    (context) => prepare(storyFn(context))
+    (context: any) => prepare(storyFn(context))
   );
 }
 
@@ -122,7 +124,9 @@ const StoryVueRenderer = Vue.extend({
       const decorators: DecoratorFunction[] = story.decorators || [];
       const context: StoryContext = {
         args: story.args || {}, 
-        argTypes: {}
+        argTypes: {},
+        parameters: {},
+        initialArgs: {}
       };
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const r = decorateStory(storyFn, decorators) as any;

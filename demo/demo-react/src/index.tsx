@@ -2,12 +2,12 @@ import React, { ReactElement } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Stories from './Stories';
+import Stories from './stories/Stories';
 import reportWebVitals from './reportWebVitals';
 
 let app: ReactElement;
 
-if (!process.env.STORIES) {
+if (process.env.REACT_APP_STORIES) {
   app = <Stories/>;
 } else {
   app = <App/>;

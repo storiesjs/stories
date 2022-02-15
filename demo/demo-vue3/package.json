@@ -1,5 +1,5 @@
 {
-  "name": "demo-vue-3",
+  "name": "demo-vue3",
   "version": "0.1.0",
   "license": "GPL-2.0",
   "private": true,
@@ -9,11 +9,11 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "clean": "rimraf dist",
-    "scan": "stories-cli --from ./src --output ./stories-list.ts"
+    "scan": "stories-cli --from ./src --output ./stories-list.ts",
+    "stories": "VUE_APP_STORIES=true vue-cli-service serve"
   },
   "dependencies": {
-    "@stories/stories-common": "^0.1.0",
-    "@stories/stories-ui": "^0.1.0",
+    "@stories/stories-components": "^0.1.0",
     "@stories/stories-vue3": "^0.1.0",
     "vue": "^3.0.0"
   },

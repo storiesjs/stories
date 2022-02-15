@@ -6,7 +6,6 @@ Vue.config.productionTip = false
 
 let app: VueConstructor<Vue>;
 
-console.log('process.env', process.env);
 if (process.env.VUE_APP_STORIES) {
   app = Stories;
 } else {

@@ -1,0 +1,149 @@
+/* Stories Variables and Theming.  */
+
+/** Stories CSS Variables **/
+:root {
+  /** primary **/
+  --stories-color-primary: #3880ff;
+  --stories-color-primary-rgb: 56, 128, 255;
+  --stories-color-primary-contrast: #ffffff;
+  --stories-color-primary-contrast-rgb: 255, 255, 255;
+  --stories-color-primary-shade: #3171e0;
+  --stories-color-primary-tint: #4c8dff;
+
+  /** secondary **/
+  --stories-color-secondary: #3dc2ff;
+  --stories-color-secondary-rgb: 61, 194, 255;
+  --stories-color-secondary-contrast: #ffffff;
+  --stories-color-secondary-contrast-rgb: 255, 255, 255;
+  --stories-color-secondary-shade: #36abe0;
+  --stories-color-secondary-tint: #50c8ff;
+
+  /** tertiary **/
+  --stories-color-tertiary: #5260ff;
+  --stories-color-tertiary-rgb: 82, 96, 255;
+  --stories-color-tertiary-contrast: #ffffff;
+  --stories-color-tertiary-contrast-rgb: 255, 255, 255;
+  --stories-color-tertiary-shade: #4854e0;
+  --stories-color-tertiary-tint: #6370ff;
+
+  /** success **/
+  --stories-color-success: #2dd36f;
+  --stories-color-success-rgb: 45, 211, 111;
+  --stories-color-success-contrast: #ffffff;
+  --stories-color-success-contrast-rgb: 255, 255, 255;
+  --stories-color-success-shade: #28ba62;
+  --stories-color-success-tint: #42d77d;
+
+  /** warning **/
+  --stories-color-warning: #ffc409;
+  --stories-color-warning-rgb: 255, 196, 9;
+  --stories-color-warning-contrast: #000000;
+  --stories-color-warning-contrast-rgb: 0, 0, 0;
+  --stories-color-warning-shade: #e0ac08;
+  --stories-color-warning-tint: #ffca22;
+
+  /** danger **/
+  --stories-color-danger: #eb445a;
+  --stories-color-danger-rgb: 235, 68, 90;
+  --stories-color-danger-contrast: #ffffff;
+  --stories-color-danger-contrast-rgb: 255, 255, 255;
+  --stories-color-danger-shade: #cf3c4f;
+  --stories-color-danger-tint: #ed576b;
+
+  /** dark **/
+  --stories-color-dark: #222428;
+  --stories-color-dark-rgb: 34, 36, 40;
+  --stories-color-dark-contrast: #ffffff;
+  --stories-color-dark-contrast-rgb: 255, 255, 255;
+  --stories-color-dark-shade: #1e2023;
+  --stories-color-dark-tint: #383a3e;
+
+  /** medium **/
+  --stories-color-medium: #92949c;
+  --stories-color-medium-rgb: 146, 148, 156;
+  --stories-color-medium-contrast: #ffffff;
+  --stories-color-medium-contrast-rgb: 255, 255, 255;
+  --stories-color-medium-shade: #808289;
+  --stories-color-medium-tint: #9d9fa6;
+
+  /** light **/
+  --stories-color-light: #f4f5f8;
+  --stories-color-light-rgb: 244, 245, 248;
+  --stories-color-light-contrast: #000000;
+  --stories-color-light-contrast-rgb: 0, 0, 0;
+  --stories-color-light-shade: #d7d8da;
+  --stories-color-light-tint: #f5f6f9;
+}
+
+@media (prefers-color-scheme: dark) {
+  /*
+   * Dark Colors
+   * -------------------------------------------
+   */
+
+  body {
+    --stories-color-primary: #428cff;
+    --stories-color-primary-rgb: 66,140,255;
+    --stories-color-primary-contrast: #ffffff;
+    --stories-color-primary-contrast-rgb: 255,255,255;
+    --stories-color-primary-shade: #3a7be0;
+    --stories-color-primary-tint: #5598ff;
+
+    --stories-color-secondary: #50c8ff;
+    --stories-color-secondary-rgb: 80,200,255;
+    --stories-color-secondary-contrast: #ffffff;
+    --stories-color-secondary-contrast-rgb: 255,255,255;
+    --stories-color-secondary-shade: #46b0e0;
+    --stories-color-secondary-tint: #62ceff;
+
+    --stories-color-tertiary: #6a64ff;
+    --stories-color-tertiary-rgb: 106,100,255;
+    --stories-color-tertiary-contrast: #ffffff;
+    --stories-color-tertiary-contrast-rgb: 255,255,255;
+    --stories-color-tertiary-shade: #5d58e0;
+    --stories-color-tertiary-tint: #7974ff;
+
+    --stories-color-success: #2fdf75;
+    --stories-color-success-rgb: 47,223,117;
+    --stories-color-success-contrast: #000000;
+    --stories-color-success-contrast-rgb: 0,0,0;
+    --stories-color-success-shade: #29c467;
+    --stories-color-success-tint: #44e283;
+
+    --stories-color-warning: #ffd534;
+    --stories-color-warning-rgb: 255,213,52;
+    --stories-color-warning-contrast: #000000;
+    --stories-color-warning-contrast-rgb: 0,0,0;
+    --stories-color-warning-shade: #e0bb2e;
+    --stories-color-warning-tint: #ffd948;
+
+    --stories-color-danger: #ff4961;
+    --stories-color-danger-rgb: 255,73,97;
+    --stories-color-danger-contrast: #ffffff;
+    --stories-color-danger-contrast-rgb: 255,255,255;
+    --stories-color-danger-shade: #e04055;
+    --stories-color-danger-tint: #ff5b71;
+
+    --stories-color-dark: #f4f5f8;
+    --stories-color-dark-rgb: 244,245,248;
+    --stories-color-dark-contrast: #000000;
+    --stories-color-dark-contrast-rgb: 0,0,0;
+    --stories-color-dark-shade: #d7d8da;
+    --stories-color-dark-tint: #f5f6f9;
+
+    --stories-color-medium: #989aa2;
+    --stories-color-medium-rgb: 152,154,162;
+    --stories-color-medium-contrast: #000000;
+    --stories-color-medium-contrast-rgb: 0,0,0;
+    --stories-color-medium-shade: #86888f;
+    --stories-color-medium-tint: #a2a4ab;
+
+    --stories-color-light: #222428;
+    --stories-color-light-rgb: 34,36,40;
+    --stories-color-light-contrast: #ffffff;
+    --stories-color-light-contrast-rgb: 255,255,255;
+    --stories-color-light-shade: #1e2023;
+    --stories-color-light-tint: #383a3e;
+  }
+
+}

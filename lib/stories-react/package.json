@@ -10,11 +10,14 @@
     "url": "https://github.com/ionic-team/ionic.git"
   },
   "scripts": {
-    "build": "npm run clean && npm run compile",
+    "build": "yarn run clean && yarn run compile",
+    "build.watch": "yarn run clean && yarn run compile --watch",
     "clean": "rimraf dist",
-    "compile": "npm run tsc",
+    "compile": "yarn run tsc",
     "tsc": "tsc -p .",
-    "rollup": "rollup -c"
+    "rollup": "rollup -c",
+    "test": "jest --coverage",
+    "test.watch": "jest --watch"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -36,12 +39,11 @@
   "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "@stories/stories-common": "0.1.0",
-    "@stories/stories-ui": "0.1.0"
+    "@stories/stories-components": "0.1.0"
   },
   "jest": {
     "preset": "ts-jest",
-    "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js",
+    "setupFilesAfterEnv": ["./jest.setup.js"],
     "testPathIgnorePatterns": [
       "node_modules",
       "dist"

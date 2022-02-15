@@ -1,5 +1,8 @@
-import React, { createElement } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React from "react";
 import type { FC } from "react";
+
+import { prepareStory } from "./helpers";
 
 import type { StoryComponent, StoryContext } from ".";
 
@@ -10,12 +13,11 @@ export interface StoriesReactRendererProps {
 
 const EMPTY: JSX.Element = <></>;
 
-export const StoriesReactRenderer: FC<StoriesReactRendererProps> = ({ story, context }) => {
-    console.log('StoriesReactRenderer.render', story, context)
-    if (story) {
-        const Component  = story.storyFn;
-        const args = (context && context.args) || story.args;
-        return createElement(Component, args);
+export const StoriesReactRenderer: FC<StoriesReactRendererProps> = ({ story, context }): React.ReactElement => {
+    if (story && context) {
+        const decoratedStory = prepareStory(story);
+        return decoratedStory(context || {});
     }
     return EMPTY;
 };
+
