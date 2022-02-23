@@ -11,7 +11,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name stories-vue3 src/index.ts",
     "lint": "vue-cli-service lint",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "test": "echo stories-vue2 testing"
   },
   "peerDependencies": {
     "@stories/stories-components": "0.1.0",

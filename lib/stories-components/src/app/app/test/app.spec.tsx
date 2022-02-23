@@ -34,20 +34,7 @@ describe('stories-app', () => {
       'myStory': {}
     };
     const storyModules: StoryModules = [storyModule];
-    const storyChange = jest.fn(event => {
-      expect(event.detail).toEqual({
-        "argTypes": {},
-        "args": {},
-        "component": {},
-        "decorators": [],
-        "kinds": ["title"],
-        "parameters": {},
-        "storyFn": {},
-        "storyId": "title--my-story",
-        "storyName": "My Story",
-        "subcomponents": [],
-      })
-    });
+    const storyChange = jest.fn();
     const { root } = await newSpecPage({
       components: [App],
       template: () => (<stories-app modules={storyModules} onStoryChange={storyChange}></stories-app>),

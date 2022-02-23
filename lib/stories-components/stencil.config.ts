@@ -7,6 +7,14 @@ import { angularOutputTarget as angular } from '@stencil/angular-output-target';
 
 export const config: Config = {
   namespace: 'stories-components',
+  testing: {
+    rootDir: __dirname,
+    testPathIgnorePatterns: [
+      "node_modules",
+      "loader",
+      "dist"
+    ],
+  },
   plugins: [
     sass()
   ],
