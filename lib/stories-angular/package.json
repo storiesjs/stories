@@ -1,21 +1,28 @@
 {
   "name": "@stories/stories-angular",
+  "sideEffects": false,
   "version": "0.1.0",
+  "license": "GPL-2.0",
+  "private": true,
+  "description": "Angular wrapper for custom elements of Stories to be used as first-class Angular components and Angular Stories renderer",
   "main": "dist/bundles/stories-stories-angular.umd.js",
   "module": "dist/fesm2015/stories-stories-angular.js",
   "es2015": "dist/fesm2015/stories-stories-angular.js",
   "esm2015": "dist/esm2015/stories-stories-angular.js",
   "fesm2015": "dist/fesm2015/stories-stories-angular.js",
   "typings": "dist/stories-stories-angular.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/storiesjs/stories.git"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "build.watch": "ng build --watch --configuration development",
     "test": "ng test",
     "clean": "rimraf dist"
   },
-  "private": true,
   "peerDependencies": {
     "@angular/animations": "~12.0.5",
     "@angular/common": "~12.0.5",

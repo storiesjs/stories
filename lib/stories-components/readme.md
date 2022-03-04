@@ -7,33 +7,31 @@ Stencil combines the best concepts of the most popular frontend frameworks into 
 
 Stencil components are just Web Components, so they work in any major framework or with no framework at all.
 
-## Getting Started
+## Clone and buyild yourself
 
-To start building a new web component using Stencil, clone this repo to a new directory:
+To start building a Stories web component using Stencil, clone this repo to a new directory:
 
 ```bash
-git clone https://github.com/ionic-team/stencil-component-starter.git my-component
-cd my-component
-git remote rm origin
+git clone https://github.com/storiesjs/stories.git stories
+cd stories
 ```
 
 and run:
 
 ```bash
-npm install
-npm start
+yarn install
 ```
 
 To build the component for production, run:
 
 ```bash
-npm run build
+yarn run build:all
 ```
 
 To run the unit tests for the components, run:
 
 ```bash
-npm test
+yarn run test:all
 ```
 
 Need help? Check out our docs [here](https://stenciljs.com/docs/my-first-component).
@@ -41,10 +39,12 @@ Need help? Check out our docs [here](https://stenciljs.com/docs/my-first-compone
 
 ## Naming Components
 
-When creating new component tags, we recommend _not_ using `stencil` in the component name (ex: `<stencil-datepicker>`). This is because the generated component has little to nothing to do with Stencil; it's just a web component!
+When creating new component tags, we recommend _not_ using `stencil` in the component name (ex: `<stencil-datepicker>`). This is because the generated component has little to nothing to do with Stencil; it's just a web component! 
 
-Instead, use a prefix that fits your company or any name for a group of related components. For example, all of the Ionic generated web components use the prefix `ion`.
-
+Instead, use a prefix that fits your company or any name for a group of related components. For example, all of the Stories generated web components use the prefix `stories`. Run the following script in your terminal, answer several questions to generate new web component:
+```bash
+yarn run generate
+```
 
 ## Using this component
 

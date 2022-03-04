@@ -1,12 +1,20 @@
 {
   "name": "@stories/stories-vue2",
+  "sideEffects": false,
   "version": "0.1.0",
   "license": "GPL-2.0",
   "private": true,
-  "sideEffects": false,
-  "files": ["dist/*", "types/*"],
+  "description": "Vue 2 wrapper for custom elements of Stories to be used as first-class Vue 2 components and Vue 2 Stories renderer",
   "main": "./dist/stories-vue2.common.js",
   "types": "./types/index.d.ts",
+  "files": [
+    "dist/*", 
+    "types/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/storiesjs/stories.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name stories-vue2 src/index.ts",

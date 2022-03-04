@@ -49,7 +49,13 @@
     "test:demo:vue3": "nx test demo-vue3"
 
   },
-  "repository": "git@github.com:storiesjs/storiesjs.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/storiesjs/storiesjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/storiesjs/storiesjs/issues"
+  },
   "author": "akserg <akserg@gmail.com>",
   "license": "GPL-2.0",
   "main": "index.js",
