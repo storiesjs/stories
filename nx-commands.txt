@@ -1,0 +1,53 @@
+
+
+"build:all": "nx run-many --target=build --all",
+"build:components": "nx build stories-components",
+"build:react": "nx build stories-react",
+"build:angular": "nx build stories-angular",
+"build:vue2": "nx build stories-vue2",
+"build:vue3": "nx build stories-vue3",
+"build:demo:react": "nx build demo-react",
+"build:demo:angular": "nx build demo-angular",
+"build:demo:vue2": "nx build demo-vue2",
+"build:demo:vue3": "nx build demo-vue3",
+
+"build:since": "nx affected --target=build",
+"test:all": "nx run-many --target=test --all",
+"test:components": "nx test stories-components",
+"test:react": "nx test stories-react",
+"test:angular": "nx test stories-angular",
+"test:vue2": "nx test stories-vue2",
+"test:vue3": "nx test stories-vue3",
+
+"test:since": "nx affected --target=test",
+"dev": "nx run-many --target=dev --all",
+"dev:app1": "nx dev app1"
+
+
+LERNA
+
+
+
+"build:all": "lerna run build",
+"build:components": "lerna run build --scope=@stories/stories-components",
+"build:react": "lerna run build --scope=@stories/stories-react",
+"build:angular": "lerna run build --scope=@stories/stories-angular",
+"build:vue2": "lerna run build --scope=@stories/stories-vue2",
+"build:vue3": "lerna run build --scope=@stories/stories-vue3",
+
+"build:demo:react": "lerna run build --scope=@stories/demo-react",
+"build:demo:angular": "lerna run build --scope=@stories/demo-angular",
+"build:demo:vue2": "lerna run build --scope=@stories/demo-vue2",
+"build:demo:vue3": "lerna run build --scope=@stories/demo-vue3",
+
+ "build:since": "lerna run build --since=main",
+"test:components": "lerna run test --scope=@stories/stories-components",
+"test:react": "lerna run test --scope=@stories/stories-react",
+"test:angular": "lerna run test --scope=@stories/stories-angular",
+"test:vue2": "lerna run test --scope=@stories/stories-vue2",
+"test:vue3": "lerna run test --scope=@stories/stories-vue3",
+
+"test:app1": "lerna run test --scope=app1",
+"test:since": "lerna run test --since=main",
+"dev": "lerna run dev --stream --parallel",
+"dev:app1": "lerna run dev --stream --scope=app1"

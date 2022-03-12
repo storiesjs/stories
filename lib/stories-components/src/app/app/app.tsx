@@ -67,8 +67,8 @@ export class App {
     // this.addons.storyContextChanged(story, context);
   };
 
-  componentWillLoad(): void {
-    console.log('componentWillLoad',this.modules )
+  componentDidLoad(): void {
+    console.log('componentDidLoad',this.modules )
     api.setStories(this.modules);
     // Update internal state and sync it with hash
     this.onHash();

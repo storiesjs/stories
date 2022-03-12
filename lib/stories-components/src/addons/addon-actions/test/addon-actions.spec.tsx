@@ -16,9 +16,6 @@ describe('stories-addon-actions', () => {
         </mock:shadow-root>
         <stories-addon-actions>
           <mock:shadow-root>
-            <stories-label>
-              Addon Actions
-            </stories-label>
             <ul></ul>
           </mock:shadow-root>
         </stories-addon-actions>

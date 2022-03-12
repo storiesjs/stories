@@ -13,6 +13,13 @@
 | `position` | `position` | The position determines where and how the label behaves inside an item.                                                                                                                                                                                                | `"fixed" \| "floating" \| "stacked"` | `'fixed'`   |
 
 
+## CSS Custom Properties
+
+| Name      | Description        |
+| --------- | ------------------ |
+| `--color` | Color of the label |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

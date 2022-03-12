@@ -1,7 +1,7 @@
 {
   "name": "@stories/main",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "workspaces": {
     "packages": [
       "lib/*",
@@ -22,15 +22,41 @@
     "rm_nm": "find . -name node_modules -type d -exec rm -rf {} +",
     "lint": "eslint '**/*.ts?(x)' --fix",
     "format": "prettier --write '**/*.{js,jsx,ts,tsx,md,mdx}'",
-    "build": "yarn workspace @stories/stories-common run build && yarn workspace @stories/stories-ui run build && yarn workspace @stories/stories-react run build && yarn workspace @stories/stories-angular run build && yarn workspace @stories/stories-vue2 run build && yarn workspace @stories/stories-vue3 run build",
-    "clean": "yarn workspaces run clean",
-    "demo:angular": "yarn workspace demo-angular start",
-    "demo:react": "yarn workspace demo-react stories",
-    "demo:vue2": "yarn workspace demo-vue2 stories",
-    "demo:vue3": "yarn workspace demo-vue3 stories"
+    
+    "build:all": "nx run-many --target=build --all",
+    "build:components": "nx build stories-components",
+    "build:react": "nx build stories-react",
+    "build:angular": "nx build stories-angular",
+    "build:vue2": "nx build stories-vue2",
+    "build:vue3": "nx build stories-vue3",
+    "build:demo:react": "nx build demo-react",
+    "build:demo:angular": "nx build demo-angular",
+    "build:demo:vue2": "nx build demo-vue2",
+    "build:demo:vue3": "nx build demo-vue3",
+    
+
+    "build:since": "nx affected --target=build",
+    "test:all": "nx run-many --target=test --all",
+    "test:components": "nx test stories-components",
+    "test:react": "nx test stories-react",
+    "test:angular": "nx test stories-angular",
+    "test:vue2": "nx test stories-vue2",
+    "test:vue3": "nx test stories-vue3",
+    
+    "test:demo:react": "nx test demo-react",
+    "test:demo:angular": "nx test demo-angular",
+    "test:demo:vue2": "nx test demo-vue2",
+    "test:demo:vue3": "nx test demo-vue3"
+
   },
-  "repository": "git@github.com:storiesjs/storiesjs.git",
-  "author": "akserg <akserg@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/storiesjs/storiesjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/storiesjs/storiesjs  /issues"
+  },
+  "author": "STORIESJS <support@storiesjs.org>",
   "license": "GPL-2.0",
   "main": "index.js",
   "devDependencies": {
@@ -47,11 +73,13 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
     "eslint-plugin-vue": "^6.2.2",
-    "lerna": "^4.0.0",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "rimraf": "^2.6.1",
-    "typescript": "~4.2.3"
+    "typescript": "~4.2.3",
+    "@nrwl/workspace": "latest",
+    "@nrwl/cli": "latest",
+    "@nrwl/tao": "latest"
   },
   "resolutions": {
     "babel-loader": "8.1.0",
