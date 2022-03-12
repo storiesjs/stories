@@ -1,9 +1,10 @@
 # Stories
-[Stories](https://storiesjs.org) is an set of open source libraries for vieweing and developing UI components and pages working in isolation. You can develop UI for different frameworks and libraries. Here is the list of tested and supporting now:
+[Stories](https://storiesjs.org) is an set of web components for vieweing and developing UI components and pages working in isolation. You can develop UI for different frameworks and libraries. Here is the list of tested and supporting now:
 - Angular
 - React
 - Vue
 
+<!--
 The list of frameworks and libraries will be supported soon (in alphabetical order):
 - Aurelia
 - Ember
@@ -21,7 +22,7 @@ The list of frameworks and libraries will be supported soon (in alphabetical ord
 - Web Components
   - Lit
   - Polymer
-
+-->
 Add issue to request support for your framework or library now
 
 
