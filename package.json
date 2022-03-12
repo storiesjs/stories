@@ -1,7 +1,7 @@
 {
   "name": "@stories/main",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "workspaces": {
     "packages": [
       "lib/*",
@@ -56,7 +56,7 @@
   "bugs": {
     "url": "https://github.com/storiesjs/storiesjs  /issues"
   },
-  "author": "akserg <akserg@gmail.com>",
+  "author": "STORIESJS <support@storiesjs.org>",
   "license": "GPL-2.0",
   "main": "index.js",
   "devDependencies": {
