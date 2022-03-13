@@ -3,7 +3,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, NgZone } from '@angular/core';
 import { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';
 
-import { Components } from '@stories/stories-components';
+import { Components } from '@stories-js/stories-components';
 
 
 
@@ -28,7 +28,7 @@ export class StoriesActionBar {
   }
 }
 
-import type { ActionEvent as IActionButtonActionEvent } from '@stories/stories-components';
+import type { ActionEvent as IActionButtonActionEvent } from '@stories-js/stories-components';
 export declare interface StoriesActionButton extends Components.StoriesActionButton {
   /**
    * Action Event 
@@ -116,8 +116,8 @@ export class StoriesAddons {
   }
 }
 
-import type { StoryComponent as IAppStoryComponent } from '@stories/stories-components';
-import type { StoryContext as IAppStoryContext } from '@stories/stories-components';
+import type { StoryComponent as IAppStoryComponent } from '@stories-js/stories-components';
+import type { StoryContext as IAppStoryContext } from '@stories-js/stories-components';
 export declare interface StoriesApp extends Components.StoriesApp {
   /**
    *  
@@ -227,7 +227,7 @@ export class StoriesButtons {
   }
 }
 
-import type { CheckboxChangeEventDetail as ICheckboxCheckboxChangeEventDetail } from '@stories/stories-components';
+import type { CheckboxChangeEventDetail as ICheckboxCheckboxChangeEventDetail } from '@stories-js/stories-components';
 export declare interface StoriesCheckbox extends Components.StoriesCheckbox {
   /**
    * Emitted when the checked property has changed. 
@@ -345,7 +345,7 @@ export class StoriesIcon {
   }
 }
 
-import type { InputChangeEventDetail as IInputInputChangeEventDetail } from '@stories/stories-components';
+import type { InputChangeEventDetail as IInputInputChangeEventDetail } from '@stories-js/stories-components';
 export declare interface StoriesInput extends Components.StoriesInput {
   /**
    * Emitted when a keyboard input occurred. 
@@ -464,7 +464,7 @@ export class StoriesRow {
   }
 }
 
-import type { SearchbarChangeEventDetail as ISearchbarSearchbarChangeEventDetail } from '@stories/stories-components';
+import type { SearchbarChangeEventDetail as ISearchbarSearchbarChangeEventDetail } from '@stories-js/stories-components';
 export declare interface StoriesSearchbar extends Components.StoriesSearchbar {
   /**
    * Emitted when a keyboard input occurred. 
@@ -662,7 +662,7 @@ export class StoriesToolBar {
   }
 }
 
-import type { ToolEvent as IToolButtonToolEvent } from '@stories/stories-components';
+import type { ToolEvent as IToolButtonToolEvent } from '@stories-js/stories-components';
 export declare interface StoriesToolButton extends Components.StoriesToolButton {
   /**
    * Action Event 

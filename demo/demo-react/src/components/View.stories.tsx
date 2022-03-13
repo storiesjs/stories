@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, Story } from '@stories/stories-react';
+import { Meta, Story } from '@stories-js/stories-react';
 
 import { View, ViewType } from "./View";
 

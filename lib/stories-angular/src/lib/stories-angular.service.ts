@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import type { StoryModules } from '@stories/stories-components';
+import type { StoryModules } from '@stories-js/stories-components';
 
 @Injectable({
   providedIn: 'root'

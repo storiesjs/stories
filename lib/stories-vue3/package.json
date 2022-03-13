@@ -1,9 +1,8 @@
 {
-  "name": "@stories/stories-vue3",
+  "name": "@stories-js/stories-vue3",
   "sideEffects": false,
   "version": "0.1.0",
   "license": "GPL-2.0",
-  "private": false,
   "author": "StoriesJS team",
   "description": "Vue 3 Stories renderer and wrapper for custom elements of Stories to be used as first-class Vue 3 components",
   "keywords": [
@@ -46,7 +45,7 @@
     "test": "echo stories-vue2 testing"
   },
   "peerDependencies": {
-    "@stories/stories-components": "0.1.0",
+    "@stories-js/stories-components": "0.1.0",
     "vue": "^3.0.0"
   },
   "devDependencies": {

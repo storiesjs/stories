@@ -7,7 +7,7 @@ import type {
     StoryContext as BaseStoryContext, 
     DecoratorFunction as BaseDecoratorFunction, 
     AnyFramework
-} from "@stories/stories-components";
+} from "@stories-js/stories-components";
 import { AsyncComponent, Component } from "vue";
 
 export type StoryFnVueReturnType = string | Component;

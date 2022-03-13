@@ -1,11 +1,14 @@
 {
-  "name": "@stories/stories-cli",
+  "name": "@stories-js/stories-cli",
   "sideEffects": false,
   "version": "0.1.0",
   "license": "GPL-2.0",
-  "private": false,
   "author": "StoriesJS team",
   "description": "Stories CLI to manage list of stories in UI",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "keywords": [
     "stories",
     "storiesjs",

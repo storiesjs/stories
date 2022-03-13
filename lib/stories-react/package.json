@@ -1,11 +1,14 @@
 {
-  "name": "@stories/stories-react",
+  "name": "@stories-js/stories-react",
   "sideEffects": false,
   "version": "0.1.0",
   "license": "GPL-2.0",
-  "private": false,
   "author": "StoriesJS team",
   "description": "React Stories renderer and wrapper for custom elements of Stories to be used as first-class React components",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "keywords": [
     "stories",
     "storiesjs",
@@ -63,7 +66,7 @@
   "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "@stories/stories-components": "0.1.0"
+    "@stories-js/stories-components": "0.1.0"
   },
   "jest": {
     "preset": "ts-jest",

@@ -1,7 +1,7 @@
 {
-  "name": "@stories/main",
+  "name": "@stories-js/main",
   "version": "0.0.1",
-  "private": false,
+  "private": true,
   "workspaces": {
     "packages": [
       "lib/*",

@@ -1,11 +1,14 @@
 {
-  "name": "@stories/stories-components",
+  "name": "@stories-js/stories-components",
   "sideEffects": false,
   "version": "0.1.0",
   "license": "GPL-2.0",
-  "private": false,
   "author": "StoriesJS team",
   "description": "Stories web components to build stories",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "keywords": [
     "stories",
     "storiesjs",

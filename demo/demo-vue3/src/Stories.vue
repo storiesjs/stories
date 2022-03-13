@@ -36,11 +36,11 @@
 import {
   applyPolyfills,
   defineCustomElements,
-} from "@stories/stories-components/loader";
+} from "@stories-js/stories-components/loader";
 import { defineComponent } from "vue";
-import { StoryComponent, StoryContext } from "@stories/stories-components";
+import { StoryComponent, StoryContext } from "@stories-js/stories-components";
 
-import { StoryVueRenderer } from "@stories/stories-vue3";
+import { StoryVueRenderer } from "@stories-js/stories-vue3";
 
 import storyModules from "./stories-list";
 

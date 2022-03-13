@@ -3,9 +3,9 @@
 /* auto-generated react proxies */
 import { createReactComponent } from './react-component-lib';
 
-import type { JSX } from '@stories/stories-components';
+import type { JSX } from '@stories-js/stories-components';
 
-import { defineCustomElements } from '@stories/stories-components/loader';
+import { defineCustomElements } from '@stories-js/stories-components/loader';
 
 defineCustomElements();
 export const StoriesActionBar = /*@__PURE__*/createReactComponent<JSX.StoriesActionBar, HTMLStoriesActionBarElement>('stories-action-bar');

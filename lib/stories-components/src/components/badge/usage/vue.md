@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { StoriesBadge, StoriesButton, StoriesLabel } from '@stories/vue';
+import { StoriesBadge, StoriesButton, StoriesLabel } from '@stories-js/vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({

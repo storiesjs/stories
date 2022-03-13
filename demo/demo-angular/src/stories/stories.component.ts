@@ -2,9 +2,9 @@ import type { OnInit } from '@angular/core';
 import { HostListener } from '@angular/core';
 import { Component } from '@angular/core';
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
-import { StoriesAngularService } from '@stories/stories-angular';
-import type { StoryComponent } from '@stories/stories-angular';
-import type { StoryContext, StoryModules } from '@stories/stories-components';
+import { StoriesAngularService } from '@stories-js/stories-angular';
+import type { StoryComponent } from '@stories-js/stories-angular';
+import type { StoryContext, StoryModules } from '@stories-js/stories-components';
 
 @Component({
   selector: 'app-root',

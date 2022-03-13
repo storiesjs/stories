@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
-import type { Args, Meta as BesaMeta, Story as BaseStory, StoryFn, StoryComponent as BaseStoryComponent, StoryContext as BaseStoryContext } from "@stories/stories-components";
+import type { Args, Meta as BesaMeta, Story as BaseStory, StoryFn, StoryComponent as BaseStoryComponent, StoryContext as BaseStoryContext } from "@stories-js/stories-components";
 
-export { StoryComponents } from "@stories/stories-components";
+export { StoryComponents } from "@stories-js/stories-components";
 
 export type NgModuleMetadata = {
   declarations?: unknown[];

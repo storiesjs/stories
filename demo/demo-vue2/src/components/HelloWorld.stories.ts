@@ -1,4 +1,4 @@
-import { Meta, Story } from '@stories/stories-components';
+import { Meta, Story } from '@stories-js/stories-components';
 import HelloWorld from './HelloWorld.vue';
 
 export default {

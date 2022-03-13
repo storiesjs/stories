@@ -20,12 +20,12 @@ export const config: Config = {
   ],
   outputTargets: [
     react({
-      componentCorePackage: '@stories/stories-components',
+      componentCorePackage: '@stories-js/stories-components',
       proxiesFile: '../stories-react/src/components/stencil-generated/index.ts',
       includeDefineCustomElements: true,
     }),
     angular({
-      componentCorePackage: '@stories/stories-components',
+      componentCorePackage: '@stories-js/stories-components',
       directivesProxyFile: '../stories-angular/src/lib/stencil-generated/components.ts'
     }),
     {

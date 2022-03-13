@@ -37,7 +37,7 @@ Badges are inline block elements for adding context to another element. They cou
 
 ```tsx
 import React from 'react';
-import { StoriesBadge, StoriesButton, StoriesLabel } from '@stories/react';
+import { StoriesBadge, StoriesButton, StoriesLabel } from '@stories-js/react';
 
 export const BadgeExample: React.FC = () => (
   <div>
@@ -131,7 +131,7 @@ export class BadgeExample {
 </template>
 
 <script>
-import { StoriesBadge, StoriesButton, StoriesLabel } from '@stories/vue';
+import { StoriesBadge, StoriesButton, StoriesLabel } from '@stories-js/vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({

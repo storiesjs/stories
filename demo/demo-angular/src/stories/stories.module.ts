@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { StoriesAngularModule } from '@stories/stories-angular';
+import { StoriesAngularModule } from '@stories-js/stories-angular';
 // import {
 //   StoriesApp,
 //   StoriesSidebar,
@@ -15,7 +15,7 @@ import { StoriesAngularModule } from '@stories/stories-angular';
 //   StoriesTab,
 //   StoriesTabs,
 //   StoriesTabBar
-// } from '@stories/stories-angular';
+// } from '@stories-js/stories-angular';
 
 import { ButtonModule } from '../app/button/button.module';
 
