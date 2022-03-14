@@ -47,7 +47,7 @@ import { StoryVueRenderer } from "@stories-js/stories-vue2";
 import storyModules from "./stories-list";
 
 // https://v3.vuejs.org/guide/migration/custom-elements-interop.html#_2-x-syntax
-// Tell Vue to ignore all components defined in the stories-ui package.
+// Tell Vue to ignore all components defined in the stories-components package.
 Vue.config.ignoredElements = [/stories-\w*/];
 
 // Bind the custom elements to the window object

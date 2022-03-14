@@ -49,7 +49,8 @@
     "tsc": "tsc -p .",
     "rollup": "rollup -c",
     "test": "jest --coverage",
-    "test.watch": "jest --watch"
+    "test.watch": "jest --watch",
+    "pub": "yarn publish --access public"
   },
   "devDependencies": {
     "@types/jest": "23.3.9",

@@ -42,7 +42,8 @@
     "build": "vue-cli-service build --target lib --name stories-vue3 src/index.ts",
     "lint": "vue-cli-service lint",
     "clean": "rimraf dist",
-    "test": "echo stories-vue2 testing"
+    "test": "echo stories-vue2 testing",
+    "pub": "yarn publish --access public"
   },
   "peerDependencies": {
     "@stories-js/stories-components": "0.1.0",

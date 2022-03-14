@@ -55,7 +55,8 @@
     "test.e2e": "stencil test --e2e",
     "test.watch": "stencil test --spec --watchAll",
     "test.e2e.watch": "stencil test --e2e --watchAll",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "pub": "yarn publish --access public"
   },
   "dependencies": {
     "@stencil/angular-output-target": "^0.4.0",
