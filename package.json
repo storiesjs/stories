@@ -33,9 +33,8 @@
     "build:demo:angular": "nx build demo-angular",
     "build:demo:vue2": "nx build demo-vue2",
     "build:demo:vue3": "nx build demo-vue3",
-    
-
     "build:since": "nx affected --target=build",
+
     "test:all": "nx run-many --target=test --all",
     "test:components": "nx test stories-components",
     "test:react": "nx test stories-react",
@@ -46,8 +45,12 @@
     "test:demo:react": "nx test demo-react",
     "test:demo:angular": "nx test demo-angular",
     "test:demo:vue2": "nx test demo-vue2",
-    "test:demo:vue3": "nx test demo-vue3"
+    "test:demo:vue3": "nx test demo-vue3",
 
+    "start:demo:react": "nx run demo-react:stories",
+    "start:demo:angular": "nx run demo-angular:stories",
+    "start:demo:vue2": "nx run demo-vue2:stories",
+    "start:demo:vue3": "nx run demo-vue3:stories"
   },
   "repository": {
     "type": "git",

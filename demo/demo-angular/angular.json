@@ -63,6 +63,20 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "stories": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.stories.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -75,6 +89,9 @@
             },
             "development": {
               "browserTarget": "demo-angular:build:development"
+            },
+            "stories": {
+              "browserTarget": "demo-angular:build:stories"
             }
           },
           "defaultConfiguration": "development"

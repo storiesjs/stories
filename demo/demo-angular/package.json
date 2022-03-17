@@ -12,6 +12,7 @@
     "test": "jest --coverage",
     "test.watch": "jest -o --watch --coverage",
     "clean": "rimraf dist",
+    "stories": "ng serve --configuration stories",
     "scan": "stories-cli --from ./src --output ./stories/stories-list.ts"
   },
   "private": true,
