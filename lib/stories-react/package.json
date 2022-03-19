@@ -1,7 +1,7 @@
 {
   "name": "@stories-js/stories-react",
   "sideEffects": false,
-  "version": "0.1.0",
+  "version": "0.1.2",
   "license": "GPL-2.0",
   "author": "StoriesJS team",
   "description": "React Stories renderer and wrapper for custom elements of Stories to be used as first-class React components",
@@ -31,9 +31,9 @@
     "ui",
     "user interface"
   ],
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/types/index.d.ts",
   "files": [
     "dist/"
   ],
@@ -44,8 +44,8 @@
   "scripts": {
     "build": "yarn run clean && yarn run compile",
     "build.watch": "yarn run clean && yarn run compile --watch",
-    "clean": "rimraf dist",
-    "compile": "yarn run tsc",
+    "clean": "rimraf dist && rimraf dist-transpiled",
+    "compile": "yarn run tsc && rollup -c",
     "tsc": "tsc -p .",
     "rollup": "rollup -c",
     "test": "jest --coverage",
@@ -53,6 +53,8 @@
     "pub": "yarn publish --access public"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^8.1.0",
+    "@rollup/plugin-virtual": "^2.0.3",
     "@types/jest": "23.3.9",
     "@types/node": "^15.12.2",
     "@types/react": "^17.0.34",
@@ -62,12 +64,17 @@
     "np": "^3.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "rollup": "^2.26.4",
+    "rollup-plugin-sourcemaps": "^0.6.2",
     "ts-jest": "^26.5.4"
+  },
+  "dependencies": {
+    "tslib": "^2.1.0"
   },
   "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "@stories-js/stories-components": "0.1.0"
+    "@stories-js/stories-components": "^0.1.0"
   },
   "jest": {
     "preset": "ts-jest",

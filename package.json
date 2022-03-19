@@ -1,6 +1,6 @@
 {
   "name": "@stories-js/main",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "private": true,
   "workspaces": {
     "packages": [
@@ -24,6 +24,7 @@
     "format": "prettier --write '**/*.{js,jsx,ts,tsx,md,mdx}'",
     
     "build:all": "nx run-many --target=build --all",
+    "build:cli": "nx build stories-cli",
     "build:components": "nx build stories-components",
     "build:react": "nx build stories-react",
     "build:angular": "nx build stories-angular",

@@ -91,15 +91,15 @@ describe('<StoriesReactRenderer />', () => {
       // screen.debug(container)
     });
 
-    it('shows story without label', async () => {
+    it('shows story without label', () => {
       // expect(documentBody.getByText('Not Found')).toBeInTheDocument();
       // expect(documentBody.getByText('404')).toBeInTheDocument();
       expect(documentBody).toBeDefined();
       expect(container).toBeDefined();
       expect(container.innerHTML).toEqual('<button class="my-story">My Button</button>');
 
-      const button = container.querySelector('button');
-      await fireEvent.click(button);
+      const button = container.querySelector('button') as HTMLButtonElement;
+      fireEvent.click(button);
       expect(onClick).toHaveBeenCalled();
     });
   });

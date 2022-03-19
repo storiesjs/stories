@@ -71,7 +71,7 @@ describe('helpers', () => {
     });
 
     describe('prepareStory', () => {
-        it('should work with args', async () => {
+        it('should work with args', () => {
             const onClick = jest.fn();
             const story: StoryComponent = {
                 storyId: 'storyId',
@@ -96,12 +96,12 @@ describe('helpers', () => {
             expect(documentBody).toBeDefined();
             expect(documentBody.container.innerHTML).toEqual('<button name="Test Label"></button>');
 
-            const button = documentBody.container.querySelector('button');
-            await fireEvent.click(button);
+            const button = documentBody.container.querySelector('button') as HTMLButtonElement;
+            fireEvent.click(button);
             expect(onClick).toHaveBeenCalled();
         });
 
-        it('should return function for story with args', async () => {
+        it('should return function for story with args', () => {
             const onClick = jest.fn();
             const story: StoryComponent = {
                 storyId: 'storyId',
@@ -126,12 +126,12 @@ describe('helpers', () => {
             expect(documentBody).toBeDefined();
             expect(documentBody.container.innerHTML).toEqual('<button>Test Label</button>');
 
-            const button = documentBody.container.querySelector('button');
-            await fireEvent.click(button);
+            const button = documentBody.container.querySelector('button') as HTMLButtonElement;
+            fireEvent.click(button);
             expect(onClick).toHaveBeenCalled();
         });
 
-        it('should return function for story with args wrapped within decorators', async () => {
+        it('should return function for story with args wrapped within decorators', () => {
             const onClick = jest.fn();
             const story: StoryComponent = {
                 storyId: 'storyId',
@@ -139,7 +139,7 @@ describe('helpers', () => {
                 storyName: 'storyName',
                 storyFn: jest.fn((props: {label: string, onClick: (evt: any) => void}) => (<button onClick={props.onClick}>{props.label}</button>)),
                 decorators: [
-                    (Story) => (
+                    (Story: any) => (
                         <div style={{ margin: '3em' }}>
                             <Story />
                         </div>
@@ -163,8 +163,8 @@ describe('helpers', () => {
             expect(documentBody).toBeDefined();
             expect(documentBody.container.innerHTML).toEqual('<div style="margin: 3em;"><button>Test Label</button></div>');
 
-            const button = documentBody.container.querySelector('button');
-            await fireEvent.click(button);
+            const button = documentBody.container.querySelector('button') as HTMLButtonElement;
+            fireEvent.click(button);
             expect(onClick).toHaveBeenCalled();
         });
     });
