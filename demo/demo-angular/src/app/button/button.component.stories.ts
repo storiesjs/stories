@@ -1,4 +1,3 @@
-
 import type { Meta, Story } from '@stories-js/stories-angular';
 
 import { ButtonComponent } from './button.component';
