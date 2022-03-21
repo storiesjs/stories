@@ -22,7 +22,6 @@ import {
 import './variables.css';
 
 import modules from './stories-list';
-// import { StoriesReactRenderer } from './StoriesReactRenderer';
 
 function Stories() {
   const [story, setStory] = useState<StoryComponent | undefined>();

@@ -8,8 +8,6 @@ import {
   StoriesAddonControls,
   StoriesAddons,
 
-  StoriesActionBar,
-  StoriesActionButton,
   StoriesApp,
 
   StoriesIcon,
@@ -36,8 +34,6 @@ import { StoriesAngularService } from './stories-angular.service';
     StoriesAddonControls,
     StoriesAddons,
 
-    StoriesActionBar,
-    StoriesActionButton,
     StoriesApp,
 
     StoriesIcon,
@@ -64,8 +60,6 @@ import { StoriesAngularService } from './stories-angular.service';
     StoriesAddonControls,
     StoriesAddons,
 
-    StoriesActionBar,
-    StoriesActionButton,
     StoriesApp,
 
     StoriesIcon,

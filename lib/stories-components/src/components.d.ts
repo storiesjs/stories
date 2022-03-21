@@ -5,21 +5,9 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ActionEvent, ActionItem, ActionItems, CheckboxChangeEventDetail, Color, Commands, InputChangeEventDetail, RouterDirection, SearchbarChangeEventDetail, StyleEventDetail, TabBarChangedEventDetail, TabButtonClickEventDetail, TabButtonLayout, TextFieldTypes, ToolEvent } from "./types";
 import { Addon, AppState, StoryComponent, StoryContext, StoryModules } from ".";
+import { CheckboxChangeEventDetail, Color, Commands, InputChangeEventDetail, RouterDirection, SearchbarChangeEventDetail, StyleEventDetail, TabBarChangedEventDetail, TabButtonClickEventDetail, TabButtonLayout, TextFieldTypes, ToolEvent } from "./types";
 export namespace Components {
-    interface StoriesActionBar {
-        /**
-          * Action items
-         */
-        "actionItems": ActionItems;
-    }
-    interface StoriesActionButton {
-        /**
-          * ActionItem property
-         */
-        "actionItem": ActionItem;
-    }
     interface StoriesAddonActions {
         "storyContextChanged": (story: StoryComponent, context: StoryContext) => Promise<void>;
     }
@@ -492,18 +480,6 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLStoriesActionBarElement extends Components.StoriesActionBar, HTMLStencilElement {
-    }
-    var HTMLStoriesActionBarElement: {
-        prototype: HTMLStoriesActionBarElement;
-        new (): HTMLStoriesActionBarElement;
-    };
-    interface HTMLStoriesActionButtonElement extends Components.StoriesActionButton, HTMLStencilElement {
-    }
-    var HTMLStoriesActionButtonElement: {
-        prototype: HTMLStoriesActionButtonElement;
-        new (): HTMLStoriesActionButtonElement;
-    };
     interface HTMLStoriesAddonActionsElement extends Components.StoriesAddonActions, HTMLStencilElement {
     }
     var HTMLStoriesAddonActionsElement: {
@@ -673,8 +649,6 @@ declare global {
         new (): HTMLStoriesZoomElement;
     };
     interface HTMLElementTagNameMap {
-        "stories-action-bar": HTMLStoriesActionBarElement;
-        "stories-action-button": HTMLStoriesActionButtonElement;
         "stories-addon-actions": HTMLStoriesAddonActionsElement;
         "stories-addon-controls": HTMLStoriesAddonControlsElement;
         "stories-addons": HTMLStoriesAddonsElement;
@@ -706,22 +680,6 @@ declare global {
     }
 }
 declare namespace LocalJSX {
-    interface StoriesActionBar {
-        /**
-          * Action items
-         */
-        "actionItems"?: ActionItems;
-    }
-    interface StoriesActionButton {
-        /**
-          * ActionItem property
-         */
-        "actionItem": ActionItem;
-        /**
-          * Action Event
-         */
-        "onStoriesAction"?: (event: CustomEvent<ActionEvent>) => void;
-    }
     interface StoriesAddonActions {
     }
     interface StoriesAddonControls {
@@ -1241,8 +1199,6 @@ declare namespace LocalJSX {
         "zoom"?: number;
     }
     interface IntrinsicElements {
-        "stories-action-bar": StoriesActionBar;
-        "stories-action-button": StoriesActionButton;
         "stories-addon-actions": StoriesAddonActions;
         "stories-addon-controls": StoriesAddonControls;
         "stories-addons": StoriesAddons;
@@ -1277,8 +1233,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "stories-action-bar": LocalJSX.StoriesActionBar & JSXBase.HTMLAttributes<HTMLStoriesActionBarElement>;
-            "stories-action-button": LocalJSX.StoriesActionButton & JSXBase.HTMLAttributes<HTMLStoriesActionButtonElement>;
             "stories-addon-actions": LocalJSX.StoriesAddonActions & JSXBase.HTMLAttributes<HTMLStoriesAddonActionsElement>;
             "stories-addon-controls": LocalJSX.StoriesAddonControls & JSXBase.HTMLAttributes<HTMLStoriesAddonControlsElement>;
             "stories-addons": LocalJSX.StoriesAddons & JSXBase.HTMLAttributes<HTMLStoriesAddonsElement>;

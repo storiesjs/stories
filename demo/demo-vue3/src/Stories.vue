@@ -33,10 +33,6 @@
 </template>
 
 <script lang="ts">
-import {
-  applyPolyfills,
-  defineCustomElements,
-} from "@stories-js/stories-components/loader";
 import { defineComponent } from "vue";
 import { StoryComponent, StoryContext } from "@stories-js/stories-components";
 
@@ -44,11 +40,6 @@ import { StoryVueRenderer } from "@stories-js/stories-vue3";
 
 import storyModules from "./stories-list";
 
-// https://v3.vuejs.org/guide/web-components.html#vue-and-web-components
-// Bind the custom elements to the window object
-applyPolyfills().then(() => {
-  defineCustomElements(window);
-});
 
 export default defineComponent({
   name: "Stories",

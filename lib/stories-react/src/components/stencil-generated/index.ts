@@ -8,8 +8,6 @@ import type { JSX } from '@stories-js/stories-components';
 import { defineCustomElements } from '@stories-js/stories-components/loader';
 
 defineCustomElements();
-export const StoriesActionBar = /*@__PURE__*/createReactComponent<JSX.StoriesActionBar, HTMLStoriesActionBarElement>('stories-action-bar');
-export const StoriesActionButton = /*@__PURE__*/createReactComponent<JSX.StoriesActionButton, HTMLStoriesActionButtonElement>('stories-action-button');
 export const StoriesAddonActions = /*@__PURE__*/createReactComponent<JSX.StoriesAddonActions, HTMLStoriesAddonActionsElement>('stories-addon-actions');
 export const StoriesAddonControls = /*@__PURE__*/createReactComponent<JSX.StoriesAddonControls, HTMLStoriesAddonControlsElement>('stories-addon-controls');
 export const StoriesAddons = /*@__PURE__*/createReactComponent<JSX.StoriesAddons, HTMLStoriesAddonsElement>('stories-addons');

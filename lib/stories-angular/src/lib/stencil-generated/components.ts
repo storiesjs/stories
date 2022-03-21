@@ -8,55 +8,6 @@ import { Components } from '@stories-js/stories-components';
 
 
 
-export declare interface StoriesActionBar extends Components.StoriesActionBar {}
-
-@ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['actionItems']
-})
-@Component({
-  selector: 'stories-action-bar',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>',
-  inputs: ['actionItems']
-})
-export class StoriesActionBar {
-  protected el: HTMLElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
-    c.detach();
-    this.el = r.nativeElement;
-  }
-}
-
-import type { ActionEvent as IActionButtonActionEvent } from '@stories-js/stories-components';
-export declare interface StoriesActionButton extends Components.StoriesActionButton {
-  /**
-   * Action Event 
-   */
-  storiesAction: EventEmitter<CustomEvent<IActionButtonActionEvent>>;
-
-}
-
-@ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['actionItem']
-})
-@Component({
-  selector: 'stories-action-button',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>',
-  inputs: ['actionItem']
-})
-export class StoriesActionButton {
-  protected el: HTMLElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
-    c.detach();
-    this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['storiesAction']);
-  }
-}
-
-
 export declare interface StoriesAddonActions extends Components.StoriesAddonActions {}
 
 @ProxyCmp({
