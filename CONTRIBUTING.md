@@ -20,7 +20,7 @@ The Stories is currently divided in to 2 parts and multiple libraries. We use `y
 share dependencies between them all.
 
 - `demo`: Set of applications on fifferent frameworks and libraries to test and learn integration with Stories.
-- `lib`: Common and UI libraries as well as integration to supporting frameworks and libraries.
+- `packages`: Common and UI libraries as well as integration to supporting frameworks and libraries.
 
 **Working on your first Pull Request?** You can learn how from this _free_
 series
@@ -45,7 +45,7 @@ To install the project you need to have `yarn` and `node`
 3.  from the root of the project: `yarn` to install all dependencies
     - make sure you have latest `yarn` version
 4.  from the root of the project: `yarn build`
-    - this builds the dependencies in the `lib ` folder.
+    - this builds the dependencies in the `packages` folder.
 5.  from the `demo` folder navigate to your very specific framework and run development environment with help of `yarn start`
 
 > Tip: Keep your `main` branch pointing at the original repository and make

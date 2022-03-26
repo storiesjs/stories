@@ -1,10 +1,14 @@
 {
-  "name": "@stories-js/stories-vue3",
+  "name": "@stories-js/stories-vue2",
   "sideEffects": false,
   "version": "0.1.1",
   "license": "GPL-2.0",
   "author": "StoriesJS team",
-  "description": "Vue 3 Stories renderer and wrapper for custom elements of Stories to be used as first-class Vue 3 components",
+  "description": "Vue 2 Stories renderer and wrapper for custom elements of Stories to be used as first-class Vue 2 components",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "keywords": [
     "stories",
     "storiesjs",
@@ -27,7 +31,7 @@
     "ui",
     "user interface"
   ],
-  "main": "./dist/stories-vue3.common.js",
+  "main": "./dist/stories-vue2.common.js",
   "types": "./types/index.d.ts",
   "files": [
     "dist/*", 
@@ -39,24 +43,22 @@
   },
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name stories-vue3 src/index.ts",
+    "build": "vue-cli-service build --target lib --name stories-vue2 src/index.ts",
     "lint": "vue-cli-service lint",
     "clean": "rimraf dist",
     "test": "echo stories-vue2 testing",
     "pub": "yarn publish --access public"
   },
-  "dependencies": {
-    "@stories-js/stories-components": "0.1.1"
-  },
   "peerDependencies": {
-    "vue": "^3.0.0"
+    "@stories-js/stories-components": "0.1.1",
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
-    "@vue/eslint-config-typescript": "^7.0.0",
-    "vue": "^3.0.0"
+    "@vue/eslint-config-typescript": "^7.0.0",    
+    "vue-template-compiler": "^2.6.11",
+    "vue": "^2.6.11"
   }
 }

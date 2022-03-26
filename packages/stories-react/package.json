@@ -55,6 +55,7 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^8.1.0",
     "@rollup/plugin-virtual": "^2.0.3",
+    "@stories-js/stories-components": "0.1.1",
     "@types/jest": "23.3.9",
     "@types/node": "^15.12.2",
     "@types/react": "^17.0.34",
@@ -69,7 +70,6 @@
     "ts-jest": "^26.5.4"
   },
   "dependencies": {
-    "@stories-js/stories-components": "0.1.1",
     "tslib": "^2.1.0"
   },
   "peerDependencies": {
