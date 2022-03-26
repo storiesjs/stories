@@ -60,7 +60,7 @@
   "bugs": {
     "url": "https://github.com/storiesjs/storiesjs  /issues"
   },
-  "author": "STORIESJS <support@storiesjs.org>",
+  "author": "StoriesJS <support@storiesjs.org>",
   "license": "GPL-2.0",
   "main": "index.js",
   "devDependencies": {

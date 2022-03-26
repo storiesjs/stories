@@ -45,8 +45,10 @@
     "test": "echo stories-vue2 testing",
     "pub": "yarn publish --access public"
   },
+  "dependencies": {
+    "@stories-js/stories-components": "0.1.1"
+  },
   "peerDependencies": {
-    "@stories-js/stories-components": "0.1.1",
     "vue": "^3.0.0"
   },
   "devDependencies": {
