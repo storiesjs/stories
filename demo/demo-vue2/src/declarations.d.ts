@@ -1,1 +1,1 @@
-declare module '@stories-js/stories-vue2';
+declare module '@stories-js/vue2';

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { StoriesAngularModule } from '@stories-js/stories-angular';
+import { StoriesAngularModule } from '@stories-js/angular';
 
 import { ButtonModule } from '../app/button/button.module';
 

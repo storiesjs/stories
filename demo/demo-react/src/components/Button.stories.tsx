@@ -1,10 +1,10 @@
 /* eslint-disable import/no-anonymous-default-export */
 // Button.stories.js|jsx
 
-import { Meta, Story } from '@stories-js/stories-react';
+import { Meta, Story } from '@stories-js/react';
 import React, { useState } from 'react';
 
-import { action } from '@stories-js/stories-components';
+import { action } from '@stories-js/components';
 
 import { Button, ButtonType } from './Button';
 

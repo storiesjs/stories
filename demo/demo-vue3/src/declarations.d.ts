@@ -1,1 +1,0 @@
-declare module '@stories-js/stories-vue3';

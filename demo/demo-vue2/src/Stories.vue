@@ -38,11 +38,11 @@
 import {
   applyPolyfills,
   defineCustomElements,
-} from "@stories-js/stories-components/loader";
+} from "@stories-js/components/loader";
 import { Component, Vue } from "vue-property-decorator";
-import { StoryComponent, StoryContext } from "@stories-js/stories-components";
+import { StoryComponent, StoryContext } from "@stories-js/components";
 
-import { StoryVueRenderer } from "@stories-js/stories-vue2";
+import { StoryVueRenderer } from "@stories-js/vue2";
 
 import storyModules from "./stories-list";
 

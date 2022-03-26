@@ -16,7 +16,7 @@ import {
   StoriesTabBar,
   StoriesAddonActions,
   StoriesAddonControls,
-} from '@stories-js/stories-react';
+} from '@stories-js/react';
 
 /* Theme variables */
 import './variables.css';
