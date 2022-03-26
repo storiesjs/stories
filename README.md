@@ -1,11 +1,11 @@
 # Stories
-[Stories](https://storiesjs.org) is an set of web components for vieweing and developing UI components and pages working in isolation. You can develop UI for different frameworks and libraries. Here is the list of tested and supporting now:
-- Angular
-- React
-- Vue
+Stories is a set of **packages** that helps you visually test UI components and pages in an isolated environment in the context of the application. 
 
+You can seamlessly integrate Stories with various cross-platform native and web app experiences. Here is a list of those tested so far:
+- [Angular](/docs/angular/overview)
+- [React](/docs/react/overview)
+- [Vue](/docs/vue/overview)
 <!--
-The list of frameworks and libraries will be supported soon (in alphabetical order):
 - Aurelia
 - Ember
 - HTML
@@ -23,12 +23,12 @@ The list of frameworks and libraries will be supported soon (in alphabetical ord
   - Lit
   - Polymer
 -->
-Add issue to request support for your framework or library now
 
+Alternatively, it can be used standalone without any frontend framework using a simple script include.
 
-### Preambule
-Anyone can develop UI components in the context of an application, with benefits of integration to styles, services and backends but in isolated one on another environment. Here is the set of Web Components to wrap any developing UI components and pages in an environment where they could be designed and developed without interfering with each other. Just add the Stories packages and run the setup script to finalise the installation to get the working solution.
+Stories supports visual testing on both client and server-side rendering out of the box!
 
+Look at documentation on our [website](https://www.storiesjs.org)
 
 ## License
 
