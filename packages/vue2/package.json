@@ -1,7 +1,7 @@
 {
   "name": "@stories-js/vue2",
   "sideEffects": false,
-  "version": "0.1.1",
+  "version": "0.1.0",
   "license": "GPL-2.0",
   "author": "StoriesJS team",
   "description": "Vue 2 Stories renderer and wrapper for custom elements of Stories to be used as first-class Vue 2 components",

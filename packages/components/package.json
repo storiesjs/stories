@@ -1,7 +1,7 @@
 {
   "name": "@stories-js/components",
   "sideEffects": false,
-  "version": "0.1.1",
+  "version": "0.1.0",
   "license": "GPL-2.0",
   "author": "StoriesJS team",
   "description": "Stories web components to build stories",
