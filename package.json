@@ -28,12 +28,13 @@
     "build:components": "nx build components",
     "build:react": "nx build react",
     "build:angular": "nx build angular",
-    "build:vue2": "nx build vue2",
     "build:vue": "nx build vue",
+    "build:vue2": "nx build vue2",
+
     "build:demo:react": "nx build demo-react",
     "build:demo:angular": "nx build demo-angular",
-    "build:demo:vue2": "nx build demo-vue2",
     "build:demo:vue": "nx build demo-vue",
+    "build:demo:vue2": "nx build demo-vue2",
     "build:since": "nx affected --target=build",
 
     "test:all": "nx run-many --target=test --all",

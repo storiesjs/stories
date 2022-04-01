@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Args, DecoratorFunction } from "@stories-js/components";
 
-import type { ReactStoryFn, StoryContext, StoryComponent } from ".";
+import type { ReactStoryFn, StoryContext, StoryComponent } from "./types";
 
 /**
  * Currently StoryContextUpdates are allowed to have any key in the type.

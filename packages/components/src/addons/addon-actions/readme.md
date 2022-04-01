@@ -1,5 +1,6 @@
-# stories-panel-actions
+# Panel Actions (stories-panel-actions)
 
+stories-panel-actions displays a panel with logged actions.
 
 
 <!-- Auto Generated Below -->
@@ -20,4 +21,4 @@ Type: `Promise<void>`
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+Built with ❤ at StoriesJS

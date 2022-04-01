@@ -3,8 +3,7 @@ import React from "react";
 import type { FC } from "react";
 
 import { prepareStory } from "./helpers";
-
-import type { StoryComponent, StoryContext } from ".";
+import type { StoryComponent, StoryContext } from "./types";
 
 export interface StoriesReactRendererProps {
     story?: StoryComponent;

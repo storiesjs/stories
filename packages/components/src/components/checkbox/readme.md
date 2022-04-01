@@ -53,4 +53,4 @@
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+Built with ❤ at StoriesJS

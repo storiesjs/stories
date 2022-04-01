@@ -4,8 +4,7 @@ import type { RenderResult } from '@testing-library/react';
 import * as React from 'react';
 
 import { sanitizeStoryContextUpdate, executeFnStore, executeFnDecor, prepareStory } from "./helpers";
-
-import type { StoryComponent } from '.';
+import type { StoryComponent } from './types';
 
 
 describe('helpers', () => {

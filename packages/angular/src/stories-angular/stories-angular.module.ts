@@ -24,7 +24,8 @@ import {
   StoriesToolZoom,
   StoriesZoom
 
-} from './stencil-generated/components';
+} from '../directives/proxies';
+
 import { StoriesAngularRendererComponent } from './stories-angular-renderer.component';
 import { StoriesAngularService } from './stories-angular.service';
 

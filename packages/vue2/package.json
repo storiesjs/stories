@@ -1,7 +1,7 @@
 {
   "name": "@stories-js/vue2",
   "sideEffects": false,
-  "version": "0.1.0",
+  "version": "0.1.5",
   "license": "GPL-2.0",
   "author": "StoriesJS team",
   "description": "Vue 2 Stories renderer and wrapper for custom elements of Stories to be used as first-class Vue 2 components",
@@ -47,10 +47,10 @@
     "lint": "vue-cli-service lint",
     "clean": "rimraf dist",
     "test": "echo vue2 testing",
-    "pub": "yarn publish --access public"
+    "pub": "npm config set //registry.npmjs.org/:_authToken=${NPM_TOKEN} && yarn publish --access public"
   },
   "peerDependencies": {
-    "@stories-js/components": "0.1.1",
+    "@stories-js/components": "0.1.5",
     "vue": "^2.6.11"
   },
   "devDependencies": {

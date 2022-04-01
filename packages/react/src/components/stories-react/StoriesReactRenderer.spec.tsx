@@ -5,8 +5,8 @@ import { render, fireEvent } from '@testing-library/react';
 import type { RenderResult } from '@testing-library/react';
 import * as React from 'react';
 
-import { StoriesReactRenderer } from '.';
-import type { StoryComponent, StoryContext } from ".";
+import { StoriesReactRenderer } from './StoriesReactRenderer';
+import type { StoryComponent, StoryContext } from "./types";
 
 type ButtonProps = {
   label?: string;
