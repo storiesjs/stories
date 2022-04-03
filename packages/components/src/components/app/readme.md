@@ -1,6 +1,6 @@
 # stories-app
 
-
+The stories-app is a main Stories Framework's application.
 
 <!-- Auto Generated Below -->
 

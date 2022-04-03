@@ -1,6 +1,6 @@
 # stories-label
 
-
+The stories-label is a wrapper element displays text, icons, or both. You can position it as inline, fixed, stacked, or floating element and will usually use it with another components such stories-item, stories-input, stories-toggle, etc.
 
 <!-- Auto Generated Below -->
 

@@ -1,6 +1,6 @@
-# stories-tabbar
+# stories-tab-bar
 
-
+The stories-tab-bar is a component that contains a set of [stories-tab-button's](../tab-button). Put the stories-tab-bar in the [stories-tabs](../tabs) to organize communication with every [stories-tab](../tab).
 
 <!-- Auto Generated Below -->
 

@@ -1,6 +1,6 @@
-# stories-view-zoom
+# stories-zoom
 
-
+The stories-zoom is a container managing visual zoom of content.
 
 <!-- Auto Generated Below -->
 

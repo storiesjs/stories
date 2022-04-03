@@ -1,6 +1,6 @@
 # stories-badge
 
-Badges are inline block elements for adding context to another element. They could easily show statuses, notifications, and short messages in application.
+The stories-badge is inline block element uses for notification of how many items associated with another element.
 
 <!-- Auto Generated Below -->
 

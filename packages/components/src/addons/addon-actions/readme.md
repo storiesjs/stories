@@ -1,6 +1,6 @@
-# Panel Actions (stories-panel-actions)
+# stories-addon-actions
 
-stories-panel-actions displays a panel with logged actions.
+The stories-addon-actions displays a panel with data received by event handler (callback) arguments in your stories.
 
 
 <!-- Auto Generated Below -->

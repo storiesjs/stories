@@ -1,6 +1,6 @@
-# stories-panel-controls
+# stories-addon-controls
 
-
+The stories-addon-controls helps you interact with components via changing arguments.
 
 <!-- Auto Generated Below -->
 

@@ -1,5 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Component, Host, h, Prop, Listen, forceUpdate } from '@stencil/core';
+
 import { matchBreakpoint } from '../../utils';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

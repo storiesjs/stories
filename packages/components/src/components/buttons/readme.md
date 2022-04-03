@@ -1,6 +1,6 @@
 # stories-buttons
 
-
+The stories-buttons is an wrapping container for another buttons.
 
 <!-- Auto Generated Below -->
 

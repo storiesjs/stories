@@ -1,6 +1,6 @@
 # stories-checkbox
 
-
+The stories-checkbox is a styled HTML checkboxed input element.
 
 <!-- Auto Generated Below -->
 

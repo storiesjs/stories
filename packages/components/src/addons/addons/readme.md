@@ -1,6 +1,6 @@
-# stories-panels
+# stories-addons
 
-
+The stories-addons is a wrapping component implemented for helping in addons management.
 
 <!-- Auto Generated Below -->
 

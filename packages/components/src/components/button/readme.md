@@ -1,6 +1,6 @@
 # stories-button
 
-
+The stories-button is an styled HTML button element displays text, icons, or both.
 
 <!-- Auto Generated Below -->
 

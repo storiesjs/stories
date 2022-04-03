@@ -1,6 +1,6 @@
 # stories-input
 
-
+The stories-input component is a styled and enchanced HTML input element. It supports only standard text input events and types such as "text", "password", "email", "number", "search", "tel", and "url".
 
 <!-- Auto Generated Below -->
 

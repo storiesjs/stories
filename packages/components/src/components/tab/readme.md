@@ -1,6 +1,10 @@
 # stories-tab
 
+The stories-tab is a child component of a stories-tab. 
 
+> Note: This component should only be used with vanilla or Stencil JavaScript projects. For Angular, React, and Vue apps you do not need to use `stories-tab` to declare your tab components.
+
+See the [stories-tabs](../tabs) for configuration details.
 
 <!-- Auto Generated Below -->
 

@@ -1,6 +1,6 @@
 # stories-toolbutton
 
-
+> Notice: Deprecated. Use stories-button instead
 
 <!-- Auto Generated Below -->
 

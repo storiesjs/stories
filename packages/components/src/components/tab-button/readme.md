@@ -1,6 +1,8 @@
 # stories-tab-button
 
+The stories-tab-button is a component that is placed inside of a [stories-tab-bar](../tab-bar). You can change the layout of the text and icon in the tab bar.
 
+See the [stories-tabs](../tabs) documentation for details on configuring tabs.
 
 <!-- Auto Generated Below -->
 

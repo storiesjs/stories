@@ -1,6 +1,6 @@
 # stories-split-panel
 
-
+The stories-split-panel is a component to split content vertically or horizontally.
 
 <!-- Auto Generated Below -->
 

@@ -23,7 +23,7 @@
     "lint": "eslint '**/*.ts?(x)' --fix",
     "format": "prettier --write '**/*.{js,jsx,ts,tsx,md,mdx}'",
     
-    "build:all": "nx run-many --target=build --all",
+    "build": "nx run-many --target=build --all",
     "build:cli": "nx build cli",
     "build:components": "nx build components",
     "build:react": "nx build react",
@@ -41,18 +41,18 @@
     "test:components": "nx test components",
     "test:react": "nx test react",
     "test:angular": "nx test angular",
-    "test:vue2": "nx test vue2",
     "test:vue": "nx test vue",
+    "test:vue2": "nx test vue2",
     
     "test:demo:react": "nx test demo-react",
     "test:demo:angular": "nx test demo-angular",
-    "test:demo:vue2": "nx test demo-vue2",
     "test:demo:vue": "nx test demo-vue",
+    "test:demo:vue2": "nx test demo-vue2",
 
     "start:demo:react": "nx run demo-react:stories",
     "start:demo:angular": "nx run demo-angular:stories",
-    "start:demo:vue2": "nx run demo-vue2:stories",
-    "start:demo:vue": "nx run demo-vue:stories"
+    "start:demo:vue": "nx run demo-vue:stories",
+    "start:demo:vue2": "nx run demo-vue2:stories"
   },
   "repository": {
     "type": "git",

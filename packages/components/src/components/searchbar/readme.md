@@ -1,6 +1,6 @@
 # stories-searchbar
 
-
+The stories-searchbar is a text field with an icon that can be used to search through stories.
 
 <!-- Auto Generated Below -->
 
