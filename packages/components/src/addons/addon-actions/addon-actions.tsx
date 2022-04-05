@@ -2,10 +2,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Component, Host, h, Element, State, Method } from '@stencil/core';
 
-import type { Messages, StoryComponent, StoryContext, Addon } from '../..';
-import type { ActionDisplay } from '../..';
-import { messages, api } from '../..';
-import { ACTION_EVENT } from '../..';
+import { api } from '../../api';
+import type { Messages, StoryComponent, StoryContext, Addon } from '../../types';
+import { messages } from '../../types';
+
+import type { ActionDisplay } from './Action';
+import { ACTION_EVENT } from './Action';
 // import addonsManager from '../../AddonsManager';
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions

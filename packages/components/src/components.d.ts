@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Addon, AppState, StoryComponent, StoryContext, StoryModules } from ".";
-import { CheckboxChangeEventDetail, Color, Commands, InputChangeEventDetail, RouterDirection, SearchbarChangeEventDetail, StyleEventDetail, TabBarChangedEventDetail, TabButtonClickEventDetail, TabButtonLayout, TextFieldTypes, ToolEvent } from "./types";
+import { Addon, CheckboxChangeEventDetail, Color, Commands, InputChangeEventDetail, RouterDirection, SearchbarChangeEventDetail, StoryComponent, StoryContext, StoryModules, StyleEventDetail, TabBarChangedEventDetail, TabButtonClickEventDetail, TabButtonLayout, TextFieldTypes, ToolEvent } from "./types";
+import { AppState } from "./store";
 export namespace Components {
     interface StoriesAddonActions {
         "storyContextChanged": (story: StoryComponent, context: StoryContext) => Promise<void>;

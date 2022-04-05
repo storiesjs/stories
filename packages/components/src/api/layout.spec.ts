@@ -1,4 +1,4 @@
-import { state } from "..";
+import { state } from "../store";
 
 import { layoutAPI } from "./layout";
 
@@ -11,7 +11,7 @@ describe('LayoutAPI', () => {
         it('should toggle to full screen', () => {
             state.showNav = false;
             state.fullScreen = false;
-            
+
             layoutAPI.toggleFullscreen(true);
             expect(state.fullScreen).toBeTruthy();
             expect(state.showNav).toBeFalsy();
@@ -35,7 +35,7 @@ describe('LayoutAPI', () => {
         it('should toggle to full screen', () => {
             state.showNav = false;
             state.fullScreen = false;
-            
+
             layoutAPI.toggleFullscreen(true);
             expect(state.fullScreen).toBeTruthy();
             expect(state.showNav).toBeFalsy();
@@ -59,7 +59,7 @@ describe('LayoutAPI', () => {
         it('should toggle to full screen', () => {
             state.showNav = false;
             state.fullScreen = false;
-            
+
             layoutAPI.togglePanel(true);
             expect(state.fullScreen).toBeFalsy();
             expect(state.showNav).toBeFalsy();
@@ -101,7 +101,7 @@ describe('LayoutAPI', () => {
             state.singleStory = true;
             state.showNav = false;
             state.fullScreen = false;
-            
+
             layoutAPI.toggleNav(true);
             expect(state.fullScreen).toBeFalsy();
             expect(state.showNav).toBeFalsy();
@@ -110,7 +110,7 @@ describe('LayoutAPI', () => {
         it('should show nav', () => {
             state.showNav = false;
             state.fullScreen = false;
-            
+
             layoutAPI.toggleNav(true);
             expect(state.fullScreen).toBeFalsy();
             expect(state.showNav).toBeTruthy();

@@ -2,8 +2,8 @@
 import { parseKind, sanitize, storyNameFromExport, toId } from "@componentdriven/csf";
 import deepmerge from 'deepmerge';
 
-import type { StoriesAPI, StoryModules, Story, Meta, StoryComponent, StoryComponents, StoryContext, Args, StoryUpdate } from "..";
 import { state } from '../store';
+import type { StoriesAPI, StoryModules, Story, Meta, StoryComponent, StoryComponents, StoryContext, Args, StoryUpdate } from "../types";
 
 /**
  * Convert [modules](StoryModules) into [stories](StoryComponents)

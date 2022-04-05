@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { LayoutAPI, PanelPosition } from "..";
 import { state } from '../store';
+import type { LayoutAPI, PanelPosition } from "../types";
 
 export const layoutAPI: LayoutAPI = {
   toggleFullscreen(toggled?: boolean) {

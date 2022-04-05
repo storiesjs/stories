@@ -1,5 +1,5 @@
-import { state } from "..";
-import type { Notification } from '..';
+import { state } from "../store";
+import type { Notification } from '../types';
 
 import { notificationsAPI } from "./notifications";
 

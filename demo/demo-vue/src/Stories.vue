@@ -1,5 +1,5 @@
 <template>
-  <stories-app :modules.prop="modules" @storyChange="storySelected" @storyContextChange="contextSelected">
+  <stories-app :modules.prop="modules" @storyChange="storySelected($event)" @storyContextChange="contextSelected($event)">
     <stories-split-pane split="horizontal" min-size="150" default-size="250">
       <stories-sidebar slot="slot1"></stories-sidebar>
       <div slot="slot2">
@@ -47,6 +47,7 @@ export default defineComponent({
   components: {
     StoryVueRenderer,
   },
+  /*
   data() {
     return {
       modules: storyModules,
@@ -54,6 +55,12 @@ export default defineComponent({
       context: null as StoryContext | null,
     };
   },
+  */
+  data: () => ({
+    modules: storyModules,
+    story: null as StoryComponent | null,
+    context: null as StoryContext | null,
+  }),
   methods: {
     storySelected(event: CustomEvent<StoryComponent>) {
       console.log("!!! storySelected", event.detail);

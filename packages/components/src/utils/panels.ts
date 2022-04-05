@@ -1,4 +1,4 @@
-import type { Addon } from "..";
+import type { Addon } from "../types";
 
 export function ensurePanel(panels: Record<string, Addon>, selectedPanel?: string, currentPanel?: string): string | undefined {
   const keys = Object.keys(panels);

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-04-03T16:17:17",
+  "timestamp": "2022-04-05T20:32:22",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.2",
@@ -911,7 +911,146 @@
           "type": "void"
         }
       ],
-      "cssProperties": [],
+      "cssProperties": [
+        {
+          "name": "--background",
+          "annotation": "prop",
+          "docs": "Background of the button",
+          "description": "Background of the button"
+        },
+        {
+          "name": "--background-activated",
+          "annotation": "prop",
+          "docs": "Background of the button when pressed. Note: setting this will interfere with the Material Design ripple.",
+          "description": "Background of the button when pressed. Note: setting this will interfere with the Material Design ripple."
+        },
+        {
+          "name": "--background-activated-opacity",
+          "annotation": "prop",
+          "docs": "Opacity of the button when pressed",
+          "description": "Opacity of the button when pressed"
+        },
+        {
+          "name": "--background-focused",
+          "annotation": "prop",
+          "docs": "Background of the button when focused with the tab key",
+          "description": "Background of the button when focused with the tab key"
+        },
+        {
+          "name": "--background-focused-opacity",
+          "annotation": "prop",
+          "docs": "Opacity of the button when focused with the tab key",
+          "description": "Opacity of the button when focused with the tab key"
+        },
+        {
+          "name": "--background-hover",
+          "annotation": "prop",
+          "docs": "Background of the button on hover",
+          "description": "Background of the button on hover"
+        },
+        {
+          "name": "--background-hover-opacity",
+          "annotation": "prop",
+          "docs": "Opacity of the background on hover",
+          "description": "Opacity of the background on hover"
+        },
+        {
+          "name": "--border-color",
+          "annotation": "prop",
+          "docs": "Border color of the button",
+          "description": "Border color of the button"
+        },
+        {
+          "name": "--border-radius",
+          "annotation": "prop",
+          "docs": "Border radius of the button",
+          "description": "Border radius of the button"
+        },
+        {
+          "name": "--border-style",
+          "annotation": "prop",
+          "docs": "Border style of the button",
+          "description": "Border style of the button"
+        },
+        {
+          "name": "--border-width",
+          "annotation": "prop",
+          "docs": "Border width of the button",
+          "description": "Border width of the button"
+        },
+        {
+          "name": "--box-shadow",
+          "annotation": "prop",
+          "docs": "Box shadow of the button",
+          "description": "Box shadow of the button"
+        },
+        {
+          "name": "--color",
+          "annotation": "prop",
+          "docs": "Text color of the button",
+          "description": "Text color of the button"
+        },
+        {
+          "name": "--color-activated",
+          "annotation": "prop",
+          "docs": "Text color of the button when pressed",
+          "description": "Text color of the button when pressed"
+        },
+        {
+          "name": "--color-focused",
+          "annotation": "prop",
+          "docs": "Text color of the button when focused with the tab key",
+          "description": "Text color of the button when focused with the tab key"
+        },
+        {
+          "name": "--color-hover",
+          "annotation": "prop",
+          "docs": "Text color of the button when hover",
+          "description": "Text color of the button when hover"
+        },
+        {
+          "name": "--opacity",
+          "annotation": "prop",
+          "docs": "Opacity of the button",
+          "description": "Opacity of the button"
+        },
+        {
+          "name": "--padding-bottom",
+          "annotation": "prop",
+          "docs": "Bottom padding of the button",
+          "description": "Bottom padding of the button"
+        },
+        {
+          "name": "--padding-end",
+          "annotation": "prop",
+          "docs": "Right padding if direction is left-to-right, and left padding if direction is right-to-left of the button",
+          "description": "Right padding if direction is left-to-right, and left padding if direction is right-to-left of the button"
+        },
+        {
+          "name": "--padding-start",
+          "annotation": "prop",
+          "docs": "Left padding if direction is left-to-right, and right padding if direction is right-to-left of the button",
+          "description": "Left padding if direction is left-to-right, and right padding if direction is right-to-left of the button"
+        },
+        {
+          "name": "--padding-top",
+          "annotation": "prop",
+          "docs": "Top padding of the button",
+          "description": "Top padding of the button"
+        },
+        {
+          "name": "--ripple-color",
+          "annotation": "prop",
+          "docs": "Color of the button ripple effect",
+          "description": "Color of the button ripple effect"
+        },
+        {
+          "name": "--transition",
+          "annotation": "prop",
+          "docs": "Transition of the button",
+          "description": "Transition of the button"
+        }
+      ],
       "slots": [],
       "dependents": [],
       "dependencies": [],

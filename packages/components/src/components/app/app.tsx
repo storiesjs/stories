@@ -2,8 +2,10 @@
 import { Component, Prop, h, Event, Listen } from '@stencil/core';
 import type { EventEmitter } from '@stencil/core';
 
-import { api, state } from '../..';
-import type { StoryModules, StoryComponent, StoryContext, AppState } from '../..';
+import { api } from '../../api';
+import type { AppState} from '../../store';
+import { state } from '../../store';
+import type { StoryModules, StoryComponent, StoryContext } from '../../types';
 
 @Component({
   tag: 'stories-app',
@@ -12,8 +14,8 @@ import type { StoryModules, StoryComponent, StoryContext, AppState } from '../..
 })
 export class App {
 
-  @Event({ bubbles: true, composed: true }) storyChange: EventEmitter<StoryComponent>;
-  @Event({ bubbles: true, composed: true }) storyContextChange: EventEmitter<StoryContext>;
+  @Event() storyChange: EventEmitter<StoryComponent>;
+  @Event() storyContextChange: EventEmitter<StoryContext>;
 
   /**
    * Story Modules
@@ -54,15 +56,18 @@ export class App {
     const storyId = api.getStoryIdFromURL();
     // Set story in state
     const story = state.story = (storyId ? state.stories[storyId] : undefined);
+    console.log('onHash',storyId, story)
     // We have to update the URL's hash to keep it in sync
     api.selectStory(storyId);
     // Send custom event about selected story
     this.storyChange.emit(story);
+    console.log('storyChange emit', story)
     // Create context for story
     const context: StoryContext | undefined = story ? this.createContext(story) : undefined;
     state.context = context;
     // Send custom event about selected story
     this.storyContextChange.emit(context);
+    console.log('storyContextChange emit', story)
     // Inform Addons about changes
     // this.addons.storyContextChanged(story, context);
   };

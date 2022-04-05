@@ -6,8 +6,9 @@ import { Component, Host, h, Element, State, Method } from '@stencil/core';
 
 // import type { ObservableMap } from '@stencil/store';
 // import { createStore } from '@stencil/store';
-import type { Messages, StoryComponent, StoryContext, Addon } from '../..';
-import { messages, api } from '../..';
+import { api } from '../../api';
+import type { Messages, StoryComponent, StoryContext, Addon } from '../../types';
+import { messages } from '../../types';
 
 import { CONTROL_EVENT } from './Control';
 

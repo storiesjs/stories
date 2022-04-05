@@ -3,7 +3,7 @@
 import type { ObservableMap } from "@stencil/store";
 import { createStore as createStencilStore } from "@stencil/store";
 
-import type { StoryComponents, StoriesState, NotificationsState, LayoutState, AddonsState } from '..';
+import type { StoryComponents, StoriesState, NotificationsState, LayoutState, AddonsState } from '../types';
 
 /**
  * Create store

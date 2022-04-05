@@ -1,5 +1,5 @@
-import type { StoryModule, StoryModules, StoryComponent, StoryContext, Args, StoryUpdate } from "..";
-import { state } from "..";
+import { state } from "../store";
+import type { StoryModule, StoryModules, StoryComponent, StoryContext, Args, StoryUpdate } from "../types";
 
 import { storiesAPI } from './stories';
 
@@ -10,7 +10,7 @@ const storyModule: StoryModule = {
         subcomponents: [],
         decorators: [],
         args: {},
-        argTypes: {}, 
+        argTypes: {},
         parameters: {}
     },
     '__esModule': true,

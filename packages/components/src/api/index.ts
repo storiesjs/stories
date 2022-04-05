@@ -1,4 +1,4 @@
-import type { API } from '..';
+import type { API } from '../types';
 
 import { addonsAPI } from './addons';
 import { layoutAPI } from './layout';

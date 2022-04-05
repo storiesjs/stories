@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { AddonsAPI, Addon, AddonState } from "..";
 import { state } from '../store';
+import type { AddonsAPI, Addon, AddonState } from "../types";
 import { ensurePanel } from "../utils";
 
 export const addonsAPI: AddonsAPI = {

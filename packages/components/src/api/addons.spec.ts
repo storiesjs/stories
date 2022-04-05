@@ -1,5 +1,5 @@
-import type { Addon } from "..";
-import { state } from '..';
+import { state } from '../store';
+import type { Addon } from "../types";
 
 import { addonsAPI } from "./addons";
 
@@ -240,7 +240,7 @@ describe('AddonsAPI', () => {
 
         addonsAPI.setAddonState('addonId', "state");
         expect(state.addons['addonId'].state).toBe('state');
-        
+
         expect(addonsAPI.getAddonState('addonId')).toBe('state');
     });
 });

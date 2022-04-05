@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { NotificationsAPI, Notification } from "..";
 import { state } from '../store';
+import type { NotificationsAPI, Notification } from "../types";
 
 export const notificationsAPI: NotificationsAPI = {
   addNotification(notification: Notification) {

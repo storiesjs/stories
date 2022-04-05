@@ -12,10 +12,11 @@ if (process.env.VUE_APP_STORIES) {
 }
 
 const app = createApp(inst);
+
 // https://v3.vuejs.org/guide/web-components.html#vue-and-web-components
 // Bind the custom elements to the window object
-app.config.compilerOptions.isCustomElement = (tag) => tag.startsWith("stories-");
 applyPolyfills().then(() => {
-  defineCustomElements(window);
+  defineCustomElements().then(() => {
+    app.mount("#app");
+  });
 });
-app.mount("#app");

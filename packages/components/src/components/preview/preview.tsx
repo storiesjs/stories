@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Component, h } from '@stencil/core';
 
-import { state } from '../..';
+import { state } from '../../store';
 
 @Component({
   tag: 'stories-preview',

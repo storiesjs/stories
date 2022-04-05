@@ -5,6 +5,7 @@ import type { NotificationsAPI } from './notifications';
 import type { ShotcutsAPI } from './shortcuts';
 import type { StoriesAPI } from './story';
 
+export * from './config';
 export * from './ui';
 export * from './story';
 export * from './addons';

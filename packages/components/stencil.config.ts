@@ -4,14 +4,18 @@ import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 import { reactOutputTarget as react } from '@stencil/react-output-target';
 import { angularOutputTarget as angular } from '@stencil/angular-output-target';
-// import { vueOutputTarget as vue } from '@stencil/vue-output-target';
+import { vueOutputTarget as vue } from '@stencil/vue-output-target';
 
 import { generateJsonDocs } from './customElementDocGenerator';
 
 export const config: Config = {
   autoprefixCss: true,
-  namespace: 'stories',
+  namespace: 'components',
   buildEs5: 'prod',
+  sourceMap: true,
+  minifyJs: true,
+  // globalStyle: 'src/css/core.scss',
+  globalScript: 'src/global/stories-global.ts',
   extras: {
     appendChildSlotFix: true,
     cssVarsShim: true,
@@ -37,16 +41,47 @@ export const config: Config = {
       componentCorePackage: '@stories-js/components',
       directivesProxyFile: '../angular/src/directives/proxies.ts',
     }),
-    // vue({
-    //   componentCorePackage: '@stories-js/components',
-    //   proxiesFile: '../vue/src/proxies.ts',
-    // }),
+    vue({
+      componentCorePackage: '@stories-js/components',
+      proxiesFile: '../vue/src/proxies.ts',
+      includeImportCustomElements: true,
+      includeDefineCustomElements: false,
+      componentModels: [
+        {
+          elements: ['stories-checkbox', 'stories-toggle'],
+          targetAttr: 'checked',
+          event: 'v-stories-change',
+          externalEvent: 'storiesChange'
+        },
+        {
+          elements: ['stories-input', 'stories-radio-group', 'stories-radio', 'stories-searchbar', 'stories-select', 'stories-textarea'],
+          targetAttr: 'value',
+          event: 'v-stories-change',
+          externalEvent: 'storiesChange'
+        }
+      ],
+    }),
     {
       type: 'dist',
       esmLoaderPath: '../loader',
     },
     {
       type: 'dist-custom-elements',
+      dir: 'components',
+      copy: [
+        {
+          src: '../scripts/custom-elements',
+          dest: 'components',
+          warn: true,
+        },
+      ],
+      includeGlobalScripts: false,
+      autoDefineCustomElements: true,
+    },
+    {
+      type: 'dist-hydrate-script',
+      dir: 'hydrate',
+      empty: false,
     },
     {
       type: 'docs-readme',
@@ -65,6 +100,11 @@ export const config: Config = {
       type: 'docs-vscode',
       file: 'dist/html.html-data.json',
       sourceCodeBaseUrl: 'https://github.com/storiesjs/stories/tree/main/packages/components/',
+    },
+    {
+      type: 'www',
+      serviceWorker: null, // disable service workers
+      baseUrl: 'https://example.com/',
     },
   ],
   testing: {

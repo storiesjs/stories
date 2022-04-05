@@ -2,7 +2,7 @@ import type { EventEmitter } from '@stencil/core';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Component, Host, h, Element, Prop, Event } from '@stencil/core';
 
-import { inheritAttributes } from '../../helpers';
+import { hasShadowDom, inheritAttributes } from '../../helpers';
 import type { Color, RouterDirection } from '../../types';
 import { createColorClasses, hostContext } from '../../utils';
 
@@ -114,8 +114,26 @@ export class Button {
     return !!this.el.querySelector('[slot="icon-only"]');
   }
 
-  private handleClick = () => {
-    this.storiesClick.emit();
+  private handleClick = (ev: Event) => {
+    if (this.type === 'button') {
+      this.storiesClick.emit();
+
+    } else if (hasShadowDom(this.el)) {
+      // this button wants to specifically submit a form
+      // climb up the dom to see if we're in a <form>
+      // and if so, then use JS to submit/reset it
+      const form = this.el.closest('form');
+      if (form) {
+        ev.preventDefault();
+
+        const fakeButton = document.createElement('button');
+        fakeButton.type = this.type;
+        fakeButton.style.display = 'none';
+        form.appendChild(fakeButton);
+        fakeButton.click();
+        fakeButton.remove();
+      }
+    }
   }
 
   private onFocus = () => {

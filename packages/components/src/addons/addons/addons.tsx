@@ -1,8 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Component, h, Method } from '@stencil/core';
 
-import type { StoryComponent, StoryContext, Addon } from '../..';
-import { state } from '../..';
+import { state } from '../../store';
+import type { StoryComponent, StoryContext, Addon } from '../../types';
 
 @Component({
   tag: 'stories-addons',

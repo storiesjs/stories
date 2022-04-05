@@ -2,7 +2,7 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 
-import type { StoryModule, StoryModules } from '../../..';
+import type { StoryModule, StoryModules } from '../../../types';
 import { App } from '../app';
 
 describe('stories-app', () => {

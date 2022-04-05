@@ -1,6 +1,5 @@
 {
   "name": "@stories-js/components",
-  "sideEffects": false,
   "version": "0.1.5",
   "license": "GPL-2.0",
   "author": "StoriesJS team",
@@ -35,7 +34,8 @@
   "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
   "es2017": "dist/esm/index.mjs",
-  "types": "dist/types/index.d.ts",
+  "jsnext:main": "dist/esm/index.js",
+  "types": "dist/types/interface.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/components/components.esm.js",
@@ -44,8 +44,10 @@
     "url": "https://github.com/storiesjs/stories.git"
   },
   "files": [
+    "components/",
     "dist/",
-    "loader/"
+    "loader/",
+    "hydrate/"
   ],
   "scripts": {
     "clean": "rimraf dist",
@@ -69,6 +71,7 @@
     "@stencil/sass": "1.5.2",
     "@stencil/vue-output-target": "^0.6.0",
     "@types/jest": "^26.0.24",
+    "@types/puppeteer": "^5.4.5",
     "jest": "^26.6.3",
     "jest-cli": "^26.6.3",
     "puppeteer": "^10.0.0",

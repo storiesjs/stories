@@ -1,0 +1,8 @@
+{
+  "name": "@stories-js/components/components",
+  "version": "0.0.0",
+  "description": "Stories components exported as custom elements, extending HTMLElement.",
+  "main": "./index.js",
+  "types": "./custom-elements.d.ts",
+  "private": true
+}
