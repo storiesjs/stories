@@ -1,10 +1,10 @@
-<script lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { ConcreteComponent, Component, ComponentOptions, defineComponent, h } from 'vue';
 
 import { DecoratorFunction, StoryComponent, StoryContext, StoryFn, StoryFnVueReturnType, LegacyStoryFn, VueFramework } from './types';
+import { rest } from './utils';
 
 export const VALUES = "STORIES_VALUES";
 
@@ -25,26 +25,15 @@ function normalizeFunctionalComponent(options: ConcreteComponent): ComponentOpti
  * @param inputContextUpdate StoryContextUpdate
  * @returns StoryContextUpdate
  */
-export function sanitizeStoryContextUpdate({
-  componentId,
-  title,
-  kind,
-  id,
-  name,
-  story,
-  parameters,
-  initialArgs,
-  argTypes,
-  ...update
-}: any): any {
-  return update;
+export function sanitizeStoryContextUpdate(inputContextUpdate: any): any {
+  return rest(inputContextUpdate, ["componentId", "title", "kind", "id", "name", "story", "parameters", "initialArgs", "argTypes"]);
 }
 
 function prepare(
   rawStory: StoryFnVueReturnType,
   innerStory?: ConcreteComponent
 ): Component | null {
-  let story = rawStory as ComponentOptions;
+  const story = rawStory as ComponentOptions;
 
   if (story == null) {
     return null;
@@ -120,4 +109,3 @@ const StoryVueRenderer = defineComponent({
 });
 
 export default StoryVueRenderer;
-</script>

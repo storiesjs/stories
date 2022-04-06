@@ -43,7 +43,7 @@ import storyModules from "./stories-list";
 console.log('storyModules', storyModules)
 
 export default defineComponent({
-  name: "Stories",
+  name: "stories-browser",
   components: {
     StoryVueRenderer,
   },

@@ -1,3 +1,3 @@
-export { default as StoryVueRenderer } from '@/components/StoriesVueRenderer.vue';
-
-export * from './components/types';
+export { default as StoryVueRenderer } from './components/StoriesVueRenderer';
+export * from './proxies';
+export * from './stories-vue';

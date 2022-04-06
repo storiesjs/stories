@@ -1,6 +1,5 @@
 {
   "name": "@stories-js/vue",
-  "sideEffects": false,
   "version": "0.1.5",
   "license": "GPL-2.0",
   "author": "StoriesJS team",
@@ -27,22 +26,25 @@
     "ui",
     "user interface"
   ],
-  "main": "./dist/vue.common.js",
-  "types": "./types/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/types/index.d.ts",
   "files": [
     "dist/*", 
-    "types/*"
+    "css/*"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/storiesjs/stories.git"
   },
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name vue src/index.ts",
-    "lint": "vue-cli-service lint",
-    "clean": "rimraf dist",
-    "test": "echo stories-vue2 testing",
+    "lint": "echo add linter",
+    "test": "echo 'vue no tests yet'",
+    "build": "yarn run clean && yarn run copy && yarn run compile && yarn run bundle && yarn run build.vetur && yarn run build.web-types",
+    "bundle": "rollup --config rollup.config.js",
+    "clean": "rimraf dist css dist-transpiled",
+    "compile": "yarn run tsc",
+    "tsc": "tsc -p .",
     "build.web-types": "node ./scripts/build-web-types.js",
     "build.vetur": "node ./scripts/build-vetur.js",
     "copy": "node ./scripts/copy-css.js",
@@ -53,21 +55,20 @@
     "@stories-js/components": "0.1.5"
   },
   "devDependencies": {
-    "@babel/types": "^7.17.0",
     "@stencil/core": "^2.14.2",
     "@vue/test-utils": "^2.0.0-rc.16",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-plugin-typescript": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
-    "@vue/eslint-config-typescript": "^7.0.0",
     "change-case": "^4.1.2",
     "fs-extra": "^10.0.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.70.1",
     "vue": "^3.0.0"
   },
   "vetur": {
     "tags": "dist/vetur/tags.json",
     "attributes": "dist/vetur/attributes.json"
   },
-  "web-types": "dist/web-types.json"
+  "web-types": "dist/web-types.json",
+  "sideEffects": [
+    "css/*.css"
+  ]
 }

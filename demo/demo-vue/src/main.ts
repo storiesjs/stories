@@ -1,22 +1,10 @@
-import { Component, createApp } from 'vue';
-import { applyPolyfills, defineCustomElements } from "@stories-js/components/loader";
+import { createApp } from 'vue';
 import App from './App.vue'
 import Stories from './Stories.vue'
-
-let inst: Component;
+import * as StoriesJsVue from '@stories-js/vue';
 
 if (process.env.VUE_APP_STORIES) {
-  inst = Stories;
+  createApp(Stories).use(StoriesJsVue.StoriesVue).mount("#app");
 } else {
-  inst = App;
+  createApp(App).mount("#app");
 }
-
-const app = createApp(inst);
-
-// https://v3.vuejs.org/guide/web-components.html#vue-and-web-components
-// Bind the custom elements to the window object
-applyPolyfills().then(() => {
-  defineCustomElements().then(() => {
-    app.mount("#app");
-  });
-});
