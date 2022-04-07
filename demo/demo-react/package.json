@@ -1,12 +1,12 @@
 {
   "name": "@stories-js/demo-react",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "GPL-2.0",
   "private": true,
   "dependencies": {
-    "@stories-js/core": "^0.1.0",
-    "@stories-js/react": "^0.1.0",
-    "@stories-js/cli": "^0.1.0",
+    "@stories-js/core": "^0.2.0",
+    "@stories-js/react": "^0.2.0",
+    "@stories-js/cli": "^0.2.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",

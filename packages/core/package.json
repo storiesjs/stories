@@ -1,6 +1,6 @@
 {
   "name": "@stories-js/core",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "license": "GPL-2.0",
   "author": "StoriesJS team",
   "description": "Stories web components to build stories",

@@ -1,6 +1,6 @@
 {
   "name": "@stories-js/vue",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "license": "GPL-2.0",
   "author": "StoriesJS team",
   "description": "Vue 3 Stories renderer and wrapper for custom elements of Stories to be used as first-class Vue 3 components",
@@ -52,7 +52,7 @@
     "pub": "npm config set //registry.npmjs.org/:_authToken=${NPM_TOKEN} && yarn publish --access public"
   },
   "dependencies": {
-    "@stories-js/core": "0.1.5"
+    "@stories-js/core": "0.2.0"
   },
   "devDependencies": {
     "@stencil/core": "^2.14.2",

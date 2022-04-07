@@ -6,8 +6,8 @@ import { api } from '../../api';
 import type { Messages, StoryComponent, StoryContext, Addon } from '../../types';
 import { messages } from '../../types';
 
-import type { ActionDisplay } from './Action';
-import { ACTION_EVENT } from './Action';
+import type { ActionDisplay } from './action';
+import { ACTION_EVENT } from './action';
 // import addonsManager from '../../AddonsManager';
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
