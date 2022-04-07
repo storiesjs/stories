@@ -1,6 +1,0 @@
-{
-  "name": "@stories-js/components/hydrate",
-  "description": "components component hydration app.",
-  "main": "index.js",
-  "types": "index.d.ts"
-}

@@ -1,4 +1,4 @@
-const docs = require("@stories-js/components/dist/docs.json");
+const docs = require("@stories-js/core/dist/docs.json");
 const fs = require("fs");
 const { pascalCase } = require("change-case");
 
@@ -55,7 +55,7 @@ for (const component of docs.components) {
     description: component.docs,
     source: {
       module:
-        "@stories-js/components/" +
+        "@stories-js/core/" +
         component.filePath
           .replace("./src/", "dist/types/")
           .replace(".tsx", ".d.ts"),

@@ -1,4 +1,4 @@
-const DocsJson = require("@stories-js/components/dist/docs.json");
+const DocsJson = require("@stories-js/core/dist/docs.json");
 const fs = require("fs");
 const { paramCase } = require("change-case");
 

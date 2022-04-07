@@ -18,5 +18,5 @@ export default {
       sourcemap: true
     }
   ],
-  external: (id) => external.includes(id) || id.startsWith("@stories-js/components"),
+  external: (id) => external.includes(id) || id.startsWith("@stories-js/core"),
 };

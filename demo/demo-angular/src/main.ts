@@ -1,7 +1,7 @@
 import { enableProdMode } from '@angular/core';
 import type { Type } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { defineCustomElements } from '@stories-js/components/loader';
+import { defineCustomElements } from '@stories-js/core/loader';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';

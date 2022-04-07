@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { App, Plugin } from "vue";
-import { initialize } from "@stories-js/components/components";
+import { initialize } from "@stories-js/core/components";
 
 /**
  * We need to make sure that the web component fires an event

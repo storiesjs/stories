@@ -25,34 +25,29 @@
     
     "build": "nx run-many --target=build --all",
     "build:cli": "nx build cli",
-    "build:components": "nx build components",
+    "build:core": "nx build core",
     "build:react": "nx build react",
     "build:angular": "nx build angular",
     "build:vue": "nx build vue",
-    "build:vue2": "nx build vue2",
 
     "build:demo:react": "nx build demo-react",
     "build:demo:angular": "nx build demo-angular",
     "build:demo:vue": "nx build demo-vue",
-    "build:demo:vue2": "nx build demo-vue2",
     "build:since": "nx affected --target=build",
 
     "test:all": "nx run-many --target=test --all",
-    "test:components": "nx test components",
+    "test:core": "nx test core",
     "test:react": "nx test react",
     "test:angular": "nx test angular",
     "test:vue": "nx test vue",
-    "test:vue2": "nx test vue2",
     
     "test:demo:react": "nx test demo-react",
     "test:demo:angular": "nx test demo-angular",
     "test:demo:vue": "nx test demo-vue",
-    "test:demo:vue2": "nx test demo-vue2",
 
     "start:demo:react": "nx run demo-react:stories",
     "start:demo:angular": "nx run demo-angular:stories",
-    "start:demo:vue": "nx run demo-vue:stories",
-    "start:demo:vue2": "nx run demo-vue2:stories"
+    "start:demo:vue": "nx run demo-vue:stories"
   },
   "repository": {
     "type": "git",

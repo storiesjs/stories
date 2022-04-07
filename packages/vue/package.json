@@ -52,7 +52,7 @@
     "pub": "npm config set //registry.npmjs.org/:_authToken=${NPM_TOKEN} && yarn publish --access public"
   },
   "dependencies": {
-    "@stories-js/components": "0.1.5"
+    "@stories-js/core": "0.1.5"
   },
   "devDependencies": {
     "@stencil/core": "^2.14.2",

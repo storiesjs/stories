@@ -1,4 +1,4 @@
-import type { Args, Meta as BesaMeta, Story as BaseStory, StoryFn, StoryComponent as BaseStoryComponent, StoryContext as BaseStoryContext } from "@stories-js/components";
+import type { Args, Meta as BesaMeta, Story as BaseStory, StoryFn, StoryComponent as BaseStoryComponent, StoryContext as BaseStoryContext } from "@stories-js/core";
 import type { ComponentType, ReactElement } from "react";
 
 export type StoryFnReactReturnType = ReactElement<unknown>;

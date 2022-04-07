@@ -4,7 +4,7 @@
 import { Meta, Story } from '@stories-js/react';
 import React, { useState } from 'react';
 
-import { action } from '@stories-js/components';
+import { action } from '@stories-js/core';
 
 import { Button, ButtonType } from './Button';
 

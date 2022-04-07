@@ -8,7 +8,7 @@ import type {
     StoryContext as BaseStoryContext, 
     DecoratorFunction as BaseDecoratorFunction, 
     AnyFramework
-} from "@stories-js/components";
+} from "@stories-js/core";
 import { ConcreteComponent } from "vue";
 
 export type StoryFnVueReturnType = ConcreteComponent<any>;

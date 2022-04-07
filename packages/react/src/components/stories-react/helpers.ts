@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { Args, DecoratorFunction } from "@stories-js/components";
+import type { Args, DecoratorFunction } from "@stories-js/core";
 
 import type { ReactStoryFn, StoryContext, StoryComponent } from "./types";
 

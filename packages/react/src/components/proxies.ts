@@ -3,9 +3,9 @@
 /* auto-generated react proxies */
 import { createReactComponent } from './react-component-lib';
 
-import type { JSX } from '@stories-js/components';
+import type { JSX } from '@stories-js/core';
 
-import { defineCustomElements } from '@stories-js/components/loader';
+import { defineCustomElements } from '@stories-js/core/loader';
 
 defineCustomElements();
 export const StoriesAddonActions = /*@__PURE__*/createReactComponent<JSX.StoriesAddonActions, HTMLStoriesAddonActionsElement>('stories-addon-actions');

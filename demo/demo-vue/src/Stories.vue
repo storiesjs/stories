@@ -34,7 +34,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { StoryComponent, StoryContext } from "@stories-js/components";
+import { StoryComponent, StoryContext } from "@stories-js/core";
 
 import { StoryVueRenderer } from "@stories-js/vue";
 

@@ -3,36 +3,36 @@
 /* auto-generated vue proxies */
 import { defineContainer } from './vue-component-lib/utils';
 
-import type { JSX } from '@stories-js/components/components';
+import type { JSX } from '@stories-js/core/components';
 
-import { defineCustomElement as defineStoriesAddonActions } from '@stories-js/components/components/stories-addon-actions.js';
-import { defineCustomElement as defineStoriesAddonControls } from '@stories-js/components/components/stories-addon-controls.js';
-import { defineCustomElement as defineStoriesAddons } from '@stories-js/components/components/stories-addons.js';
-import { defineCustomElement as defineStoriesApp } from '@stories-js/components/components/stories-app.js';
-import { defineCustomElement as defineStoriesBadge } from '@stories-js/components/components/stories-badge.js';
-import { defineCustomElement as defineStoriesButton } from '@stories-js/components/components/stories-button.js';
-import { defineCustomElement as defineStoriesButtons } from '@stories-js/components/components/stories-buttons.js';
-import { defineCustomElement as defineStoriesCheckbox } from '@stories-js/components/components/stories-checkbox.js';
-import { defineCustomElement as defineStoriesCol } from '@stories-js/components/components/stories-col.js';
-import { defineCustomElement as defineStoriesFooter } from '@stories-js/components/components/stories-footer.js';
-import { defineCustomElement as defineStoriesGrid } from '@stories-js/components/components/stories-grid.js';
-import { defineCustomElement as defineStoriesIcon } from '@stories-js/components/components/stories-icon.js';
-import { defineCustomElement as defineStoriesInput } from '@stories-js/components/components/stories-input.js';
-import { defineCustomElement as defineStoriesLabel } from '@stories-js/components/components/stories-label.js';
-import { defineCustomElement as defineStoriesPreview } from '@stories-js/components/components/stories-preview.js';
-import { defineCustomElement as defineStoriesRouter } from '@stories-js/components/components/stories-router.js';
-import { defineCustomElement as defineStoriesRow } from '@stories-js/components/components/stories-row.js';
-import { defineCustomElement as defineStoriesSearchbar } from '@stories-js/components/components/stories-searchbar.js';
-import { defineCustomElement as defineStoriesSidebar } from '@stories-js/components/components/stories-sidebar.js';
-import { defineCustomElement as defineStoriesSplitPane } from '@stories-js/components/components/stories-split-pane.js';
-import { defineCustomElement as defineStoriesTab } from '@stories-js/components/components/stories-tab.js';
-import { defineCustomElement as defineStoriesTabBar } from '@stories-js/components/components/stories-tab-bar.js';
-import { defineCustomElement as defineStoriesTabButton } from '@stories-js/components/components/stories-tab-button.js';
-import { defineCustomElement as defineStoriesTabs } from '@stories-js/components/components/stories-tabs.js';
-import { defineCustomElement as defineStoriesToolBar } from '@stories-js/components/components/stories-tool-bar.js';
-import { defineCustomElement as defineStoriesToolButton } from '@stories-js/components/components/stories-tool-button.js';
-import { defineCustomElement as defineStoriesToolZoom } from '@stories-js/components/components/stories-tool-zoom.js';
-import { defineCustomElement as defineStoriesZoom } from '@stories-js/components/components/stories-zoom.js';
+import { defineCustomElement as defineStoriesAddonActions } from '@stories-js/core/components/stories-addon-actions.js';
+import { defineCustomElement as defineStoriesAddonControls } from '@stories-js/core/components/stories-addon-controls.js';
+import { defineCustomElement as defineStoriesAddons } from '@stories-js/core/components/stories-addons.js';
+import { defineCustomElement as defineStoriesApp } from '@stories-js/core/components/stories-app.js';
+import { defineCustomElement as defineStoriesBadge } from '@stories-js/core/components/stories-badge.js';
+import { defineCustomElement as defineStoriesButton } from '@stories-js/core/components/stories-button.js';
+import { defineCustomElement as defineStoriesButtons } from '@stories-js/core/components/stories-buttons.js';
+import { defineCustomElement as defineStoriesCheckbox } from '@stories-js/core/components/stories-checkbox.js';
+import { defineCustomElement as defineStoriesCol } from '@stories-js/core/components/stories-col.js';
+import { defineCustomElement as defineStoriesFooter } from '@stories-js/core/components/stories-footer.js';
+import { defineCustomElement as defineStoriesGrid } from '@stories-js/core/components/stories-grid.js';
+import { defineCustomElement as defineStoriesIcon } from '@stories-js/core/components/stories-icon.js';
+import { defineCustomElement as defineStoriesInput } from '@stories-js/core/components/stories-input.js';
+import { defineCustomElement as defineStoriesLabel } from '@stories-js/core/components/stories-label.js';
+import { defineCustomElement as defineStoriesPreview } from '@stories-js/core/components/stories-preview.js';
+import { defineCustomElement as defineStoriesRouter } from '@stories-js/core/components/stories-router.js';
+import { defineCustomElement as defineStoriesRow } from '@stories-js/core/components/stories-row.js';
+import { defineCustomElement as defineStoriesSearchbar } from '@stories-js/core/components/stories-searchbar.js';
+import { defineCustomElement as defineStoriesSidebar } from '@stories-js/core/components/stories-sidebar.js';
+import { defineCustomElement as defineStoriesSplitPane } from '@stories-js/core/components/stories-split-pane.js';
+import { defineCustomElement as defineStoriesTab } from '@stories-js/core/components/stories-tab.js';
+import { defineCustomElement as defineStoriesTabBar } from '@stories-js/core/components/stories-tab-bar.js';
+import { defineCustomElement as defineStoriesTabButton } from '@stories-js/core/components/stories-tab-button.js';
+import { defineCustomElement as defineStoriesTabs } from '@stories-js/core/components/stories-tabs.js';
+import { defineCustomElement as defineStoriesToolBar } from '@stories-js/core/components/stories-tool-bar.js';
+import { defineCustomElement as defineStoriesToolButton } from '@stories-js/core/components/stories-tool-button.js';
+import { defineCustomElement as defineStoriesToolZoom } from '@stories-js/core/components/stories-tool-zoom.js';
+import { defineCustomElement as defineStoriesZoom } from '@stories-js/core/components/stories-zoom.js';
 
 
 export const StoriesAddonActions = /*@__PURE__*/ defineContainer<JSX.StoriesAddonActions>('stories-addon-actions', defineStoriesAddonActions);
