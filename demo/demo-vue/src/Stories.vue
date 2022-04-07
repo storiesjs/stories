@@ -1,5 +1,5 @@
 <template>
-  <stories-app :modules.prop="modules" @storyChange="storySelected($event)" @storyContextChange="contextSelected($event)">
+  <stories-app :modules.prop="modules" @storyChange="storySelected" @storyContextChange="contextSelected">
     <stories-split-pane split="horizontal" min-size="150" default-size="250">
       <stories-sidebar slot="slot1"></stories-sidebar>
       <div slot="slot2">
@@ -12,16 +12,16 @@
           </stories-preview>
           <stories-tabs slot="slot2">
             <stories-tab-bar>
-              <stories-tab-button tab="actions">
+              <!-- <stories-tab-button tab="actions">
                 <stories-label color="primary">Actions</stories-label>
-              </stories-tab-button>
+              </stories-tab-button> -->
               <stories-tab-button tab="controls">
                 <stories-label color="primary">Controls</stories-label>
               </stories-tab-button>
             </stories-tab-bar>
-            <stories-tab tab="actions">
+            <!-- <stories-tab tab="actions">
               <stories-addon-actions></stories-addon-actions>
-            </stories-tab>
+            </stories-tab> -->
             <stories-tab tab="controls">
               <stories-addon-controls></stories-addon-controls>
             </stories-tab>
@@ -47,7 +47,6 @@ export default defineComponent({
   components: {
     StoryVueRenderer,
   },
-  /*
   data() {
     return {
       modules: storyModules,
@@ -55,12 +54,11 @@ export default defineComponent({
       context: null as StoryContext | null,
     };
   },
-  */
-  data: () => ({
-    modules: storyModules,
-    story: null as StoryComponent | null,
-    context: null as StoryContext | null,
-  }),
+  // data: () => ({
+  //   modules: storyModules,
+  //   story: null as StoryComponent | null,
+  //   context: null as StoryContext | null,
+  // }),
   methods: {
     storySelected(event: CustomEvent<StoryComponent>) {
       console.log("!!! storySelected", event.detail);
