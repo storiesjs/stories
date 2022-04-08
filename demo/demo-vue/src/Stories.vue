@@ -12,16 +12,16 @@
           </stories-preview>
           <stories-tabs slot="slot2">
             <stories-tab-bar>
-              <stories-tab-button tab="actions">
+              <!-- <stories-tab-button tab="actions">
                 <stories-label color="primary">Actions</stories-label>
-              </stories-tab-button>
+              </stories-tab-button> -->
               <stories-tab-button tab="controls">
                 <stories-label color="primary">Controls</stories-label>
               </stories-tab-button>
             </stories-tab-bar>
-            <stories-tab tab="actions">
+            <!-- <stories-tab tab="actions">
               <stories-addon-actions></stories-addon-actions>
-            </stories-tab>
+            </stories-tab> -->
             <stories-tab tab="controls">
               <stories-addon-controls></stories-addon-controls>
             </stories-tab>
@@ -34,7 +34,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { StoryComponent, StoryContext } from "@stories-js/components";
+import { StoryComponent, StoryContext } from "@stories-js/core";
 
 import { StoryVueRenderer } from "@stories-js/vue";
 
@@ -43,7 +43,7 @@ import storyModules from "./stories-list";
 console.log('storyModules', storyModules)
 
 export default defineComponent({
-  name: "Stories",
+  name: "stories-browser",
   components: {
     StoryVueRenderer,
   },
@@ -54,6 +54,11 @@ export default defineComponent({
       context: null as StoryContext | null,
     };
   },
+  // data: () => ({
+  //   modules: storyModules,
+  //   story: null as StoryComponent | null,
+  //   context: null as StoryContext | null,
+  // }),
   methods: {
     storySelected(event: CustomEvent<StoryComponent>) {
       console.log("!!! storySelected", event.detail);

@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import { StoriesAngularService } from '@stories-js/angular';
 import type { StoryComponent } from '@stories-js/angular';
-import type { StoryContext, StoryModules } from '@stories-js/components';
+import type { StoryContext, StoryModules } from '@stories-js/core';
 
 @Component({
   selector: 'app-root',

@@ -23,34 +23,30 @@
     "lint": "eslint '**/*.ts?(x)' --fix",
     "format": "prettier --write '**/*.{js,jsx,ts,tsx,md,mdx}'",
     
-    "build:all": "nx run-many --target=build --all",
+    "build": "nx run-many --target=build --all",
     "build:cli": "nx build cli",
-    "build:components": "nx build components",
+    "build:core": "nx build core",
     "build:react": "nx build react",
     "build:angular": "nx build angular",
-    "build:vue2": "nx build vue2",
     "build:vue": "nx build vue",
+
     "build:demo:react": "nx build demo-react",
     "build:demo:angular": "nx build demo-angular",
-    "build:demo:vue2": "nx build demo-vue2",
     "build:demo:vue": "nx build demo-vue",
     "build:since": "nx affected --target=build",
 
     "test:all": "nx run-many --target=test --all",
-    "test:components": "nx test components",
+    "test:core": "nx test core",
     "test:react": "nx test react",
     "test:angular": "nx test angular",
-    "test:vue2": "nx test vue2",
     "test:vue": "nx test vue",
     
     "test:demo:react": "nx test demo-react",
     "test:demo:angular": "nx test demo-angular",
-    "test:demo:vue2": "nx test demo-vue2",
     "test:demo:vue": "nx test demo-vue",
 
     "start:demo:react": "nx run demo-react:stories",
     "start:demo:angular": "nx run demo-angular:stories",
-    "start:demo:vue2": "nx run demo-vue2:stories",
     "start:demo:vue": "nx run demo-vue:stories"
   },
   "repository": {
@@ -76,7 +72,7 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
-    "eslint-plugin-vue": "^6.2.2",
+    "eslint-plugin-vue": "^8.5.0",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "rimraf": "^2.6.1",
