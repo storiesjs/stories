@@ -13,6 +13,5 @@ export * from './layout';
 export * from './notifications';
 export * from './shortcuts';
 export { default as messages, Messages } from './messages';
-export * from './actions';
 
 export type API = AddonsAPI & LayoutAPI & ShotcutsAPI & StoriesAPI & NotificationsAPI;

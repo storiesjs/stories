@@ -4,7 +4,6 @@
   "license": "GPL-2.0",
   "private": true,
   "dependencies": {
-    "@stories-js/core": "^0.2.0",
     "@stories-js/react": "^0.2.0",
     "@stories-js/cli": "^0.2.0",
     "@testing-library/jest-dom": "^5.11.4",

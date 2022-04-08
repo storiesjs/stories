@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Args, DecoratorFunction } from "@stories-js/core";
 
 import type { ReactStoryFn, StoryContext, StoryComponent } from "./types";
+import { rest } from "./utils";
 
 /**
  * Currently StoryContextUpdates are allowed to have any key in the type.
@@ -11,19 +13,8 @@ import type { ReactStoryFn, StoryContext, StoryComponent } from "./types";
  * @param inputContextUpdate StoryContextUpdate
  * @returns StoryContextUpdate
  */
-export function sanitizeStoryContextUpdate({
-  storyId,
-  kinds,
-  storyName,
-  storyFn,
-  component,
-  subcomponents,
-  decorators,
-  args,
-  argTypes,
-  ...update
-}: Partial<StoryComponent> = {}): any {
-  return update;
+export function sanitizeStoryContextUpdate(inputContextUpdate: any): any {
+    return rest(inputContextUpdate, ["storyId", "kinds", "storyName", "storyFn", "component", "subcomponents", "decorators", "args", "argTypes"]);
 }
 
 export function decorateStory(

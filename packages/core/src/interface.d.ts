@@ -7,7 +7,7 @@ export * from './components';
 export * from './index';
 
 
-export * from './addons/addon-actions/Action';
+export * from './addons/api';
 export * from './types';
 export * from './api';
 export * from './store';
