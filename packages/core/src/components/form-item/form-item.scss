@@ -1,0 +1,107 @@
+.form-control {
+  .form-control-label {
+    display: none;
+  }
+
+  .form-control-help-text {
+    display: none;
+  }
+
+  .form-control-invalid-text {
+    display: none;
+  }
+}
+
+// Label
+.form-control-has-label {
+  .form-control-label {
+    display: flex;
+    line-height: var(--gr-line-height-normal);
+    color: var(--gr-form-element-label-color);
+    margin-bottom: var(--gr-spacing-xxx-small);
+  }
+
+  &.form-control-small .form-control-label {
+    font-size: var(--gr-form-element-label-font-size-small);
+  }
+
+  &.form-control-medium .form-control-label {
+    font-size: var(--gr-form-element-label-font-size-medium);
+  }
+
+  &.form-control-large .form-control-label {
+    font-size: var(--gr-form-element-label-font-size-large);
+  }
+
+  .form-control-label .asterisk {
+    margin-left: var(--gr-spacing-x-small);
+    color: var(--gr-color-medium);
+
+    svg {
+      width: 0.6em;
+      height: 0.6em;
+      margin-bottom: var(--gr-spacing-xxx-small);
+    }
+  }
+}
+
+// Help text
+.form-control-has-help-text {
+  .form-control-help-text {
+    display: block;
+    line-height: var(--gr-line-height-normal);
+    color: var(--gr-form-element-help-text-color);
+    margin-top: var(--gr-spacing-xxx-small);
+  }
+
+  &.form-control-small .form-control-help-text {
+    font-size: var(--gr-form-element-help-text-font-size-small);
+    min-height: 1.625rem;
+  }
+
+  &.form-control-medium .form-control-help-text {
+    font-size: var(--gr-form-element-help-text-font-size-medium);
+    min-height: 1.875rem;
+  }
+
+  &.form-control-large .form-control-help-text {
+    font-size: var(--gr-form-element-help-text-font-size-large);
+    min-height: 2.125rem;
+  }
+}
+
+// Invalid text
+.form-control-has-invalid-text {
+  .form-control-invalid-text {
+    display: flex;
+    margin-left: -2px;
+    line-height: var(--gr-line-height-normal);
+    color: var(--gr-form-element-invalid-text-color);
+    margin-top: var(--gr-spacing-xxx-small);
+
+    .icon {
+      margin-top: var(--gr-spacing-xxx-small);
+      margin-right: var(--gr-spacing-xx-small);
+
+      svg {
+        width: 1.4em;
+        height: 1.4em;
+      }
+    }
+  }
+
+  &.form-control-small .form-control-invalid-text {
+    font-size: var(--gr-form-element-invalid-text-font-size-small);
+    min-height: 1.625rem;
+  }
+
+  &.form-control-medium .form-control-invalid-text {
+    font-size: var(--gr-form-element-invalid-text-font-size-medium);
+    min-height: 1.875rem;
+  }
+
+  &.form-control-large .form-control-invalid-text {
+    font-size: var(--gr-form-element-invalid-text-font-size-large);
+    min-height: 2.125rem;
+  }
+}

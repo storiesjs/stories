@@ -1,7 +1,4 @@
-@import "../../themes/stories.globals";
-
-// Checkbox
-// --------------------------------------------------
+@import '../../themes/stories.globals';
 
 :host {
   /**
@@ -15,7 +12,10 @@
    * @prop --control-border-color-hover: Border color of the control on hover
    * @prop --control-background-color-hover: Background color of the control on hover
    *
-   * @prop --control-color-checked: Color of the control when checked (the checkmark icon)
+   * @prop --control-border-color-focus: Border color of the control on focus
+   * @prop --control-background-color-focus: Background color of the control on focus
+   *
+   * @prop --control-color-checked: Color of the control when checked (the small circle)
    * @prop --control-border-color-checked: Border color of the control when checked
    * @prop --control-background-color-checked: Background color of the control when checked
    *
@@ -24,10 +24,7 @@
    *
    * @prop --control-border-color-checked-focus: Border color of the control when checked on focus
    * @prop --control-background-color-checked-focus: Background color of the control when checked on focus
-   *
-   * @prop --focus-ring: The focus ring style to use when the checkbox receives focus, a `box-shadow` property.
    */
-
   --label-color: var(--gr-color-dark-tint);
 
   --control-size: var(--gr-toggle-size);
@@ -38,7 +35,10 @@
   --control-border-color-hover: var(--gr-color-medium);
   --control-background-color-hover: var(--gr-color-white);
 
-  --control-color-checked: var(--gr-color-primary-contrast);
+  --control-border-color-focus: var(--gr-color-medium);
+  --control-background-color-focus: var(--gr-color-medium);
+
+  --control-color-checked: var(--gr-color-white);
   --control-border-color-checked: var(--gr-color-primary);
   --control-background-color-checked: var(--gr-color-primary);
 
@@ -60,11 +60,11 @@
   }
 }
 
-:host(.checkbox-disabled) {
+:host(.radio-disabled) {
   pointer-events: none;
 }
 
-.checkbox {
+.radio {
   display: inline-flex;
   align-items: center;
   font-family: var(--gr-font-family);
@@ -75,7 +75,7 @@
   cursor: pointer;
 }
 
-.checkbox-icon {
+.radio-icon {
   display: inline-flex;
   width: var(--control-size);
   height: var(--control-size);
@@ -86,8 +86,7 @@
   }
 }
 
-.checkbox-control {
-  flex: 0 0 auto;
+.radio-control {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -95,12 +94,12 @@
   width: var(--control-size);
   height: var(--control-size);
   border: solid 1px var(--control-border-color);
-  border-radius: var(--gr-form-element-border-radius-small);
+  border-radius: 50%;
   background-color: var(--control-background-color);
   color: transparent;
   transition: 150ms border-color, 150ms background-color, 150ms color, 150ms box-shadow;
 
-  input[type='checkbox'] {
+  input[type='radio'] {
     position: absolute;
     opacity: 0;
     padding: 0;
@@ -109,99 +108,50 @@
   }
 }
 
-.checkbox-control-circle {
-  border-radius: var(--border-radius-circle);
-}
-
 // Hover
-.checkbox:not(.checkbox-checked):not(.checkbox-disabled) .checkbox-control:hover {
+.radio:not(.radio-checked):not(.radio-disabled) .radio-control:hover {
   border-color: var(--control-border-color-hover);
   background-color: var(--control-background-color-hover);
 }
 
 // Focus
-.checkbox.checkbox-focused:not(.checkbox-checked):not(.checkbox-disabled) .checkbox-control {
+.radio.radio-focused:not(.radio-checked):not(.radio-disabled) .radio-control {
   border-color: var(--control-border-color-hover);
   background-color: var(--control-background-color-hover);
   box-shadow: var(--focus-ring);
 }
 
-// Checked/indeterminate
-.checkbox-checked .checkbox-control,
-.checkbox-indeterminate .checkbox-control {
+// Checked
+.radio-checked .radio-control {
   color: var(--control-color-checked);
   border-color: var(--control-border-color-checked);
   background-color: var(--control-background-color-checked);
 }
 
-// Checked/indeterminate + hover
-.checkbox.checkbox-checked:not(.checkbox-disabled) .checkbox-control:hover,
-.checkbox.checkbox-indeterminate:not(.checkbox-disabled) .checkbox-control:hover {
+// Checked + hover
+.radio.radio-checked:not(.radio-disabled) .radio-control:hover {
   border-color: var(--control-border-color-checked-hover);
   background-color: var(--control-background-color-checked-hover);
 }
 
-// Checked/indeterminate + focus
-.checkbox.checkbox-checked:not(.checkbox-disabled).checkbox-focused .checkbox-control,
-.checkbox.checkbox-indeterminate:not(.checkbox-disabled).checkbox-focused .checkbox-control {
+// Checked + focus
+.radio.radio-checked:not(.radio-disabled).radio-focused .radio-control {
   border-color: var(--control-border-color-checked-focus);
   background-color: var(--control-background-color-checked-focus);
   box-shadow: var(--focus-ring);
 }
 
-// Invalid
-.checkbox:not(.checkbox-disabled).checkbox-invalid .checkbox-control {
-  border-color: var(--gr-form-element-invalid-text-color);
-}
-
-// Checked/indeterminate + invalid
-.checkbox.checkbox-checked:not(.checkbox-disabled).checkbox-invalid .checkbox-control,
-.checkbox.checkbox-indeterminate:not(.checkbox-disabled).checkbox-invalid .checkbox-control {
-  border-color: var(--gr-form-element-invalid-text-color);
-  background-color: var(--gr-form-element-invalid-text-color);
-}
-
 // Disabled
-.checkbox-disabled {
+.radio-disabled {
   opacity: 0.5;
 }
 
-.checkbox-label {
+.radio-label {
   line-height: var(--gr-line-height-normal);
   margin-left: 0.5em;
   user-select: none;
 }
 
-// Invalid text
-.invalid-text {
-  display: none;
-}
-
-// Invalid text
-.checkbox-invalid-text {
-  display: none;
-}
-
-:host(.checkbox-has-invalid-text) {
-  display: block;
-
-  .checkbox-invalid-text {
-    display: flex;
-    margin-left: -2px;
-    line-height: var(--gr-line-height-normal);
-    color: var(--gr-form-element-invalid-text-color);
-    margin-top: var(--gr-spacing-xxx-small);
-    font-size: var(--gr-form-element-invalid-text-font-size-medium);
-    min-height: 1.875rem;
-
-    .icon {
-      margin-top: var(--gr-spacing-xxx-small);
-      margin-right: var(--gr-spacing-xx-small);
-
-      svg {
-        width: 1.4em;
-        height: 1.4em;
-      }
-    }
-  }
+:host(:focus) {
+  outline: none;
 }

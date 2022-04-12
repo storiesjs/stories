@@ -45,6 +45,7 @@
     "test:demo:angular": "nx test demo-angular",
     "test:demo:vue": "nx test demo-vue",
 
+    "start:core": "nx run core:start",
     "start:demo:react": "nx run demo-react:stories",
     "start:demo:angular": "nx run demo-angular:stories",
     "start:demo:vue": "nx run demo-vue:stories"

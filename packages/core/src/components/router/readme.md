@@ -7,4 +7,4 @@ The stories-router is a component managing showing content in another components
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

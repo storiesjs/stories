@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Graphite Design System</title>
+
+    <link rel="stylesheet" href="/build/core.css" />
+    <script type="module" src="/build/core.esm.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.5.0/css/all.css" />
+
+    <style>
+      body {
+        font-family: sans-serif;
+        background-color: var(--gr-color-light-tint);
+        line-height: var(--gr-line-height-normal);
+        color: var(--gr-color-dark);
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>Button (stories-button)</h2>
+
+      <section>
+        <h3>Variants</h3>
+
+        <stories-button>Default</stories-button>
+        <stories-button variant="primary" id="focusBlurExample">Primary</stories-button>
+        <stories-button variant="secondary">Secondary</stories-button>
+        <stories-button variant="danger">Danger</stories-button>
+        <stories-button variant="plain">Plain</stories-button>
+      </section>
+
+      <section>
+        <h3>Custom</h3>
+
+        <stories-button class="custom">Custom</stories-button>
+        <style>
+          stories-button.custom {
+            --shadow: 0px 0px 5px var(--gr-color-dark);
+            --focus-ring: 0px 0px 5px var(--gr-color-primary);
+          }
+        </style>
+      </section>
+      <section>
+        <h3>Sizes</h3>
+
+        <stories-button size="small">Small</stories-button>
+        <stories-button>Medium</stories-button>
+        <stories-button size="large">Large</stories-button>
+      </section>
+
+      <section>
+        <h3>Icons</h3>
+
+        <stories-button>
+          <!-- <ion-icon name="settings-outline" slot="start" aria-hidden="true"></ion-icon> -->
+          <i class="fas fa-cog" slot="start"></i>
+          Settings
+        </stories-button>
+
+        <stories-button>
+          <ion-icon name="refresh-outline" slot="end" style="font-size: 1.4em" aria-hidden="true"></ion-icon>
+          Refresh
+        </stories-button>
+
+        <stories-button>
+          <ion-icon name="link-outline" slot="start" style="font-size: 1.3em" aria-hidden="true"></ion-icon>
+          Open
+          <ion-icon name="exit-outline" slot="end" style="font-size: 1.3em" aria-hidden="true"></ion-icon>
+        </stories-button>
+      </section>
+
+      <section>
+        <h3>Circle Buttons</h3>
+
+        <stories-button variant="primary" size="small" aria-label="Add" circle>
+          <ion-icon name="add-outline" slot="icon-only"></ion-icon>
+        </stories-button>
+
+        <stories-button variant="primary" aria-label="Add" circle>
+          <ion-icon name="add-outline" slot="icon-only"></ion-icon>
+        </stories-button>
+
+        <stories-button variant="primary" aria-label="Add" size="large" circle>
+          <ion-icon name="add-outline" slot="icon-only"></ion-icon>
+        </stories-button>
+      </section>
+
+      <section>
+        <h3>Link Buttons</h3>
+
+        <stories-button href="https://storiesjs.org" target="_blank">Stories Docs</stories-button>
+      </section>
+
+      <section>
+        <h3>Block Button</h3>
+
+        <stories-button expand="block">Block</stories-button>
+      </section>
+
+      <section>
+        <h3>Full Button</h3>
+
+        <stories-button expand="full">Full</stories-button>
+      </section>
+
+      <section>
+        <h3>Caret</h3>
+
+        <stories-button size="small" caret>Small</stories-button>
+        <stories-button size="medium" caret>Medium</stories-button>
+        <stories-button size="large" caret>Large</stories-button>
+      </section>
+
+      <!--
+    <section>
+      <h3>Loading</h3>
+
+      <gr-button loading>Default</gr-button>
+      <gr-button variant="primary" loading>Primary</gr-button>
+      <gr-button variant="secondary" loading>Secondary</gr-button>
+      <gr-button variant="danger" loading>Danger</gr-button>
+      <gr-button variant="plain" loading>Plain</gr-button>
+    </section>
+    -->
+
+      <section>
+        <h3>Pill</h3>
+
+        <stories-button size="small" pill variant="danger">Small</stories-button>
+        <stories-button size="medium" pill>Medium</stories-button>
+        <stories-button size="large" pill variant="primary">Large</stories-button>
+      </section>
+
+      <section>
+        <h3>Disabled</h3>
+
+        <stories-button id="clickExample" disabled> Default </stories-button>
+
+        <stories-button variant="primary" disabled> Primary </stories-button>
+
+        <stories-button variant="secondary" disabled> Secondary </stories-button>
+
+        <stories-button variant="danger" disabled> Danger </stories-button>
+
+        <stories-button variant="plain" disabled> Plain </stories-button>
+      </section>
+    </section>
+
+    <section>
+      <h2>Checkbox (stories-checkbox)</h2>
+
+      <section style="width: 300px">
+        <h3>Checked</h3>
+        <stories-group label="Select options">
+          <stories-checkbox id="checkbox-test" checked invalid aria-label="Option one">Option 1</stories-checkbox>
+          <stories-checkbox invalid>Option 2</stories-checkbox>
+          <stories-checkbox invalid-text="Select at least one option" invalid>Option 3</stories-checkbox>
+        </stories-group>
+      </section>
+
+      <section>
+        <h3>Horizontal</h3>
+        <stories-group label="Select options" horizontal>
+          <stories-checkbox>Option 1</stories-checkbox>
+          <stories-checkbox>Option 2</stories-checkbox>
+          <stories-checkbox>Option 3</stories-checkbox>
+        </stories-group>
+      </section>
+
+      <section>
+        <h3>Indeterminate</h3>
+        <stories-checkbox indeterminate>Indeterminate</stories-checkbox>
+      </section>
+
+       <section>
+        <h3>Disabled</h3>
+        <stories-checkbox disabled>Disabled</stories-checkbox>
+      </section>
+
+      <section>
+        <h3>Invalid</h3>
+        <stories-checkbox invalid-text="You have to agree with our terms to continue" invalid>
+          I agree with the terms
+        </stories-checkbox>
+      </section>
+
+    </section>
+
+    <section>
+      <h2>Input (stories-input)</h2>
+
+      <section>
+        <h3>Sizes</h3>
+
+        <stories-input size="small" placeholder="Small"></stories-input>
+        <br />
+        <stories-input size="medium" placeholder="Medium"></stories-input>
+        <br />
+        <stories-input size="large" placeholder="Large"></stories-input>
+      </section>
+
+      <section>
+        <h3>Disabled</h3>
+
+        <stories-input disabled></stories-input>
+      </section>
+
+      <section>
+        <h3>Clearable</h3>
+
+        <stories-input placeholder="Clearable" clearable></stories-input>
+      </section>
+
+      <section>
+        <h3>Toggle Password</h3>
+
+        <stories-input type="password" placeholder="Password Toggle" toggle-password></stories-input>
+      </section>
+
+      <section>
+        <h3>Icons</h3>
+
+        <stories-input placeholder="Medium" size="small">
+          <ion-icon name="search-outline" slot="start"></ion-icon>
+          <ion-icon name="chatbubble-outline" slot="end"></ion-icon>
+        </stories-input>
+        <br />
+        <stories-input placeholder="Medium" size="medium">
+          <i class="fas fa-search" slot="start"></i>
+          <ion-icon name="chatbubble-outline" slot="end"></ion-icon>
+        </stories-input>
+        <br />
+        <stories-input placeholder="Medium" size="large">
+          <ion-icon name="search-outline" slot="start"></ion-icon>
+          <ion-icon name="chatbubble-outline" slot="end"></ion-icon>
+        </stories-input>
+      </section>
+
+      <section>
+        <h3>Pill</h3>
+
+        <stories-input size="small" pill></stories-input>
+        <br />
+        <stories-input size="medium" pill></stories-input>
+        <br />
+        <stories-input size="large" pill></stories-input>
+      </section>
+
+      <section>
+        <h3>Number input with min, max, step</h3>
+
+        <stories-input type="number" min="0" max="100" step="2" value="34"></stories-input>
+      </section>
+
+      <section>
+        <h3>Labels</h3>
+
+        <stories-input type="password" label="Password"></stories-input>
+      </section>
+
+      <section>
+        <h3>Required indicator</h3>
+
+        <stories-input type="password" label="Password" required-indicator></stories-input>
+      </section>
+
+      <section>
+        <h3>Help Text</h3>
+
+        <stories-input type="password" label="Password" help-text="Passwords must be at least 8 characters."></stories-input>
+      </section>
+
+      <section>
+        <h3>Invalid Text</h3>
+
+        <div style="display: flex; gap: 12px">
+          <div>
+            <stories-input
+              type="password"
+              label="Password"
+              help-text="Passwords must be at least 8 characters."
+              invalid-text="Create a password with at least 8 characters."
+            ></stories-input>
+            <p>Test</p>
+          </div>
+
+          <div>
+            <stories-input
+              type="password"
+              label="Password"
+              help-text="Passwords must be at least 8 characters."
+              invalid-text="Create a password with at least 8 characters."
+              invalid
+            ></stories-input>
+            <p>Test</p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section>
+      <h2>Radio (stories-radio & stories-radio-group)</h2>
+
+      <section>
+        <h3>Default (vertical)</h3>
+
+        <stories-radio-group label="Select an option" value="3">
+          <stories-radio value="1">Option 1</stories-radio>
+          <stories-radio value="2">Option 2</stories-radio>
+          <stories-radio value="3">Option 3</stories-radio>
+        </stories-radio-group>
+      </section>
+
+      <section>
+        <h3>Horizontal</h3>
+
+        <stories-radio-group label="Select an option" value="3" horizontal>
+          <stories-radio value="1">Option 1</stories-radio>
+          <stories-radio value="2">Option 2</stories-radio>
+          <stories-radio value="3">Option 3</stories-radio>
+        </stories-radio-group>
+      </section>
+
+      <section>
+        <h3>Disabled option</h3>
+
+        <stories-radio-group label="Select an option" value="2">
+          <stories-radio value="1">Option 1</stories-radio>
+          <stories-radio value="2">Option 2</stories-radio>
+          <stories-radio value="3">Option 3</stories-radio>
+          <stories-radio value="4" disabled>Disabled</stories-radio>
+        </stories-radio-group>
+      </section>
+
+      <section>
+        <h3>Invalid</h3>
+
+        <stories-radio-group label="Select an option" invalid-text="Select an option" invalid>
+          <stories-radio value="1">Option 1</stories-radio>
+          <stories-radio value="2">Option 2</stories-radio>
+          <stories-radio value="3">Option 3</stories-radio>
+        </stories-radio-group>
+      </section>
+
+      <section>
+        <h3>Invalid with horizontal</h3>
+
+        <stories-radio-group label="Select an option" invalid-text="Select an option" horizontal invalid>
+          <stories-radio value="1">Option 1</stories-radio>
+          <stories-radio value="2">Option 2</stories-radio>
+          <stories-radio value="3">Option 3</stories-radio>
+        </stories-radio-group>
+      </section>
+
+      <section>
+        <h3>Required indicator</h3>
+
+        <stories-radio-group label="Select an option" required-indicator>
+          <stories-radio value="1" aria-label="Option one">Option 1</stories-radio>
+          <stories-radio value="2">Option 2</stories-radio>
+          <stories-radio value="3">Option 3</stories-radio>
+        </stories-radio-group>
+      </section>
+    </section>
+
+    <script>
+      let clickExampleElement = document.getElementById('clickExample');
+
+      clickExampleElement.addEventListener('click', () => {
+        console.log('clicked');
+      });
+
+      const focusBlurExampleElement = document.getElementById('focusBlurExample');
+
+      focusBlurExampleElement.addEventListener('stories-focus', () => {
+        console.log('stories-focus');
+      });
+
+      focusBlurExampleElement.addEventListener('stories-blur', () => {
+        console.log('stories-blur');
+      });
+
+      /*
+      const tagsClearable = document.querySelector('.tags-clearable');
+
+      tagsClearable.addEventListener('stories-clear', event => {
+        const tag = event.target;
+        tag.style.opacity = '0';
+        setTimeout(() => (tag.style.opacity = '1'), 2000);
+      });  */
+
+      const checkboxTest = document.querySelector('#checkbox-test');
+
+      checkboxTest.addEventListener('stories-focus', () => {
+        console.log('stories-focus');
+      });
+
+      checkboxTest.addEventListener('stories-blur', () => {
+        console.log('stories-blur');
+      });
+    </script>
+  </body>
+</html>

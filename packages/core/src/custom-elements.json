@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-04-08T16:14:20",
+  "timestamp": "2022-04-11T18:47:32",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.2",
@@ -355,39 +355,40 @@
       "usage": {},
       "properties": [
         {
-          "name": "buttonType",
-          "type": "string",
-          "mutable": true,
-          "attr": "button-type",
+          "name": "caret",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "caret",
           "reflectToAttr": false,
-          "docs": "The type of button.",
+          "docs": "Set to true to draw the button with a caret for use with dropdowns, popovers, etc.",
           "docsTags": [],
-          "default": "'button'",
+          "default": "false",
           "values": [
             {
-              "type": "string"
+              "type": "boolean"
             }
           ],
           "optional": false,
           "required": false,
-          "description": "The type of button."
+          "description": "Set to true to draw the button with a caret for use with dropdowns, popovers, etc."
         },
         {
-          "name": "color",
-          "type": "string",
+          "name": "circle",
+          "type": "boolean",
           "mutable": false,
-          "attr": "color",
+          "attr": "circle",
           "reflectToAttr": true,
-          "docs": "The color to use from your application's color palette.\nDefault options are: `\"primary\"`, `\"secondary\"`, `\"tertiary\"`, `\"success\"`, `\"warning\"`, `\"danger\"`, `\"light\"`, `\"medium\"`, and `\"dark\"`.\nFor more information on colors, see [theming](/docs/theming/basics).",
+          "docs": "Set to true to draw a circle button.",
           "docsTags": [],
+          "default": "false",
           "values": [
             {
-              "type": "string"
+              "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
-          "description": "The color to use from your application's color palette.\nDefault options are: `\"primary\"`, `\"secondary\"`, `\"tertiary\"`, `\"success\"`, `\"warning\"`, `\"danger\"`, `\"light\"`, `\"medium\"`, and `\"dark\"`.\nFor more information on colors, see [theming](/docs/theming/basics)."
+          "description": "Set to true to draw a circle button."
         },
         {
           "name": "disabled",
@@ -430,42 +431,12 @@
           "description": "Set to `\"block\"` for a full-width button or to `\"full\"` for a full-width button\nwithout left and right borders."
         },
         {
-          "name": "fill",
-          "type": "\"clear\" | \"default\" | \"outline\" | \"solid\"",
-          "mutable": true,
-          "attr": "fill",
-          "reflectToAttr": true,
-          "docs": "Set to `\"clear\"` for a transparent button, to `\"outline\"` for a transparent\nbutton with a border, or to `\"solid\"`. The default style is `\"solid\"` except inside of\na toolbar, where the default is `\"clear\"`.",
-          "docsTags": [],
-          "values": [
-            {
-              "value": "clear",
-              "type": "string"
-            },
-            {
-              "value": "default",
-              "type": "string"
-            },
-            {
-              "value": "outline",
-              "type": "string"
-            },
-            {
-              "value": "solid",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "description": "Set to `\"clear\"` for a transparent button, to `\"outline\"` for a transparent\nbutton with a border, or to `\"solid\"`. The default style is `\"solid\"` except inside of\na toolbar, where the default is `\"clear\"`."
-        },
-        {
           "name": "href",
           "type": "string",
           "mutable": false,
           "attr": "href",
           "reflectToAttr": false,
-          "docs": "Contains a URL or a URL fragment that the hyperlink points to.\nIf this property is set, an anchor tag will be rendered.",
+          "docs": "Contains a URL or a URL fragment that the hyperlink points to.",
           "docsTags": [],
           "values": [
             {
@@ -474,86 +445,15 @@
           ],
           "optional": false,
           "required": false,
-          "description": "Contains a URL or a URL fragment that the hyperlink points to.\nIf this property is set, an anchor tag will be rendered."
+          "description": "Contains a URL or a URL fragment that the hyperlink points to."
         },
         {
-          "name": "routerDirection",
-          "type": "\"back\" | \"forward\" | \"root\"",
-          "mutable": false,
-          "attr": "router-direction",
-          "reflectToAttr": false,
-          "docs": "When using a router, it specifies the transition direction when navigating to\nanother page using `href`.",
-          "docsTags": [],
-          "default": "'forward'",
-          "values": [
-            {
-              "value": "back",
-              "type": "string"
-            },
-            {
-              "value": "forward",
-              "type": "string"
-            },
-            {
-              "value": "root",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false,
-          "description": "When using a router, it specifies the transition direction when navigating to\nanother page using `href`."
-        },
-        {
-          "name": "shape",
-          "type": "\"round\"",
-          "mutable": false,
-          "attr": "shape",
-          "reflectToAttr": true,
-          "docs": "The button shape.",
-          "docsTags": [],
-          "values": [
-            {
-              "value": "round",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "description": "The button shape."
-        },
-        {
-          "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
-          "mutable": false,
-          "attr": "size",
-          "reflectToAttr": true,
-          "docs": "The button size.",
-          "docsTags": [],
-          "values": [
-            {
-              "value": "default",
-              "type": "string"
-            },
-            {
-              "value": "large",
-              "type": "string"
-            },
-            {
-              "value": "small",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "description": "The button size."
-        },
-        {
-          "name": "strong",
+          "name": "loading",
           "type": "boolean",
           "mutable": false,
-          "attr": "strong",
-          "reflectToAttr": false,
-          "docs": "If `true`, activates a button with a heavier font weight.",
+          "attr": "loading",
+          "reflectToAttr": true,
+          "docs": "Set to true to draw the button in a loading state.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -563,15 +463,33 @@
           ],
           "optional": false,
           "required": false,
-          "description": "If `true`, activates a button with a heavier font weight."
+          "description": "Set to true to draw the button in a loading state."
         },
         {
-          "name": "target",
+          "name": "pill",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "pill",
+          "reflectToAttr": true,
+          "docs": "Set to true to draw a pill-style button with rounded edges.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "description": "Set to true to draw a pill-style button with rounded edges."
+        },
+        {
+          "name": "rel",
           "type": "string",
           "mutable": false,
-          "attr": "target",
+          "attr": "rel",
           "reflectToAttr": false,
-          "docs": "Specifies where to display the linked URL.\nOnly applies when an `href` is provided.\nSpecial keywords: `\"_blank\"`, `\"_self\"`, `\"_parent\"`, `\"_top\"`.",
+          "docs": "Specifies the relationship of the target object to the link object.\nThe value is a space-separated list of [link types](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types).",
           "docsTags": [],
           "values": [
             {
@@ -580,7 +498,51 @@
           ],
           "optional": false,
           "required": false,
-          "description": "Specifies where to display the linked URL.\nOnly applies when an `href` is provided.\nSpecial keywords: `\"_blank\"`, `\"_self\"`, `\"_parent\"`, `\"_top\"`."
+          "description": "Specifies the relationship of the target object to the link object.\nThe value is a space-separated list of [link types](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types)."
+        },
+        {
+          "name": "size",
+          "type": "\"large\" | \"medium\" | \"small\"",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": true,
+          "docs": "The button's size.",
+          "docsTags": [],
+          "default": "'medium'",
+          "values": [
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "description": "The button's size."
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "mutable": false,
+          "attr": "target",
+          "reflectToAttr": false,
+          "docs": "Specifies where to display the linked URL.\nSpecial keywords: `\"_blank\"`, `\"_self\"`, `\"_parent\"`, `\"_top\"`.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "description": "Specifies where to display the linked URL.\nSpecial keywords: `\"_blank\"`, `\"_self\"`, `\"_parent\"`, `\"_top\"`."
         },
         {
           "name": "type",
@@ -608,44 +570,81 @@
           "optional": false,
           "required": false,
           "description": "The type of the button."
+        },
+        {
+          "name": "variant",
+          "type": "\"danger\" | \"default\" | \"plain\" | \"primary\" | \"secondary\"",
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": true,
+          "docs": "The different variants.\nThe options are: `\"default\"`, `\"primary\"`, `\"secondary\"`, `\"danger\"`, and `\"plain\"`.",
+          "docsTags": [],
+          "default": "'default'",
+          "values": [
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "plain",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "description": "The different variants.\nThe options are: `\"default\"`, `\"primary\"`, `\"secondary\"`, `\"danger\"`, and `\"plain\"`."
         }
       ],
       "attributes": [
         {
-          "name": "button-type",
-          "type": "string",
-          "mutable": true,
-          "attr": "button-type",
+          "name": "caret",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "caret",
           "reflectToAttr": false,
-          "docs": "The type of button.",
+          "docs": "Set to true to draw the button with a caret for use with dropdowns, popovers, etc.",
           "docsTags": [],
-          "default": "'button'",
+          "default": "false",
           "values": [
             {
-              "type": "string"
+              "type": "boolean"
             }
           ],
           "optional": false,
           "required": false,
-          "defaultValue": "'button'",
-          "description": "The type of button."
+          "defaultValue": "false",
+          "description": "Set to true to draw the button with a caret for use with dropdowns, popovers, etc."
         },
         {
-          "name": "color",
-          "type": "string",
+          "name": "circle",
+          "type": "boolean",
           "mutable": false,
-          "attr": "color",
+          "attr": "circle",
           "reflectToAttr": true,
-          "docs": "The color to use from your application's color palette.\nDefault options are: `\"primary\"`, `\"secondary\"`, `\"tertiary\"`, `\"success\"`, `\"warning\"`, `\"danger\"`, `\"light\"`, `\"medium\"`, and `\"dark\"`.\nFor more information on colors, see [theming](/docs/theming/basics).",
+          "docs": "Set to true to draw a circle button.",
           "docsTags": [],
+          "default": "false",
           "values": [
             {
-              "type": "string"
+              "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
-          "description": "The color to use from your application's color palette.\nDefault options are: `\"primary\"`, `\"secondary\"`, `\"tertiary\"`, `\"success\"`, `\"warning\"`, `\"danger\"`, `\"light\"`, `\"medium\"`, and `\"dark\"`.\nFor more information on colors, see [theming](/docs/theming/basics)."
+          "defaultValue": "false",
+          "description": "Set to true to draw a circle button."
         },
         {
           "name": "disabled",
@@ -689,42 +688,12 @@
           "description": "Set to `\"block\"` for a full-width button or to `\"full\"` for a full-width button\nwithout left and right borders."
         },
         {
-          "name": "fill",
-          "type": "\"clear\" | \"default\" | \"outline\" | \"solid\"",
-          "mutable": true,
-          "attr": "fill",
-          "reflectToAttr": true,
-          "docs": "Set to `\"clear\"` for a transparent button, to `\"outline\"` for a transparent\nbutton with a border, or to `\"solid\"`. The default style is `\"solid\"` except inside of\na toolbar, where the default is `\"clear\"`.",
-          "docsTags": [],
-          "values": [
-            {
-              "value": "clear",
-              "type": "string"
-            },
-            {
-              "value": "default",
-              "type": "string"
-            },
-            {
-              "value": "outline",
-              "type": "string"
-            },
-            {
-              "value": "solid",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "description": "Set to `\"clear\"` for a transparent button, to `\"outline\"` for a transparent\nbutton with a border, or to `\"solid\"`. The default style is `\"solid\"` except inside of\na toolbar, where the default is `\"clear\"`."
-        },
-        {
           "name": "href",
           "type": "string",
           "mutable": false,
           "attr": "href",
           "reflectToAttr": false,
-          "docs": "Contains a URL or a URL fragment that the hyperlink points to.\nIf this property is set, an anchor tag will be rendered.",
+          "docs": "Contains a URL or a URL fragment that the hyperlink points to.",
           "docsTags": [],
           "values": [
             {
@@ -733,87 +702,15 @@
           ],
           "optional": false,
           "required": false,
-          "description": "Contains a URL or a URL fragment that the hyperlink points to.\nIf this property is set, an anchor tag will be rendered."
+          "description": "Contains a URL or a URL fragment that the hyperlink points to."
         },
         {
-          "name": "router-direction",
-          "type": "\"back\" | \"forward\" | \"root\"",
-          "mutable": false,
-          "attr": "router-direction",
-          "reflectToAttr": false,
-          "docs": "When using a router, it specifies the transition direction when navigating to\nanother page using `href`.",
-          "docsTags": [],
-          "default": "'forward'",
-          "values": [
-            {
-              "value": "back",
-              "type": "string"
-            },
-            {
-              "value": "forward",
-              "type": "string"
-            },
-            {
-              "value": "root",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false,
-          "defaultValue": "'forward'",
-          "description": "When using a router, it specifies the transition direction when navigating to\nanother page using `href`."
-        },
-        {
-          "name": "shape",
-          "type": "\"round\"",
-          "mutable": false,
-          "attr": "shape",
-          "reflectToAttr": true,
-          "docs": "The button shape.",
-          "docsTags": [],
-          "values": [
-            {
-              "value": "round",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "description": "The button shape."
-        },
-        {
-          "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
-          "mutable": false,
-          "attr": "size",
-          "reflectToAttr": true,
-          "docs": "The button size.",
-          "docsTags": [],
-          "values": [
-            {
-              "value": "default",
-              "type": "string"
-            },
-            {
-              "value": "large",
-              "type": "string"
-            },
-            {
-              "value": "small",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "description": "The button size."
-        },
-        {
-          "name": "strong",
+          "name": "loading",
           "type": "boolean",
           "mutable": false,
-          "attr": "strong",
-          "reflectToAttr": false,
-          "docs": "If `true`, activates a button with a heavier font weight.",
+          "attr": "loading",
+          "reflectToAttr": true,
+          "docs": "Set to true to draw the button in a loading state.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -824,15 +721,34 @@
           "optional": false,
           "required": false,
           "defaultValue": "false",
-          "description": "If `true`, activates a button with a heavier font weight."
+          "description": "Set to true to draw the button in a loading state."
         },
         {
-          "name": "target",
+          "name": "pill",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "pill",
+          "reflectToAttr": true,
+          "docs": "Set to true to draw a pill-style button with rounded edges.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "defaultValue": "false",
+          "description": "Set to true to draw a pill-style button with rounded edges."
+        },
+        {
+          "name": "rel",
           "type": "string",
           "mutable": false,
-          "attr": "target",
+          "attr": "rel",
           "reflectToAttr": false,
-          "docs": "Specifies where to display the linked URL.\nOnly applies when an `href` is provided.\nSpecial keywords: `\"_blank\"`, `\"_self\"`, `\"_parent\"`, `\"_top\"`.",
+          "docs": "Specifies the relationship of the target object to the link object.\nThe value is a space-separated list of [link types](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types).",
           "docsTags": [],
           "values": [
             {
@@ -841,7 +757,52 @@
           ],
           "optional": false,
           "required": false,
-          "description": "Specifies where to display the linked URL.\nOnly applies when an `href` is provided.\nSpecial keywords: `\"_blank\"`, `\"_self\"`, `\"_parent\"`, `\"_top\"`."
+          "description": "Specifies the relationship of the target object to the link object.\nThe value is a space-separated list of [link types](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types)."
+        },
+        {
+          "name": "size",
+          "type": "\"large\" | \"medium\" | \"small\"",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": true,
+          "docs": "The button's size.",
+          "docsTags": [],
+          "default": "'medium'",
+          "values": [
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "defaultValue": "'medium'",
+          "description": "The button's size."
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "mutable": false,
+          "attr": "target",
+          "reflectToAttr": false,
+          "docs": "Specifies where to display the linked URL.\nSpecial keywords: `\"_blank\"`, `\"_self\"`, `\"_parent\"`, `\"_top\"`.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "description": "Specifies where to display the linked URL.\nSpecial keywords: `\"_blank\"`, `\"_self\"`, `\"_parent\"`, `\"_top\"`."
         },
         {
           "name": "type",
@@ -870,43 +831,90 @@
           "required": false,
           "defaultValue": "'button'",
           "description": "The type of the button."
+        },
+        {
+          "name": "variant",
+          "type": "\"danger\" | \"default\" | \"plain\" | \"primary\" | \"secondary\"",
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": true,
+          "docs": "The different variants.\nThe options are: `\"default\"`, `\"primary\"`, `\"secondary\"`, `\"danger\"`, and `\"plain\"`.",
+          "docsTags": [],
+          "default": "'default'",
+          "values": [
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "plain",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "defaultValue": "'default'",
+          "description": "The different variants.\nThe options are: `\"default\"`, `\"primary\"`, `\"secondary\"`, `\"danger\"`, and `\"plain\"`."
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "removeFocus",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "removeFocus() => Promise<void>",
+          "parameters": [],
+          "docs": "Removes focus from the button.",
+          "docsTags": []
+        },
+        {
+          "name": "setFocus",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setFocus(options?: FocusOptions) => Promise<void>",
+          "parameters": [],
+          "docs": "Sets focus on the button.",
+          "docsTags": []
+        }
+      ],
       "events": [
         {
-          "event": "storiesBlur",
+          "event": "stories-blur",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the button loses focus.",
           "docsTags": [],
-          "name": "storiesBlur",
+          "name": "stories-blur",
           "description": "Emitted when the button loses focus.",
           "type": "void"
         },
         {
-          "event": "storiesClick",
-          "detail": "void",
-          "bubbles": true,
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emitted when the button click.",
-          "docsTags": [],
-          "name": "storiesClick",
-          "description": "Emitted when the button click.",
-          "type": "void"
-        },
-        {
-          "event": "storiesFocus",
+          "event": "stories-focus",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the button has focus.",
           "docsTags": [],
-          "name": "storiesFocus",
+          "name": "stories-focus",
           "description": "Emitted when the button has focus.",
           "type": "void"
         }
@@ -919,28 +927,10 @@
           "description": "Background of the button"
         },
         {
-          "name": "--background-activated",
+          "name": "--background-focus",
           "annotation": "prop",
-          "docs": "Background of the button when pressed. Note: setting this will interfere with the Material Design ripple.",
-          "description": "Background of the button when pressed. Note: setting this will interfere with the Material Design ripple."
-        },
-        {
-          "name": "--background-activated-opacity",
-          "annotation": "prop",
-          "docs": "Opacity of the button when pressed",
-          "description": "Opacity of the button when pressed"
-        },
-        {
-          "name": "--background-focused",
-          "annotation": "prop",
-          "docs": "Background of the button when focused with the tab key",
-          "description": "Background of the button when focused with the tab key"
-        },
-        {
-          "name": "--background-focused-opacity",
-          "annotation": "prop",
-          "docs": "Opacity of the button when focused with the tab key",
-          "description": "Opacity of the button when focused with the tab key"
+          "docs": "Background of the button on focus",
+          "description": "Background of the button on focus"
         },
         {
           "name": "--background-hover",
@@ -949,16 +939,22 @@
           "description": "Background of the button on hover"
         },
         {
-          "name": "--background-hover-opacity",
-          "annotation": "prop",
-          "docs": "Opacity of the background on hover",
-          "description": "Opacity of the background on hover"
-        },
-        {
           "name": "--border-color",
           "annotation": "prop",
           "docs": "Border color of the button",
           "description": "Border color of the button"
+        },
+        {
+          "name": "--border-color-focus",
+          "annotation": "prop",
+          "docs": "Border color of the button on focus",
+          "description": "Border color of the button on focus"
+        },
+        {
+          "name": "--border-color-hover",
+          "annotation": "prop",
+          "docs": "Border color of the button on hover",
+          "description": "Border color of the button on hover"
         },
         {
           "name": "--border-radius",
@@ -979,40 +975,34 @@
           "description": "Border width of the button"
         },
         {
-          "name": "--box-shadow",
-          "annotation": "prop",
-          "docs": "Box shadow of the button",
-          "description": "Box shadow of the button"
-        },
-        {
           "name": "--color",
           "annotation": "prop",
           "docs": "Text color of the button",
           "description": "Text color of the button"
         },
         {
-          "name": "--color-activated",
+          "name": "--color-focus",
           "annotation": "prop",
-          "docs": "Text color of the button when pressed",
-          "description": "Text color of the button when pressed"
-        },
-        {
-          "name": "--color-focused",
-          "annotation": "prop",
-          "docs": "Text color of the button when focused with the tab key",
-          "description": "Text color of the button when focused with the tab key"
+          "docs": "Text color of the button on focus",
+          "description": "Text color of the button on focus"
         },
         {
           "name": "--color-hover",
           "annotation": "prop",
-          "docs": "Text color of the button when hover",
-          "description": "Text color of the button when hover"
+          "docs": "Text color of the button on hover",
+          "description": "Text color of the button on hover"
         },
         {
-          "name": "--opacity",
+          "name": "--focus-ring",
           "annotation": "prop",
-          "docs": "Opacity of the button",
-          "description": "Opacity of the button"
+          "docs": "The focus ring style to use when the button receives focus, a `box-shadow` property.",
+          "description": "The focus ring style to use when the button receives focus, a `box-shadow` property."
+        },
+        {
+          "name": "--height",
+          "annotation": "prop",
+          "docs": "Height of the button",
+          "description": "Height of the button"
         },
         {
           "name": "--padding-bottom",
@@ -1023,14 +1013,14 @@
         {
           "name": "--padding-end",
           "annotation": "prop",
-          "docs": "Right padding if direction is left-to-right, and left padding if direction is right-to-left of the button",
-          "description": "Right padding if direction is left-to-right, and left padding if direction is right-to-left of the button"
+          "docs": "Right padding of the button (will be left padding when we support right-to-left direction)",
+          "description": "Right padding of the button (will be left padding when we support right-to-left direction)"
         },
         {
           "name": "--padding-start",
           "annotation": "prop",
-          "docs": "Left padding if direction is left-to-right, and right padding if direction is right-to-left of the button",
-          "description": "Left padding if direction is left-to-right, and right padding if direction is right-to-left of the button"
+          "docs": "Left padding of the button (will be right padding when we support right-to-left direction)",
+          "description": "Left padding of the button (will be right padding when we support right-to-left direction)"
         },
         {
           "name": "--padding-top",
@@ -1039,10 +1029,10 @@
           "description": "Top padding of the button"
         },
         {
-          "name": "--ripple-color",
+          "name": "--shadow",
           "annotation": "prop",
-          "docs": "Color of the button ripple effect",
-          "description": "Color of the button ripple effect"
+          "docs": "Shadow of the button, a `box-shadow` property. Please note this will be overwritted by `--focus-ring` on focus.",
+          "description": "Shadow of the button, a `box-shadow` property. Please note this will be overwritted by `--focus-ring` on focus."
         },
         {
           "name": "--transition",

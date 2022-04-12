@@ -24,4 +24,4 @@ The stories-tab-bar is a component that contains a set of [stories-tab-button's]
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

@@ -32,4 +32,4 @@ The stories-grid is a container designed on mobile-first flexbox system for buil
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

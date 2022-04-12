@@ -50,4 +50,4 @@ The stories-col is a container for content within a grid. You put it inside of a
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

@@ -5,8 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Addon, CheckboxChangeEventDetail, Color, Commands, InputChangeEventDetail, RouterDirection, SearchbarChangeEventDetail, StoryComponent, StoryContext, StoryModules, StyleEventDetail, TabBarChangedEventDetail, TabButtonClickEventDetail, TabButtonLayout, TextFieldTypes, ToolEvent } from "./types";
+import { Addon, Color, Commands, SearchbarChangeEventDetail, StoryComponent, StoryContext, StoryModules, StyleEventDetail, TabBarChangedEventDetail, TabButtonClickEventDetail, TabButtonLayout, TextFieldTypes, ToolEvent } from "./types";
 import { AppState } from "./store";
+import { AutocompleteTypes } from "./interface";
+import { RadioGroupChangeEventDetail } from "./components/radio-group/radio-group-interface";
 export namespace Components {
     interface StoriesAddonActions {
         "storyContextChanged": (story: StoryComponent, context: StoryContext) => Promise<void>;
@@ -38,13 +40,13 @@ export namespace Components {
     }
     interface StoriesButton {
         /**
-          * The type of button.
+          * Set to true to draw the button with a caret for use with dropdowns, popovers, etc.
          */
-        "buttonType": string;
+        "caret": boolean;
         /**
-          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
+          * Set to true to draw a circle button.
          */
-        "color"?: Color;
+        "circle": boolean;
         /**
           * If `true`, the user cannot interact with the button.
          */
@@ -54,37 +56,45 @@ export namespace Components {
          */
         "expand"?: 'full' | 'block';
         /**
-          * Set to `"clear"` for a transparent button, to `"outline"` for a transparent button with a border, or to `"solid"`. The default style is `"solid"` except inside of a toolbar, where the default is `"clear"`.
-         */
-        "fill"?: 'clear' | 'outline' | 'solid' | 'default';
-        /**
-          * Contains a URL or a URL fragment that the hyperlink points to. If this property is set, an anchor tag will be rendered.
+          * Contains a URL or a URL fragment that the hyperlink points to.
          */
         "href": string | undefined;
         /**
-          * When using a router, it specifies the transition direction when navigating to another page using `href`.
+          * Set to true to draw the button in a loading state.
          */
-        "routerDirection": RouterDirection;
+        "loading": boolean;
         /**
-          * The button shape.
+          * Set to true to draw a pill-style button with rounded edges.
          */
-        "shape"?: 'round';
+        "pill": boolean;
         /**
-          * The button size.
+          * Specifies the relationship of the target object to the link object. The value is a space-separated list of [link types](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types).
          */
-        "size"?: 'small' | 'default' | 'large';
+        "rel": string | undefined;
         /**
-          * If `true`, activates a button with a heavier font weight.
+          * Removes focus from the button.
          */
-        "strong": boolean;
+        "removeFocus": () => Promise<void>;
         /**
-          * Specifies where to display the linked URL. Only applies when an `href` is provided. Special keywords: `"_blank"`, `"_self"`, `"_parent"`, `"_top"`.
+          * Sets focus on the button.
+         */
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * The button's size.
+         */
+        "size": 'small' | 'medium' | 'large';
+        /**
+          * Specifies where to display the linked URL. Special keywords: `"_blank"`, `"_self"`, `"_parent"`, `"_top"`.
          */
         "target": string | undefined;
         /**
           * The type of the button.
          */
         "type": 'submit' | 'reset' | 'button';
+        /**
+          * The different variants. The options are: `"default"`, `"primary"`, `"secondary"`, `"danger"`, and `"plain"`.
+         */
+        "variant"?: 'default' | 'primary' | 'secondary' | 'danger' | 'plain';
     }
     interface StoriesButtons {
         /**
@@ -94,29 +104,41 @@ export namespace Components {
     }
     interface StoriesCheckbox {
         /**
-          * If `true`, the checkbox is selected.
+          * Set to true to draw the checkbox in a checked state.
          */
         "checked": boolean;
         /**
-          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
-         */
-        "color"?: Color;
-        /**
-          * If `true`, the user cannot interact with the checkbox.
+          * Set to true to disable the checkbox.
          */
         "disabled": boolean;
         /**
-          * If `true`, the checkbox will visually appear as indeterminate.
+          * Set to true to draw the checkbox in an indeterminate state.
          */
         "indeterminate": boolean;
+        /**
+          * Set to true to indicate this field is invalid. Will display the invalid text.
+         */
+        "invalid": boolean;
+        /**
+          * The radio group's invalid text. Alternatively, you can use the invalid-text slot.
+         */
+        "invalidText": string;
         /**
           * The name of the control, which is submitted with the form data.
          */
         "name": string;
         /**
-          * The value of the checkbox does not mean if it's checked or not, use the `checked` property for that.  The value of a checkbox is analogous to the value of an `<input type="checkbox">`, it's only used when the checkbox participates in a native `<form>`.
+          * Removes focus from the checkbox.
          */
-        "value": any | null;
+        "removeFocus": () => Promise<void>;
+        /**
+          * Sets focus on the checkbox.
+         */
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * The checkbox's value attribute.
+         */
+        "value": string;
     }
     interface StoriesCol {
         /**
@@ -224,6 +246,16 @@ export namespace Components {
          */
         "fixed": boolean;
     }
+    interface StoriesGroup {
+        /**
+          * Render the fields horizontal instead of vertical
+         */
+        "horizontal": boolean;
+        /**
+          * The field group label. Recommended for proper accessibility. Alternatively, you can use the label slot.
+         */
+        "label": string;
+    }
     interface StoriesIcon {
         /**
           * Icon name
@@ -232,97 +264,133 @@ export namespace Components {
     }
     interface StoriesInput {
         /**
+          * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user. Available options: `"off"`, `"none"`, `"on"`, `"sentences"`, `"words"`, `"characters"`.
+         */
+        "autocapitalize": string;
+        /**
+          * Indicates whether the value of the control can be automatically completed by the browser.
+         */
+        "autocomplete": AutocompleteTypes;
+        /**
+          * Whether auto correction should be enabled when the user is entering/editing the text value.
+         */
+        "autocorrect": 'on' | 'off';
+        /**
           * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
          */
         "autofocus": boolean;
         /**
-          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
+          * Set to true to add a clear button when the input is populated.
          */
-        "clearInput": boolean;
+        "clearable": boolean;
         /**
-          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
-         */
-        "color"?: Color;
-        /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
+          * Set the amount of time, in milliseconds, to wait to trigger the `gr-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
          */
         "debounce": number;
         /**
-          * If `true`, the user cannot interact with the input.
+          * Set to true to disable the input control.
          */
         "disabled": boolean;
         /**
-          * This is required for a WebKit bug which requires us to blur and focus an input to properly focus the input in an item with delegatesFocus. It will no longer be needed with iOS 14.
+          * A hint to the browser for which enter key to display. Possible values: `"enter"`, `"done"`, `"go"`, `"next"`, `"previous"`, `"search"`, and `"send"`.
          */
-        "fireFocusEvents": boolean;
+        "enterkeyhint"?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
         /**
-          * Returns the native `<input>` element used under the hood.
+          * The input's help text. Alternatively, you can use the help-text slot.
          */
-        "getInputElement": () => Promise<HTMLInputElement>;
+        "helpText": string;
         /**
-          * A hint to the browser for which keyboard to display. Possible values: `"none"`, `"text"`, `"tel"`, `"url"`, `"email"`, `"numeric"`, `"decimal"`, and `"search"`.
+          * The input's inputmode attribute.
          */
-        "inputmode"?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
+        "inputmode": 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'search' | 'email' | 'url';
+        /**
+          * Set to true to indicate this field is invalid. Will display the invalid text instead of the help text
+         */
+        "invalid": boolean;
+        /**
+          * The input's invalid text. Alternatively, you can use the invalid-text slot.
+         */
+        "invalidText": string;
+        /**
+          * The inputs's label. Alternatively, you can use the label slot.
+         */
+        "label": string;
         /**
           * The maximum value, which must not be less than its minimum (min attribute) value.
          */
         "max"?: string;
         /**
-          * If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the maximum number of characters that the user can enter.
+          * Specifies how many characters are allowed.
          */
-        "maxlength"?: number;
+        "maxlength": number;
         /**
           * The minimum value, which must not be greater than its maximum (max attribute) value.
          */
         "min"?: string;
         /**
-          * If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the minimum number of characters that the user can enter.
-         */
-        "minlength"?: number;
-        /**
-          * The name of the control, which is submitted with the form data.
+          * The input's name.
          */
         "name": string;
         /**
-          * A regular expression that the value is checked against. The pattern must match the entire value, not just some subset. Use the title attribute to describe the pattern to help the user. This attribute applies when the value of the type attribute is `"text"`, `"search"`, `"tel"`, `"url"`, `"email"`, `"date"`, or `"password"`, otherwise it is ignored. When the type attribute is `"date"`, `pattern` will only be used in browsers that do not support the `"date"` input type natively. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date for more information.
+          * Set to true to draw a pill-style input with rounded edges.
          */
-        "pattern"?: string;
+        "pill": boolean;
         /**
-          * Instructional text that shows before the input has a value. This property applies only when the `type` property is set to `"email"`, `"number"`, `"password"`, `"search"`, `"tel"`, `"text"`, or `"url"`, otherwise it is ignored.
+          * The input's placeholder text.
          */
-        "placeholder"?: string;
+        "placeholder": string;
         /**
           * If `true`, the user cannot modify the value.
          */
         "readonly": boolean;
         /**
-          * If `true`, the user must fill in a value before submitting a form.
+          * Removes focus from the input.
          */
-        "required": boolean;
+        "removeFocus": () => Promise<void>;
         /**
-          * Sets blur on the native `input` in `stories-input`. Use this method instead of the global `input.blur()`.
+          * Set to true to display a required indicator, adds an asterisk to label
          */
-        "setBlur": () => Promise<void>;
+        "requiredIndicator": boolean;
         /**
-          * Sets focus on the native `input` in `stories-input`. Use this method instead of the global `input.focus()`.
+          * Selects all the text in the input.
          */
-        "setFocus": () => Promise<void>;
+        "select": () => Promise<void>;
         /**
-          * The initial size of the control. This value is in pixels unless the value of the type attribute is `"text"` or `"password"`, in which case it is an integer number of characters. This attribute applies only when the `type` attribute is set to `"text"`, `"search"`, `"tel"`, `"url"`, `"email"`, or `"password"`, otherwise it is ignored.
+          * Sets focus on the input.
          */
-        "size"?: number;
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * Replaces a range of text with a new string.
+         */
+        "setRangeText": (replacement: string, start: number, end: number, selectMode?: 'select' | 'start' | 'end' | 'preserve') => Promise<void>;
+        /**
+          * Sets the start and end positions of the text selection (0-based).
+         */
+        "setSelectionRange": (selectionStart: number, selectionEnd: number, selectionDirection?: 'forward' | 'backward' | 'none') => Promise<void>;
+        /**
+          * The input's size.
+         */
+        "size": 'small' | 'medium' | 'large';
+        /**
+          * If `true`, the element will have its spelling and grammar checked.
+         */
+        "spellcheck": boolean;
         /**
           * Works with the min and max attributes to limit the increments at which a value can be set. Possible values are: `"any"` or a positive floating point number.
          */
         "step"?: string;
         /**
+          * Set to true to add a password toggle button for password inputs.
+         */
+        "togglePassword": boolean;
+        /**
           * The type of control to display. The default type is text.
          */
         "type": TextFieldTypes;
         /**
-          * The value of the input.
+          * The input's value attribute.
          */
-        "value"?: string | number | null;
+        "value": string;
     }
     interface StoriesLabel {
         /**
@@ -335,6 +403,63 @@ export namespace Components {
         "position"?: 'fixed' | 'stacked' | 'floating';
     }
     interface StoriesPreview {
+    }
+    interface StoriesRadio {
+        /**
+          * Set to true to draw the radio in a checked state.
+         */
+        "checked": boolean;
+        /**
+          * Set to true to disable the radio.
+         */
+        "disabled": boolean;
+        /**
+          * Removes focus from the radio.
+         */
+        "removeFocus": () => Promise<void>;
+        "setButtonTabindex": (value: number) => Promise<void>;
+        /**
+          * Sets focus on the radio.
+         */
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * The radio's value attribute.
+         */
+        "value": string;
+    }
+    interface StoriesRadioGroup {
+        /**
+          * If `true`, the radios can be deselected.
+         */
+        "allowEmptySelection": boolean;
+        /**
+          * Render the radios horizontal instead of vertical
+         */
+        "horizontal": boolean;
+        /**
+          * Set to true to indicate this field is invalid. Will display the invalid text.
+         */
+        "invalid": boolean;
+        /**
+          * The radio group's invalid text. Alternatively, you can use the invalid-text slot.
+         */
+        "invalidText": string;
+        /**
+          * The radio group label. Required for proper accessibility. Alternatively, you can use the label slot.
+         */
+        "label": string;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name": string;
+        /**
+          * Set to true to display a required indicator, adds an asterisk to label
+         */
+        "requiredIndicator": boolean;
+        /**
+          * the value of the radio group.
+         */
+        "value"?: any | null;
     }
     interface StoriesRouter {
     }
@@ -546,6 +671,12 @@ declare global {
         prototype: HTMLStoriesGridElement;
         new (): HTMLStoriesGridElement;
     };
+    interface HTMLStoriesGroupElement extends Components.StoriesGroup, HTMLStencilElement {
+    }
+    var HTMLStoriesGroupElement: {
+        prototype: HTMLStoriesGroupElement;
+        new (): HTMLStoriesGroupElement;
+    };
     interface HTMLStoriesIconElement extends Components.StoriesIcon, HTMLStencilElement {
     }
     var HTMLStoriesIconElement: {
@@ -569,6 +700,18 @@ declare global {
     var HTMLStoriesPreviewElement: {
         prototype: HTMLStoriesPreviewElement;
         new (): HTMLStoriesPreviewElement;
+    };
+    interface HTMLStoriesRadioElement extends Components.StoriesRadio, HTMLStencilElement {
+    }
+    var HTMLStoriesRadioElement: {
+        prototype: HTMLStoriesRadioElement;
+        new (): HTMLStoriesRadioElement;
+    };
+    interface HTMLStoriesRadioGroupElement extends Components.StoriesRadioGroup, HTMLStencilElement {
+    }
+    var HTMLStoriesRadioGroupElement: {
+        prototype: HTMLStoriesRadioGroupElement;
+        new (): HTMLStoriesRadioGroupElement;
     };
     interface HTMLStoriesRouterElement extends Components.StoriesRouter, HTMLStencilElement {
     }
@@ -660,10 +803,13 @@ declare global {
         "stories-col": HTMLStoriesColElement;
         "stories-footer": HTMLStoriesFooterElement;
         "stories-grid": HTMLStoriesGridElement;
+        "stories-group": HTMLStoriesGroupElement;
         "stories-icon": HTMLStoriesIconElement;
         "stories-input": HTMLStoriesInputElement;
         "stories-label": HTMLStoriesLabelElement;
         "stories-preview": HTMLStoriesPreviewElement;
+        "stories-radio": HTMLStoriesRadioElement;
+        "stories-radio-group": HTMLStoriesRadioGroupElement;
         "stories-router": HTMLStoriesRouterElement;
         "stories-row": HTMLStoriesRowElement;
         "stories-searchbar": HTMLStoriesSearchbarElement;
@@ -706,13 +852,13 @@ declare namespace LocalJSX {
     }
     interface StoriesButton {
         /**
-          * The type of button.
+          * Set to true to draw the button with a caret for use with dropdowns, popovers, etc.
          */
-        "buttonType"?: string;
+        "caret"?: boolean;
         /**
-          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
+          * Set to true to draw a circle button.
          */
-        "color"?: Color;
+        "circle"?: boolean;
         /**
           * If `true`, the user cannot interact with the button.
          */
@@ -722,49 +868,45 @@ declare namespace LocalJSX {
          */
         "expand"?: 'full' | 'block';
         /**
-          * Set to `"clear"` for a transparent button, to `"outline"` for a transparent button with a border, or to `"solid"`. The default style is `"solid"` except inside of a toolbar, where the default is `"clear"`.
-         */
-        "fill"?: 'clear' | 'outline' | 'solid' | 'default';
-        /**
-          * Contains a URL or a URL fragment that the hyperlink points to. If this property is set, an anchor tag will be rendered.
+          * Contains a URL or a URL fragment that the hyperlink points to.
          */
         "href"?: string | undefined;
         /**
+          * Set to true to draw the button in a loading state.
+         */
+        "loading"?: boolean;
+        /**
           * Emitted when the button loses focus.
          */
-        "onStoriesBlur"?: (event: CustomEvent<void>) => void;
-        /**
-          * Emitted when the button click.
-         */
-        "onStoriesClick"?: (event: CustomEvent<void>) => void;
+        "onStories-blur"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the button has focus.
          */
-        "onStoriesFocus"?: (event: CustomEvent<void>) => void;
+        "onStories-focus"?: (event: CustomEvent<void>) => void;
         /**
-          * When using a router, it specifies the transition direction when navigating to another page using `href`.
+          * Set to true to draw a pill-style button with rounded edges.
          */
-        "routerDirection"?: RouterDirection;
+        "pill"?: boolean;
         /**
-          * The button shape.
+          * Specifies the relationship of the target object to the link object. The value is a space-separated list of [link types](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types).
          */
-        "shape"?: 'round';
+        "rel"?: string | undefined;
         /**
-          * The button size.
+          * The button's size.
          */
-        "size"?: 'small' | 'default' | 'large';
+        "size"?: 'small' | 'medium' | 'large';
         /**
-          * If `true`, activates a button with a heavier font weight.
-         */
-        "strong"?: boolean;
-        /**
-          * Specifies where to display the linked URL. Only applies when an `href` is provided. Special keywords: `"_blank"`, `"_self"`, `"_parent"`, `"_top"`.
+          * Specifies where to display the linked URL. Special keywords: `"_blank"`, `"_self"`, `"_parent"`, `"_top"`.
          */
         "target"?: string | undefined;
         /**
           * The type of the button.
          */
         "type"?: 'submit' | 'reset' | 'button';
+        /**
+          * The different variants. The options are: `"default"`, `"primary"`, `"secondary"`, `"danger"`, and `"plain"`.
+         */
+        "variant"?: 'default' | 'primary' | 'secondary' | 'danger' | 'plain';
     }
     interface StoriesButtons {
         /**
@@ -774,45 +916,45 @@ declare namespace LocalJSX {
     }
     interface StoriesCheckbox {
         /**
-          * If `true`, the checkbox is selected.
+          * Set to true to draw the checkbox in a checked state.
          */
         "checked"?: boolean;
         /**
-          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
-         */
-        "color"?: Color;
-        /**
-          * If `true`, the user cannot interact with the checkbox.
+          * Set to true to disable the checkbox.
          */
         "disabled"?: boolean;
         /**
-          * If `true`, the checkbox will visually appear as indeterminate.
+          * Set to true to draw the checkbox in an indeterminate state.
          */
         "indeterminate"?: boolean;
+        /**
+          * Set to true to indicate this field is invalid. Will display the invalid text.
+         */
+        "invalid"?: boolean;
+        /**
+          * The radio group's invalid text. Alternatively, you can use the invalid-text slot.
+         */
+        "invalidText"?: string;
         /**
           * The name of the control, which is submitted with the form data.
          */
         "name"?: string;
         /**
-          * Emitted when the checkbox loses focus.
+          * Emitted when the control loses focus.
          */
-        "onStoriesBlur"?: (event: CustomEvent<void>) => void;
+        "onStories-blur"?: (event: CustomEvent<void>) => void;
         /**
-          * Emitted when the checked property has changed.
+          * Emitted when the control's checked state changes.
          */
-        "onStoriesChange"?: (event: CustomEvent<CheckboxChangeEventDetail>) => void;
+        "onStories-change"?: (event: CustomEvent<void>) => void;
         /**
-          * Emitted when the checkbox has focus.
+          * Emitted when the control gains focus.
          */
-        "onStoriesFocus"?: (event: CustomEvent<void>) => void;
+        "onStories-focus"?: (event: CustomEvent<void>) => void;
         /**
-          * Emitted when the styles change.
+          * The checkbox's value attribute.
          */
-        "onStoriesStyle"?: (event: CustomEvent<StyleEventDetail>) => void;
-        /**
-          * The value of the checkbox does not mean if it's checked or not, use the `checked` property for that.  The value of a checkbox is analogous to the value of an `<input type="checkbox">`, it's only used when the checkbox participates in a native `<form>`.
-         */
-        "value"?: any | null;
+        "value"?: string;
     }
     interface StoriesCol {
         /**
@@ -920,6 +1062,16 @@ declare namespace LocalJSX {
          */
         "fixed"?: boolean;
     }
+    interface StoriesGroup {
+        /**
+          * Render the fields horizontal instead of vertical
+         */
+        "horizontal"?: boolean;
+        /**
+          * The field group label. Recommended for proper accessibility. Alternatively, you can use the label slot.
+         */
+        "label"?: string;
+    }
     interface StoriesIcon {
         /**
           * Icon name
@@ -928,39 +1080,63 @@ declare namespace LocalJSX {
     }
     interface StoriesInput {
         /**
+          * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user. Available options: `"off"`, `"none"`, `"on"`, `"sentences"`, `"words"`, `"characters"`.
+         */
+        "autocapitalize"?: string;
+        /**
+          * Indicates whether the value of the control can be automatically completed by the browser.
+         */
+        "autocomplete"?: AutocompleteTypes;
+        /**
+          * Whether auto correction should be enabled when the user is entering/editing the text value.
+         */
+        "autocorrect"?: 'on' | 'off';
+        /**
           * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
          */
         "autofocus"?: boolean;
         /**
-          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
+          * Set to true to add a clear button when the input is populated.
          */
-        "clearInput"?: boolean;
+        "clearable"?: boolean;
         /**
-          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
-         */
-        "color"?: Color;
-        /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
+          * Set the amount of time, in milliseconds, to wait to trigger the `gr-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
          */
         "debounce"?: number;
         /**
-          * If `true`, the user cannot interact with the input.
+          * Set to true to disable the input control.
          */
         "disabled"?: boolean;
         /**
-          * This is required for a WebKit bug which requires us to blur and focus an input to properly focus the input in an item with delegatesFocus. It will no longer be needed with iOS 14.
+          * A hint to the browser for which enter key to display. Possible values: `"enter"`, `"done"`, `"go"`, `"next"`, `"previous"`, `"search"`, and `"send"`.
          */
-        "fireFocusEvents"?: boolean;
+        "enterkeyhint"?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
         /**
-          * A hint to the browser for which keyboard to display. Possible values: `"none"`, `"text"`, `"tel"`, `"url"`, `"email"`, `"numeric"`, `"decimal"`, and `"search"`.
+          * The input's help text. Alternatively, you can use the help-text slot.
          */
-        "inputmode"?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
+        "helpText"?: string;
+        /**
+          * The input's inputmode attribute.
+         */
+        "inputmode"?: 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'search' | 'email' | 'url';
+        /**
+          * Set to true to indicate this field is invalid. Will display the invalid text instead of the help text
+         */
+        "invalid"?: boolean;
+        /**
+          * The input's invalid text. Alternatively, you can use the invalid-text slot.
+         */
+        "invalidText"?: string;
+        /**
+          * The inputs's label. Alternatively, you can use the label slot.
+         */
+        "label"?: string;
         /**
           * The maximum value, which must not be less than its minimum (min attribute) value.
          */
         "max"?: string;
         /**
-          * If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the maximum number of characters that the user can enter.
+          * Specifies how many characters are allowed.
          */
         "maxlength"?: number;
         /**
@@ -968,39 +1144,35 @@ declare namespace LocalJSX {
          */
         "min"?: string;
         /**
-          * If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the minimum number of characters that the user can enter.
-         */
-        "minlength"?: number;
-        /**
-          * The name of the control, which is submitted with the form data.
+          * The input's name.
          */
         "name"?: string;
         /**
-          * Emitted when the input loses focus.
+          * Emitted when the control loses focus.
          */
-        "onStoriesBlur"?: (event: CustomEvent<FocusEvent>) => void;
+        "onGr-blur"?: (event: CustomEvent<void>) => void;
         /**
-          * Emitted when the value has changed.
+          * Emitted when the control's value changes.
          */
-        "onStoriesChange"?: (event: CustomEvent<InputChangeEventDetail>) => void;
+        "onGr-change"?: (event: CustomEvent<void>) => void;
         /**
-          * Emitted when the input has focus.
+          * Emitted when the clear button is activated.
          */
-        "onStoriesFocus"?: (event: CustomEvent<FocusEvent>) => void;
+        "onGr-clear"?: (event: CustomEvent<void>) => void;
         /**
-          * Emitted when a keyboard input occurred.
+          * Emitted when the control gains focus.
          */
-        "onStoriesInput"?: (event: CustomEvent<InputEvent>) => void;
+        "onGr-focus"?: (event: CustomEvent<void>) => void;
         /**
-          * Emitted when the styles change.
+          * Emitted when the control receives input.
          */
-        "onStoriesStyle"?: (event: CustomEvent<StyleEventDetail>) => void;
+        "onGr-input"?: (event: CustomEvent<void>) => void;
         /**
-          * A regular expression that the value is checked against. The pattern must match the entire value, not just some subset. Use the title attribute to describe the pattern to help the user. This attribute applies when the value of the type attribute is `"text"`, `"search"`, `"tel"`, `"url"`, `"email"`, `"date"`, or `"password"`, otherwise it is ignored. When the type attribute is `"date"`, `pattern` will only be used in browsers that do not support the `"date"` input type natively. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date for more information.
+          * Set to true to draw a pill-style input with rounded edges.
          */
-        "pattern"?: string;
+        "pill"?: boolean;
         /**
-          * Instructional text that shows before the input has a value. This property applies only when the `type` property is set to `"email"`, `"number"`, `"password"`, `"search"`, `"tel"`, `"text"`, or `"url"`, otherwise it is ignored.
+          * The input's placeholder text.
          */
         "placeholder"?: string;
         /**
@@ -1008,25 +1180,33 @@ declare namespace LocalJSX {
          */
         "readonly"?: boolean;
         /**
-          * If `true`, the user must fill in a value before submitting a form.
+          * Set to true to display a required indicator, adds an asterisk to label
          */
-        "required"?: boolean;
+        "requiredIndicator"?: boolean;
         /**
-          * The initial size of the control. This value is in pixels unless the value of the type attribute is `"text"` or `"password"`, in which case it is an integer number of characters. This attribute applies only when the `type` attribute is set to `"text"`, `"search"`, `"tel"`, `"url"`, `"email"`, or `"password"`, otherwise it is ignored.
+          * The input's size.
          */
-        "size"?: number;
+        "size"?: 'small' | 'medium' | 'large';
+        /**
+          * If `true`, the element will have its spelling and grammar checked.
+         */
+        "spellcheck"?: boolean;
         /**
           * Works with the min and max attributes to limit the increments at which a value can be set. Possible values are: `"any"` or a positive floating point number.
          */
         "step"?: string;
         /**
+          * Set to true to add a password toggle button for password inputs.
+         */
+        "togglePassword"?: boolean;
+        /**
           * The type of control to display. The default type is text.
          */
         "type"?: TextFieldTypes;
         /**
-          * The value of the input.
+          * The input's value attribute.
          */
-        "value"?: string | number | null;
+        "value"?: string;
     }
     interface StoriesLabel {
         /**
@@ -1039,6 +1219,66 @@ declare namespace LocalJSX {
         "position"?: 'fixed' | 'stacked' | 'floating';
     }
     interface StoriesPreview {
+    }
+    interface StoriesRadio {
+        /**
+          * Set to true to draw the radio in a checked state.
+         */
+        "checked"?: boolean;
+        /**
+          * Set to true to disable the radio.
+         */
+        "disabled"?: boolean;
+        /**
+          * Emitted when the control loses focus.
+         */
+        "onStories-blur"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the control gains focus.
+         */
+        "onStories-focus"?: (event: CustomEvent<any>) => void;
+        /**
+          * The radio's value attribute.
+         */
+        "value"?: string;
+    }
+    interface StoriesRadioGroup {
+        /**
+          * If `true`, the radios can be deselected.
+         */
+        "allowEmptySelection"?: boolean;
+        /**
+          * Render the radios horizontal instead of vertical
+         */
+        "horizontal"?: boolean;
+        /**
+          * Set to true to indicate this field is invalid. Will display the invalid text.
+         */
+        "invalid"?: boolean;
+        /**
+          * The radio group's invalid text. Alternatively, you can use the invalid-text slot.
+         */
+        "invalidText"?: string;
+        /**
+          * The radio group label. Required for proper accessibility. Alternatively, you can use the label slot.
+         */
+        "label"?: string;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the value has changed.
+         */
+        "onStories-change"?: (event: CustomEvent<RadioGroupChangeEventDetail>) => void;
+        /**
+          * Set to true to display a required indicator, adds an asterisk to label
+         */
+        "requiredIndicator"?: boolean;
+        /**
+          * the value of the radio group.
+         */
+        "value"?: any | null;
     }
     interface StoriesRouter {
     }
@@ -1210,10 +1450,13 @@ declare namespace LocalJSX {
         "stories-col": StoriesCol;
         "stories-footer": StoriesFooter;
         "stories-grid": StoriesGrid;
+        "stories-group": StoriesGroup;
         "stories-icon": StoriesIcon;
         "stories-input": StoriesInput;
         "stories-label": StoriesLabel;
         "stories-preview": StoriesPreview;
+        "stories-radio": StoriesRadio;
+        "stories-radio-group": StoriesRadioGroup;
         "stories-router": StoriesRouter;
         "stories-row": StoriesRow;
         "stories-searchbar": StoriesSearchbar;
@@ -1244,10 +1487,13 @@ declare module "@stencil/core" {
             "stories-col": LocalJSX.StoriesCol & JSXBase.HTMLAttributes<HTMLStoriesColElement>;
             "stories-footer": LocalJSX.StoriesFooter & JSXBase.HTMLAttributes<HTMLStoriesFooterElement>;
             "stories-grid": LocalJSX.StoriesGrid & JSXBase.HTMLAttributes<HTMLStoriesGridElement>;
+            "stories-group": LocalJSX.StoriesGroup & JSXBase.HTMLAttributes<HTMLStoriesGroupElement>;
             "stories-icon": LocalJSX.StoriesIcon & JSXBase.HTMLAttributes<HTMLStoriesIconElement>;
             "stories-input": LocalJSX.StoriesInput & JSXBase.HTMLAttributes<HTMLStoriesInputElement>;
             "stories-label": LocalJSX.StoriesLabel & JSXBase.HTMLAttributes<HTMLStoriesLabelElement>;
             "stories-preview": LocalJSX.StoriesPreview & JSXBase.HTMLAttributes<HTMLStoriesPreviewElement>;
+            "stories-radio": LocalJSX.StoriesRadio & JSXBase.HTMLAttributes<HTMLStoriesRadioElement>;
+            "stories-radio-group": LocalJSX.StoriesRadioGroup & JSXBase.HTMLAttributes<HTMLStoriesRadioGroupElement>;
             "stories-router": LocalJSX.StoriesRouter & JSXBase.HTMLAttributes<HTMLStoriesRouterElement>;
             "stories-row": LocalJSX.StoriesRow & JSXBase.HTMLAttributes<HTMLStoriesRowElement>;
             "stories-searchbar": LocalJSX.StoriesSearchbar & JSXBase.HTMLAttributes<HTMLStoriesSearchbarElement>;

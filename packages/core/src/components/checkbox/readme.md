@@ -53,4 +53,4 @@ The stories-checkbox is a styled HTML checkboxed input element.
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

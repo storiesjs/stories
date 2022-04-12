@@ -22,4 +22,4 @@ The stories-label is a wrapper element displays text, icons, or both. You can po
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

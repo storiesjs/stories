@@ -58,21 +58,20 @@ export const StoriesBadge = /*@__PURE__*/ defineContainer<JSX.StoriesBadge>('sto
 
 
 export const StoriesButton = /*@__PURE__*/ defineContainer<JSX.StoriesButton>('stories-button', defineStoriesButton, [
-  'color',
-  'buttonType',
+  'variant',
   'disabled',
-  'expand',
-  'fill',
-  'routerDirection',
-  'href',
-  'shape',
-  'type',
+  'loading',
   'size',
-  'strong',
+  'caret',
+  'pill',
+  'expand',
+  'circle',
+  'href',
   'target',
-  'storiesFocus',
-  'storiesBlur',
-  'storiesClick'
+  'rel',
+  'type',
+  'stories-focus',
+  'stories-blur'
 ]);
 
 

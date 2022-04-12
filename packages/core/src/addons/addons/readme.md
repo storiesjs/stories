@@ -50,4 +50,4 @@ Type: `Promise<void>`
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

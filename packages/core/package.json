@@ -55,6 +55,7 @@
     "build.watch": "stencil build --docs --watch",
     "css.minify": "cleancss -O2 -o ./css/stories.bundle.css ./css/stories.bundle.css",
     "css.sass": "sass src/css:./css",
+    "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --detectOpenHandles",
     "test.e2e": "stencil test --e2e",
     "test.watch": "stencil test --spec --watchAll",

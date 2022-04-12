@@ -7,4 +7,4 @@ The stories-toolbar is a container for other Stories components such as stories-
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * Elements inside of web components sometimes need to inherit global attributes
  * set on the host. For example, the inner input in `stories-input` should inherit
@@ -152,6 +151,40 @@ export const renderHiddenInput = (always: boolean, container: HTMLElement, name:
   }
 };
 
+export const addEventListener = (el: any, eventName: string, callback: any, opts?: any) => {
+  if (typeof (window as any) !== 'undefined') {
+    const win = window as any;
+    const config = win && win.Ionic && win.Ionic.config;
+    if (config) {
+      const ael = config.get('_ael');
+      if (ael) {
+        return ael(el, eventName, callback, opts);
+      } else if (config._ael) {
+        return config._ael(el, eventName, callback, opts);
+      }
+    }
+  }
+
+  return el.addEventListener(eventName, callback, opts);
+};
+
+export const removeEventListener = (el: any, eventName: string, callback: any, opts?: any) => {
+  if (typeof (window as any) !== 'undefined') {
+    const win = window as any;
+    const config = win && win.Ionic && win.Ionic.config;
+    if (config) {
+      const rel = config.get('_rel');
+      if (rel) {
+        return rel(el, eventName, callback, opts);
+      } else if (config._rel) {
+        return config._rel(el, eventName, callback, opts);
+      }
+    }
+  }
+
+  return el.removeEventListener(eventName, callback, opts);
+};
+
 /**
  * Patched version of requestAnimationFrame that avoids ngzone
  * Use only when you know ngzone should not run
@@ -166,3 +199,47 @@ export const raf = (h: any) => {
   }
   return setTimeout(h);
 };
+
+/**
+ * Given a slot, this function iterates over all of its assigned text nodes and returns the concatenated text as a
+ * string. This is useful because we can't use slot.textContent as an alternative.
+*/
+export const getTextContent = (slot: HTMLSlotElement): string => {
+  const nodes = slot ? slot.assignedNodes({ flatten: true }) : [];
+  let text = '';
+
+  [...nodes].map(node => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      text += node.textContent;
+    }
+  });
+
+  return text;
+}
+
+//
+// Determines whether an element has a slot. If name is specified, the function will look for a corresponding named
+// slot, otherwise it will look for a "default" slot (e.g. a non-empty text node or an element with no slot attribute).
+//
+export const hasSlot = (el: any, name?: string): any => {
+  // Look for a named slot
+  if (name) {
+    return el.querySelector(`[slot="${name}"]`) !== null;
+  }
+
+  // Look for a default slot
+  return [...el.childNodes].some(node => {
+    if (node.nodeType === node.TEXT_NODE && node.textContent.trim() !== '') {
+      return true;
+    }
+
+    if (node.nodeType === node.ELEMENT_NODE) {
+      const el = node as HTMLElement;
+      if (!el.hasAttribute('slot')) {
+        return true;
+      }
+    }
+
+    return false;
+  });
+}

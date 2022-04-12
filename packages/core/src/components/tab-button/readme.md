@@ -42,4 +42,4 @@ See the [stories-tabs](../tabs) documentation for details on configuring tabs.
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

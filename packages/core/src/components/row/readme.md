@@ -7,4 +7,4 @@ The stories-row is a horizontal component of the grid system look after the colu
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

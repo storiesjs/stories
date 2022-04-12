@@ -23,4 +23,4 @@ The stories-app is a main Stories Framework's application.
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

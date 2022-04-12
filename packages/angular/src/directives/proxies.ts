@@ -126,34 +126,31 @@ export declare interface StoriesButton extends Components.StoriesButton {
   /**
    * Emitted when the button has focus. 
    */
-  storiesFocus: EventEmitter<CustomEvent<void>>;
+  stories-focus: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the button loses focus. 
    */
-  storiesBlur: EventEmitter<CustomEvent<void>>;
-  /**
-   * Emitted when the button click. 
-   */
-  storiesClick: EventEmitter<CustomEvent<void>>;
+  stories-blur: EventEmitter<CustomEvent<void>>;
 
 }
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['buttonType', 'color', 'disabled', 'expand', 'fill', 'href', 'routerDirection', 'shape', 'size', 'strong', 'target', 'type']
+  inputs: ['caret', 'circle', 'disabled', 'expand', 'href', 'loading', 'pill', 'rel', 'size', 'target', 'type', 'variant'],
+  methods: ['setFocus', 'removeFocus']
 })
 @Component({
   selector: 'stories-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['buttonType', 'color', 'disabled', 'expand', 'fill', 'href', 'routerDirection', 'shape', 'size', 'strong', 'target', 'type']
+  inputs: ['caret', 'circle', 'disabled', 'expand', 'href', 'loading', 'pill', 'rel', 'size', 'target', 'type', 'variant']
 })
 export class StoriesButton {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['storiesFocus', 'storiesBlur', 'storiesClick']);
+    proxyOutputs(this, this.el, ['stories-focus', 'stories-blur']);
   }
 }
 

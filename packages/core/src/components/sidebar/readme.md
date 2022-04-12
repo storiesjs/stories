@@ -7,4 +7,4 @@ The stories-sidebar displays collection of names of stories. Every story's name 
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

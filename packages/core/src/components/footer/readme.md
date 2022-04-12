@@ -7,4 +7,4 @@ The stories-footer is a root component, always appears at the bottom of the page
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

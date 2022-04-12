@@ -14,4 +14,4 @@ The stories-buttons is an wrapping container for another buttons.
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

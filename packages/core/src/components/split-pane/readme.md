@@ -24,4 +24,4 @@ The stories-split-panel is a component to split content vertically or horizontal
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

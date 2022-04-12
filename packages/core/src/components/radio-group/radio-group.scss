@@ -1,0 +1,102 @@
+@import '../../themes/stories.globals';
+
+:host {
+  /**
+   * @prop --margin-between-radios: Margin between the gr-radio children
+   * @prop --margin-between-radios-horizontal: Margin between the gr-radio children when layout is horizontal
+   * @prop --align-radios: Alignment of radio's on cross-axis, an `align-items` Flexbox property
+   */
+  --margin-between-radios: var(--gr-spacing-xx-small);
+  --margin-between-radios-horizontal: var(--gr-spacing-medium);
+  --align-radios: flex-start;
+
+  display: block;
+  box-sizing: border-box;
+
+  & *,
+  & *:before,
+  & *:after {
+    box-sizing: inherit;
+  }
+}
+
+.radio-group {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: var(--align-radios);
+  gap: var(--margin-between-radios);
+}
+
+.radio-group-horizontal .content {
+  flex-direction: row;
+  gap: var(--margin-between-radios-horizontal);
+}
+
+.radio-group-label {
+  display: none;
+}
+
+.radio-group-has-label {
+  .radio-group-label {
+    line-height: var(--gr-line-height-normal);
+    color: var(--gr-form-element-label-color);
+    font-size: var(--gr-form-element-label-font-size-medium);
+
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+    margin-bottom: var(--gr-spacing-xxx-small);
+  }
+
+  .radio-group-label .asterisk {
+    margin-left: var(--gr-spacing-x-small);
+    color: var(--gr-color-medium);
+
+    svg {
+      width: 0.6em;
+      height: 0.6em;
+      margin-bottom: var(--gr-spacing-xxx-small);
+    }
+  }
+}
+
+.radio-group-invalid {
+  ::slotted(gr-radio) {
+    --control-border-color: var(--gr-form-element-invalid-text-color);
+    --control-background-color-checked: var(--gr-form-element-invalid-text-color);
+  }
+}
+
+// Invalid text
+.radio-group-invalid-text {
+  display: none;
+}
+
+.radio-group-has-invalid-text {
+  .radio-group-invalid-text {
+    display: flex;
+    margin-left: -2px;
+    line-height: var(--gr-line-height-normal);
+    color: var(--gr-form-element-invalid-text-color);
+    margin-top: var(--gr-spacing-xxx-small);
+    font-size: var(--gr-form-element-invalid-text-font-size-medium);
+    min-height: 1.875rem;
+
+    .icon {
+      margin-top: var(--gr-spacing-xxx-small);
+      margin-right: var(--gr-spacing-xx-small);
+
+      svg {
+        width: 1.4em;
+        height: 1.4em;
+      }
+    }
+  }
+}

@@ -12,24 +12,24 @@
   ],
   "parser": "@typescript-eslint/parser",
   "rules": {
-    "@typescript-eslint/no-explicit-any": "error",
-    "@typescript-eslint/no-empty-function": "error",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-empty-function": "warn",
     // Enforce return types on exported functions or public methods
-    "@typescript-eslint/explicit-module-boundary-types": "error",
+    "@typescript-eslint/explicit-module-boundary-types": "warn",
     // Enforce use of interfaces for object type definitions
-    "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+    "@typescript-eslint/consistent-type-definitions": ["warn"],
     // Enforce use of Record<string, string> instead of {[key: string]: string};
-    "@typescript-eslint/consistent-indexed-object-style": "error",
+    "@typescript-eslint/consistent-indexed-object-style": "warn",
     // Use "import type" for type imports
     "@typescript-eslint/consistent-type-imports": [
-      "error",
+      "warn",
       {
         "prefer": "type-imports"
       }
     ],
     // Declare simple arrays as string[], declare complex ones as Array<string | number>
     "@typescript-eslint/array-type": [
-      "error",
+      "warn",
       {
         "default": "array-simple"
       }
@@ -53,7 +53,7 @@
       }
     ],
     // Always use shorthand for `true`
-    "react/jsx-boolean-value": "error",
+    "react/jsx-boolean-value": "warn",
 
     // Group module and relative imports
     "import/order": [

@@ -18,4 +18,4 @@ See the [stories-tabs](../tabs) for configuration details.
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

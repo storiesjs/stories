@@ -85,7 +85,7 @@ export const config: Config = {
     },
     {
       type: 'docs-readme',
-      footer: 'Built with ❤ at StoriesJS',
+      footer: 'Built with [StencilJS](https://stenciljs.com/) at StoriesJS',
     },
     {
       type: 'custom',
