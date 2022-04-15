@@ -14,10 +14,10 @@
 
 ## Events
 
-| Event      | Description                           | Type               |
-| ---------- | ------------------------------------- | ------------------ |
-| `gr-blur`  | Emitted when the control loses focus. | `CustomEvent<any>` |
-| `gr-focus` | Emitted when the control gains focus. | `CustomEvent<any>` |
+| Event           | Description                           | Type               |
+| --------------- | ------------------------------------- | ------------------ |
+| `stories-blur`  | Emitted when the control loses focus. | `CustomEvent<any>` |
+| `stories-focus` | Emitted when the control gains focus. | `CustomEvent<any>` |
 
 
 ## Methods
@@ -73,4 +73,4 @@ Type: `Promise<void>`
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

@@ -1,4 +1,5 @@
-import { h, FunctionalComponent } from '@stencil/core';
+import type { FunctionalComponent } from '@stencil/core';
+import { h } from '@stencil/core';
 
 export interface FormItemProps {
   /** The input id, used to map the input to the label */

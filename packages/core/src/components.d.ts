@@ -96,12 +96,6 @@ export namespace Components {
          */
         "variant"?: 'default' | 'primary' | 'secondary' | 'danger' | 'plain';
     }
-    interface StoriesButtons {
-        /**
-          * If true, buttons will disappear when its parent toolbar has fully collapsed if the toolbar is not the first toolbar. If the toolbar is the first toolbar, the buttons will be hidden and will only be shown once all toolbars have fully collapsed.
-         */
-        "collapse": boolean;
-    }
     interface StoriesCheckbox {
         /**
           * Set to true to draw the checkbox in a checked state.
@@ -237,6 +231,59 @@ export namespace Components {
           * The size of the column for xs screens, in terms of how many columns it should take up out of the total available. If `"auto"` is passed, the column will be the size of its content.
          */
         "sizeXs"?: string;
+    }
+    interface StoriesDropdown {
+        /**
+          * Determines whether the dropdown should hide when a menu item is selected.
+         */
+        "closeOnSelect": boolean;
+        /**
+          * The dropdown will close when the user interacts outside of this element (e.g. clicking).
+         */
+        "containingElement": HTMLElement;
+        /**
+          * The distance in pixels from which to offset the panel away from its trigger.
+         */
+        "distance": number;
+        /**
+          * Sets focus on the trigger.
+         */
+        "focusOnTrigger": () => Promise<void>;
+        /**
+          * Hides the dropdown panel
+         */
+        "hide": () => Promise<void>;
+        /**
+          * Enable this option to prevent the panel from being clipped when the component is placed inside a container with `overflow: auto|scroll`.
+         */
+        "hoist": boolean;
+        /**
+          * Indicates whether or not the dropdown is open. You can use this in lieu of the show/hide methods.
+         */
+        "open": boolean;
+        /**
+          * The preferred placement of the dropdown panel. Note that the actual placement may vary as needed to keep the panel inside of the viewport.
+         */
+        "placement": | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right'
+    | 'right-start'
+    | 'right-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end';
+        /**
+          * Shows the dropdown panel
+         */
+        "show": () => Promise<void>;
+        /**
+          * The distance in pixels from which to offset the panel along its trigger.
+         */
+        "skidding": number;
     }
     interface StoriesFooter {
     }
@@ -402,6 +449,38 @@ export namespace Components {
          */
         "position"?: 'fixed' | 'stacked' | 'floating';
     }
+    interface StoriesMenu {
+        /**
+          * Initiates type-to-select logic, which automatically selects an option based on what the user is currently typing. The key passed will be appended to the internal query and the selection will be updated. After a brief period, the internal query is cleared automatically. This method is intended to be used with the keydown event. Useful for enabling type-to-select when the menu doesn't have focus.
+         */
+        "typeToSelect": (key: string) => Promise<void>;
+    }
+    interface StoriesMenuDivider {
+    }
+    interface StoriesMenuItem {
+        /**
+          * Set to true to draw the item in a checked state.
+         */
+        "checked": boolean;
+        /**
+          * Set to true to draw the menu item in a disabled state.
+         */
+        "disabled": boolean;
+        /**
+          * Removes focus from the menu item.
+         */
+        "removeFocus": () => Promise<void>;
+        /**
+          * Sets focus on the menu item.
+         */
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * A unique value to store in the menu item. This can be used as a way to identify menu items when selected.
+         */
+        "value": string;
+    }
+    interface StoriesMenuLabel {
+    }
     interface StoriesPreview {
     }
     interface StoriesRadio {
@@ -523,6 +602,72 @@ export namespace Components {
          */
         "value"?: string | null;
     }
+    interface StoriesSelect {
+        /**
+          * Set to true to add a clear button when the select is populated.
+         */
+        "clearable": boolean;
+        /**
+          * Set to true to disable the select control.
+         */
+        "disabled": boolean;
+        /**
+          * The select's help text. Alternatively, you can use the help-text slot.
+         */
+        "helpText": string;
+        /**
+          * Enable this option to prevent the panel from being clipped when the component is placed inside a container with `overflow: auto|scroll`.
+         */
+        "hoist": boolean;
+        /**
+          * Set to true to indicate this field is invalid. Will display the invalid text instead of the help text
+         */
+        "invalid": boolean;
+        /**
+          * The select's invalid text. Alternatively, you can use the invalid-text slot.
+         */
+        "invalidText": string;
+        /**
+          * The select's label. Alternatively, you can use the label slot.
+         */
+        "label": string;
+        /**
+          * The maximum number of tags to show when `multiple` is true. After the maximum, "+n" will be shown to indicate the number of additional items that are selected. Set to -1 to remove the limit.
+         */
+        "maxTagsVisible": number;
+        /**
+          * Set to true to enable multiselect.
+         */
+        "multiple": boolean;
+        /**
+          * The select's name.
+         */
+        "name": string;
+        /**
+          * Set to true to draw a pill-style select with rounded edges.
+         */
+        "pill": boolean;
+        /**
+          * The select's placeholder text.
+         */
+        "placeholder": string;
+        /**
+          * Set to true to display a required indicator, adds an asterisk to label
+         */
+        "requiredIndicator": boolean;
+        /**
+          * Sets focus on the select.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * The select's size.
+         */
+        "size": 'small' | 'medium' | 'large';
+        /**
+          * The value of the control. This will be a string or an array depending on `multiple`.
+         */
+        "value": string | Array<string>;
+    }
     interface StoriesSidebar {
     }
     interface StoriesSplitPane {
@@ -581,6 +726,130 @@ export namespace Components {
           * @param tab The tab instance to select. If passed a string, it should be the value of the tab's `tab` property.
          */
         "select": (tab: string | HTMLStoriesTabElement) => Promise<boolean>;
+    }
+    interface StoriesTag {
+        /**
+          * Set to true to make the tag clearable.
+         */
+        "clearable": boolean;
+        /**
+          * Set to true to draw a pill-style tag with rounded edges.
+         */
+        "pill": boolean;
+        /**
+          * The tag's size.
+         */
+        "size": 'small' | 'medium' | 'large';
+        /**
+          * The tag's type.
+         */
+        "type": 'primary' | 'success' | 'info' | 'warning' | 'danger';
+    }
+    interface StoriesTextarea {
+        /**
+          * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user. Available options: `"off"`, `"none"`, `"on"`, `"sentences"`, `"words"`, `"characters"`.
+         */
+        "autocapitalize": string;
+        /**
+          * Whether auto correction should be enabled when the user is entering/editing the text value.
+         */
+        "autocorrect": 'on' | 'off';
+        /**
+          * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
+         */
+        "autofocus": boolean;
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `stories-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
+         */
+        "debounce": number;
+        /**
+          * Set to true to disable the textarea.
+         */
+        "disabled": boolean;
+        /**
+          * A hint to the browser for which enter key to display. Possible values: `"enter"`, `"done"`, `"go"`, `"next"`, `"previous"`, `"search"`, and `"send"`.
+         */
+        "enterkeyhint"?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+        /**
+          * The textarea's help text. Alternatively, you can use the help-text slot.
+         */
+        "helpText": string;
+        /**
+          * The textarea's inputmode attribute.
+         */
+        "inputmode": 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'search' | 'email' | 'url';
+        /**
+          * Set to true to indicate this field is invalid. Will display the invalid text instead of the help text
+         */
+        "invalid": boolean;
+        /**
+          * The input's invalid text. Alternatively, you can use the invalid-text slot.
+         */
+        "invalidText": string;
+        /**
+          * The textarea's label. Alternatively, you can use the label slot.
+         */
+        "label": string | undefined;
+        /**
+          * Specifies how many characters are allowed.
+         */
+        "maxlength": number;
+        /**
+          * The textarea's name attribute.
+         */
+        "name": string;
+        /**
+          * The textarea's placeholder text.
+         */
+        "placeholder": string;
+        /**
+          * If `true`, the user cannot modify the value.
+         */
+        "readonly": boolean;
+        /**
+          * Removes focus fromt the textarea.
+         */
+        "removeFocus": () => Promise<void>;
+        /**
+          * Set to true to display a required indicator, adds an asterisk to label
+         */
+        "requiredIndicator": boolean;
+        /**
+          * Controls how the textarea can be resized.
+         */
+        "resize": 'none' | 'vertical' | 'auto';
+        /**
+          * The number of rows to display by default.
+         */
+        "rows": number;
+        /**
+          * Selects all the text in the input.
+         */
+        "select": () => Promise<void>;
+        /**
+          * Sets focus on the textarea.
+         */
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * Replaces a range of text with a new string.
+         */
+        "setRangeText": (replacement: string, start: number, end: number, selectMode?: 'select' | 'start' | 'end' | 'preserve') => Promise<void>;
+        /**
+          * Sets the start and end positions of the text selection (0-based).
+         */
+        "setSelectionRange": (selectionStart: number, selectionEnd: number, selectionDirection?: 'forward' | 'backward' | 'none') => Promise<void>;
+        /**
+          * The textarea's size.
+         */
+        "size": 'small' | 'medium' | 'large';
+        /**
+          * If `true`, the element will have its spelling and grammar checked.
+         */
+        "spellcheck": boolean;
+        /**
+          * The textarea's value attribute.
+         */
+        "value": string;
     }
     interface StoriesToolBar {
     }
@@ -641,12 +910,6 @@ declare global {
         prototype: HTMLStoriesButtonElement;
         new (): HTMLStoriesButtonElement;
     };
-    interface HTMLStoriesButtonsElement extends Components.StoriesButtons, HTMLStencilElement {
-    }
-    var HTMLStoriesButtonsElement: {
-        prototype: HTMLStoriesButtonsElement;
-        new (): HTMLStoriesButtonsElement;
-    };
     interface HTMLStoriesCheckboxElement extends Components.StoriesCheckbox, HTMLStencilElement {
     }
     var HTMLStoriesCheckboxElement: {
@@ -658,6 +921,12 @@ declare global {
     var HTMLStoriesColElement: {
         prototype: HTMLStoriesColElement;
         new (): HTMLStoriesColElement;
+    };
+    interface HTMLStoriesDropdownElement extends Components.StoriesDropdown, HTMLStencilElement {
+    }
+    var HTMLStoriesDropdownElement: {
+        prototype: HTMLStoriesDropdownElement;
+        new (): HTMLStoriesDropdownElement;
     };
     interface HTMLStoriesFooterElement extends Components.StoriesFooter, HTMLStencilElement {
     }
@@ -695,6 +964,30 @@ declare global {
         prototype: HTMLStoriesLabelElement;
         new (): HTMLStoriesLabelElement;
     };
+    interface HTMLStoriesMenuElement extends Components.StoriesMenu, HTMLStencilElement {
+    }
+    var HTMLStoriesMenuElement: {
+        prototype: HTMLStoriesMenuElement;
+        new (): HTMLStoriesMenuElement;
+    };
+    interface HTMLStoriesMenuDividerElement extends Components.StoriesMenuDivider, HTMLStencilElement {
+    }
+    var HTMLStoriesMenuDividerElement: {
+        prototype: HTMLStoriesMenuDividerElement;
+        new (): HTMLStoriesMenuDividerElement;
+    };
+    interface HTMLStoriesMenuItemElement extends Components.StoriesMenuItem, HTMLStencilElement {
+    }
+    var HTMLStoriesMenuItemElement: {
+        prototype: HTMLStoriesMenuItemElement;
+        new (): HTMLStoriesMenuItemElement;
+    };
+    interface HTMLStoriesMenuLabelElement extends Components.StoriesMenuLabel, HTMLStencilElement {
+    }
+    var HTMLStoriesMenuLabelElement: {
+        prototype: HTMLStoriesMenuLabelElement;
+        new (): HTMLStoriesMenuLabelElement;
+    };
     interface HTMLStoriesPreviewElement extends Components.StoriesPreview, HTMLStencilElement {
     }
     var HTMLStoriesPreviewElement: {
@@ -730,6 +1023,12 @@ declare global {
     var HTMLStoriesSearchbarElement: {
         prototype: HTMLStoriesSearchbarElement;
         new (): HTMLStoriesSearchbarElement;
+    };
+    interface HTMLStoriesSelectElement extends Components.StoriesSelect, HTMLStencilElement {
+    }
+    var HTMLStoriesSelectElement: {
+        prototype: HTMLStoriesSelectElement;
+        new (): HTMLStoriesSelectElement;
     };
     interface HTMLStoriesSidebarElement extends Components.StoriesSidebar, HTMLStencilElement {
     }
@@ -767,6 +1066,18 @@ declare global {
         prototype: HTMLStoriesTabsElement;
         new (): HTMLStoriesTabsElement;
     };
+    interface HTMLStoriesTagElement extends Components.StoriesTag, HTMLStencilElement {
+    }
+    var HTMLStoriesTagElement: {
+        prototype: HTMLStoriesTagElement;
+        new (): HTMLStoriesTagElement;
+    };
+    interface HTMLStoriesTextareaElement extends Components.StoriesTextarea, HTMLStencilElement {
+    }
+    var HTMLStoriesTextareaElement: {
+        prototype: HTMLStoriesTextareaElement;
+        new (): HTMLStoriesTextareaElement;
+    };
     interface HTMLStoriesToolBarElement extends Components.StoriesToolBar, HTMLStencilElement {
     }
     var HTMLStoriesToolBarElement: {
@@ -798,27 +1109,34 @@ declare global {
         "stories-app": HTMLStoriesAppElement;
         "stories-badge": HTMLStoriesBadgeElement;
         "stories-button": HTMLStoriesButtonElement;
-        "stories-buttons": HTMLStoriesButtonsElement;
         "stories-checkbox": HTMLStoriesCheckboxElement;
         "stories-col": HTMLStoriesColElement;
+        "stories-dropdown": HTMLStoriesDropdownElement;
         "stories-footer": HTMLStoriesFooterElement;
         "stories-grid": HTMLStoriesGridElement;
         "stories-group": HTMLStoriesGroupElement;
         "stories-icon": HTMLStoriesIconElement;
         "stories-input": HTMLStoriesInputElement;
         "stories-label": HTMLStoriesLabelElement;
+        "stories-menu": HTMLStoriesMenuElement;
+        "stories-menu-divider": HTMLStoriesMenuDividerElement;
+        "stories-menu-item": HTMLStoriesMenuItemElement;
+        "stories-menu-label": HTMLStoriesMenuLabelElement;
         "stories-preview": HTMLStoriesPreviewElement;
         "stories-radio": HTMLStoriesRadioElement;
         "stories-radio-group": HTMLStoriesRadioGroupElement;
         "stories-router": HTMLStoriesRouterElement;
         "stories-row": HTMLStoriesRowElement;
         "stories-searchbar": HTMLStoriesSearchbarElement;
+        "stories-select": HTMLStoriesSelectElement;
         "stories-sidebar": HTMLStoriesSidebarElement;
         "stories-split-pane": HTMLStoriesSplitPaneElement;
         "stories-tab": HTMLStoriesTabElement;
         "stories-tab-bar": HTMLStoriesTabBarElement;
         "stories-tab-button": HTMLStoriesTabButtonElement;
         "stories-tabs": HTMLStoriesTabsElement;
+        "stories-tag": HTMLStoriesTagElement;
+        "stories-textarea": HTMLStoriesTextareaElement;
         "stories-tool-bar": HTMLStoriesToolBarElement;
         "stories-tool-button": HTMLStoriesToolButtonElement;
         "stories-tool-zoom": HTMLStoriesToolZoomElement;
@@ -907,12 +1225,6 @@ declare namespace LocalJSX {
           * The different variants. The options are: `"default"`, `"primary"`, `"secondary"`, `"danger"`, and `"plain"`.
          */
         "variant"?: 'default' | 'primary' | 'secondary' | 'danger' | 'plain';
-    }
-    interface StoriesButtons {
-        /**
-          * If true, buttons will disappear when its parent toolbar has fully collapsed if the toolbar is not the first toolbar. If the toolbar is the first toolbar, the buttons will be hidden and will only be shown once all toolbars have fully collapsed.
-         */
-        "collapse"?: boolean;
     }
     interface StoriesCheckbox {
         /**
@@ -1053,6 +1365,63 @@ declare namespace LocalJSX {
           * The size of the column for xs screens, in terms of how many columns it should take up out of the total available. If `"auto"` is passed, the column will be the size of its content.
          */
         "sizeXs"?: string;
+    }
+    interface StoriesDropdown {
+        /**
+          * Determines whether the dropdown should hide when a menu item is selected.
+         */
+        "closeOnSelect"?: boolean;
+        /**
+          * The dropdown will close when the user interacts outside of this element (e.g. clicking).
+         */
+        "containingElement"?: HTMLElement;
+        /**
+          * The distance in pixels from which to offset the panel away from its trigger.
+         */
+        "distance"?: number;
+        /**
+          * Enable this option to prevent the panel from being clipped when the component is placed inside a container with `overflow: auto|scroll`.
+         */
+        "hoist"?: boolean;
+        /**
+          * Emitted after the dropdown closes and all transitions are complete.
+         */
+        "onStories-after-hide"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted after the dropdown opens and all transitions are complete.
+         */
+        "onStories-after-show"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when the dropdown closes. Calling `event.preventDefault()` will prevent it from being closed.
+         */
+        "onStories-hide"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when the dropdown opens. Calling `event.preventDefault()` will prevent it from being opened.
+         */
+        "onStories-show"?: (event: CustomEvent<void>) => void;
+        /**
+          * Indicates whether or not the dropdown is open. You can use this in lieu of the show/hide methods.
+         */
+        "open"?: boolean;
+        /**
+          * The preferred placement of the dropdown panel. Note that the actual placement may vary as needed to keep the panel inside of the viewport.
+         */
+        "placement"?: | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right'
+    | 'right-start'
+    | 'right-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end';
+        /**
+          * The distance in pixels from which to offset the panel along its trigger.
+         */
+        "skidding"?: number;
     }
     interface StoriesFooter {
     }
@@ -1218,6 +1587,30 @@ declare namespace LocalJSX {
          */
         "position"?: 'fixed' | 'stacked' | 'floating';
     }
+    interface StoriesMenu {
+        /**
+          * Emitted when a menu item is selected.
+         */
+        "onStories-select"?: (event: CustomEvent<{ item: HTMLStoriesMenuItemElement }>) => void;
+    }
+    interface StoriesMenuDivider {
+    }
+    interface StoriesMenuItem {
+        /**
+          * Set to true to draw the item in a checked state.
+         */
+        "checked"?: boolean;
+        /**
+          * Set to true to draw the menu item in a disabled state.
+         */
+        "disabled"?: boolean;
+        /**
+          * A unique value to store in the menu item. This can be used as a way to identify menu items when selected.
+         */
+        "value"?: string;
+    }
+    interface StoriesMenuLabel {
+    }
     interface StoriesPreview {
     }
     interface StoriesRadio {
@@ -1362,6 +1755,80 @@ declare namespace LocalJSX {
          */
         "value"?: string | null;
     }
+    interface StoriesSelect {
+        /**
+          * Set to true to add a clear button when the select is populated.
+         */
+        "clearable"?: boolean;
+        /**
+          * Set to true to disable the select control.
+         */
+        "disabled"?: boolean;
+        /**
+          * The select's help text. Alternatively, you can use the help-text slot.
+         */
+        "helpText"?: string;
+        /**
+          * Enable this option to prevent the panel from being clipped when the component is placed inside a container with `overflow: auto|scroll`.
+         */
+        "hoist"?: boolean;
+        /**
+          * Set to true to indicate this field is invalid. Will display the invalid text instead of the help text
+         */
+        "invalid"?: boolean;
+        /**
+          * The select's invalid text. Alternatively, you can use the invalid-text slot.
+         */
+        "invalidText"?: string;
+        /**
+          * The select's label. Alternatively, you can use the label slot.
+         */
+        "label"?: string;
+        /**
+          * The maximum number of tags to show when `multiple` is true. After the maximum, "+n" will be shown to indicate the number of additional items that are selected. Set to -1 to remove the limit.
+         */
+        "maxTagsVisible"?: number;
+        /**
+          * Set to true to enable multiselect.
+         */
+        "multiple"?: boolean;
+        /**
+          * The select's name.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the control loses focus.
+         */
+        "onStories-blur"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when the control's value changes.
+         */
+        "onStories-change"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when the control gains focus.
+         */
+        "onStories-focus"?: (event: CustomEvent<void>) => void;
+        /**
+          * Set to true to draw a pill-style select with rounded edges.
+         */
+        "pill"?: boolean;
+        /**
+          * The select's placeholder text.
+         */
+        "placeholder"?: string;
+        /**
+          * Set to true to display a required indicator, adds an asterisk to label
+         */
+        "requiredIndicator"?: boolean;
+        /**
+          * The select's size.
+         */
+        "size"?: 'small' | 'medium' | 'large';
+        /**
+          * The value of the control. This will be a string or an array depending on `multiple`.
+         */
+        "value"?: string | Array<string>;
+    }
     interface StoriesSidebar {
     }
     interface StoriesSplitPane {
@@ -1413,6 +1880,130 @@ declare namespace LocalJSX {
     }
     interface StoriesTabs {
     }
+    interface StoriesTag {
+        /**
+          * Set to true to make the tag clearable.
+         */
+        "clearable"?: boolean;
+        /**
+          * Emitted when the clear button is activated.
+         */
+        "onStories-clear"?: (event: CustomEvent<void>) => void;
+        /**
+          * Set to true to draw a pill-style tag with rounded edges.
+         */
+        "pill"?: boolean;
+        /**
+          * The tag's size.
+         */
+        "size"?: 'small' | 'medium' | 'large';
+        /**
+          * The tag's type.
+         */
+        "type"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
+    }
+    interface StoriesTextarea {
+        /**
+          * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user. Available options: `"off"`, `"none"`, `"on"`, `"sentences"`, `"words"`, `"characters"`.
+         */
+        "autocapitalize"?: string;
+        /**
+          * Whether auto correction should be enabled when the user is entering/editing the text value.
+         */
+        "autocorrect"?: 'on' | 'off';
+        /**
+          * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
+         */
+        "autofocus"?: boolean;
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `stories-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
+         */
+        "debounce"?: number;
+        /**
+          * Set to true to disable the textarea.
+         */
+        "disabled"?: boolean;
+        /**
+          * A hint to the browser for which enter key to display. Possible values: `"enter"`, `"done"`, `"go"`, `"next"`, `"previous"`, `"search"`, and `"send"`.
+         */
+        "enterkeyhint"?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+        /**
+          * The textarea's help text. Alternatively, you can use the help-text slot.
+         */
+        "helpText"?: string;
+        /**
+          * The textarea's inputmode attribute.
+         */
+        "inputmode"?: 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'search' | 'email' | 'url';
+        /**
+          * Set to true to indicate this field is invalid. Will display the invalid text instead of the help text
+         */
+        "invalid"?: boolean;
+        /**
+          * The input's invalid text. Alternatively, you can use the invalid-text slot.
+         */
+        "invalidText"?: string;
+        /**
+          * The textarea's label. Alternatively, you can use the label slot.
+         */
+        "label"?: string | undefined;
+        /**
+          * Specifies how many characters are allowed.
+         */
+        "maxlength"?: number;
+        /**
+          * The textarea's name attribute.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the textarea loses focus.
+         */
+        "onStories-blur"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when the textarea's value changes.
+         */
+        "onStories-change"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when the textarea has focus.
+         */
+        "onStories-focus"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when the textarea receives input.
+         */
+        "onStories-input"?: (event: CustomEvent<void>) => void;
+        /**
+          * The textarea's placeholder text.
+         */
+        "placeholder"?: string;
+        /**
+          * If `true`, the user cannot modify the value.
+         */
+        "readonly"?: boolean;
+        /**
+          * Set to true to display a required indicator, adds an asterisk to label
+         */
+        "requiredIndicator"?: boolean;
+        /**
+          * Controls how the textarea can be resized.
+         */
+        "resize"?: 'none' | 'vertical' | 'auto';
+        /**
+          * The number of rows to display by default.
+         */
+        "rows"?: number;
+        /**
+          * The textarea's size.
+         */
+        "size"?: 'small' | 'medium' | 'large';
+        /**
+          * If `true`, the element will have its spelling and grammar checked.
+         */
+        "spellcheck"?: boolean;
+        /**
+          * The textarea's value attribute.
+         */
+        "value"?: string;
+    }
     interface StoriesToolBar {
     }
     interface StoriesToolButton {
@@ -1445,27 +2036,34 @@ declare namespace LocalJSX {
         "stories-app": StoriesApp;
         "stories-badge": StoriesBadge;
         "stories-button": StoriesButton;
-        "stories-buttons": StoriesButtons;
         "stories-checkbox": StoriesCheckbox;
         "stories-col": StoriesCol;
+        "stories-dropdown": StoriesDropdown;
         "stories-footer": StoriesFooter;
         "stories-grid": StoriesGrid;
         "stories-group": StoriesGroup;
         "stories-icon": StoriesIcon;
         "stories-input": StoriesInput;
         "stories-label": StoriesLabel;
+        "stories-menu": StoriesMenu;
+        "stories-menu-divider": StoriesMenuDivider;
+        "stories-menu-item": StoriesMenuItem;
+        "stories-menu-label": StoriesMenuLabel;
         "stories-preview": StoriesPreview;
         "stories-radio": StoriesRadio;
         "stories-radio-group": StoriesRadioGroup;
         "stories-router": StoriesRouter;
         "stories-row": StoriesRow;
         "stories-searchbar": StoriesSearchbar;
+        "stories-select": StoriesSelect;
         "stories-sidebar": StoriesSidebar;
         "stories-split-pane": StoriesSplitPane;
         "stories-tab": StoriesTab;
         "stories-tab-bar": StoriesTabBar;
         "stories-tab-button": StoriesTabButton;
         "stories-tabs": StoriesTabs;
+        "stories-tag": StoriesTag;
+        "stories-textarea": StoriesTextarea;
         "stories-tool-bar": StoriesToolBar;
         "stories-tool-button": StoriesToolButton;
         "stories-tool-zoom": StoriesToolZoom;
@@ -1482,27 +2080,34 @@ declare module "@stencil/core" {
             "stories-app": LocalJSX.StoriesApp & JSXBase.HTMLAttributes<HTMLStoriesAppElement>;
             "stories-badge": LocalJSX.StoriesBadge & JSXBase.HTMLAttributes<HTMLStoriesBadgeElement>;
             "stories-button": LocalJSX.StoriesButton & JSXBase.HTMLAttributes<HTMLStoriesButtonElement>;
-            "stories-buttons": LocalJSX.StoriesButtons & JSXBase.HTMLAttributes<HTMLStoriesButtonsElement>;
             "stories-checkbox": LocalJSX.StoriesCheckbox & JSXBase.HTMLAttributes<HTMLStoriesCheckboxElement>;
             "stories-col": LocalJSX.StoriesCol & JSXBase.HTMLAttributes<HTMLStoriesColElement>;
+            "stories-dropdown": LocalJSX.StoriesDropdown & JSXBase.HTMLAttributes<HTMLStoriesDropdownElement>;
             "stories-footer": LocalJSX.StoriesFooter & JSXBase.HTMLAttributes<HTMLStoriesFooterElement>;
             "stories-grid": LocalJSX.StoriesGrid & JSXBase.HTMLAttributes<HTMLStoriesGridElement>;
             "stories-group": LocalJSX.StoriesGroup & JSXBase.HTMLAttributes<HTMLStoriesGroupElement>;
             "stories-icon": LocalJSX.StoriesIcon & JSXBase.HTMLAttributes<HTMLStoriesIconElement>;
             "stories-input": LocalJSX.StoriesInput & JSXBase.HTMLAttributes<HTMLStoriesInputElement>;
             "stories-label": LocalJSX.StoriesLabel & JSXBase.HTMLAttributes<HTMLStoriesLabelElement>;
+            "stories-menu": LocalJSX.StoriesMenu & JSXBase.HTMLAttributes<HTMLStoriesMenuElement>;
+            "stories-menu-divider": LocalJSX.StoriesMenuDivider & JSXBase.HTMLAttributes<HTMLStoriesMenuDividerElement>;
+            "stories-menu-item": LocalJSX.StoriesMenuItem & JSXBase.HTMLAttributes<HTMLStoriesMenuItemElement>;
+            "stories-menu-label": LocalJSX.StoriesMenuLabel & JSXBase.HTMLAttributes<HTMLStoriesMenuLabelElement>;
             "stories-preview": LocalJSX.StoriesPreview & JSXBase.HTMLAttributes<HTMLStoriesPreviewElement>;
             "stories-radio": LocalJSX.StoriesRadio & JSXBase.HTMLAttributes<HTMLStoriesRadioElement>;
             "stories-radio-group": LocalJSX.StoriesRadioGroup & JSXBase.HTMLAttributes<HTMLStoriesRadioGroupElement>;
             "stories-router": LocalJSX.StoriesRouter & JSXBase.HTMLAttributes<HTMLStoriesRouterElement>;
             "stories-row": LocalJSX.StoriesRow & JSXBase.HTMLAttributes<HTMLStoriesRowElement>;
             "stories-searchbar": LocalJSX.StoriesSearchbar & JSXBase.HTMLAttributes<HTMLStoriesSearchbarElement>;
+            "stories-select": LocalJSX.StoriesSelect & JSXBase.HTMLAttributes<HTMLStoriesSelectElement>;
             "stories-sidebar": LocalJSX.StoriesSidebar & JSXBase.HTMLAttributes<HTMLStoriesSidebarElement>;
             "stories-split-pane": LocalJSX.StoriesSplitPane & JSXBase.HTMLAttributes<HTMLStoriesSplitPaneElement>;
             "stories-tab": LocalJSX.StoriesTab & JSXBase.HTMLAttributes<HTMLStoriesTabElement>;
             "stories-tab-bar": LocalJSX.StoriesTabBar & JSXBase.HTMLAttributes<HTMLStoriesTabBarElement>;
             "stories-tab-button": LocalJSX.StoriesTabButton & JSXBase.HTMLAttributes<HTMLStoriesTabButtonElement>;
             "stories-tabs": LocalJSX.StoriesTabs & JSXBase.HTMLAttributes<HTMLStoriesTabsElement>;
+            "stories-tag": LocalJSX.StoriesTag & JSXBase.HTMLAttributes<HTMLStoriesTagElement>;
+            "stories-textarea": LocalJSX.StoriesTextarea & JSXBase.HTMLAttributes<HTMLStoriesTextareaElement>;
             "stories-tool-bar": LocalJSX.StoriesToolBar & JSXBase.HTMLAttributes<HTMLStoriesToolBarElement>;
             "stories-tool-button": LocalJSX.StoriesToolButton & JSXBase.HTMLAttributes<HTMLStoriesToolButtonElement>;
             "stories-tool-zoom": LocalJSX.StoriesToolZoom & JSXBase.HTMLAttributes<HTMLStoriesToolZoomElement>;

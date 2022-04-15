@@ -1,6 +1,6 @@
 # stories-tool-zoom
 
-The stories-tool-zoom is a container for zoom-in, zoom-out, and zoom-reset stories-buttons.
+The stories-tool-zoom is a container for zoom-in, zoom-out, and zoom-reset buttons.
 
 <!-- Auto Generated Below -->
 

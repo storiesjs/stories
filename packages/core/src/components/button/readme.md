@@ -80,6 +80,19 @@ Type: `Promise<void>`
 | `--transition`         | Transition of the button                                                                                        |
 
 
+## Dependencies
+
+### Used by
+
+ - [stories-tag](../tag)
+
+### Graph
+```mermaid
+graph TD;
+  stories-tag --> stories-button
+  style stories-button fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 Built with [StencilJS](https://stenciljs.com/) at StoriesJS

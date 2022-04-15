@@ -155,59 +155,39 @@ export class StoriesButton {
 }
 
 
-export declare interface StoriesButtons extends Components.StoriesButtons {}
-
-@ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['collapse']
-})
-@Component({
-  selector: 'stories-buttons',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>',
-  inputs: ['collapse']
-})
-export class StoriesButtons {
-  protected el: HTMLElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
-    c.detach();
-    this.el = r.nativeElement;
-  }
-}
-
-import type { CheckboxChangeEventDetail as ICheckboxCheckboxChangeEventDetail } from '@stories-js/core';
 export declare interface StoriesCheckbox extends Components.StoriesCheckbox {
   /**
-   * Emitted when the checked property has changed. 
+   * Emitted when the control loses focus. 
    */
-  storiesChange: EventEmitter<CustomEvent<ICheckboxCheckboxChangeEventDetail>>;
+  stories-blur: EventEmitter<CustomEvent<void>>;
   /**
-   * Emitted when the checkbox has focus. 
+   * Emitted when the control gains focus. 
    */
-  storiesFocus: EventEmitter<CustomEvent<void>>;
+  stories-focus: EventEmitter<CustomEvent<void>>;
   /**
-   * Emitted when the checkbox loses focus. 
+   * Emitted when the control's checked state changes. 
    */
-  storiesBlur: EventEmitter<CustomEvent<void>>;
+  stories-change: EventEmitter<CustomEvent<void>>;
 
 }
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['checked', 'color', 'disabled', 'indeterminate', 'name', 'value']
+  inputs: ['checked', 'disabled', 'indeterminate', 'invalid', 'invalidText', 'name', 'value'],
+  methods: ['setFocus', 'removeFocus']
 })
 @Component({
   selector: 'stories-checkbox',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['checked', 'color', 'disabled', 'indeterminate', 'name', 'value']
+  inputs: ['checked', 'disabled', 'indeterminate', 'invalid', 'invalidText', 'name', 'value']
 })
 export class StoriesCheckbox {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['storiesChange', 'storiesFocus', 'storiesBlur']);
+    proxyOutputs(this, this.el, ['stories-blur', 'stories-focus', 'stories-change']);
   }
 }
 
@@ -229,6 +209,47 @@ export class StoriesCol {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface StoriesDropdown extends Components.StoriesDropdown {
+  /**
+   * Emitted when the dropdown opens. Calling `event.preventDefault()` will prevent it from being opened. 
+   */
+  stories-show: EventEmitter<CustomEvent<void>>;
+  /**
+   * Emitted after the dropdown opens and all transitions are complete. 
+   */
+  stories-after-show: EventEmitter<CustomEvent<void>>;
+  /**
+   * Emitted when the dropdown closes. Calling `event.preventDefault()` will prevent it from being closed. 
+   */
+  stories-hide: EventEmitter<CustomEvent<void>>;
+  /**
+   * Emitted after the dropdown closes and all transitions are complete. 
+   */
+  stories-after-hide: EventEmitter<CustomEvent<void>>;
+
+}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['closeOnSelect', 'containingElement', 'distance', 'hoist', 'open', 'placement', 'skidding'],
+  methods: ['show', 'hide', 'focusOnTrigger']
+})
+@Component({
+  selector: 'stories-dropdown',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['closeOnSelect', 'containingElement', 'distance', 'hoist', 'open', 'placement', 'skidding']
+})
+export class StoriesDropdown {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['stories-show', 'stories-after-show', 'stories-hide', 'stories-after-hide']);
   }
 }
 
@@ -273,6 +294,27 @@ export class StoriesGrid {
 }
 
 
+export declare interface StoriesGroup extends Components.StoriesGroup {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['horizontal', 'label']
+})
+@Component({
+  selector: 'stories-group',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['horizontal', 'label']
+})
+export class StoriesGroup {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
 export declare interface StoriesIcon extends Components.StoriesIcon {}
 
 @ProxyCmp({
@@ -293,44 +335,48 @@ export class StoriesIcon {
   }
 }
 
-import type { InputChangeEventDetail as IInputInputChangeEventDetail } from '@stories-js/core';
+
 export declare interface StoriesInput extends Components.StoriesInput {
   /**
-   * Emitted when a keyboard input occurred. 
+   * Emitted when the control's value changes. 
    */
-  storiesInput: EventEmitter<CustomEvent<InputEvent>>;
+  gr-change: EventEmitter<CustomEvent<void>>;
   /**
-   * Emitted when the value has changed. 
+   * Emitted when the clear button is activated. 
    */
-  storiesChange: EventEmitter<CustomEvent<IInputInputChangeEventDetail>>;
+  gr-clear: EventEmitter<CustomEvent<void>>;
   /**
-   * Emitted when the input loses focus. 
+   * Emitted when the control receives input. 
    */
-  storiesBlur: EventEmitter<CustomEvent<FocusEvent>>;
+  gr-input: EventEmitter<CustomEvent<void>>;
   /**
-   * Emitted when the input has focus. 
+   * Emitted when the control gains focus. 
    */
-  storiesFocus: EventEmitter<CustomEvent<FocusEvent>>;
+  gr-focus: EventEmitter<CustomEvent<void>>;
+  /**
+   * Emitted when the control loses focus. 
+   */
+  gr-blur: EventEmitter<CustomEvent<void>>;
 
 }
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['autofocus', 'clearInput', 'color', 'debounce', 'disabled', 'inputmode', 'max', 'maxlength', 'min', 'minlength', 'name', 'pattern', 'placeholder', 'readonly', 'required', 'size', 'step', 'type', 'value'],
-  methods: ['setFocus', 'getInputElement']
+  inputs: ['autocapitalize', 'autocomplete', 'autocorrect', 'autofocus', 'clearable', 'debounce', 'disabled', 'enterkeyhint', 'helpText', 'inputmode', 'invalid', 'invalidText', 'label', 'max', 'maxlength', 'min', 'name', 'pill', 'placeholder', 'readonly', 'requiredIndicator', 'size', 'spellcheck', 'step', 'togglePassword', 'type', 'value'],
+  methods: ['setFocus', 'removeFocus', 'select', 'setSelectionRange', 'setRangeText']
 })
 @Component({
   selector: 'stories-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autofocus', 'clearInput', 'color', 'debounce', 'disabled', 'inputmode', 'max', 'maxlength', 'min', 'minlength', 'name', 'pattern', 'placeholder', 'readonly', 'required', 'size', 'step', 'type', 'value']
+  inputs: ['autocapitalize', 'autocomplete', 'autocorrect', 'autofocus', 'clearable', 'debounce', 'disabled', 'enterkeyhint', 'helpText', 'inputmode', 'invalid', 'invalidText', 'label', 'max', 'maxlength', 'min', 'name', 'pill', 'placeholder', 'readonly', 'requiredIndicator', 'size', 'spellcheck', 'step', 'togglePassword', 'type', 'value']
 })
 export class StoriesInput {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['storiesInput', 'storiesChange', 'storiesBlur', 'storiesFocus']);
+    proxyOutputs(this, this.el, ['gr-change', 'gr-clear', 'gr-input', 'gr-focus', 'gr-blur']);
   }
 }
 
@@ -356,6 +402,93 @@ export class StoriesLabel {
 }
 
 
+export declare interface StoriesMenu extends Components.StoriesMenu {
+  /**
+   * Emitted when a menu item is selected. 
+   */
+  stories-select: EventEmitter<CustomEvent<{ item: HTMLStoriesMenuItemElement }>>;
+
+}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  methods: ['typeToSelect']
+})
+@Component({
+  selector: 'stories-menu',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class StoriesMenu {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['stories-select']);
+  }
+}
+
+
+export declare interface StoriesMenuDivider extends Components.StoriesMenuDivider {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined
+})
+@Component({
+  selector: 'stories-menu-divider',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class StoriesMenuDivider {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface StoriesMenuItem extends Components.StoriesMenuItem {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['checked', 'disabled', 'value'],
+  methods: ['setFocus', 'removeFocus']
+})
+@Component({
+  selector: 'stories-menu-item',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['checked', 'disabled', 'value']
+})
+export class StoriesMenuItem {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface StoriesMenuLabel extends Components.StoriesMenuLabel {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined
+})
+@Component({
+  selector: 'stories-menu-label',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class StoriesMenuLabel {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
 export declare interface StoriesPreview extends Components.StoriesPreview {}
 
 @ProxyCmp({
@@ -371,6 +504,67 @@ export class StoriesPreview {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface StoriesRadio extends Components.StoriesRadio {
+  /**
+   * Emitted when the control loses focus. 
+   */
+  stories-blur: EventEmitter<CustomEvent<any>>;
+  /**
+   * Emitted when the control gains focus. 
+   */
+  stories-focus: EventEmitter<CustomEvent<any>>;
+
+}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['checked', 'disabled', 'value'],
+  methods: ['setFocus', 'removeFocus']
+})
+@Component({
+  selector: 'stories-radio',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['checked', 'disabled', 'value']
+})
+export class StoriesRadio {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['stories-blur', 'stories-focus']);
+  }
+}
+
+import type { RadioGroupChangeEventDetail as IRadioGroupRadioGroupChangeEventDetail } from '@stories-js/core';
+export declare interface StoriesRadioGroup extends Components.StoriesRadioGroup {
+  /**
+   * Emitted when the value has changed. 
+   */
+  stories-change: EventEmitter<CustomEvent<IRadioGroupRadioGroupChangeEventDetail>>;
+
+}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['allowEmptySelection', 'horizontal', 'invalid', 'invalidText', 'label', 'name', 'requiredIndicator', 'value']
+})
+@Component({
+  selector: 'stories-radio-group',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['allowEmptySelection', 'horizontal', 'invalid', 'invalidText', 'label', 'name', 'requiredIndicator', 'value']
+})
+export class StoriesRadioGroup {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['stories-change']);
   }
 }
 
@@ -458,6 +652,43 @@ export class StoriesSearchbar {
     c.detach();
     this.el = r.nativeElement;
     proxyOutputs(this, this.el, ['storiesInput', 'storiesChange', 'storiesCancel', 'storiesClear', 'storiesBlur', 'storiesFocus']);
+  }
+}
+
+
+export declare interface StoriesSelect extends Components.StoriesSelect {
+  /**
+   * Emitted when the control's value changes. 
+   */
+  stories-change: EventEmitter<CustomEvent<void>>;
+  /**
+   * Emitted when the control gains focus. 
+   */
+  stories-focus: EventEmitter<CustomEvent<void>>;
+  /**
+   * Emitted when the control loses focus. 
+   */
+  stories-blur: EventEmitter<CustomEvent<void>>;
+
+}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['clearable', 'disabled', 'helpText', 'hoist', 'invalid', 'invalidText', 'label', 'maxTagsVisible', 'multiple', 'name', 'pill', 'placeholder', 'requiredIndicator', 'size', 'value'],
+  methods: ['setFocus']
+})
+@Component({
+  selector: 'stories-select',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['clearable', 'disabled', 'helpText', 'hoist', 'invalid', 'invalidText', 'label', 'maxTagsVisible', 'multiple', 'name', 'pill', 'placeholder', 'requiredIndicator', 'size', 'value']
+})
+export class StoriesSelect {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['stories-change', 'stories-focus', 'stories-blur']);
   }
 }
 
@@ -588,6 +819,75 @@ export class StoriesTabs {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface StoriesTag extends Components.StoriesTag {
+  /**
+   * Emitted when the clear button is activated. 
+   */
+  stories-clear: EventEmitter<CustomEvent<void>>;
+
+}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['clearable', 'pill', 'size', 'type']
+})
+@Component({
+  selector: 'stories-tag',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['clearable', 'pill', 'size', 'type']
+})
+export class StoriesTag {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['stories-clear']);
+  }
+}
+
+
+export declare interface StoriesTextarea extends Components.StoriesTextarea {
+  /**
+   * Emitted when the textarea's value changes. 
+   */
+  stories-change: EventEmitter<CustomEvent<void>>;
+  /**
+   * Emitted when the textarea receives input. 
+   */
+  stories-input: EventEmitter<CustomEvent<void>>;
+  /**
+   * Emitted when the textarea has focus. 
+   */
+  stories-focus: EventEmitter<CustomEvent<void>>;
+  /**
+   * Emitted when the textarea loses focus. 
+   */
+  stories-blur: EventEmitter<CustomEvent<void>>;
+
+}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['autocapitalize', 'autocorrect', 'autofocus', 'debounce', 'disabled', 'enterkeyhint', 'helpText', 'inputmode', 'invalid', 'invalidText', 'label', 'maxlength', 'name', 'placeholder', 'readonly', 'requiredIndicator', 'resize', 'rows', 'size', 'spellcheck', 'value'],
+  methods: ['setFocus', 'removeFocus', 'select', 'setSelectionRange', 'setRangeText']
+})
+@Component({
+  selector: 'stories-textarea',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['autocapitalize', 'autocorrect', 'autofocus', 'debounce', 'disabled', 'enterkeyhint', 'helpText', 'inputmode', 'invalid', 'invalidText', 'label', 'maxlength', 'name', 'placeholder', 'readonly', 'requiredIndicator', 'resize', 'rows', 'size', 'spellcheck', 'value']
+})
+export class StoriesTextarea {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['stories-change', 'stories-input', 'stories-focus', 'stories-blur']);
   }
 }
 

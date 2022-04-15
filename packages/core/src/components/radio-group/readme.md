@@ -19,9 +19,9 @@
 
 ## Events
 
-| Event       | Description                         | Type                                       |
-| ----------- | ----------------------------------- | ------------------------------------------ |
-| `gr-change` | Emitted when the value has changed. | `CustomEvent<RadioGroupChangeEventDetail>` |
+| Event            | Description                         | Type                                       |
+| ---------------- | ----------------------------------- | ------------------------------------------ |
+| `stories-change` | Emitted when the value has changed. | `CustomEvent<RadioGroupChangeEventDetail>` |
 
 
 ## Slots
@@ -44,4 +44,4 @@
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

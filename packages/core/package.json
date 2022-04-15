@@ -66,6 +66,7 @@
   "dependencies": {
     "@stencil/core": "^2.14.2",
     "@stencil/store": "^1.5.0",
+    "@popperjs/core": "^2.11.4",
     "telejson": "5.3.3"
   },
   "devDependencies": {

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>Graphite Design System</title>
+    <title>Stories Framework</title>
 
     <link rel="stylesheet" href="/build/core.css" />
     <script type="module" src="/build/core.esm.js"></script>
@@ -32,6 +32,18 @@
         <stories-button variant="danger">Danger</stories-button>
         <stories-button variant="plain">Plain</stories-button>
       </section>
+
+      <script>
+        const focusBlurExampleElement = document.getElementById('focusBlurExample');
+
+        focusBlurExampleElement.addEventListener('stories-focus', () => {
+          console.log('stories-focus');
+        });
+
+        focusBlurExampleElement.addEventListener('stories-blur', () => {
+          console.log('stories-blur');
+        });
+      </script>
 
       <section>
         <h3>Custom</h3>
@@ -148,6 +160,14 @@
 
         <stories-button variant="plain" disabled> Plain </stories-button>
       </section>
+
+      <script>
+        let clickExampleElement = document.getElementById('clickExample');
+
+        clickExampleElement.addEventListener('click', () => {
+          console.log('clicked');
+        });
+      </script>
     </section>
 
     <section>
@@ -161,6 +181,18 @@
           <stories-checkbox invalid-text="Select at least one option" invalid>Option 3</stories-checkbox>
         </stories-group>
       </section>
+
+      <script>
+        const checkboxTest = document.querySelector('#checkbox-test');
+
+        checkboxTest.addEventListener('stories-focus', () => {
+          console.log('stories-focus');
+        });
+
+        checkboxTest.addEventListener('stories-blur', () => {
+          console.log('stories-blur');
+        });
+      </script>
 
       <section>
         <h3>Horizontal</h3>
@@ -367,41 +399,594 @@
       </section>
     </section>
 
-    <script>
-      let clickExampleElement = document.getElementById('clickExample');
+    <section>
+      <h2>Dropdown (stories-dropdown)</h2>
 
-      clickExampleElement.addEventListener('click', () => {
-        console.log('clicked');
-      });
+      <section>
+        <h3>General usage</h3>
 
-      const focusBlurExampleElement = document.getElementById('focusBlurExample');
+        <stories-dropdown>
+          <stories-button slot="trigger" caret>Dropdown</stories-button>
+          <stories-menu>
+            <stories-menu-item>Dropdown Item 1</stories-menu-item>
+            <stories-menu-item>Dropdown Item 2</stories-menu-item>
+            <stories-menu-item>Dropdown Item 3</stories-menu-item>
+            <stories-menu-divider></stories-menu-divider>
+            <stories-menu-item checked>Checked</stories-menu-item>
+            <stories-menu-item disabled>Disabled</stories-menu-item>
+            <stories-menu-divider></stories-menu-divider>
+            <stories-menu-item>
+              Start Icon
+              <ion-icon slot="start" name="gift-outline" aria-hidden="true"></ion-icon>
+            </stories-menu-item>
+            <stories-menu-item>
+              End Icon
+              <ion-icon slot="end" name="heart-outline" aria-hidden="true"></ion-icon>
+            </stories-menu-item>
+          </stories-menu>
+        </stories-dropdown>
+      </section>
 
-      focusBlurExampleElement.addEventListener('stories-focus', () => {
-        console.log('stories-focus');
-      });
+      <section>
+        <h3>Placement</h3>
+        <stories-dropdown placement="top-start">
+          <stories-button slot="trigger" caret>Edit</stories-button>
+          <stories-menu>
+            <stories-menu-item>Cut</stories-menu-item>
+            <stories-menu-item>Copy</stories-menu-item>
+            <stories-menu-item>Paste</stories-menu-item>
+            <stories-menu-divider></stories-menu-divider>
+            <stories-menu-item>Find</stories-menu-item>
+            <stories-menu-item>Replace</stories-menu-item>
+          </stories-menu>
+        </stories-dropdown>
+      </section>
 
-      focusBlurExampleElement.addEventListener('stories-blur', () => {
-        console.log('stories-blur');
-      });
+      <section>
+        <h3>Distance</h3>
+        <stories-dropdown distance="30">
+          <stories-button slot="trigger" caret>Edit</stories-button>
+          <stories-menu>
+            <stories-menu-item>Cut</stories-menu-item>
+            <stories-menu-item>Copy</stories-menu-item>
+            <stories-menu-item>Paste</stories-menu-item>
+            <stories-menu-divider></stories-menu-divider>
+            <stories-menu-item>Find</stories-menu-item>
+            <stories-menu-item>Replace</stories-menu-item>
+          </stories-menu>
+        </stories-dropdown>
+      </section>
 
-      /*
-      const tagsClearable = document.querySelector('.tags-clearable');
+      <section>
+        <h3>Skidding</h3>
+        <stories-dropdown skidding="30">
+          <stories-button slot="trigger" caret>Edit</stories-button>
+          <stories-menu>
+            <stories-menu-item>Cut</stories-menu-item>
+            <stories-menu-item>Copy</stories-menu-item>
+            <stories-menu-item>Paste</stories-menu-item>
+            <stories-menu-divider></stories-menu-divider>
+            <stories-menu-item>Find</stories-menu-item>
+            <stories-menu-item>Replace</stories-menu-item>
+          </stories-menu>
+        </stories-dropdown>
+      </section>
 
-      tagsClearable.addEventListener('stories-clear', event => {
-        const tag = event.target;
-        tag.style.opacity = '0';
-        setTimeout(() => (tag.style.opacity = '1'), 2000);
-      });  */
+      <section>
+        <h3>Hoisting</h3>
+        <div class="dropdown-hoist">
+          <stories-dropdown>
+            <stories-button slot="trigger" caret>No Hoist</stories-button>
+            <stories-menu>
+              <stories-menu-item>Item 1</stories-menu-item>
+              <stories-menu-item>Item 2</stories-menu-item>
+              <stories-menu-item>Item 3</stories-menu-item>
+            </stories-menu>
+          </stories-dropdown>
 
-      const checkboxTest = document.querySelector('#checkbox-test');
+          <stories-dropdown hoist>
+            <stories-button slot="trigger" caret>Hoist</stories-button>
+            <stories-menu>
+              <stories-menu-item>Item 1</stories-menu-item>
+              <stories-menu-item>Item 2</stories-menu-item>
+              <stories-menu-item>Item 3</stories-menu-item>
+            </stories-menu>
+          </stories-dropdown>
+        </div>
 
-      checkboxTest.addEventListener('stories-focus', () => {
-        console.log('stories-focus');
-      });
+        <style>
+          .dropdown-hoist {
+            border: solid 2px var(--gr-panel-border-color);
+            padding: var(--gr-spacing-medium);
+            overflow: hidden;
+          }
+        </style>
+      </section>
 
-      checkboxTest.addEventListener('stories-blur', () => {
-        console.log('stories-blur');
-      });
-    </script>
+      <section>
+        <h3>Getting the Selected Item</h3>
+        <div class="dropdown-selection">
+          <stories-dropdown>
+            <stories-button slot="trigger" caret>Edit</stories-button>
+            <stories-menu>
+              <stories-menu-item value="cut">Cut</stories-menu-item>
+              <stories-menu-item value="copy">Copy</stories-menu-item>
+              <stories-menu-item value="paste">Paste</stories-menu-item>
+            </stories-menu>
+          </stories-dropdown>
+        </div>
+      </section>
+    </section>
+
+    <section>
+      <h2>Select (stories-select)</h2>
+
+      <section>
+        <h3>Select one</h3>
+        <stories-select label="Select one">
+          <stories-menu-item value="option-1">Option 1</stories-menu-item>
+          <stories-menu-item value="option-2">Option 2</stories-menu-item>
+          <stories-menu-item value="option-3">Option 3</stories-menu-item>
+          <stories-menu-divider></stories-menu-divider>
+          <stories-menu-item value="option-4">Option 4</stories-menu-item>
+          <stories-menu-item value="option-5">Option 5</stories-menu-item>
+          <stories-menu-item value="option-6">Option 6</stories-menu-item>
+        </stories-select>
+      </section>
+
+      <section>
+        <h3>Placeholders</h3>
+        <stories-select placeholder="Select one...">
+          <stories-menu-item value="option-1">Option 1</stories-menu-item>
+          <stories-menu-item value="option-2">Option 2</stories-menu-item>
+          <stories-menu-item value="option-3">Option 3</stories-menu-item>
+        </stories-select>
+      </section>
+
+       <section>
+          <h3>Clearable</h3>
+          <stories-select placeholder="Clearable" clearable>
+            <stories-menu-item value="option-1">Option 1</stories-menu-item>
+            <stories-menu-item value="option-2">Option 2</stories-menu-item>
+            <stories-menu-item value="option-3">Option 3</stories-menu-item>
+          </stories-select>
+        </section>
+
+        <section>
+          <h3>Pill</h3>
+          <stories-select pill>
+            <stories-menu-item value="option-1">Option 1</stories-menu-item>
+            <stories-menu-item value="option-2">Option 2</stories-menu-item>
+            <stories-menu-item value="option-3">Option 3</stories-menu-item>
+          </stories-select>
+        </section>
+
+        <section>
+          <h3>Disabled</h3>
+          <stories-select placeholder="Disabled" disabled>
+            <stories-menu-item value="option-1">Option 1</stories-menu-item>
+            <stories-menu-item value="option-2">Option 2</stories-menu-item>
+            <stories-menu-item value="option-3">Option 3</stories-menu-item>
+          </stories-select>
+        </section>
+
+        <section>
+          <h3>Multiple</h3>
+          <stories-select placeholder="Select a few" multiple clearable>
+            <stories-menu-item value="option-1">Option 1</stories-menu-item>
+            <stories-menu-item value="option-2">Option 2</stories-menu-item>
+            <stories-menu-item value="option-3">Option 3</stories-menu-item>
+            <stories-menu-divider></stories-menu-divider>
+            <stories-menu-item value="option-4">Option 4</stories-menu-item>
+            <stories-menu-item value="option-5">Option 5</stories-menu-item>
+            <stories-menu-item value="option-6">Option 6</stories-menu-item>
+          </stories-select>
+        </section>
+
+        <section>
+          <h3>Grouping Options</h3>
+          <stories-select placeholder="Select one">
+            <stories-menu-label>Group 1</stories-menu-label>
+            <stories-menu-item value="option-1">Option 1</stories-menu-item>
+            <stories-menu-item value="option-2">Option 2</stories-menu-item>
+            <stories-menu-item value="option-3">Option 3</stories-menu-item>
+            <stories-menu-divider></stories-menu-divider>
+            <stories-menu-label>Group 2</stories-menu-label>
+            <stories-menu-item value="option-4">Option 4</stories-menu-item>
+            <stories-menu-item value="option-5">Option 5</stories-menu-item>
+            <stories-menu-item value="option-6">Option 6</stories-menu-item>
+          </stories-select>
+        </section>
+
+        <section>
+          <h3>Sizes</h3>
+          <stories-select placeholder="Small" size="small" multiple>
+            <stories-menu-item value="option-1">Option 1</stories-menu-item>
+            <stories-menu-item value="option-2">Option 2</stories-menu-item>
+            <stories-menu-item value="option-3">Option 3</stories-menu-item>
+          </stories-select>
+
+          <br />
+
+          <stories-select placeholder="Medium" size="medium" multiple>
+            <stories-menu-item value="option-1">Option 1</stories-menu-item>
+            <stories-menu-item value="option-2">Option 2</stories-menu-item>
+            <stories-menu-item value="option-3">Option 3</stories-menu-item>
+          </stories-select>
+
+          <br />
+
+          <stories-select placeholder="Large" size="large" multiple>
+            <stories-menu-item value="option-1">Option 1</stories-menu-item>
+            <stories-menu-item value="option-2">Option 2</stories-menu-item>
+            <stories-menu-item value="option-3">Option 3</stories-menu-item>
+          </stories-select>
+        </section>
+
+        <section>
+          <h3>Selecting Options Programmatically</h3>
+          <div class="selecting-example">
+            <stories-select placeholder="">
+              <stories-menu-item value="option-1">Option 1</stories-menu-item>
+              <stories-menu-item value="option-2">Option 2</stories-menu-item>
+              <stories-menu-item value="option-3">Option 3</stories-menu-item>
+            </stories-select>
+
+            <br />
+
+            <stories-button data-option="option-1">Set 1</stories-button>
+            <stories-button data-option="option-2">Set 2</stories-button>
+            <stories-button data-option="option-3">Set 3</stories-button>
+          </div>
+        </section>
+
+        <script>
+          const container2 = document.querySelector('.selecting-example');
+          const select = container2.querySelector('stories-select');
+
+          [...container2.querySelectorAll('stories-button')].map((button) => {
+            button.addEventListener('click', () => {
+              select.value = button.dataset.option;
+            });
+          });
+        </script>
+
+        <section>
+          <h3>Invalid</h3>
+          <stories-select invalid>
+            <stories-menu-item value="option-1">Option 1</stories-menu-item>
+            <stories-menu-item value="option-2">Option 2</stories-menu-item>
+            <stories-menu-item value="option-3">Option 3</stories-menu-item>
+          </stories-select>
+        </section>
+
+        <section>
+          <h3>Labels</h3>
+          <stories-select label="Select one">
+            <stories-menu-item value="option-1">Option 1</stories-menu-item>
+            <stories-menu-item value="option-2">Option 2</stories-menu-item>
+            <stories-menu-item value="option-3">Option 3</stories-menu-item>
+          </stories-select>
+        </section>
+
+        <section>
+          <h3>Required or optional</h3>
+          <stories-select label="Country (optional)" placeholder="Select a country...">
+            <stories-menu-item value="nl">Netherlands</stories-menu-item>
+            <stories-menu-item value="us">United States</stories-menu-item>
+          </stories-select>
+          <br />
+          <stories-select label="Country (required)" placeholder="Select a country...">
+            <stories-menu-item value="nl">Netherlands</stories-menu-item>
+            <stories-menu-item value="us">United States</stories-menu-item>
+          </stories-select>
+          <br />
+          <stories-select label="Country" placeholder="Select a country..." required-indicator>
+            <stories-menu-item value="nl">Netherlands</stories-menu-item>
+            <stories-menu-item value="us">United States</stories-menu-item>
+          </stories-select>
+        </section>
+
+        <section>
+          <h3>Help Text</h3>
+          <stories-select label="Experience" help-text="Please tell us your skill level.">
+            <stories-menu-item value="option-1">Novice</stories-menu-item>
+            <stories-menu-item value="option-2">Intermediate</stories-menu-item>
+            <stories-menu-item value="option-3">Advanced</stories-menu-item>
+          </stories-select>
+        </section>
+
+        <section>
+          <h3>Invalid Text</h3>
+          <stories-select
+            label="Experience"
+            help-text="Please tell us your skill level."
+            invalid-text="Select your skill level."
+            invalid
+          >
+            <stories-menu-item value="option-1">Novice</stories-menu-item>
+            <stories-menu-item value="option-2">Intermediate</stories-menu-item>
+            <stories-menu-item value="option-3">Advanced</stories-menu-item>
+          </stories-select>
+        </section>
+
+        <script>
+          const container = document.querySelector('.dropdown-selection');
+          const dropdown = container.querySelector('stories-dropdown');
+
+          dropdown.addEventListener('stories-select', (event) => {
+            const selectedItem = event.detail.item;
+            console.log(selectedItem.value);
+          });
+        </script>
+    </section>
+
+    <section>
+      <h2>Textarea</h2>
+
+      <section>
+        <h3>Basic usage</h3>
+        <stories-textarea label="Feedback"></stories-textarea>
+      </section>
+
+      <section>
+        <h3>Options</h3>
+
+        <section>
+          <h4>Rows</h4>
+          <stories-textarea rows="2"></stories-textarea>
+        </section>
+
+        <section>
+          <h4>Placeholders</h4>
+          <stories-textarea placeholder="Type something"></stories-textarea>
+        </section>
+
+        <section>
+          <h4>Disabled</h4>
+          <stories-textarea placeholder="Textarea" disabled></stories-textarea>
+        </section>
+
+        <section>
+          <h4>Sizes</h4>
+          <stories-textarea placeholder="Small" size="small"></stories-textarea>
+          <br />
+          <stories-textarea placeholder="Medium" size="medium"></stories-textarea>
+          <br />
+          <stories-textarea placeholder="Large" size="large"></stories-textarea>
+        </section>
+
+        <section>
+          <h4>Invalid</h4>
+          <stories-textarea placeholder="Invalid" invalid></stories-input>
+        </section>
+
+        <section>
+          <h4>Labels</h4>
+          <stories-textarea label="Comments"></stories-textarea>
+        </section>
+
+         <section>
+          <h4>Required or optional</h4>
+          <stories-textarea label="Interests (required)" value="Photostoriesaphy, gardening"></stories-textarea>
+          <br />
+          <stories-textarea label="Interests (optional)" value="Photostoriesaphy, gardening"></stories-textarea>
+          <br />
+          <stories-textarea label="Interests" value="Photostoriesaphy, gardening" required-indicator></stories-textarea>
+        </section>
+
+        <section>
+          <h4>Help Text</h4>
+          <stories-textarea label="Feedback" help-text="Please tell us what you think."></stories-textarea>
+        </section>
+
+        <section>
+          <h4>Invalid Text</h4>
+          <stories-textarea
+            label="Feedback"
+            help-text="Please tell us what you think."
+            invalid-text="Tell us what you think."
+            invalid
+          ></stories-textarea>
+        </section>
+
+        <section>
+          <h4>Prevent Resizing</h4>
+          <stories-textarea resize="none"></stories-textarea>
+        </section>
+
+        <section>
+          <h4>Expand with Content</h4>
+          <stories-textarea resize="auto"></stories-textarea>
+        </section>
+      </section>
+    </section>
+
+    <section>
+      <h2>Grid (stories-grid)</h2>
+
+      <section>
+        <h3>One Row</h3>
+
+        <stories-grid>
+          <stories-row>
+            <stories-col>
+              stories-col
+            </stories-col>
+            <stories-col>
+              stories-col
+            </stories-col>
+            <stories-col>
+              stories-col
+            </stories-col>
+            <stories-col>
+              stories-col
+            </stories-col>
+          </stories-row>
+
+          <stories-row>
+            <stories-col size="6">
+              stories-col [size="6"]
+            </stories-col>
+            <stories-col>
+              stories-col
+            </stories-col>
+            <stories-col>
+              stories-col
+            </stories-col>
+          </stories-row>
+
+          <stories-row>
+            <stories-col size="3">
+              stories-col [size="3"]
+            </stories-col>
+            <stories-col>
+              stories-col
+            </stories-col>
+            <stories-col size="3">
+              stories-col [size="3"]
+            </stories-col>
+          </stories-row>
+
+          <stories-row>
+            <stories-col size="3">
+              stories-col [size="3"]
+            </stories-col>
+            <stories-col size="3" offset="3">
+              stories-col [size="3"] [offset="3"]
+            </stories-col>
+          </stories-row>
+
+          <stories-row>
+            <stories-col>
+              stories-col
+            </stories-col>
+            <stories-col>
+              stories-col
+              <br>#
+            </stories-col>
+            <stories-col>
+              stories-col
+              <br>#
+              <br>#
+            </stories-col>
+            <stories-col>
+              stories-col
+              <br>#
+              <br>#
+              <br>#
+            </stories-col>
+          </stories-row>
+
+          <stories-row>
+            <stories-col class="stories-align-self-start">
+              stories-col [start]
+            </stories-col>
+            <stories-col class="stories-align-self-center">
+              stories-col [center]
+            </stories-col>
+            <stories-col class="stories-align-self-end">
+              stories-col [end]
+            </stories-col>
+            <stories-col>
+              stories-col
+              <br>#
+              <br>#
+            </stories-col>
+          </stories-row>
+
+          <stories-row class="stories-align-items-start">
+            <stories-col>
+              [start] stories-col
+            </stories-col>
+            <stories-col>
+              [start] stories-col
+            </stories-col>
+            <stories-col class="stories-align-self-end">
+              [start] stories-col [end]
+            </stories-col>
+            <stories-col>
+              stories-col
+              <br>#
+              <br>#
+            </stories-col>
+          </stories-row>
+
+          <stories-row class="stories-align-items-center">
+            <stories-col>
+              [center] stories-col
+            </stories-col>
+            <stories-col>
+              [center] stories-col
+            </stories-col>
+            <stories-col>
+              [center] stories-col
+            </stories-col>
+            <stories-col>
+              stories-col
+              <br>#
+              <br>#
+            </stories-col>
+          </stories-row>
+
+          <stories-row class="stories-align-items-end">
+            <stories-col>
+              [end] stories-col
+            </stories-col>
+            <stories-col class="stories-align-self-start">
+              [end] stories-col [start]
+            </stories-col>
+            <stories-col>
+              [end] stories-col
+            </stories-col>
+            <stories-col>
+              stories-col
+              <br>#
+              <br>#
+            </stories-col>
+          </stories-row>
+
+          <stories-row>
+            <stories-col size="12" size-sm>
+              stories-col [size="12"] [size-sm]
+            </stories-col>
+            <stories-col size="12" size-sm>
+              stories-col [size="12"] [size-sm]
+            </stories-col>
+            <stories-col size="12" size-sm>
+              stories-col [size="12"] [size-sm]
+            </stories-col>
+            <stories-col size="12" size-sm>
+              stories-col [size="12"] [size-sm]
+            </stories-col>
+          </stories-row>
+
+          <stories-row>
+            <stories-col size="12" size-md>
+              stories-col [size="12"] [size-md]
+            </stories-col>
+            <stories-col size="12" size-md>
+              stories-col [size="12"] [size-md]
+            </stories-col>
+            <stories-col size="12" size-md>
+              stories-col [size="12"] [size-md]
+            </stories-col>
+            <stories-col size="12" size-md>
+              stories-col [size="12"] [size-md]
+            </stories-col>
+          </stories-row>
+
+          <stories-row>
+            <stories-col size="6" size-lg offset="3">
+              stories-col [size="6"] [size-lg] [offset="3"]
+            </stories-col>
+            <stories-col size="3" size-lg>
+              stories-col [size="3"] [size-lg]
+            </stories-col>
+          </stories-row>
+        </stories-grid>
+      </section>
+    </section>
+
   </body>
 </html>
