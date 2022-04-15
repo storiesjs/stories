@@ -23,28 +23,28 @@
    * @prop --clear-margin-left: Margin left of the clear icon
    * @prop --clear-margin-right: Margin right of the clear icon
    */
-  --height: calc(var(--gr-form-element-height-medium) * 0.8);
-  --line-height: calc(var(--gr-form-element-height-medium) - 1px * 2);
+  --height: calc(var(--stories-form-element-height-medium) * 0.8);
+  --line-height: calc(var(--stories-form-element-height-medium) - 1px * 2);
 
-  --border-radius: var(--gr-form-element-border-radius-medium);
+  --border-radius: var(--stories-form-element-border-radius-medium);
   --border-width: 1px;
   --border-style: solid;
 
   --padding-top: 0;
-  --padding-start: var(--gr-spacing-small);
-  --padding-end: var(--gr-spacing-small);
+  --padding-start: var(--stories-spacing-small);
+  --padding-end: var(--stories-spacing-small);
   --padding-bottom: 0;
 
-  --font-size: var(--gr-form-element-font-size-medium);
+  --font-size: var(--stories-form-element-font-size-medium);
 
-  --background-color: rgba(var(--gr-color-primary-rgb), 0.05);
-  --border-color: rgba(var(--gr-color-primary-rgb), 0.2);
-  --color: var(--gr-color-primary-shade);
+  --background-color: rgba(var(--stories-color-primary-rgb), 0.05);
+  --border-color: rgba(var(--stories-color-primary-rgb), 0.2);
+  --color: var(--stories-color-primary-shade);
 
-  --clear-color: var(--gr-color-primary);
-  --clear-color-hover: var(--gr-color-primary-shade);
-  --clear-margin-left: var(--gr-spacing-xx-small);
-  --clear-margin-right: calc(-1 * var(--gr-spacing-xxx-small));
+  --clear-color: var(--stories-color-primary);
+  --clear-color-hover: var(--stories-color-primary-shade);
+  --clear-margin-left: var(--stories-spacing-xx-small);
+  --clear-margin-right: calc(-1 * var(--stories-spacing-xxx-small));
 
   display: inline-block;
 
@@ -61,65 +61,65 @@
 // --------------------------------------------------
 
 :host(.tag-success) {
-  --background-color: rgba(var(--gr-color-success-rgb), 0.05);
-  --border-color: rgba(var(--gr-color-success-rgb), 0.2);
-  --color: var(--gr-color-success-shade);
+  --background-color: rgba(var(--stories-color-success-rgb), 0.05);
+  --border-color: rgba(var(--stories-color-success-rgb), 0.2);
+  --color: var(--stories-color-success-shade);
 
-  --clear-color: var(--gr-color-success);
-  --clear-color-hover: var(--gr-color-success-shade);
+  --clear-color: var(--stories-color-success);
+  --clear-color-hover: var(--stories-color-success-shade);
 }
 
 :host(.tag-info) {
-  --background-color: rgba(var(--gr-color-medium-rgb), 0.05);
-  --border-color: rgba(var(--gr-color-medium-rgb), 0.2);
-  --color: var(--gr-color-medium-shade);
+  --background-color: rgba(var(--stories-color-medium-rgb), 0.05);
+  --border-color: rgba(var(--stories-color-medium-rgb), 0.2);
+  --color: var(--stories-color-medium-shade);
 
-  --clear-color: var(--gr-color-medium);
-  --clear-color-hover: var(--gr-color-medium-shade);
+  --clear-color: var(--stories-color-medium);
+  --clear-color-hover: var(--stories-color-medium-shade);
 }
 
 :host(.tag-warning) {
-  --background-color: rgba(var(--gr-color-warning-rgb), 0.05);
-  --border-color: rgba(var(--gr-color-warning-rgb), 0.2);
-  --color: var(--gr-color-warning-shade);
+  --background-color: rgba(var(--stories-color-warning-rgb), 0.05);
+  --border-color: rgba(var(--stories-color-warning-rgb), 0.2);
+  --color: var(--stories-color-warning-shade);
 
-  --clear-color: var(--gr-color-warning);
-  --clear-color-hover: var(--gr-color-warning-shade);
+  --clear-color: var(--stories-color-warning);
+  --clear-color-hover: var(--stories-color-warning-shade);
 }
 
 :host(.tag-danger) {
-  --background-color: rgba(var(--gr-color-danger-rgb), 0.05);
-  --border-color: rgba(var(--gr-color-danger-rgb), 0.2);
-  --color: var(--gr-color-danger-shade);
+  --background-color: rgba(var(--stories-color-danger-rgb), 0.05);
+  --border-color: rgba(var(--stories-color-danger-rgb), 0.2);
+  --color: var(--stories-color-danger-shade);
 
-  --clear-color: var(--gr-color-danger);
-  --clear-color-hover: var(--gr-color-danger-shade);
+  --clear-color: var(--stories-color-danger);
+  --clear-color-hover: var(--stories-color-danger-shade);
 }
 
 // Sizes
 // --------------------------------------------------
 
 :host(.tag-small) {
-  --font-size: var(--gr-form-element-font-size-small);
-  --height: calc(var(--gr-form-element-height-small) * 0.8);
-  --line-height: calc(var(--gr-form-element-height-small) - 1px * 2);
-  --border-radius: var(--gr-form-element-border-radius-small);
-  --padding-start: var(--gr-spacing-x-small);
-  --padding-end: var(--gr-spacing-x-small);
+  --font-size: var(--stories-form-element-font-size-small);
+  --height: calc(var(--stories-form-element-height-small) * 0.8);
+  --line-height: calc(var(--stories-form-element-height-small) - 1px * 2);
+  --border-radius: var(--stories-form-element-border-radius-small);
+  --padding-start: var(--stories-spacing-x-small);
+  --padding-end: var(--stories-spacing-x-small);
 
-  --clear-margin-left: var(--gr-spacing-xx-small);
-  --clear-margin-right: calc(-1 * var(--gr-spacing-xxx-small));
+  --clear-margin-left: var(--stories-spacing-xx-small);
+  --clear-margin-right: calc(-1 * var(--stories-spacing-xxx-small));
 }
 
 :host(.tag-large) {
-  --font-size: var(--gr-form-element-font-size-large);
-  --height: calc(var(--gr-form-element-height-large) * 0.8);
-  --line-height: calc(var(--gr-form-element-height-large) - 1px * 2);
-  --border-radius: var(--gr-form-element-border-radius-large);
-  --padding: 0 var(--gr-spacing-medium);
+  --font-size: var(--stories-form-element-font-size-large);
+  --height: calc(var(--stories-form-element-height-large) * 0.8);
+  --line-height: calc(var(--stories-form-element-height-large) - 1px * 2);
+  --border-radius: var(--stories-form-element-border-radius-large);
+  --padding: 0 var(--stories-spacing-medium);
 
-  --clear-margin-left: var(--gr-spacing-xx-small);
-  --clear-margin-right: calc(-1 * var(--gr-spacing-x-small));
+  --clear-margin-left: var(--stories-spacing-xx-small);
+  --clear-margin-right: calc(-1 * var(--stories-spacing-x-small));
 }
 
 .tag {
@@ -135,9 +135,9 @@
   user-select: none;
   cursor: default;
 
-  font-family: var(--gr-font-family);
+  font-family: var(--stories-font-family);
   font-size: var(--font-size);
-  font-weight: var(--gr-font-weight-normal);
+  font-weight: var(--stories-font-weight-normal);
   height: var(--height);
   line-height: var(--line-height);
 

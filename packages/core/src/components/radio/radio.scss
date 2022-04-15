@@ -25,30 +25,30 @@
    * @prop --control-border-color-checked-focus: Border color of the control when checked on focus
    * @prop --control-background-color-checked-focus: Background color of the control when checked on focus
    */
-  --label-color: var(--gr-color-dark-tint);
+  --label-color: var(--stories-color-dark-tint);
 
-  --control-size: var(--gr-toggle-size);
+  --control-size: var(--stories-toggle-size);
 
-  --control-border-color: var(--gr-color-light-shade);
-  --control-background-color: var(--gr-color-white);
+  --control-border-color: var(--stories-color-light-shade);
+  --control-background-color: var(--stories-color-white);
 
-  --control-border-color-hover: var(--gr-color-medium);
-  --control-background-color-hover: var(--gr-color-white);
+  --control-border-color-hover: var(--stories-color-medium);
+  --control-background-color-hover: var(--stories-color-white);
 
-  --control-border-color-focus: var(--gr-color-medium);
-  --control-background-color-focus: var(--gr-color-medium);
+  --control-border-color-focus: var(--stories-color-medium);
+  --control-background-color-focus: var(--stories-color-medium);
 
-  --control-color-checked: var(--gr-color-white);
-  --control-border-color-checked: var(--gr-color-primary);
-  --control-background-color-checked: var(--gr-color-primary);
+  --control-color-checked: var(--stories-color-white);
+  --control-border-color-checked: var(--stories-color-primary);
+  --control-background-color-checked: var(--stories-color-primary);
 
-  --control-border-color-checked-hover: var(--gr-color-primary-shade);
-  --control-background-color-checked-hover: var(--gr-color-primary-shade);
+  --control-border-color-checked-hover: var(--stories-color-primary-shade);
+  --control-background-color-checked-hover: var(--stories-color-primary-shade);
 
-  --control-border-color-checked-focus: var(--gr-color-primary-shade);
-  --control-background-color-checked-focus: var(--gr-color-primary-shade);
+  --control-border-color-checked-focus: var(--stories-color-primary-shade);
+  --control-background-color-checked-focus: var(--stories-color-primary-shade);
 
-  --focus-ring: 0 0 0 var(--gr-focus-ring-width) rgb(var(--gr-color-primary-rgb), 0.33);
+  --focus-ring: 0 0 0 var(--stories-focus-ring-width) rgb(var(--stories-color-primary-rgb), 0.33);
 
   display: inline-block;
   box-sizing: border-box;
@@ -67,9 +67,9 @@
 .radio {
   display: inline-flex;
   align-items: center;
-  font-family: var(--gr-font-family);
-  font-size: var(--gr-form-element-font-size-medium);
-  font-weight: var(--gr-font-weight-normal);
+  font-family: var(--stories-font-family);
+  font-size: var(--stories-form-element-font-size-medium);
+  font-weight: var(--stories-font-weight-normal);
   color: var(--label-color);
   vertical-align: middle;
   cursor: pointer;
@@ -147,7 +147,7 @@
 }
 
 .radio-label {
-  line-height: var(--gr-line-height-normal);
+  line-height: var(--stories-line-height-normal);
   margin-left: 0.5em;
   user-select: none;
 }

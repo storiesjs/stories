@@ -21,30 +21,30 @@
    *
    * @prop --transition: Transition of the menu item
    */
-  --line-height: var(--gr-line-height-normal);
+  --line-height: var(--stories-line-height-normal);
 
   --background-color: transparent;
-  --background-color-focused: var(--gr-color-primary);
+  --background-color-focused: var(--stories-color-primary);
 
-  --color: var(--gr-color-dark);
-  --color-focused: var(--gr-color-primary-contrast);
-  --color-disabled: var(--gr-color-medium);
+  --color: var(--stories-color-dark);
+  --color-focused: var(--stories-color-primary-contrast);
+  --color-disabled: var(--stories-color-medium);
 
-  --padding-top: var(--gr-spacing-xx-small);
-  --padding-start: var(--gr-spacing-x-large);
-  --padding-end: var(--gr-spacing-x-large);
-  --padding-bottom: var(--gr-spacing-xx-small);
+  --padding-top: var(--stories-spacing-xx-small);
+  --padding-start: var(--stories-spacing-x-large);
+  --padding-end: var(--stories-spacing-x-large);
+  --padding-bottom: var(--stories-spacing-xx-small);
 
   --transition: background-color 150ms linear, color 150ms linear;
 
   position: relative;
   display: flex;
   align-items: stretch;
-  font-family: var(--gr-font-family);
-  font-size: var(--gr-font-size-medium);
-  font-weight: var(--gr-font-weight-normal);
+  font-family: var(--stories-font-family);
+  font-size: var(--stories-font-size-medium);
+  font-weight: var(--stories-font-weight-normal);
   line-height: var(--line-height);
-  letter-spacing: var(--gr-letter-spacing-normal);
+  letter-spacing: var(--stories-letter-spacing-normal);
   text-align: left;
   background-color: var(--background-color);
   color: var(--color);

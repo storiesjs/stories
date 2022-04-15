@@ -6,8 +6,8 @@
    * @prop --margin-between-radios-horizontal: Margin between the gr-radio children when layout is horizontal
    * @prop --align-radios: Alignment of radio's on cross-axis, an `align-items` Flexbox property
    */
-  --margin-between-radios: var(--gr-spacing-xx-small);
-  --margin-between-radios-horizontal: var(--gr-spacing-medium);
+  --margin-between-radios: var(--stories-spacing-xx-small);
+  --margin-between-radios-horizontal: var(--stories-spacing-medium);
   --align-radios: flex-start;
 
   display: block;
@@ -44,33 +44,33 @@
 
 .radio-group-has-label {
   .radio-group-label {
-    line-height: var(--gr-line-height-normal);
-    color: var(--gr-form-element-label-color);
-    font-size: var(--gr-form-element-label-font-size-medium);
+    line-height: var(--stories-line-height-normal);
+    color: var(--stories-form-element-label-color);
+    font-size: var(--stories-form-element-label-font-size-medium);
 
     margin: 0;
     padding: 0;
     display: flex;
 
-    margin-bottom: var(--gr-spacing-xxx-small);
+    margin-bottom: var(--stories-spacing-xxx-small);
   }
 
   .radio-group-label .asterisk {
-    margin-left: var(--gr-spacing-x-small);
-    color: var(--gr-color-medium);
+    margin-left: var(--stories-spacing-x-small);
+    color: var(--stories-color-medium);
 
     svg {
       width: 0.6em;
       height: 0.6em;
-      margin-bottom: var(--gr-spacing-xxx-small);
+      margin-bottom: var(--stories-spacing-xxx-small);
     }
   }
 }
 
 .radio-group-invalid {
   ::slotted(gr-radio) {
-    --control-border-color: var(--gr-form-element-invalid-text-color);
-    --control-background-color-checked: var(--gr-form-element-invalid-text-color);
+    --control-border-color: var(--stories-form-element-invalid-text-color);
+    --control-background-color-checked: var(--stories-form-element-invalid-text-color);
   }
 }
 
@@ -83,15 +83,15 @@
   .radio-group-invalid-text {
     display: flex;
     margin-left: -2px;
-    line-height: var(--gr-line-height-normal);
-    color: var(--gr-form-element-invalid-text-color);
-    margin-top: var(--gr-spacing-xxx-small);
-    font-size: var(--gr-form-element-invalid-text-font-size-medium);
+    line-height: var(--stories-line-height-normal);
+    color: var(--stories-form-element-invalid-text-color);
+    margin-top: var(--stories-spacing-xxx-small);
+    font-size: var(--stories-form-element-invalid-text-font-size-medium);
     min-height: 1.875rem;
 
     .icon {
-      margin-top: var(--gr-spacing-xxx-small);
-      margin-right: var(--gr-spacing-xx-small);
+      margin-top: var(--stories-spacing-xxx-small);
+      margin-right: var(--stories-spacing-xx-small);
 
       svg {
         width: 1.4em;

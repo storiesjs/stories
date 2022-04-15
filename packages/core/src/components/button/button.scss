@@ -37,9 +37,9 @@
 
   width: auto;
 
-  font-family: var(--gr-font-family);
-  font-weight: var(--gr-font-weight-medium);
-  font-size: var(--gr-form-element-font-size-medium);
+  font-family: var(--stories-font-family);
+  font-weight: var(--stories-font-weight-medium);
+  font-size: var(--stories-form-element-font-size-medium);
   font-kerning: none;
 
   user-select: none;
@@ -47,9 +47,9 @@
   vertical-align: -webkit-baseline-middle;
   pointer-events: auto;
 
-  --height: var(--gr-form-element-height-medium);
+  --height: var(--stories-form-element-height-medium);
 
-  --border-radius: var(--gr-form-element-border-radius-medium);
+  --border-radius: var(--stories-form-element-border-radius-medium);
   --border-width: 1px;
   --border-style: solid;
 
@@ -57,20 +57,20 @@
   --background-hover: transparent;
   --background-focus: transparent;
 
-  --color: var(--gr-color-dark-tint);
-  --color-hover: var(--gr-color-dark-tint);
-  --color-focus: var(--gr-color-dark-tint);
+  --color: var(--stories-color-dark-tint);
+  --color-hover: var(--stories-color-dark-tint);
+  --color-focus: var(--stories-color-dark-tint);
 
-  --border-color: var(--gr-color-light-shade);
-  --border-color-hover: var(--gr-color-medium);
-  --border-color-focus: var(--gr-color-primary);
+  --border-color: var(--stories-color-light-shade);
+  --border-color-hover: var(--stories-color-medium);
+  --border-color-focus: var(--stories-color-primary);
 
   --padding-top: 0;
-  --padding-start: var(--gr-spacing-medium);
-  --padding-end: var(--gr-spacing-medium);
+  --padding-start: var(--stories-spacing-medium);
+  --padding-end: var(--stories-spacing-medium);
   --padding-bottom: 0;
 
-  --focus-ring: 0 0 0 var(--gr-focus-ring-width) rgb(var(--gr-color-primary-rgb), 0.33);
+  --focus-ring: 0 0 0 var(--stories-focus-ring-width) rgb(var(--stories-color-primary-rgb), 0.33);
 
   --shadow: none;
 
@@ -86,54 +86,54 @@
 // --------------------------------------------------
 
 :host(.button-primary) {
-  --border-color: var(--gr-color-primary);
-  --background: var(--gr-color-primary);
-  --color: var(--gr-color-primary-contrast);
+  --border-color: var(--stories-color-primary);
+  --background: var(--stories-color-primary);
+  --color: var(--stories-color-primary-contrast);
 
-  --border-color-hover: var(--gr-color-primary-shade);
-  --background-hover: var(--gr-color-primary-shade);
-  --color-hover: var(--gr-color-primary-contrast);
+  --border-color-hover: var(--stories-color-primary-shade);
+  --background-hover: var(--stories-color-primary-shade);
+  --color-hover: var(--stories-color-primary-contrast);
 
-  --border-color-focus: var(--gr-color-primary);
-  --background-focus: var(--gr-color-primary-shade);
-  --color-focus: var(--gr-color-primary-contrast);
-  --focus-ring: 0 0 0 var(--gr-focus-ring-width) rgb(var(--gr-color-primary-rgb), 0.33);
+  --border-color-focus: var(--stories-color-primary);
+  --background-focus: var(--stories-color-primary-shade);
+  --color-focus: var(--stories-color-primary-contrast);
+  --focus-ring: 0 0 0 var(--stories-focus-ring-width) rgb(var(--stories-color-primary-rgb), 0.33);
 }
 
 // Secondary variant
 // --------------------------------------------------
 
 :host(.button-secondary) {
-  --border-color: var(--gr-color-light-shade);
+  --border-color: var(--stories-color-light-shade);
   --background: transparent;
-  --color: var(--gr-color-primary);
+  --color: var(--stories-color-primary);
 
-  --border-color-hover: var(--gr-color-primary);
+  --border-color-hover: var(--stories-color-primary);
   --background-hover: transparent;
-  --color-hover: var(--gr-color-primary);
+  --color-hover: var(--stories-color-primary);
 
-  --border-color-focus: var(--gr-color-primary);
+  --border-color-focus: var(--stories-color-primary);
   --background-focus: transparent;
-  --color-focus: var(--gr-color-primary);
-  --focus-ring: 0 0 0 var(--gr-focus-ring-width) rgb(var(--gr-color-primary-rgb), 0.33);
+  --color-focus: var(--stories-color-primary);
+  --focus-ring: 0 0 0 var(--stories-focus-ring-width) rgb(var(--stories-color-primary-rgb), 0.33);
 }
 
 // Danger variant
 // --------------------------------------------------
 
 :host(.button-danger) {
-  --border-color: var(--gr-color-danger);
+  --border-color: var(--stories-color-danger);
   --background: transparent;
-  --color: var(--gr-color-danger);
+  --color: var(--stories-color-danger);
 
-  --border-color-hover: var(--gr-color-danger);
-  --background-hover: var(--gr-color-danger);
-  --color-hover: var(--gr-color-danger-contrast);
+  --border-color-hover: var(--stories-color-danger);
+  --background-hover: var(--stories-color-danger);
+  --color-hover: var(--stories-color-danger-contrast);
 
-  --border-color-focus: var(--gr-color-danger);
-  --background-focus: var(--gr-color-danger);
-  --color-focus: var(--gr-color-danger-contrast);
-  --focus-ring: 0 0 0 var(--gr-focus-ring-width) rgb(var(--gr-color-danger-rgb), 0.33);
+  --border-color-focus: var(--stories-color-danger);
+  --background-focus: var(--stories-color-danger);
+  --color-focus: var(--stories-color-danger-contrast);
+  --focus-ring: 0 0 0 var(--stories-focus-ring-width) rgb(var(--stories-color-danger-rgb), 0.33);
 }
 
 // Plain variant
@@ -142,41 +142,41 @@
 :host(.button-plain) {
   --border-color: transparent;
   --background: transparent;
-  --color: var(--gr-color-primary);
+  --color: var(--stories-color-primary);
 
   --border-color-hover: transparent;
   --background-hover: transparent;
-  --color-hover: var(--gr-color-primary-shade);
+  --color-hover: var(--stories-color-primary-shade);
 
   --border-color-focus: transparent;
   --background-focus: transparent;
-  --color-focus: var(--gr-color-primary-shade);
-  --focus-ring: 0 0 0 var(--gr-focus-ring-width) rgb(var(--gr-color-primary-rgb), 0.33);
+  --color-focus: var(--stories-color-primary-shade);
+  --focus-ring: 0 0 0 var(--stories-focus-ring-width) rgb(var(--stories-color-primary-rgb), 0.33);
 }
 
 // Sizes
 // --------------------------------------------------
 
 :host(.button-small) {
-  --padding-start: var(--gr-spacing-small);
-  --padding-end: var(--gr-spacing-small);
+  --padding-start: var(--stories-spacing-small);
+  --padding-end: var(--stories-spacing-small);
 
-  --border-radius: var(--gr-form-element-border-radius-small);
+  --border-radius: var(--stories-form-element-border-radius-small);
 
-  --height: var(--gr-form-element-height-small);
+  --height: var(--stories-form-element-height-small);
 
-  font-size: var(--gr-form-element-font-size-small);
+  font-size: var(--stories-form-element-font-size-small);
 }
 
 :host(.button-large) {
-  --padding-start: var(--gr-spacing-large);
-  --padding-end: var(--gr-spacing-large);
+  --padding-start: var(--stories-spacing-large);
+  --padding-end: var(--stories-spacing-large);
 
-  --border-radius: var(--gr-form-element-border-radius-large);
+  --border-radius: var(--stories-form-element-border-radius-large);
 
-  --height: var(--gr-form-element-height-large);
+  --height: var(--stories-form-element-height-large);
 
-  font-size: var(--gr-form-element-font-size-large);
+  font-size: var(--stories-form-element-font-size-large);
 }
 
 // Block Button
