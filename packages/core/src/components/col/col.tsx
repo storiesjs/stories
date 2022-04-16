@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Component, Host, h, Prop, Listen, forceUpdate } from '@stencil/core';
 
-import { matchBreakpoint } from '../../utils';
+import { matchBreakpoint } from '../../utils/utils';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const win = window as any;

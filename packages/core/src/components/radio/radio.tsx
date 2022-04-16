@@ -1,5 +1,5 @@
 import { Component, Host, h, Element, State, Prop, Event, EventEmitter, Method } from '@stencil/core';
-import { addEventListener, inheritAttributes, removeEventListener } from '../../helpers';
+import { addEventListener, inheritAttributes, removeEventListener } from '../../utils/helpers';
 
 let id = 0;
 

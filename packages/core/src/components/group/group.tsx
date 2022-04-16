@@ -1,7 +1,6 @@
 import { Component, h, Prop, Element, State, Watch } from '@stencil/core';
 
-import { hasSlot } from '../../helpers';
-// import { hasSlot } from '../../utils/slot';
+import { hasSlot } from '../../utils/slot';
 
 /**
  * @slot - The default slot where fields are placed.
@@ -57,7 +56,7 @@ export class Group {
           'group-has-label': hasLabel,
         }}
       >
-        <legend class="group-label" aria-hidden={hasLabel ? 'false' : 'true'}>
+        <legend aria-hidden={hasLabel ? 'false' : 'true'} class="group-label">
           <slot name="label">{this.label}</slot>
         </legend>
         <div class="content">

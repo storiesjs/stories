@@ -2,9 +2,9 @@ import type { EventEmitter } from '@stencil/core';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Component, Host, h, Prop, Element, State, Watch, Event, Method, forceUpdate } from '@stencil/core';
 
-import { debounceEvent, raf } from '../../helpers';
 import type { Color, SearchbarChangeEventDetail, StyleEventDetail } from '../../types';
-import { createColorClasses } from '../../utils';
+import { debounceEvent, raf } from '../../utils/helpers';
+import { createColorClasses } from '../../utils/utils';
 
 @Component({
   tag: 'stories-searchbar',

@@ -1,5 +1,5 @@
 import { Component, h, Prop, Event, EventEmitter, Watch, Element, Listen, State, Host } from '@stencil/core';
-import { hasSlot, renderHiddenInput } from '../../helpers';
+import { hasSlot, renderHiddenInput } from '../../utils/helpers';
 import { RadioGroupChangeEventDetail } from './radio-group-interface';
 
 let id = 0;

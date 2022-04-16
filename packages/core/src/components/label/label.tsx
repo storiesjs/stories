@@ -2,7 +2,7 @@
 import { Component, Host, h, Element, Prop } from '@stencil/core';
 
 import type { Color } from '../../types';
-import { createColorClasses } from '../../utils';
+import { createColorClasses } from '../../utils/utils';
 
 @Component({
   tag: 'stories-label',

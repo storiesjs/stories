@@ -1,7 +1,7 @@
 import { EventEmitter, Method, State } from '@stencil/core';
 import { Component, Host, h, Prop, Element, Event, Watch } from '@stencil/core';
 
-import { /*getAriaLabel, */hasSlot, inheritAttributes, renderHiddenInput } from '../../helpers';
+import { /*getAriaLabel, */hasSlot, inheritAttributes, renderHiddenInput } from '../../utils/helpers';
 // import type { CheckboxChangeEventDetail, Color, StyleEventDetail } from '../../types';
 // import { createColorClasses, hostContext } from '../../utils';
 

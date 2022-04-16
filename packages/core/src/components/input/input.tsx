@@ -2,7 +2,7 @@ import type { EventEmitter } from '@stencil/core';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Component, /*Host, */h, Prop, State, Element, Watch, Event, Method } from '@stencil/core';
 
-import { debounceEvent, /*findItemLabel, */hasSlot, inheritAttributes, renderHiddenInput } from '../../helpers';
+import { debounceEvent, /*findItemLabel, */hasSlot, inheritAttributes, renderHiddenInput } from '../../utils/helpers';
 import type { AutocompleteTypes } from '../../interface';
 import type { /*Color, InputChangeEventDetail, StyleEventDetail, */TextFieldTypes } from '../../types';
 // import { createColorClasses } from '../../utils';

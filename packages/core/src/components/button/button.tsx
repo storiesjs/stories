@@ -1,7 +1,7 @@
 import { EventEmitter, Method } from '@stencil/core';
 import { Component, Host, h, Element, Prop, Event } from '@stencil/core';
 
-import { inheritAttributes } from '../../helpers';
+import { inheritAttributes } from '../../utils/helpers';
 // import type { Color, RouterDirection } from '../../types';
 // import { createColorClasses, hostContext } from '../../utils';
 

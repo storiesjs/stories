@@ -1,7 +1,7 @@
 import type { EventEmitter } from '@stencil/core';
 import { Component, h, Element, State, Prop, Watch, Event, Build, Method } from '@stencil/core';
 
-import { inheritAttributes, renderHiddenInput } from '../../helpers';
+import { inheritAttributes, renderHiddenInput } from '../../utils/helpers';
 import { HTMLElementSSR } from '../../utils/HTMLElementSSR';
 import { getTextContent, hasSlot } from '../../utils/slot';
 import FormControl from '../form-item/form-item';

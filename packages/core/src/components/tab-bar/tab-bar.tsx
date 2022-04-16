@@ -3,7 +3,7 @@ import type { EventEmitter } from '@stencil/core';
 import { Component, Host, h, Element, Prop, Watch, Event } from '@stencil/core';
 
 import type { Color, TabBarChangedEventDetail } from '../../types';
-import { createColorClasses } from '../../utils';
+import { createColorClasses } from '../../utils/utils';
 
 @Component({
   tag: 'stories-tab-bar',
