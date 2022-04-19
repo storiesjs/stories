@@ -8,7 +8,6 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Addon, Color, Commands, SearchbarChangeEventDetail, StoryComponent, StoryContext, StoryModules, StyleEventDetail, TabBarChangedEventDetail, TabButtonClickEventDetail, TabButtonLayout, TextFieldTypes, ToolEvent } from "./types";
 import { AppState } from "./store";
 import { AutocompleteTypes } from "./interface";
-import { RadioGroupChangeEventDetail } from "./components/radio-group/radio-group-interface";
 export namespace Components {
     interface StoriesAddonActions {
         "storyContextChanged": (story: StoryComponent, context: StoryContext) => Promise<void>;
@@ -34,9 +33,13 @@ export namespace Components {
     }
     interface StoriesBadge {
         /**
-          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
+          * The badge's size.
          */
-        "color"?: Color;
+        "size": 'small' | 'medium' | 'large';
+        /**
+          * The badge's type.
+         */
+        "type": 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
     interface StoriesButton {
         /**
@@ -331,7 +334,7 @@ export namespace Components {
          */
         "clearable": boolean;
         /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `gr-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
+          * Set the amount of time, in milliseconds, to wait to trigger the `stroies-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
          */
         "debounce": number;
         /**
@@ -669,6 +672,8 @@ export namespace Components {
         "value": string | Array<string>;
     }
     interface StoriesSidebar {
+    }
+    interface StoriesSpinner {
     }
     interface StoriesSplitPane {
         "defaultSize": number;
@@ -1036,6 +1041,12 @@ declare global {
         prototype: HTMLStoriesSidebarElement;
         new (): HTMLStoriesSidebarElement;
     };
+    interface HTMLStoriesSpinnerElement extends Components.StoriesSpinner, HTMLStencilElement {
+    }
+    var HTMLStoriesSpinnerElement: {
+        prototype: HTMLStoriesSpinnerElement;
+        new (): HTMLStoriesSpinnerElement;
+    };
     interface HTMLStoriesSplitPaneElement extends Components.StoriesSplitPane, HTMLStencilElement {
     }
     var HTMLStoriesSplitPaneElement: {
@@ -1130,6 +1141,7 @@ declare global {
         "stories-searchbar": HTMLStoriesSearchbarElement;
         "stories-select": HTMLStoriesSelectElement;
         "stories-sidebar": HTMLStoriesSidebarElement;
+        "stories-spinner": HTMLStoriesSpinnerElement;
         "stories-split-pane": HTMLStoriesSplitPaneElement;
         "stories-tab": HTMLStoriesTabElement;
         "stories-tab-bar": HTMLStoriesTabBarElement;
@@ -1164,9 +1176,13 @@ declare namespace LocalJSX {
     }
     interface StoriesBadge {
         /**
-          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
+          * The badge's size.
          */
-        "color"?: Color;
+        "size"?: 'small' | 'medium' | 'large';
+        /**
+          * The badge's type.
+         */
+        "type"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
     interface StoriesButton {
         /**
@@ -1196,11 +1212,11 @@ declare namespace LocalJSX {
         /**
           * Emitted when the button loses focus.
          */
-        "onStories-blur"?: (event: CustomEvent<void>) => void;
+        "onStoriesBlur"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the button has focus.
          */
-        "onStories-focus"?: (event: CustomEvent<void>) => void;
+        "onStoriesFocus"?: (event: CustomEvent<void>) => void;
         /**
           * Set to true to draw a pill-style button with rounded edges.
          */
@@ -1254,15 +1270,15 @@ declare namespace LocalJSX {
         /**
           * Emitted when the control loses focus.
          */
-        "onStories-blur"?: (event: CustomEvent<void>) => void;
+        "onStoriesBlur"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the control's checked state changes.
          */
-        "onStories-change"?: (event: CustomEvent<void>) => void;
+        "onStoriesChange"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the control gains focus.
          */
-        "onStories-focus"?: (event: CustomEvent<void>) => void;
+        "onStoriesFocus"?: (event: CustomEvent<void>) => void;
         /**
           * The checkbox's value attribute.
          */
@@ -1386,19 +1402,19 @@ declare namespace LocalJSX {
         /**
           * Emitted after the dropdown closes and all transitions are complete.
          */
-        "onStories-after-hide"?: (event: CustomEvent<void>) => void;
+        "onStoriesAfterHide"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted after the dropdown opens and all transitions are complete.
          */
-        "onStories-after-show"?: (event: CustomEvent<void>) => void;
+        "onStoriesAfterShow"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the dropdown closes. Calling `event.preventDefault()` will prevent it from being closed.
          */
-        "onStories-hide"?: (event: CustomEvent<void>) => void;
+        "onStoriesHide"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the dropdown opens. Calling `event.preventDefault()` will prevent it from being opened.
          */
-        "onStories-show"?: (event: CustomEvent<void>) => void;
+        "onStoriesShow"?: (event: CustomEvent<void>) => void;
         /**
           * Indicates whether or not the dropdown is open. You can use this in lieu of the show/hide methods.
          */
@@ -1469,7 +1485,7 @@ declare namespace LocalJSX {
          */
         "clearable"?: boolean;
         /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `gr-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
+          * Set the amount of time, in milliseconds, to wait to trigger the `stroies-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
          */
         "debounce"?: number;
         /**
@@ -1519,23 +1535,23 @@ declare namespace LocalJSX {
         /**
           * Emitted when the control loses focus.
          */
-        "onGr-blur"?: (event: CustomEvent<void>) => void;
+        "onStroiesBlur"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the control's value changes.
          */
-        "onGr-change"?: (event: CustomEvent<void>) => void;
+        "onStroiesChange"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the clear button is activated.
          */
-        "onGr-clear"?: (event: CustomEvent<void>) => void;
+        "onStroiesClear"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the control gains focus.
          */
-        "onGr-focus"?: (event: CustomEvent<void>) => void;
+        "onStroiesFocus"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the control receives input.
          */
-        "onGr-input"?: (event: CustomEvent<void>) => void;
+        "onStroiesInput"?: (event: CustomEvent<void>) => void;
         /**
           * Set to true to draw a pill-style input with rounded edges.
          */
@@ -1591,7 +1607,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when a menu item is selected.
          */
-        "onStories-select"?: (event: CustomEvent<{ item: HTMLStoriesMenuItemElement }>) => void;
+        "onStoriesSelect"?: (event: CustomEvent<{ item: HTMLStoriesMenuItemElement }>) => void;
     }
     interface StoriesMenuDivider {
     }
@@ -1625,11 +1641,11 @@ declare namespace LocalJSX {
         /**
           * Emitted when the control loses focus.
          */
-        "onStories-blur"?: (event: CustomEvent<any>) => void;
+        "onStoriesBlur"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the control gains focus.
          */
-        "onStories-focus"?: (event: CustomEvent<any>) => void;
+        "onStoriesFocus"?: (event: CustomEvent<any>) => void;
         /**
           * The radio's value attribute.
          */
@@ -1663,7 +1679,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value has changed.
          */
-        "onStories-change"?: (event: CustomEvent<RadioGroupChangeEventDetail>) => void;
+        "onStoriesChange"?: (event: CustomEvent<any>) => void;
         /**
           * Set to true to display a required indicator, adds an asterisk to label
          */
@@ -1799,15 +1815,15 @@ declare namespace LocalJSX {
         /**
           * Emitted when the control loses focus.
          */
-        "onStories-blur"?: (event: CustomEvent<void>) => void;
+        "onStoriesBlur"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the control's value changes.
          */
-        "onStories-change"?: (event: CustomEvent<void>) => void;
+        "onStoriesChange"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the control gains focus.
          */
-        "onStories-focus"?: (event: CustomEvent<void>) => void;
+        "onStoriesFocus"?: (event: CustomEvent<void>) => void;
         /**
           * Set to true to draw a pill-style select with rounded edges.
          */
@@ -1830,6 +1846,8 @@ declare namespace LocalJSX {
         "value"?: string | Array<string>;
     }
     interface StoriesSidebar {
+    }
+    interface StoriesSpinner {
     }
     interface StoriesSplitPane {
         "defaultSize"?: number;
@@ -1888,7 +1906,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the clear button is activated.
          */
-        "onStories-clear"?: (event: CustomEvent<void>) => void;
+        "onStoriesClear"?: (event: CustomEvent<void>) => void;
         /**
           * Set to true to draw a pill-style tag with rounded edges.
          */
@@ -1958,19 +1976,19 @@ declare namespace LocalJSX {
         /**
           * Emitted when the textarea loses focus.
          */
-        "onStories-blur"?: (event: CustomEvent<void>) => void;
+        "onStoriesBlur"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the textarea's value changes.
          */
-        "onStories-change"?: (event: CustomEvent<void>) => void;
+        "onStoriesChange"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the textarea has focus.
          */
-        "onStories-focus"?: (event: CustomEvent<void>) => void;
+        "onStoriesFocus"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the textarea receives input.
          */
-        "onStories-input"?: (event: CustomEvent<void>) => void;
+        "onStoriesInput"?: (event: CustomEvent<void>) => void;
         /**
           * The textarea's placeholder text.
          */
@@ -2057,6 +2075,7 @@ declare namespace LocalJSX {
         "stories-searchbar": StoriesSearchbar;
         "stories-select": StoriesSelect;
         "stories-sidebar": StoriesSidebar;
+        "stories-spinner": StoriesSpinner;
         "stories-split-pane": StoriesSplitPane;
         "stories-tab": StoriesTab;
         "stories-tab-bar": StoriesTabBar;
@@ -2101,6 +2120,7 @@ declare module "@stencil/core" {
             "stories-searchbar": LocalJSX.StoriesSearchbar & JSXBase.HTMLAttributes<HTMLStoriesSearchbarElement>;
             "stories-select": LocalJSX.StoriesSelect & JSXBase.HTMLAttributes<HTMLStoriesSelectElement>;
             "stories-sidebar": LocalJSX.StoriesSidebar & JSXBase.HTMLAttributes<HTMLStoriesSidebarElement>;
+            "stories-spinner": LocalJSX.StoriesSpinner & JSXBase.HTMLAttributes<HTMLStoriesSpinnerElement>;
             "stories-split-pane": LocalJSX.StoriesSplitPane & JSXBase.HTMLAttributes<HTMLStoriesSplitPaneElement>;
             "stories-tab": LocalJSX.StoriesTab & JSXBase.HTMLAttributes<HTMLStoriesTabElement>;
             "stories-tab-bar": LocalJSX.StoriesTabBar & JSXBase.HTMLAttributes<HTMLStoriesTabBarElement>;

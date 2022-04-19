@@ -38,10 +38,10 @@ export class Radio {
   @State() buttonTabindex = -1;
 
   /** Emitted when the control loses focus. */
-  @Event({ eventName: 'stories-blur' }) storiesBlur: EventEmitter;
+  @Event() storiesBlur: EventEmitter;
 
   /** Emitted when the control gains focus. */
-  @Event({ eventName: 'stories-focus' }) storiesFocus: EventEmitter;
+  @Event() storiesFocus: EventEmitter;
 
   /** @internal */
   @Method()

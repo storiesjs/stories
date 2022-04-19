@@ -1,4 +1,4 @@
-# gr-radio
+# stories-radio
 
 <!-- Auto Generated Below -->
 
@@ -14,10 +14,10 @@
 
 ## Events
 
-| Event           | Description                           | Type               |
-| --------------- | ------------------------------------- | ------------------ |
-| `stories-blur`  | Emitted when the control loses focus. | `CustomEvent<any>` |
-| `stories-focus` | Emitted when the control gains focus. | `CustomEvent<any>` |
+| Event          | Description                           | Type               |
+| -------------- | ------------------------------------- | ------------------ |
+| `storiesBlur`  | Emitted when the control loses focus. | `CustomEvent<any>` |
+| `storiesFocus` | Emitted when the control gains focus. | `CustomEvent<any>` |
 
 
 ## Methods

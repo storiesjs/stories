@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-04-16T07:46:32",
+  "timestamp": "2022-04-19T18:03:39",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.2",
@@ -251,8 +251,8 @@
       "encapsulation": "shadow",
       "tag": "stories-badge",
       "name": "stories-badge",
-      "readme": "# stories-badge\n\nThe stories-badge is inline block element uses for notification of how many items associated with another element.\n",
-      "description": "The stories-badge is inline block element uses for notification of how many items associated with another element.",
+      "readme": "# Badge\n\nThe Badge (stories-badge) is inline block element uses for notification of how many items associated with another element.\n",
+      "description": "The Badge (stories-badge) is inline block element uses for notification of how many items associated with another element.",
       "docsTags": [],
       "usage": {
         "angular": "```html\n<!-- Default -->\n<stories-badge>99</stories-badge>\n\n<!-- Colors -->\n<stories-badge color=\"primary\">11</stories-badge>\n<stories-badge color=\"secondary\">22</stories-badge>\n<stories-badge color=\"tertiary\">33</stories-badge>\n<stories-badge color=\"success\">44</stories-badge>\n<stories-badge color=\"warning\">55</stories-badge>\n<stories-badge color=\"danger\">66</stories-badge>\n<stories-badge color=\"light\">77</stories-badge>\n<stories-badge color=\"medium\">88</stories-badge>\n<stories-badge color=\"dark\">99</stories-badge>\n\n<!-- Button with badge on left and right -->\n<stories-button>\n  <stories-badge slot=\"start\">11</stories-badge>\n  <stories-label>My Button</stories-label>\n  <stories-badge slot=\"end\">22</stories-badge>\n</stories-item>\n```",
@@ -263,56 +263,214 @@
       },
       "properties": [
         {
-          "name": "color",
-          "type": "string",
+          "name": "size",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "mutable": false,
-          "attr": "color",
+          "attr": "size",
           "reflectToAttr": true,
-          "docs": "The color to use from your application's color palette.\nDefault options are: `\"primary\"`, `\"secondary\"`, `\"tertiary\"`, `\"success\"`, `\"warning\"`, `\"danger\"`, `\"light\"`, `\"medium\"`, and `\"dark\"`.\nFor more information on colors, see [theming](/docs/theming/basics).",
+          "docs": "The badge's size.",
           "docsTags": [],
+          "default": "'medium'",
           "values": [
             {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "small",
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
-          "description": "The color to use from your application's color palette.\nDefault options are: `\"primary\"`, `\"secondary\"`, `\"tertiary\"`, `\"success\"`, `\"warning\"`, `\"danger\"`, `\"light\"`, `\"medium\"`, and `\"dark\"`.\nFor more information on colors, see [theming](/docs/theming/basics)."
+          "description": "The badge's size."
+        },
+        {
+          "name": "type",
+          "type": "\"danger\" | \"info\" | \"primary\" | \"success\" | \"warning\"",
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": true,
+          "docs": "The badge's type.",
+          "docsTags": [],
+          "default": "'primary'",
+          "values": [
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "description": "The badge's type."
         }
       ],
       "attributes": [
         {
-          "name": "color",
-          "type": "string",
+          "name": "size",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "mutable": false,
-          "attr": "color",
+          "attr": "size",
           "reflectToAttr": true,
-          "docs": "The color to use from your application's color palette.\nDefault options are: `\"primary\"`, `\"secondary\"`, `\"tertiary\"`, `\"success\"`, `\"warning\"`, `\"danger\"`, `\"light\"`, `\"medium\"`, and `\"dark\"`.\nFor more information on colors, see [theming](/docs/theming/basics).",
+          "docs": "The badge's size.",
           "docsTags": [],
+          "default": "'medium'",
           "values": [
             {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "small",
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
-          "description": "The color to use from your application's color palette.\nDefault options are: `\"primary\"`, `\"secondary\"`, `\"tertiary\"`, `\"success\"`, `\"warning\"`, `\"danger\"`, `\"light\"`, `\"medium\"`, and `\"dark\"`.\nFor more information on colors, see [theming](/docs/theming/basics)."
+          "defaultValue": "'medium'",
+          "description": "The badge's size."
+        },
+        {
+          "name": "type",
+          "type": "\"danger\" | \"info\" | \"primary\" | \"success\" | \"warning\"",
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": true,
+          "docs": "The badge's type.",
+          "docsTags": [],
+          "default": "'primary'",
+          "values": [
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "defaultValue": "'primary'",
+          "description": "The badge's type."
         }
       ],
       "methods": [],
       "events": [],
       "cssProperties": [
         {
-          "name": "--background",
+          "name": "--background-color",
           "annotation": "prop",
-          "docs": "Background of the badge",
-          "description": "Background of the badge"
+          "docs": "Background color of the badge",
+          "description": "Background color of the badge"
+        },
+        {
+          "name": "--border-color",
+          "annotation": "prop",
+          "docs": "Border color of the badge",
+          "description": "Border color of the badge"
+        },
+        {
+          "name": "--border-radius",
+          "annotation": "prop",
+          "docs": "Border radius of the badge",
+          "description": "Border radius of the badge"
+        },
+        {
+          "name": "--border-style",
+          "annotation": "prop",
+          "docs": "Border style of the badge",
+          "description": "Border style of the badge"
+        },
+        {
+          "name": "--border-width",
+          "annotation": "prop",
+          "docs": "Border width of the badge",
+          "description": "Border width of the badge"
+        },
+        {
+          "name": "--clear-color",
+          "annotation": "prop",
+          "docs": "Color of the clear icon",
+          "description": "Color of the clear icon"
+        },
+        {
+          "name": "--clear-color-hover",
+          "annotation": "prop",
+          "docs": "Color of the clear icon on hover",
+          "description": "Color of the clear icon on hover"
+        },
+        {
+          "name": "--clear-margin-left",
+          "annotation": "prop",
+          "docs": "Margin left of the clear icon",
+          "description": "Margin left of the clear icon"
+        },
+        {
+          "name": "--clear-margin-right",
+          "annotation": "prop",
+          "docs": "Margin right of the clear icon",
+          "description": "Margin right of the clear icon"
         },
         {
           "name": "--color",
           "annotation": "prop",
           "docs": "Text color of the badge",
           "description": "Text color of the badge"
+        },
+        {
+          "name": "--font-size",
+          "annotation": "prop",
+          "docs": "Font size of the badge",
+          "description": "Font size of the badge"
+        },
+        {
+          "name": "--height",
+          "annotation": "prop",
+          "docs": "Height of the badge",
+          "description": "Height of the badge"
+        },
+        {
+          "name": "--line-height",
+          "annotation": "prop",
+          "docs": "Line height of the badge",
+          "description": "Line height of the badge"
         },
         {
           "name": "--padding-bottom",
@@ -323,14 +481,14 @@
         {
           "name": "--padding-end",
           "annotation": "prop",
-          "docs": "Right padding if direction is left-to-right, and left padding if direction is right-to-left of the badge",
-          "description": "Right padding if direction is left-to-right, and left padding if direction is right-to-left of the badge"
+          "docs": "Right padding of the badge (will be left padding when we support right-to-left direction)",
+          "description": "Right padding of the badge (will be left padding when we support right-to-left direction)"
         },
         {
           "name": "--padding-start",
           "annotation": "prop",
-          "docs": "Left padding if direction is left-to-right, and right padding if direction is right-to-left of the badge",
-          "description": "Left padding if direction is left-to-right, and right padding if direction is right-to-left of the badge"
+          "docs": "Left padding of the badge (will be right padding when we support right-to-left direction)",
+          "description": "Left padding of the badge (will be right padding when we support right-to-left direction)"
         },
         {
           "name": "--padding-top",
@@ -349,8 +507,8 @@
       "encapsulation": "shadow",
       "tag": "stories-button",
       "name": "stories-button",
-      "readme": "# Button\n\nThe stories-button is an styled HTML button element displays text, icons, or both.\n",
-      "description": "The stories-button is an styled HTML button element displays text, icons, or both.",
+      "readme": "# Button\n\nThe Button (stories-button) is an styled HTML button element displays text, icons, or both.\n",
+      "description": "The Button (stories-button) is an styled HTML button element displays text, icons, or both.",
       "docsTags": [],
       "usage": {},
       "properties": [
@@ -895,26 +1053,26 @@
       ],
       "events": [
         {
-          "event": "stories-blur",
+          "event": "storiesBlur",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the button loses focus.",
           "docsTags": [],
-          "name": "stories-blur",
+          "name": "storiesBlur",
           "description": "Emitted when the button loses focus.",
           "type": "void"
         },
         {
-          "event": "stories-focus",
+          "event": "storiesFocus",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the button has focus.",
           "docsTags": [],
-          "name": "stories-focus",
+          "name": "storiesFocus",
           "description": "Emitted when the button has focus.",
           "type": "void"
         }
@@ -1045,8 +1203,13 @@
       "dependents": [
         "stories-tag"
       ],
-      "dependencies": [],
+      "dependencies": [
+        "stories-spinner"
+      ],
       "dependencyGraph": {
+        "stories-button": [
+          "stories-spinner"
+        ],
         "stories-tag": [
           "stories-button"
         ]
@@ -1057,8 +1220,8 @@
       "encapsulation": "shadow",
       "tag": "stories-checkbox",
       "name": "stories-checkbox",
-      "readme": "# stories-checkbox\n\nThe stories-checkbox is a styled HTML checkboxed input element.\n",
-      "description": "The stories-checkbox is a styled HTML checkboxed input element.",
+      "readme": "# Checkbox\n\nThe Checkbox (stories-checkbox) is a styled HTML checkboxed input element.\n",
+      "description": "The Checkbox (stories-checkbox) is a styled HTML checkboxed input element.",
       "docsTags": [],
       "usage": {},
       "properties": [
@@ -1347,38 +1510,38 @@
       ],
       "events": [
         {
-          "event": "stories-blur",
+          "event": "storiesBlur",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the control loses focus.",
           "docsTags": [],
-          "name": "stories-blur",
+          "name": "storiesBlur",
           "description": "Emitted when the control loses focus.",
           "type": "void"
         },
         {
-          "event": "stories-change",
+          "event": "storiesChange",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the control's checked state changes.",
           "docsTags": [],
-          "name": "stories-change",
+          "name": "storiesChange",
           "description": "Emitted when the control's checked state changes.",
           "type": "void"
         },
         {
-          "event": "stories-focus",
+          "event": "storiesFocus",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the control gains focus.",
           "docsTags": [],
-          "name": "stories-focus",
+          "name": "storiesFocus",
           "description": "Emitted when the control gains focus.",
           "type": "void"
         }
@@ -1479,8 +1642,8 @@
       "encapsulation": "shadow",
       "tag": "stories-col",
       "name": "stories-col",
-      "readme": "# stories-col\n\nThe stories-col is a container for content within a grid. You put it inside of a row and it always expand to fill the space of a row.\n",
-      "description": "The stories-col is a container for content within a grid. You put it inside of a row and it always expand to fill the space of a row.",
+      "readme": "# Column\n\nThe Column (stories-col) is a container for content within a grid. You put it inside of a row and it always expand to fill the space of a row.\n",
+      "description": "The Column (stories-col) is a container for content within a grid. You put it inside of a row and it always expand to fill the space of a row.",
       "docsTags": [],
       "usage": {},
       "properties": [
@@ -2359,8 +2522,8 @@
       "encapsulation": "shadow",
       "tag": "stories-dropdown",
       "name": "stories-dropdown",
-      "readme": "# gr-dropdown\n",
-      "description": "",
+      "readme": "# Dropdown\n\nThe Dropdown (stories-dropdown) displays drop-down box that enables selection of an option from an available list of values.\n",
+      "description": "The Dropdown (stories-dropdown) displays drop-down box that enables selection of an option from an available list of values.",
       "docsTags": [
         {
           "name": "slot",
@@ -2756,50 +2919,50 @@
       ],
       "events": [
         {
-          "event": "stories-after-hide",
+          "event": "storiesAfterHide",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted after the dropdown closes and all transitions are complete.",
           "docsTags": [],
-          "name": "stories-after-hide",
+          "name": "storiesAfterHide",
           "description": "Emitted after the dropdown closes and all transitions are complete.",
           "type": "void"
         },
         {
-          "event": "stories-after-show",
+          "event": "storiesAfterShow",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted after the dropdown opens and all transitions are complete.",
           "docsTags": [],
-          "name": "stories-after-show",
+          "name": "storiesAfterShow",
           "description": "Emitted after the dropdown opens and all transitions are complete.",
           "type": "void"
         },
         {
-          "event": "stories-hide",
+          "event": "storiesHide",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the dropdown closes. Calling `event.preventDefault()` will prevent it from being closed.",
           "docsTags": [],
-          "name": "stories-hide",
+          "name": "storiesHide",
           "description": "Emitted when the dropdown closes. Calling `event.preventDefault()` will prevent it from being closed.",
           "type": "void"
         },
         {
-          "event": "stories-show",
+          "event": "storiesShow",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the dropdown opens. Calling `event.preventDefault()` will prevent it from being opened.",
           "docsTags": [],
-          "name": "stories-show",
+          "name": "storiesShow",
           "description": "Emitted when the dropdown opens. Calling `event.preventDefault()` will prevent it from being opened.",
           "type": "void"
         }
@@ -2861,8 +3024,8 @@
       "encapsulation": "shadow",
       "tag": "stories-footer",
       "name": "stories-footer",
-      "readme": "# stories-footer\n\nThe stories-footer is a root component, always appears at the bottom of the page.\n",
-      "description": "The stories-footer is a root component, always appears at the bottom of the page.",
+      "readme": "# Footer\n\nThe Footer (stories-footer) is a root component, always appears at the bottom of the page.\n",
+      "description": "The Footer (stories-footer) is a root component, always appears at the bottom of the page.",
       "docsTags": [],
       "usage": {},
       "properties": [],
@@ -2880,8 +3043,8 @@
       "encapsulation": "shadow",
       "tag": "stories-grid",
       "name": "stories-grid",
-      "readme": "# stories-grid\n\nThe stories-grid is a container designed on mobile-first flexbox system for building custom layouts. A layout based on a 12 columns by default, but could be easily customized to any number via CSS customization. Columns will expand to fill the row, and will resize to fit additional columns.\n",
-      "description": "The stories-grid is a container designed on mobile-first flexbox system for building custom layouts. A layout based on a 12 columns by default, but could be easily customized to any number via CSS customization. Columns will expand to fill the row, and will resize to fit additional columns.",
+      "readme": "# Grid\n\nThe Grid (stories-grid) is a container designed on mobile-first flexbox system for building custom layouts. A layout based on a 12 columns by default, but could be easily customized to any number via CSS customization. Columns will expand to fill the row, and will resize to fit additional columns.\n",
+      "description": "The Grid (stories-grid) is a container designed on mobile-first flexbox system for building custom layouts. A layout based on a 12 columns by default, but could be easily customized to any number via CSS customization. Columns will expand to fill the row, and will resize to fit additional columns.",
       "docsTags": [],
       "usage": {},
       "properties": [
@@ -3011,8 +3174,8 @@
       "encapsulation": "shadow",
       "tag": "stories-group",
       "name": "stories-group",
-      "readme": "# gr-field-group\n\n\n",
-      "description": "",
+      "readme": "# Group\n\nThe Group (stories-group) is used to group multiple fields, usually checkboxes. It can be used for vertical (default) or horizontal organization of the fields that are supplied as its children.\n",
+      "description": "The Group (stories-group) is used to group multiple fields, usually checkboxes. It can be used for vertical (default) or horizontal organization of the fields that are supplied as its children.",
       "docsTags": [
         {
           "name": "slot",
@@ -3143,8 +3306,8 @@
       "encapsulation": "shadow",
       "tag": "stories-icon",
       "name": "stories-icon",
-      "readme": "# stories-icon\n\nThe stories-icon is an easy and performant way to use icons in your Stories application. It dynamically loads only visible SVG icons on demand.\n",
-      "description": "The stories-icon is an easy and performant way to use icons in your Stories application. It dynamically loads only visible SVG icons on demand.",
+      "readme": "# Icon\n\nThe Icon (stories-icon) is an easy and performant way to use icons in your Stories application. It dynamically loads only visible SVG icons on demand.Icons should not be used for decoration.\n",
+      "description": "The Icon (stories-icon) is an easy and performant way to use icons in your Stories application. It dynamically loads only visible SVG icons on demand.Icons should not be used for decoration.",
       "docsTags": [],
       "usage": {},
       "properties": [
@@ -3208,8 +3371,8 @@
       "encapsulation": "shadow",
       "tag": "stories-input",
       "name": "stories-input",
-      "readme": "# stories-input\n\nThe stories-input component is a styled and enchanced HTML input element. It supports only standard text input events and types such as \"text\", \"password\", \"email\", \"number\", \"search\", \"tel\", and \"url\".\n",
-      "description": "The stories-input component is a styled and enchanced HTML input element. It supports only standard text input events and types such as \"text\", \"password\", \"email\", \"number\", \"search\", \"tel\", and \"url\".",
+      "readme": "# Input\n\nThe Input (stories-input) component is a styled and enchanced HTML input element. It supports only standard text input events and types such as \"text\", \"password\", \"email\", \"number\", \"search\", \"tel\", and \"url\".\n",
+      "description": "The Input (stories-input) component is a styled and enchanced HTML input element. It supports only standard text input events and types such as \"text\", \"password\", \"email\", \"number\", \"search\", \"tel\", and \"url\".",
       "docsTags": [
         {
           "name": "slot",
@@ -3548,7 +3711,7 @@
           "mutable": false,
           "attr": "debounce",
           "reflectToAttr": false,
-          "docs": "Set the amount of time, in milliseconds, to wait to trigger the `gr-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.",
+          "docs": "Set the amount of time, in milliseconds, to wait to trigger the `stroies-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.",
           "docsTags": [],
           "default": "0",
           "values": [
@@ -3558,7 +3721,7 @@
           ],
           "optional": false,
           "required": false,
-          "description": "Set the amount of time, in milliseconds, to wait to trigger the `gr-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`."
+          "description": "Set the amount of time, in milliseconds, to wait to trigger the `stroies-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`."
         },
         {
           "name": "disabled",
@@ -4361,7 +4524,7 @@
           "mutable": false,
           "attr": "debounce",
           "reflectToAttr": false,
-          "docs": "Set the amount of time, in milliseconds, to wait to trigger the `gr-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.",
+          "docs": "Set the amount of time, in milliseconds, to wait to trigger the `stroies-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.",
           "docsTags": [],
           "default": "0",
           "values": [
@@ -4372,7 +4535,7 @@
           "optional": false,
           "required": false,
           "defaultValue": "0",
-          "description": "Set the amount of time, in milliseconds, to wait to trigger the `gr-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`."
+          "description": "Set the amount of time, in milliseconds, to wait to trigger the `stroies-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`."
         },
         {
           "name": "disabled",
@@ -4929,62 +5092,62 @@
       ],
       "events": [
         {
-          "event": "gr-blur",
+          "event": "stroiesBlur",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the control loses focus.",
           "docsTags": [],
-          "name": "gr-blur",
+          "name": "stroiesBlur",
           "description": "Emitted when the control loses focus.",
           "type": "void"
         },
         {
-          "event": "gr-change",
+          "event": "stroiesChange",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the control's value changes.",
           "docsTags": [],
-          "name": "gr-change",
+          "name": "stroiesChange",
           "description": "Emitted when the control's value changes.",
           "type": "void"
         },
         {
-          "event": "gr-clear",
+          "event": "stroiesClear",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the clear button is activated.",
           "docsTags": [],
-          "name": "gr-clear",
+          "name": "stroiesClear",
           "description": "Emitted when the clear button is activated.",
           "type": "void"
         },
         {
-          "event": "gr-focus",
+          "event": "stroiesFocus",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the control gains focus.",
           "docsTags": [],
-          "name": "gr-focus",
+          "name": "stroiesFocus",
           "description": "Emitted when the control gains focus.",
           "type": "void"
         },
         {
-          "event": "gr-input",
+          "event": "stroiesInput",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the control receives input.",
           "docsTags": [],
-          "name": "gr-input",
+          "name": "stroiesInput",
           "description": "Emitted when the control receives input.",
           "type": "void"
         }
@@ -5154,8 +5317,8 @@
       "encapsulation": "shadow",
       "tag": "stories-label",
       "name": "stories-label",
-      "readme": "# stories-label\n\nThe stories-label is a wrapper element displays text, icons, or both. You can position it as inline, fixed, stacked, or floating element and will usually use it with another components such stories-item, stories-input, stories-toggle, etc.\n",
-      "description": "The stories-label is a wrapper element displays text, icons, or both. You can position it as inline, fixed, stacked, or floating element and will usually use it with another components such stories-item, stories-input, stories-toggle, etc.",
+      "readme": "# Label\n\nThe Label (stories-label) is a wrapper element displays text, icons, or both. You can position it as inline, fixed, stacked, or floating element and will usually use it with another components.\n",
+      "description": "The Label (stories-label) is a wrapper element displays text, icons, or both. You can position it as inline, fixed, stacked, or floating element and will usually use it with another components.",
       "docsTags": [],
       "usage": {},
       "properties": [
@@ -5271,8 +5434,8 @@
       "encapsulation": "shadow",
       "tag": "stories-menu",
       "name": "stories-menu",
-      "readme": "# gr-menu\n",
-      "description": "",
+      "readme": "# Menu\n\nThe Menu (stories-menu) is a container for stories-menu-item components.\n",
+      "description": "The Menu (stories-menu) is a container for stories-menu-item components.",
       "docsTags": [
         {
           "name": "slot",
@@ -5297,14 +5460,14 @@
       ],
       "events": [
         {
-          "event": "stories-select",
+          "event": "storiesSelect",
           "detail": "{ item: HTMLStoriesMenuItemElement; }",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when a menu item is selected.",
           "docsTags": [],
-          "name": "stories-select",
+          "name": "storiesSelect",
           "description": "Emitted when a menu item is selected.",
           "type": "{ item: HTMLStoriesMenuItemElement; }"
         }
@@ -5344,7 +5507,7 @@
       "encapsulation": "shadow",
       "tag": "stories-menu-divider",
       "name": "stories-menu-divider",
-      "readme": "# gr-menu-divider\n",
+      "readme": "# stories-menu-divider\n",
       "description": "",
       "docsTags": [],
       "usage": {},
@@ -5382,7 +5545,7 @@
       "encapsulation": "shadow",
       "tag": "stories-menu-item",
       "name": "stories-menu-item",
-      "readme": "# gr-menu-item\n",
+      "readme": "# stories-menu-item\n",
       "description": "",
       "docsTags": [
         {
@@ -5630,7 +5793,7 @@
       "encapsulation": "shadow",
       "tag": "stories-menu-label",
       "name": "stories-menu-label",
-      "readme": "# gr-menu-label\n",
+      "readme": "# stories-menu-label\n",
       "description": "",
       "docsTags": [
         {
@@ -5739,7 +5902,7 @@
       "encapsulation": "shadow",
       "tag": "stories-radio",
       "name": "stories-radio",
-      "readme": "# gr-radio\n",
+      "readme": "# stories-radio\n",
       "description": "",
       "docsTags": [
         {
@@ -5886,26 +6049,26 @@
       ],
       "events": [
         {
-          "event": "stories-blur",
+          "event": "storiesBlur",
           "detail": "any",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the control loses focus.",
           "docsTags": [],
-          "name": "stories-blur",
+          "name": "storiesBlur",
           "description": "Emitted when the control loses focus.",
           "type": "any"
         },
         {
-          "event": "stories-focus",
+          "event": "storiesFocus",
           "detail": "any",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the control gains focus.",
           "docsTags": [],
-          "name": "stories-focus",
+          "name": "storiesFocus",
           "description": "Emitted when the control gains focus.",
           "type": "any"
         }
@@ -6017,8 +6180,8 @@
       "encapsulation": "shadow",
       "tag": "stories-radio-group",
       "name": "stories-radio-group",
-      "readme": "# gr-radio-group\n",
-      "description": "",
+      "readme": "# stories-radio-group\n\nThe stories-radio-group displays a group of options with radio buttons and enables selection of one option from the list.\n",
+      "description": "The stories-radio-group displays a group of options with radio buttons and enables selection of one option from the list.",
       "docsTags": [
         {
           "name": "slot",
@@ -6334,16 +6497,16 @@
       "methods": [],
       "events": [
         {
-          "event": "stories-change",
-          "detail": "RadioGroupChangeEventDetail",
+          "event": "storiesChange",
+          "detail": "any",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the value has changed.",
           "docsTags": [],
-          "name": "stories-change",
+          "name": "storiesChange",
           "description": "Emitted when the value has changed.",
-          "type": "RadioGroupChangeEventDetail"
+          "type": "any"
         }
       ],
       "cssProperties": [
@@ -7193,8 +7356,8 @@
       "encapsulation": "shadow",
       "tag": "stories-select",
       "name": "stories-select",
-      "readme": "# gr-select\n",
-      "description": "",
+      "readme": "# Select\n\nThe Select (stories-select) displays a list or drop-down box that enables selection of an option or multiple options from an available list of values.\n",
+      "description": "The Select (stories-select) displays a list or drop-down box that enables selection of an option or multiple options from an available list of values.",
       "docsTags": [
         {
           "name": "slot",
@@ -7812,38 +7975,38 @@
       ],
       "events": [
         {
-          "event": "stories-blur",
+          "event": "storiesBlur",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the control loses focus.",
           "docsTags": [],
-          "name": "stories-blur",
+          "name": "storiesBlur",
           "description": "Emitted when the control loses focus.",
           "type": "void"
         },
         {
-          "event": "stories-change",
+          "event": "storiesChange",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the control's value changes.",
           "docsTags": [],
-          "name": "stories-change",
+          "name": "storiesChange",
           "description": "Emitted when the control's value changes.",
           "type": "void"
         },
         {
-          "event": "stories-focus",
+          "event": "storiesFocus",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the control gains focus.",
           "docsTags": [],
-          "name": "stories-focus",
+          "name": "storiesFocus",
           "description": "Emitted when the control gains focus.",
           "type": "void"
         }
@@ -8026,6 +8189,9 @@
         ],
         "stories-tag": [
           "stories-button"
+        ],
+        "stories-button": [
+          "stories-spinner"
         ]
       }
     },
@@ -8047,6 +8213,50 @@
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/spinner/spinner.tsx",
+      "encapsulation": "shadow",
+      "tag": "stories-spinner",
+      "name": "stories-spinner",
+      "readme": "# Spinner\n\nThe Spinner (stories-spinner) displays a continuous loader on the user interface, to indicate that a system is processing an entity.\n",
+      "description": "The Spinner (stories-spinner) displays a continuous loader on the user interface, to indicate that a system is processing an entity.",
+      "docsTags": [],
+      "usage": {},
+      "properties": [],
+      "attributes": [],
+      "methods": [],
+      "events": [],
+      "cssProperties": [
+        {
+          "name": "--indicator-color",
+          "annotation": "prop",
+          "docs": "The color of the spinner's indicator.",
+          "description": "The color of the spinner's indicator."
+        },
+        {
+          "name": "--stroke-width",
+          "annotation": "prop",
+          "docs": "The width of the indicator.",
+          "description": "The width of the indicator."
+        },
+        {
+          "name": "--track-color",
+          "annotation": "prop",
+          "docs": "The color of the spinner's track.",
+          "description": "The color of the spinner's track."
+        }
+      ],
+      "slots": [],
+      "dependents": [
+        "stories-button"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "stories-button": [
+          "stories-spinner"
+        ]
+      }
     },
     {
       "filePath": "./src/components/split-pane/split-pane.tsx",
@@ -8734,7 +8944,7 @@
       "encapsulation": "shadow",
       "tag": "stories-tag",
       "name": "stories-tag",
-      "readme": "# gr-tag\n",
+      "readme": "# stories-tag\n",
       "description": "",
       "docsTags": [
         {
@@ -8950,14 +9160,14 @@
       "methods": [],
       "events": [
         {
-          "event": "stories-clear",
+          "event": "storiesClear",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the clear button is activated.",
           "docsTags": [],
-          "name": "stories-clear",
+          "name": "storiesClear",
           "description": "Emitted when the clear button is activated.",
           "type": "void"
         }
@@ -9082,6 +9292,9 @@
         "stories-tag": [
           "stories-button"
         ],
+        "stories-button": [
+          "stories-spinner"
+        ],
         "stories-select": [
           "stories-tag"
         ]
@@ -9092,7 +9305,7 @@
       "encapsulation": "shadow",
       "tag": "stories-textarea",
       "name": "stories-textarea",
-      "readme": "# gr-textarea\n",
+      "readme": "# stories-textarea\n",
       "description": "",
       "docsTags": [
         {
@@ -10088,50 +10301,50 @@
       ],
       "events": [
         {
-          "event": "stories-blur",
+          "event": "storiesBlur",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the textarea loses focus.",
           "docsTags": [],
-          "name": "stories-blur",
+          "name": "storiesBlur",
           "description": "Emitted when the textarea loses focus.",
           "type": "void"
         },
         {
-          "event": "stories-change",
+          "event": "storiesChange",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the textarea's value changes.",
           "docsTags": [],
-          "name": "stories-change",
+          "name": "storiesChange",
           "description": "Emitted when the textarea's value changes.",
           "type": "void"
         },
         {
-          "event": "stories-focus",
+          "event": "storiesFocus",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the textarea has focus.",
           "docsTags": [],
-          "name": "stories-focus",
+          "name": "storiesFocus",
           "description": "Emitted when the textarea has focus.",
           "type": "void"
         },
         {
-          "event": "stories-input",
+          "event": "storiesInput",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the textarea receives input.",
           "docsTags": [],
-          "name": "stories-input",
+          "name": "storiesInput",
           "description": "Emitted when the textarea receives input.",
           "type": "void"
         }

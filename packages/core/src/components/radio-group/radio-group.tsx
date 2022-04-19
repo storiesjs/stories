@@ -1,6 +1,8 @@
-import { Component, h, Prop, Event, EventEmitter, Watch, Element, Listen, State, Host } from '@stencil/core';
-import { hasSlot, renderHiddenInput } from '../../utils/helpers';
-import { RadioGroupChangeEventDetail } from './radio-group-interface';
+import type { EventEmitter } from '@stencil/core';
+import { Component, h, Prop, Event, Watch, Element, Listen, State, Host } from '@stencil/core';
+
+import { renderHiddenInput } from '../../utils/helpers';
+import { hasSlot } from '../../utils/slot';
 
 let id = 0;
 
@@ -61,7 +63,7 @@ export class RadioGroup {
   }
 
   /** Emitted when the value has changed. */
-  @Event({ eventName: 'stories-change' }) storiesChange!: EventEmitter<RadioGroupChangeEventDetail>;
+  @Event() storiesChange!: EventEmitter;
 
   connectedCallback() {
     this.handleSlotChange = this.handleSlotChange.bind(this);

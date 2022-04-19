@@ -1,4 +1,4 @@
-# gr-tag
+# stories-tag
 
 <!-- Auto Generated Below -->
 
@@ -15,9 +15,9 @@
 
 ## Events
 
-| Event           | Description                                 | Type                |
-| --------------- | ------------------------------------------- | ------------------- |
-| `stories-clear` | Emitted when the clear button is activated. | `CustomEvent<void>` |
+| Event          | Description                                 | Type                |
+| -------------- | ------------------------------------------- | ------------------- |
+| `storiesClear` | Emitted when the clear button is activated. | `CustomEvent<void>` |
 
 
 ## Slots
@@ -64,6 +64,7 @@
 ```mermaid
 graph TD;
   stories-tag --> stories-button
+  stories-button --> stories-spinner
   stories-select --> stories-tag
   style stories-tag fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -1,0 +1,32 @@
+# Spinner
+
+The Spinner (stories-spinner) displays a continuous loader on the user interface, to indicate that a system is processing an entity.
+
+<!-- Auto Generated Below -->
+
+
+## CSS Custom Properties
+
+| Name                | Description                           |
+| ------------------- | ------------------------------------- |
+| `--indicator-color` | The color of the spinner's indicator. |
+| `--stroke-width`    | The width of the indicator.           |
+| `--track-color`     | The color of the spinner's track.     |
+
+
+## Dependencies
+
+### Used by
+
+ - [stories-button](../button)
+
+### Graph
+```mermaid
+graph TD;
+  stories-button --> stories-spinner
+  style stories-spinner fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+----------------------------------------------
+
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

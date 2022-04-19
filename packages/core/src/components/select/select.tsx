@@ -1,10 +1,10 @@
 import type { EventEmitter } from '@stencil/core';
 import { Component, h, Element, State, Prop, Watch, Event, Build, Method } from '@stencil/core';
 
-import { inheritAttributes, renderHiddenInput } from '../../utils/helpers';
+import FormItem from '../../function-components/form-item/form-item';
 import { HTMLElementSSR } from '../../utils/HTMLElementSSR';
+import { inheritAttributes, renderHiddenInput } from '../../utils/helpers';
 import { getTextContent, hasSlot } from '../../utils/slot';
-import FormControl from '../form-item/form-item';
 
 let id = 0;
 
@@ -121,13 +121,13 @@ export class Select {
   }
 
   /** Emitted when the control's value changes. */
-  @Event({ eventName: 'stories-change' }) storiesChange!: EventEmitter<void>;
+  @Event() storiesChange!: EventEmitter<void>;
 
   /** Emitted when the control gains focus. */
-  @Event({ eventName: 'stories-focus' }) storiesFocus!: EventEmitter<void>;
+  @Event() storiesFocus!: EventEmitter<void>;
 
   /** Emitted when the control loses focus. */
-  @Event({ eventName: 'stories-blur' }) storiesBlur!: EventEmitter<void>;
+  @Event() storiesBlur!: EventEmitter<void>;
 
   connectedCallback() {
     this.handleClearClick = this.handleClearClick.bind(this);
@@ -399,7 +399,7 @@ export class Select {
     renderHiddenInput(true, this.el, this.name, parseValue(this.value), this.disabled);
 
     return (
-      <FormControl
+      <FormItem
         inputId={this.inputId}
         label={this.label}
         labelId={this.labelId}
@@ -512,7 +512,7 @@ export class Select {
             <slot onSlotchange={this.handleSlotChange} />
           </stories-menu>
         </stories-dropdown>
-      </FormControl>
+      </FormItem>
     );
   }
 }

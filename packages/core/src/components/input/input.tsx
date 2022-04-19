@@ -1,12 +1,11 @@
 import type { EventEmitter } from '@stencil/core';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Component, /*Host, */h, Prop, State, Element, Watch, Event, Method } from '@stencil/core';
+import { Component, h, Prop, State, Element, Watch, Event, Method } from '@stencil/core';
 
-import { debounceEvent, /*findItemLabel, */hasSlot, inheritAttributes, renderHiddenInput } from '../../utils/helpers';
+import FormItem from '../../function-components/form-item/form-item';
 import type { AutocompleteTypes } from '../../interface';
-import type { /*Color, InputChangeEventDetail, StyleEventDetail, */TextFieldTypes } from '../../types';
-// import { createColorClasses } from '../../utils';
-import FormItem from '../form-item/form-item';
+import type { TextFieldTypes } from '../../types';
+import { debounceEvent, inheritAttributes, renderHiddenInput } from '../../utils/helpers';
+import { hasSlot } from '../../utils/slot';
 
 let id = 0;
 
@@ -134,7 +133,7 @@ export class Input {
   @Prop() autofocus = false;
 
   /**
-   * Set the amount of time, in milliseconds, to wait to trigger the `gr-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
+   * Set the amount of time, in milliseconds, to wait to trigger the `stroies-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
    */
   @Prop() debounce = 0;
 
@@ -145,7 +144,7 @@ export class Input {
 
   @Watch('debounce')
   protected debounceChanged(): void {
-    this.grChange = debounceEvent(this.grChange, this.debounce);
+    this.stroiesChange = debounceEvent(this.stroiesChange, this.debounce);
   }
 
   @Watch('helpText')
@@ -160,23 +159,23 @@ export class Input {
    */
   @Watch('value')
   protected valueChanged(): void {
-    this.grChange.emit();
+    this.stroiesChange.emit();
   }
 
   /** Emitted when the control's value changes. */
-  @Event({ eventName: 'gr-change' }) grChange: EventEmitter<void>;
+  @Event() stroiesChange: EventEmitter<void>;
 
   /** Emitted when the clear button is activated. */
-  @Event({ eventName: 'gr-clear' }) grClear: EventEmitter<void>;
+  @Event() stroiesClear: EventEmitter<void>;
 
   /** Emitted when the control receives input. */
-  @Event({ eventName: 'gr-input' }) grInput: EventEmitter<void>;
+  @Event() stroiesInput: EventEmitter<void>;
 
   /** Emitted when the control gains focus. */
-  @Event({ eventName: 'gr-focus' }) grFocus: EventEmitter<void>;
+  @Event() stroiesFocus: EventEmitter<void>;
 
   /** Emitted when the control loses focus. */
-  @Event({ eventName: 'gr-blur' }) grBlur: EventEmitter<void>;
+  @Event() stroiesBlur: EventEmitter<void>;
 
   connectedCallback(): void {
     this.handleBlur = this.handleBlur.bind(this);
@@ -242,36 +241,36 @@ export class Input {
 
     if (this.value !== this.input.value) {
       this.value = this.input.value;
-      this.grChange.emit();
-      this.grInput.emit();
+      this.stroiesChange.emit();
+      this.stroiesInput.emit();
     }
   }
 
   handleChange(): void {
     this.value = this.input.value;
-    this.grChange.emit();
+    this.stroiesChange.emit();
   }
 
   handleInput(): void {
     this.value = this.input.value;
-    this.grInput.emit();
+    this.stroiesInput.emit();
   }
 
   handleBlur(): void {
     this.hasFocus = false;
-    this.grBlur.emit();
+    this.stroiesBlur.emit();
   }
 
   handleFocus(): void {
     this.hasFocus = true;
-    this.grFocus.emit();
+    this.stroiesFocus.emit();
   }
 
   handleClearClick(event: MouseEvent): void {
     this.value = '';
-    this.grClear.emit();
-    this.grInput.emit();
-    this.grChange.emit();
+    this.stroiesClear.emit();
+    this.stroiesInput.emit();
+    this.stroiesChange.emit();
     this.input.focus();
 
     event.stopPropagation();

@@ -1,6 +1,6 @@
-# stories-checkbox
+# Checkbox
 
-The stories-checkbox is a styled HTML checkboxed input element.
+The Checkbox (stories-checkbox) is a styled HTML checkboxed input element.
 
 <!-- Auto Generated Below -->
 
@@ -20,11 +20,11 @@ The stories-checkbox is a styled HTML checkboxed input element.
 
 ## Events
 
-| Event            | Description                                       | Type                |
-| ---------------- | ------------------------------------------------- | ------------------- |
-| `stories-blur`   | Emitted when the control loses focus.             | `CustomEvent<void>` |
-| `stories-change` | Emitted when the control's checked state changes. | `CustomEvent<void>` |
-| `stories-focus`  | Emitted when the control gains focus.             | `CustomEvent<void>` |
+| Event           | Description                                       | Type                |
+| --------------- | ------------------------------------------------- | ------------------- |
+| `storiesBlur`   | Emitted when the control loses focus.             | `CustomEvent<void>` |
+| `storiesChange` | Emitted when the control's checked state changes. | `CustomEvent<void>` |
+| `storiesFocus`  | Emitted when the control gains focus.             | `CustomEvent<void>` |
 
 
 ## Methods

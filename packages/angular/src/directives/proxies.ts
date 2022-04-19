@@ -105,13 +105,13 @@ export declare interface StoriesBadge extends Components.StoriesBadge {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['color']
+  inputs: ['size', 'type']
 })
 @Component({
   selector: 'stories-badge',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['color']
+  inputs: ['size', 'type']
 })
 export class StoriesBadge {
   protected el: HTMLElement;
@@ -126,11 +126,11 @@ export declare interface StoriesButton extends Components.StoriesButton {
   /**
    * Emitted when the button has focus. 
    */
-  stories-focus: EventEmitter<CustomEvent<void>>;
+  storiesFocus: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the button loses focus. 
    */
-  stories-blur: EventEmitter<CustomEvent<void>>;
+  storiesBlur: EventEmitter<CustomEvent<void>>;
 
 }
 
@@ -150,7 +150,7 @@ export class StoriesButton {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['stories-focus', 'stories-blur']);
+    proxyOutputs(this, this.el, ['storiesFocus', 'storiesBlur']);
   }
 }
 
@@ -159,15 +159,15 @@ export declare interface StoriesCheckbox extends Components.StoriesCheckbox {
   /**
    * Emitted when the control loses focus. 
    */
-  stories-blur: EventEmitter<CustomEvent<void>>;
+  storiesBlur: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the control gains focus. 
    */
-  stories-focus: EventEmitter<CustomEvent<void>>;
+  storiesFocus: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the control's checked state changes. 
    */
-  stories-change: EventEmitter<CustomEvent<void>>;
+  storiesChange: EventEmitter<CustomEvent<void>>;
 
 }
 
@@ -187,7 +187,7 @@ export class StoriesCheckbox {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['stories-blur', 'stories-focus', 'stories-change']);
+    proxyOutputs(this, this.el, ['storiesBlur', 'storiesFocus', 'storiesChange']);
   }
 }
 
@@ -217,19 +217,19 @@ export declare interface StoriesDropdown extends Components.StoriesDropdown {
   /**
    * Emitted when the dropdown opens. Calling `event.preventDefault()` will prevent it from being opened. 
    */
-  stories-show: EventEmitter<CustomEvent<void>>;
+  storiesShow: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted after the dropdown opens and all transitions are complete. 
    */
-  stories-after-show: EventEmitter<CustomEvent<void>>;
+  storiesAfterShow: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the dropdown closes. Calling `event.preventDefault()` will prevent it from being closed. 
    */
-  stories-hide: EventEmitter<CustomEvent<void>>;
+  storiesHide: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted after the dropdown closes and all transitions are complete. 
    */
-  stories-after-hide: EventEmitter<CustomEvent<void>>;
+  storiesAfterHide: EventEmitter<CustomEvent<void>>;
 
 }
 
@@ -249,7 +249,7 @@ export class StoriesDropdown {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['stories-show', 'stories-after-show', 'stories-hide', 'stories-after-hide']);
+    proxyOutputs(this, this.el, ['storiesShow', 'storiesAfterShow', 'storiesHide', 'storiesAfterHide']);
   }
 }
 
@@ -340,23 +340,23 @@ export declare interface StoriesInput extends Components.StoriesInput {
   /**
    * Emitted when the control's value changes. 
    */
-  gr-change: EventEmitter<CustomEvent<void>>;
+  stroiesChange: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the clear button is activated. 
    */
-  gr-clear: EventEmitter<CustomEvent<void>>;
+  stroiesClear: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the control receives input. 
    */
-  gr-input: EventEmitter<CustomEvent<void>>;
+  stroiesInput: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the control gains focus. 
    */
-  gr-focus: EventEmitter<CustomEvent<void>>;
+  stroiesFocus: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the control loses focus. 
    */
-  gr-blur: EventEmitter<CustomEvent<void>>;
+  stroiesBlur: EventEmitter<CustomEvent<void>>;
 
 }
 
@@ -376,7 +376,7 @@ export class StoriesInput {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['gr-change', 'gr-clear', 'gr-input', 'gr-focus', 'gr-blur']);
+    proxyOutputs(this, this.el, ['stroiesChange', 'stroiesClear', 'stroiesInput', 'stroiesFocus', 'stroiesBlur']);
   }
 }
 
@@ -406,7 +406,7 @@ export declare interface StoriesMenu extends Components.StoriesMenu {
   /**
    * Emitted when a menu item is selected. 
    */
-  stories-select: EventEmitter<CustomEvent<{ item: HTMLStoriesMenuItemElement }>>;
+  storiesSelect: EventEmitter<CustomEvent<{ item: HTMLStoriesMenuItemElement }>>;
 
 }
 
@@ -424,7 +424,7 @@ export class StoriesMenu {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['stories-select']);
+    proxyOutputs(this, this.el, ['storiesSelect']);
   }
 }
 
@@ -512,11 +512,11 @@ export declare interface StoriesRadio extends Components.StoriesRadio {
   /**
    * Emitted when the control loses focus. 
    */
-  stories-blur: EventEmitter<CustomEvent<any>>;
+  storiesBlur: EventEmitter<CustomEvent<any>>;
   /**
    * Emitted when the control gains focus. 
    */
-  stories-focus: EventEmitter<CustomEvent<any>>;
+  storiesFocus: EventEmitter<CustomEvent<any>>;
 
 }
 
@@ -536,16 +536,16 @@ export class StoriesRadio {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['stories-blur', 'stories-focus']);
+    proxyOutputs(this, this.el, ['storiesBlur', 'storiesFocus']);
   }
 }
 
-import type { RadioGroupChangeEventDetail as IRadioGroupRadioGroupChangeEventDetail } from '@stories-js/core';
+
 export declare interface StoriesRadioGroup extends Components.StoriesRadioGroup {
   /**
    * Emitted when the value has changed. 
    */
-  stories-change: EventEmitter<CustomEvent<IRadioGroupRadioGroupChangeEventDetail>>;
+  storiesChange: EventEmitter<CustomEvent<any>>;
 
 }
 
@@ -564,7 +564,7 @@ export class StoriesRadioGroup {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['stories-change']);
+    proxyOutputs(this, this.el, ['storiesChange']);
   }
 }
 
@@ -660,15 +660,15 @@ export declare interface StoriesSelect extends Components.StoriesSelect {
   /**
    * Emitted when the control's value changes. 
    */
-  stories-change: EventEmitter<CustomEvent<void>>;
+  storiesChange: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the control gains focus. 
    */
-  stories-focus: EventEmitter<CustomEvent<void>>;
+  storiesFocus: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the control loses focus. 
    */
-  stories-blur: EventEmitter<CustomEvent<void>>;
+  storiesBlur: EventEmitter<CustomEvent<void>>;
 
 }
 
@@ -688,7 +688,7 @@ export class StoriesSelect {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['stories-change', 'stories-focus', 'stories-blur']);
+    proxyOutputs(this, this.el, ['storiesChange', 'storiesFocus', 'storiesBlur']);
   }
 }
 
@@ -704,6 +704,25 @@ export declare interface StoriesSidebar extends Components.StoriesSidebar {}
   template: '<ng-content></ng-content>'
 })
 export class StoriesSidebar {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface StoriesSpinner extends Components.StoriesSpinner {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined
+})
+@Component({
+  selector: 'stories-spinner',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class StoriesSpinner {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -827,7 +846,7 @@ export declare interface StoriesTag extends Components.StoriesTag {
   /**
    * Emitted when the clear button is activated. 
    */
-  stories-clear: EventEmitter<CustomEvent<void>>;
+  storiesClear: EventEmitter<CustomEvent<void>>;
 
 }
 
@@ -846,7 +865,7 @@ export class StoriesTag {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['stories-clear']);
+    proxyOutputs(this, this.el, ['storiesClear']);
   }
 }
 
@@ -855,19 +874,19 @@ export declare interface StoriesTextarea extends Components.StoriesTextarea {
   /**
    * Emitted when the textarea's value changes. 
    */
-  stories-change: EventEmitter<CustomEvent<void>>;
+  storiesChange: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the textarea receives input. 
    */
-  stories-input: EventEmitter<CustomEvent<void>>;
+  storiesInput: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the textarea has focus. 
    */
-  stories-focus: EventEmitter<CustomEvent<void>>;
+  storiesFocus: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the textarea loses focus. 
    */
-  stories-blur: EventEmitter<CustomEvent<void>>;
+  storiesBlur: EventEmitter<CustomEvent<void>>;
 
 }
 
@@ -887,7 +906,7 @@ export class StoriesTextarea {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['stories-change', 'stories-input', 'stories-focus', 'stories-blur']);
+    proxyOutputs(this, this.el, ['storiesChange', 'storiesInput', 'storiesFocus', 'storiesBlur']);
   }
 }
 

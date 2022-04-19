@@ -1,4 +1,6 @@
-# gr-radio-group
+# stories-radio-group
+
+The stories-radio-group displays a group of options with radio buttons and enables selection of one option from the list.
 
 <!-- Auto Generated Below -->
 
@@ -19,9 +21,9 @@
 
 ## Events
 
-| Event            | Description                         | Type                                       |
-| ---------------- | ----------------------------------- | ------------------------------------------ |
-| `stories-change` | Emitted when the value has changed. | `CustomEvent<RadioGroupChangeEventDetail>` |
+| Event           | Description                         | Type               |
+| --------------- | ----------------------------------- | ------------------ |
+| `storiesChange` | Emitted when the value has changed. | `CustomEvent<any>` |
 
 
 ## Slots

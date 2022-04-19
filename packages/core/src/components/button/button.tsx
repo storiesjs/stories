@@ -1,4 +1,5 @@
-import { EventEmitter, Method } from '@stencil/core';
+import type { EventEmitter } from '@stencil/core';
+import { Method } from '@stencil/core';
 import { Component, Host, h, Element, Prop, Event } from '@stencil/core';
 
 import { inheritAttributes } from '../../utils/helpers';
@@ -83,12 +84,12 @@ export class Button {
   /**
    * Emitted when the button has focus.
    */
-  @Event({ eventName: 'stories-focus' }) storiesFocus!: EventEmitter<void>;
+  @Event() storiesFocus!: EventEmitter<void>;
 
   /**
    * Emitted when the button loses focus.
    */
-  @Event({ eventName: 'stories-blur' }) storiesBlur!: EventEmitter<void>;
+  @Event() storiesBlur!: EventEmitter<void>;
 
   componentWillLoad(): void {
     this.inheritedAttributes = inheritAttributes(this.el, ['aria-label', 'tabindex', 'title']);
@@ -191,7 +192,7 @@ export class Button {
             )}
           </span>
 
-          {/* {this.loading && <gr-spinner />} */}
+          {this.loading && <stories-spinner />}
         </TagType>
       </Host>
     );

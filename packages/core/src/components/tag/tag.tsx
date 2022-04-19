@@ -23,7 +23,7 @@ export class Tag {
   @Prop({ reflect: true }) clearable = false;
 
   /** Emitted when the clear button is activated. */
-  @Event({ eventName: 'stories-clear' }) storiesClear: EventEmitter<void>;
+  @Event() storiesClear: EventEmitter<void>;
 
   connectedCallback() {
     this.handleClearClick = this.handleClearClick.bind(this);

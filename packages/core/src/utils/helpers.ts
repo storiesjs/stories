@@ -15,8 +15,8 @@ declare const __zone_symbol__requestAnimationFrame: any;
 declare const requestAnimationFrame: any;
 
 
-export const inheritAttributes = (el: HTMLElement, attributes: string[] = []): Record<string, any> => {
-  const attributeObject: Record<string, any> = {};
+export const inheritAttributes = (el: HTMLElement, attributes: string[] = []): Record<string, string> => {
+  const attributeObject: Record<string, string> = {};
 
   attributes.forEach(attr => {
     if (el.hasAttribute(attr)) {
@@ -33,7 +33,7 @@ export const inheritAttributes = (el: HTMLElement, attributes: string[] = []): R
 
 export const hasShadowDom = (el: HTMLElement): boolean => {
 
-  return !!el.shadowRoot && !!(el as any).attachShadow;
+  return !!el.shadowRoot && !!(el as Element).attachShadow;
 };
 
 export const findItemLabel = (componentEl: HTMLElement): HTMLStoriesLabelElement | null => {
@@ -58,7 +58,7 @@ export const debounceEvent = (event: EventEmitter, wait: number): EventEmitter =
 
 
 export const debounce = (func: (...args: any[]) => void, wait = 0): any => {
-  let timer: any;
+  let timer: NodeJS.Timeout;
   return (...args: any[]): any => {
     clearTimeout(timer);
     timer = setTimeout(func, wait, ...args);
@@ -140,7 +140,7 @@ export const renderHiddenInput = (always: boolean, container: HTMLElement, name:
   if (always || hasShadowDom(container)) {
     let input = container.querySelector('input.aux-input') as HTMLInputElement | null;
     if (!input) {
-      input = container.ownerDocument!.createElement('input');
+      input = container.ownerDocument?.createElement('input');
       input.type = 'hidden';
       input.classList.add('aux-input');
       container.appendChild(input);
@@ -199,47 +199,3 @@ export const raf = (h: any) => {
   }
   return setTimeout(h);
 };
-
-/**
- * Given a slot, this function iterates over all of its assigned text nodes and returns the concatenated text as a
- * string. This is useful because we can't use slot.textContent as an alternative.
-*/
-export const getTextContent = (slot: HTMLSlotElement): string => {
-  const nodes = slot ? slot.assignedNodes({ flatten: true }) : [];
-  let text = '';
-
-  [...nodes].map(node => {
-    if (node.nodeType === Node.TEXT_NODE) {
-      text += node.textContent;
-    }
-  });
-
-  return text;
-}
-
-//
-// Determines whether an element has a slot. If name is specified, the function will look for a corresponding named
-// slot, otherwise it will look for a "default" slot (e.g. a non-empty text node or an element with no slot attribute).
-//
-export const hasSlot = (el: any, name?: string): any => {
-  // Look for a named slot
-  if (name) {
-    return el.querySelector(`[slot="${name}"]`) !== null;
-  }
-
-  // Look for a default slot
-  return [...el.childNodes].some(node => {
-    if (node.nodeType === node.TEXT_NODE && node.textContent.trim() !== '') {
-      return true;
-    }
-
-    if (node.nodeType === node.ELEMENT_NODE) {
-      const el = node as HTMLElement;
-      if (!el.hasAttribute('slot')) {
-        return true;
-      }
-    }
-
-    return false;
-  });
-}

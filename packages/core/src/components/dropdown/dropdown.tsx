@@ -66,16 +66,16 @@ export class Dropdown {
   @Prop() hoist = false;
 
   /** Emitted when the dropdown opens. Calling `event.preventDefault()` will prevent it from being opened. */
-  @Event({ eventName: 'stories-show' }) storiesShow: EventEmitter<void>;
+  @Event() storiesShow: EventEmitter<void>;
 
   /** Emitted after the dropdown opens and all transitions are complete. */
-  @Event({ eventName: 'stories-after-show' }) storiesAfterShow: EventEmitter<void>;
+  @Event() storiesAfterShow: EventEmitter<void>;
 
   /** Emitted when the dropdown closes. Calling `event.preventDefault()` will prevent it from being closed. */
-  @Event({ eventName: 'stories-hide' }) storiesHide: EventEmitter<void>;
+  @Event() storiesHide: EventEmitter<void>;
 
   /** Emitted after the dropdown closes and all transitions are complete. */
-  @Event({ eventName: 'stories-after-hide' }) storiesAfterHide: EventEmitter<void>;
+  @Event() storiesAfterHide: EventEmitter<void>;
 
   @Watch('open')
   handleOpenChange(): void {
@@ -204,7 +204,7 @@ export class Dropdown {
     return this.panel
       .querySelector('slot')
       .assignedElements({ flatten: true })
-      .filter(el => el.tagName.toLowerCase() === 'stories-menu')[0]; // as HTMLStoriesMenuElement;
+      .filter(el => el.tagName.toLowerCase() === 'stories-menu')[0] as HTMLStoriesMenuElement;
   }
 
   handleDocumentKeyDown(event: KeyboardEvent): void {
@@ -253,7 +253,7 @@ export class Dropdown {
   }
 
   handleMenuItemActivate(event: CustomEvent): void {
-    const item = event.target as HTMLElement; // HTMLGrMenuItemElement;
+    const item = event.target as HTMLStoriesMenuItemElement;
     scrollIntoView(item, this.panel);
   }
 

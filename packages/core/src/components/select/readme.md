@@ -1,4 +1,6 @@
-# gr-select
+# Select
+
+The Select (stories-select) displays a list or drop-down box that enables selection of an option or multiple options from an available list of values.
 
 <!-- Auto Generated Below -->
 
@@ -26,11 +28,11 @@
 
 ## Events
 
-| Event            | Description                               | Type                |
-| ---------------- | ----------------------------------------- | ------------------- |
-| `stories-blur`   | Emitted when the control loses focus.     | `CustomEvent<void>` |
-| `stories-change` | Emitted when the control's value changes. | `CustomEvent<void>` |
-| `stories-focus`  | Emitted when the control gains focus.     | `CustomEvent<void>` |
+| Event           | Description                               | Type                |
+| --------------- | ----------------------------------------- | ------------------- |
+| `storiesBlur`   | Emitted when the control loses focus.     | `CustomEvent<void>` |
+| `storiesChange` | Emitted when the control's value changes. | `CustomEvent<void>` |
+| `storiesFocus`  | Emitted when the control gains focus.     | `CustomEvent<void>` |
 
 
 ## Methods
@@ -101,6 +103,7 @@ graph TD;
   stories-select --> stories-dropdown
   stories-select --> stories-menu
   stories-tag --> stories-button
+  stories-button --> stories-spinner
   style stories-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

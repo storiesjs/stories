@@ -18,7 +18,7 @@ export class Menu {
   private menu: HTMLElement;
 
   /** Emitted when a menu item is selected. */
-  @Event({ eventName: 'stories-select' }) storiesSelect: EventEmitter<{ item: HTMLStoriesMenuItemElement }>;
+  @Event() storiesSelect: EventEmitter<{ item: HTMLStoriesMenuItemElement }>;
 
   connectedCallback() {
     this.handleClick = this.handleClick.bind(this);

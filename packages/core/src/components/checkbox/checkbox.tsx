@@ -1,9 +1,9 @@
-import { EventEmitter, Method, State } from '@stencil/core';
+import type { EventEmitter } from '@stencil/core';
+import { Method, State } from '@stencil/core';
 import { Component, Host, h, Prop, Element, Event, Watch } from '@stencil/core';
 
-import { /*getAriaLabel, */hasSlot, inheritAttributes, renderHiddenInput } from '../../utils/helpers';
-// import type { CheckboxChangeEventDetail, Color, StyleEventDetail } from '../../types';
-// import { createColorClasses, hostContext } from '../../utils';
+import { inheritAttributes, renderHiddenInput } from '../../utils/helpers';
+import { hasSlot } from '../../utils/slot';
 
 let id = 0;
 
@@ -54,13 +54,13 @@ export class Checkbox {
   @Prop({ reflect: true }) invalid = false;
 
   /** Emitted when the control loses focus. */
-  @Event({ eventName: 'stories-blur' }) storiesBlur: EventEmitter<void>;
+  @Event() storiesBlur: EventEmitter<void>;
 
   /** Emitted when the control gains focus. */
-  @Event({ eventName: 'stories-focus' }) storiesFocus: EventEmitter<void>;
+  @Event() storiesFocus: EventEmitter<void>;
 
   /** Emitted when the control's checked state changes. */
-  @Event({ eventName: 'stories-change' }) storiesChange: EventEmitter<void>;
+  @Event() storiesChange: EventEmitter<void>;
 
   @Watch('checked')
   @Watch('indeterminate')

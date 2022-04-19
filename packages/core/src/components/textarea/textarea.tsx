@@ -1,9 +1,9 @@
 import type { EventEmitter } from '@stencil/core';
 import { Component, h, Prop, Element, Event, State, Watch, Method } from '@stencil/core';
 
+import FormItem from '../../function-components/form-item/form-item';
 import { debounceEvent, inheritAttributes, renderHiddenInput } from '../../utils/helpers';
 import { hasSlot } from '../../utils/slot';
-import FormControl from '../form-item/form-item';
 
 let id = 0;
 
@@ -139,16 +139,16 @@ export class Textarea {
   }
 
   /** Emitted when the textarea's value changes. */
-  @Event({ eventName: 'stories-change' }) storiesChange: EventEmitter<void>;
+  @Event() storiesChange: EventEmitter<void>;
 
   /** Emitted when the textarea receives input. */
-  @Event({ eventName: 'stories-input' }) storiesInput: EventEmitter<void>;
+  @Event() storiesInput: EventEmitter<void>;
 
   /** Emitted when the textarea has focus. */
-  @Event({ eventName: 'stories-focus' }) storiesFocus!: EventEmitter<void>;
+  @Event() storiesFocus!: EventEmitter<void>;
 
   /** Emitted when the textarea loses focus. */
-  @Event({ eventName: 'stories-blur' }) storiesBlur!: EventEmitter<void>;
+  @Event() storiesBlur!: EventEmitter<void>;
 
   connectedCallback() {
     this.handleChange = this.handleChange.bind(this);
@@ -256,7 +256,7 @@ export class Textarea {
     renderHiddenInput(true, this.el, this.name, this.value, this.disabled);
 
     return (
-      <FormControl
+      <FormItem
         inputId={this.inputId}
         label={this.label}
         labelId={this.labelId}
@@ -311,7 +311,7 @@ export class Textarea {
             {...this.inheritedAttributes}
           />
         </div>
-      </FormControl>
+      </FormItem>
     );
   }
 }

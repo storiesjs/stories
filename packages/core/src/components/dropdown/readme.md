@@ -1,4 +1,6 @@
-# gr-dropdown
+# Dropdown
+
+The Dropdown (stories-dropdown) displays drop-down box that enables selection of an option from an available list of values.
 
 <!-- Auto Generated Below -->
 
@@ -18,12 +20,12 @@
 
 ## Events
 
-| Event                | Description                                                                                           | Type                |
-| -------------------- | ----------------------------------------------------------------------------------------------------- | ------------------- |
-| `stories-after-hide` | Emitted after the dropdown closes and all transitions are complete.                                   | `CustomEvent<void>` |
-| `stories-after-show` | Emitted after the dropdown opens and all transitions are complete.                                    | `CustomEvent<void>` |
-| `stories-hide`       | Emitted when the dropdown closes. Calling `event.preventDefault()` will prevent it from being closed. | `CustomEvent<void>` |
-| `stories-show`       | Emitted when the dropdown opens. Calling `event.preventDefault()` will prevent it from being opened.  | `CustomEvent<void>` |
+| Event              | Description                                                                                           | Type                |
+| ------------------ | ----------------------------------------------------------------------------------------------------- | ------------------- |
+| `storiesAfterHide` | Emitted after the dropdown closes and all transitions are complete.                                   | `CustomEvent<void>` |
+| `storiesAfterShow` | Emitted after the dropdown opens and all transitions are complete.                                    | `CustomEvent<void>` |
+| `storiesHide`      | Emitted when the dropdown closes. Calling `event.preventDefault()` will prevent it from being closed. | `CustomEvent<void>` |
+| `storiesShow`      | Emitted when the dropdown opens. Calling `event.preventDefault()` will prevent it from being opened.  | `CustomEvent<void>` |
 
 
 ## Methods

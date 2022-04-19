@@ -1,4 +1,4 @@
-# gr-textarea
+# stories-textarea
 
 <!-- Auto Generated Below -->
 
@@ -32,12 +32,12 @@
 
 ## Events
 
-| Event            | Description                                | Type                |
-| ---------------- | ------------------------------------------ | ------------------- |
-| `stories-blur`   | Emitted when the textarea loses focus.     | `CustomEvent<void>` |
-| `stories-change` | Emitted when the textarea's value changes. | `CustomEvent<void>` |
-| `stories-focus`  | Emitted when the textarea has focus.       | `CustomEvent<void>` |
-| `stories-input`  | Emitted when the textarea receives input.  | `CustomEvent<void>` |
+| Event           | Description                                | Type                |
+| --------------- | ------------------------------------------ | ------------------- |
+| `storiesBlur`   | Emitted when the textarea loses focus.     | `CustomEvent<void>` |
+| `storiesChange` | Emitted when the textarea's value changes. | `CustomEvent<void>` |
+| `storiesFocus`  | Emitted when the textarea has focus.       | `CustomEvent<void>` |
+| `storiesInput`  | Emitted when the textarea receives input.  | `CustomEvent<void>` |
 
 
 ## Methods

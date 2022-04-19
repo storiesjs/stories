@@ -35,6 +35,7 @@ export const StoriesRow = /*@__PURE__*/createReactComponent<JSX.StoriesRow, HTML
 export const StoriesSearchbar = /*@__PURE__*/createReactComponent<JSX.StoriesSearchbar, HTMLStoriesSearchbarElement>('stories-searchbar');
 export const StoriesSelect = /*@__PURE__*/createReactComponent<JSX.StoriesSelect, HTMLStoriesSelectElement>('stories-select');
 export const StoriesSidebar = /*@__PURE__*/createReactComponent<JSX.StoriesSidebar, HTMLStoriesSidebarElement>('stories-sidebar');
+export const StoriesSpinner = /*@__PURE__*/createReactComponent<JSX.StoriesSpinner, HTMLStoriesSpinnerElement>('stories-spinner');
 export const StoriesSplitPane = /*@__PURE__*/createReactComponent<JSX.StoriesSplitPane, HTMLStoriesSplitPaneElement>('stories-split-pane');
 export const StoriesTab = /*@__PURE__*/createReactComponent<JSX.StoriesTab, HTMLStoriesTabElement>('stories-tab');
 export const StoriesTabBar = /*@__PURE__*/createReactComponent<JSX.StoriesTabBar, HTMLStoriesTabBarElement>('stories-tab-bar');

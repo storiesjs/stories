@@ -1,6 +1,6 @@
-# stories-col
+# Column
 
-The stories-col is a container for content within a grid. You put it inside of a row and it always expand to fill the space of a row.
+The Column (stories-col) is a container for content within a grid. You put it inside of a row and it always expand to fill the space of a row.
 
 <!-- Auto Generated Below -->
 

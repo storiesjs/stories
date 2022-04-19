@@ -32,6 +32,7 @@ import { defineCustomElement as defineStoriesRow } from '@stories-js/core/compon
 import { defineCustomElement as defineStoriesSearchbar } from '@stories-js/core/components/stories-searchbar.js';
 import { defineCustomElement as defineStoriesSelect } from '@stories-js/core/components/stories-select.js';
 import { defineCustomElement as defineStoriesSidebar } from '@stories-js/core/components/stories-sidebar.js';
+import { defineCustomElement as defineStoriesSpinner } from '@stories-js/core/components/stories-spinner.js';
 import { defineCustomElement as defineStoriesSplitPane } from '@stories-js/core/components/stories-split-pane.js';
 import { defineCustomElement as defineStoriesTab } from '@stories-js/core/components/stories-tab.js';
 import { defineCustomElement as defineStoriesTabBar } from '@stories-js/core/components/stories-tab-bar.js';
@@ -63,7 +64,8 @@ export const StoriesApp = /*@__PURE__*/ defineContainer<JSX.StoriesApp>('stories
 
 
 export const StoriesBadge = /*@__PURE__*/ defineContainer<JSX.StoriesBadge>('stories-badge', defineStoriesBadge, [
-  'color'
+  'type',
+  'size'
 ]);
 
 
@@ -80,8 +82,8 @@ export const StoriesButton = /*@__PURE__*/ defineContainer<JSX.StoriesButton>('s
   'target',
   'rel',
   'type',
-  'stories-focus',
-  'stories-blur'
+  'storiesFocus',
+  'storiesBlur'
 ]);
 
 
@@ -93,9 +95,9 @@ export const StoriesCheckbox = /*@__PURE__*/ defineContainer<JSX.StoriesCheckbox
   'indeterminate',
   'invalidText',
   'invalid',
-  'stories-blur',
-  'stories-focus',
-  'stories-change'
+  'storiesBlur',
+  'storiesFocus',
+  'storiesChange'
 ],
 'checked', 'v-stories-change', 'storiesChange');
 
@@ -136,10 +138,10 @@ export const StoriesDropdown = /*@__PURE__*/ defineContainer<JSX.StoriesDropdown
   'distance',
   'skidding',
   'hoist',
-  'stories-show',
-  'stories-after-show',
-  'stories-hide',
-  'stories-after-hide'
+  'storiesShow',
+  'storiesAfterShow',
+  'storiesHide',
+  'storiesAfterHide'
 ]);
 
 
@@ -190,11 +192,11 @@ export const StoriesInput = /*@__PURE__*/ defineContainer<JSX.StoriesInput>('sto
   'autofocus',
   'debounce',
   'togglePassword',
-  'gr-change',
-  'gr-clear',
-  'gr-input',
-  'gr-focus',
-  'gr-blur'
+  'stroiesChange',
+  'stroiesClear',
+  'stroiesInput',
+  'stroiesFocus',
+  'stroiesBlur'
 ],
 'value', 'v-stories-change', 'storiesChange');
 
@@ -206,7 +208,7 @@ export const StoriesLabel = /*@__PURE__*/ defineContainer<JSX.StoriesLabel>('sto
 
 
 export const StoriesMenu = /*@__PURE__*/ defineContainer<JSX.StoriesMenu>('stories-menu', defineStoriesMenu, [
-  'stories-select'
+  'storiesSelect'
 ]);
 
 
@@ -230,8 +232,8 @@ export const StoriesRadio = /*@__PURE__*/ defineContainer<JSX.StoriesRadio>('sto
   'value',
   'disabled',
   'checked',
-  'stories-blur',
-  'stories-focus'
+  'storiesBlur',
+  'storiesFocus'
 ],
 'value', 'v-stories-change', 'storiesChange');
 
@@ -245,7 +247,7 @@ export const StoriesRadioGroup = /*@__PURE__*/ defineContainer<JSX.StoriesRadioG
   'horizontal',
   'name',
   'value',
-  'stories-change'
+  'storiesChange'
 ],
 'value', 'v-stories-change', 'storiesChange');
 
@@ -296,14 +298,17 @@ export const StoriesSelect = /*@__PURE__*/ defineContainer<JSX.StoriesSelect>('s
   'invalidText',
   'invalid',
   'clearable',
-  'stories-change',
-  'stories-focus',
-  'stories-blur'
+  'storiesChange',
+  'storiesFocus',
+  'storiesBlur'
 ],
 'value', 'v-stories-change', 'storiesChange');
 
 
 export const StoriesSidebar = /*@__PURE__*/ defineContainer<JSX.StoriesSidebar>('stories-sidebar', defineStoriesSidebar);
+
+
+export const StoriesSpinner = /*@__PURE__*/ defineContainer<JSX.StoriesSpinner>('stories-spinner', defineStoriesSpinner);
 
 
 export const StoriesSplitPane = /*@__PURE__*/ defineContainer<JSX.StoriesSplitPane>('stories-split-pane', defineStoriesSplitPane, [
@@ -345,7 +350,7 @@ export const StoriesTag = /*@__PURE__*/ defineContainer<JSX.StoriesTag>('stories
   'size',
   'pill',
   'clearable',
-  'stories-clear'
+  'storiesClear'
 ]);
 
 
@@ -371,10 +376,10 @@ export const StoriesTextarea = /*@__PURE__*/ defineContainer<JSX.StoriesTextarea
   'autocorrect',
   'autofocus',
   'debounce',
-  'stories-change',
-  'stories-input',
-  'stories-focus',
-  'stories-blur'
+  'storiesChange',
+  'storiesInput',
+  'storiesFocus',
+  'storiesBlur'
 ],
 'value', 'v-stories-change', 'storiesChange');
 

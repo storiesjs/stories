@@ -21,6 +21,70 @@
   </head>
   <body>
     <section>
+      <h2>Badge (stories-badge)</h2>
+
+      <!-- Colors -->
+      <section>
+        <h3>Types</h3>
+        <stories-badge>Default</stories-badge>
+        <stories-badge type="primary">Primary</stories-badge>
+        <stories-badge type="success">Success</stories-badge>
+        <stories-badge type="info">Info</stories-badge>
+        <stories-badge type="warning">Warning</stories-badge>
+        <stories-badge type="danger">Danger</stories-badge>
+      </section>
+
+      <section>
+        <h3>Sizes</h3>
+        <stories-badge type="success" size="small">Small</stories-badge>
+        <stories-badge type="info" size="medium">Medium</stories-badge>
+        <stories-badge type="warning" size="large">Large</stories-badge>
+      </section>
+
+      <section>
+        <h3>With icons</h3>
+        <stories-badge type="success" size="medium">
+          <ion-icon name="download" style="font-size: 1em; margin-right: 0.2em;" aria-hidden="true"></ion-icon>
+          Docs
+        </stories-badge>
+        <stories-badge type="info" size="medium">
+          <ion-icon name="git-branch" style="font-size: 1em; margin-right: 0.2em;" aria-hidden="true"></ion-icon>
+          5 branches
+        </stories-badge>
+         <stories-badge type="warning" size="medium">
+          <ion-icon name="battery-dead" style="font-size: 1em; margin-right: 0.2em;" aria-hidden="true"></ion-icon>
+          2% battery
+        </stories-badge>
+      </section>
+    </section>
+
+    <section>
+      <h2>Spinner (stories-spinner)</h2>
+
+      <stories-spinner></stories-spinner>
+
+      <section>
+        <h3>Size</h3>
+
+        <stories-spinner></stories-spinner>
+        <stories-spinner style="font-size: 2rem"></stories-spinner>
+        <stories-spinner style="font-size: 3rem"></stories-spinner>
+      </section>
+
+      <section>
+        <h3>Stroke Width</h3>
+
+        <stories-spinner style="font-size: 2rem; --stroke-width: 6px"></stories-spinner>
+      </section>
+
+      <section>
+        <h3>Color</h3>
+
+        <stories-spinner style="font-size: 2rem; --indicator-color: tomato"></stories-spinner>
+      </section>
+    </section>
+
+    <section>
       <h2>Button (stories-button)</h2>
 
       <section>
@@ -127,17 +191,15 @@
         <stories-button size="large" caret>Large</stories-button>
       </section>
 
-      <!--
-    <section>
-      <h3>Loading</h3>
+      <section>
+        <h3>Loading</h3>
 
-      <gr-button loading>Default</gr-button>
-      <gr-button variant="primary" loading>Primary</gr-button>
-      <gr-button variant="secondary" loading>Secondary</gr-button>
-      <gr-button variant="danger" loading>Danger</gr-button>
-      <gr-button variant="plain" loading>Plain</gr-button>
-    </section>
-    -->
+        <stories-button loading>Default</stories-button>
+        <stories-button variant="primary" loading>Primary</stories-button>
+        <stories-button variant="secondary" loading>Secondary</stories-button>
+        <stories-button variant="danger" loading>Danger</stories-button>
+        <stories-button variant="plain" loading>Plain</stories-button>
+      </section>
 
       <section>
         <h3>Pill</h3>
@@ -986,6 +1048,33 @@
           </stories-row>
         </stories-grid>
       </section>
+    </section>
+
+    <section>
+      <h2>Toolbar (stories-toolbar)</h2>
+      <stories-tool-bar>
+        <stories-tool-zoom slot="left"></stories-tool-zoom>
+      </stories-tool-bar>
+    </section>
+
+    <section>
+      <h2>Tabs</h2>
+       <stories-tabs style="height: 300px">
+         <stories-tab-bar>
+          <stories-tab-button tab="tab1">
+            <stories-label color="primary">Tab 1</stories-label>
+          </stories-tab-button>
+          <stories-tab-button tab="tab2">
+            <stories-label color="primary">Tab 2</stories-label>
+          </stories-tab-button>
+        </stories-tab-bar>
+        <stories-tab tab="tab1">
+          <div>Tab 1 content</div>
+        </stories-tab>
+        <stories-tab tab="tab2">
+          <div>Tab 2 content</div>
+        </stories-tab>
+       </stories-tabs>
     </section>
 
   </body>

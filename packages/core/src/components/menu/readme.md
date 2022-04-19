@@ -1,13 +1,15 @@
-# gr-menu
+# Menu
+
+The Menu (stories-menu) is a container for stories-menu-item components.
 
 <!-- Auto Generated Below -->
 
 
 ## Events
 
-| Event            | Description                           | Type                                                 |
-| ---------------- | ------------------------------------- | ---------------------------------------------------- |
-| `stories-select` | Emitted when a menu item is selected. | `CustomEvent<{ item: HTMLStoriesMenuItemElement; }>` |
+| Event           | Description                           | Type                                                 |
+| --------------- | ------------------------------------- | ---------------------------------------------------- |
+| `storiesSelect` | Emitted when a menu item is selected. | `CustomEvent<{ item: HTMLStoriesMenuItemElement; }>` |
 
 
 ## Methods

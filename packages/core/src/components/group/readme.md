@@ -1,6 +1,6 @@
-# gr-field-group
+# Group
 
-
+The Group (stories-group) is used to group multiple fields, usually checkboxes. It can be used for vertical (default) or horizontal organization of the fields that are supplied as its children.
 
 <!-- Auto Generated Below -->
 

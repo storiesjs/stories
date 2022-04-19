@@ -1,6 +1,6 @@
-# stories-badge
+# Badge
 
-The stories-badge is inline block element uses for notification of how many items associated with another element.
+The Badge (stories-badge) is inline block element uses for notification of how many items associated with another element.
 
 <!-- Auto Generated Below -->
 
@@ -144,21 +144,33 @@ export default defineComponent({
 
 ## Properties
 
-| Property | Attribute | Description                                                                                                                                                                                                                                                            | Type     | Default     |
-| -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| `color`  | `color`   | The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics). | `string` | `undefined` |
+| Property | Attribute | Description       | Type                                                        | Default     |
+| -------- | --------- | ----------------- | ----------------------------------------------------------- | ----------- |
+| `size`   | `size`    | The badge's size. | `"large" \| "medium" \| "small"`                            | `'medium'`  |
+| `type`   | `type`    | The badge's type. | `"danger" \| "info" \| "primary" \| "success" \| "warning"` | `'primary'` |
 
 
 ## CSS Custom Properties
 
-| Name               | Description                                                                                              |
-| ------------------ | -------------------------------------------------------------------------------------------------------- |
-| `--background`     | Background of the badge                                                                                  |
-| `--color`          | Text color of the badge                                                                                  |
-| `--padding-bottom` | Bottom padding of the badge                                                                              |
-| `--padding-end`    | Right padding if direction is left-to-right, and left padding if direction is right-to-left of the badge |
-| `--padding-start`  | Left padding if direction is left-to-right, and right padding if direction is right-to-left of the badge |
-| `--padding-top`    | Top padding of the badge                                                                                 |
+| Name                   | Description                                                                               |
+| ---------------------- | ----------------------------------------------------------------------------------------- |
+| `--background-color`   | Background color of the badge                                                             |
+| `--border-color`       | Border color of the badge                                                                 |
+| `--border-radius`      | Border radius of the badge                                                                |
+| `--border-style`       | Border style of the badge                                                                 |
+| `--border-width`       | Border width of the badge                                                                 |
+| `--clear-color`        | Color of the clear icon                                                                   |
+| `--clear-color-hover`  | Color of the clear icon on hover                                                          |
+| `--clear-margin-left`  | Margin left of the clear icon                                                             |
+| `--clear-margin-right` | Margin right of the clear icon                                                            |
+| `--color`              | Text color of the badge                                                                   |
+| `--font-size`          | Font size of the badge                                                                    |
+| `--height`             | Height of the badge                                                                       |
+| `--line-height`        | Line height of the badge                                                                  |
+| `--padding-bottom`     | Bottom padding of the badge                                                               |
+| `--padding-end`        | Right padding of the badge (will be left padding when we support right-to-left direction) |
+| `--padding-start`      | Left padding of the badge (will be right padding when we support right-to-left direction) |
+| `--padding-top`        | Top padding of the badge                                                                  |
 
 
 ----------------------------------------------

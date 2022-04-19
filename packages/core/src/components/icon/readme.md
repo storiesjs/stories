@@ -1,6 +1,6 @@
-# stories-icon
+# Icon
 
-The stories-icon is an easy and performant way to use icons in your Stories application. It dynamically loads only visible SVG icons on demand.
+The Icon (stories-icon) is an easy and performant way to use icons in your Stories application. It dynamically loads only visible SVG icons on demand.Icons should not be used for decoration.
 
 <!-- Auto Generated Below -->
 

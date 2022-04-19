@@ -1,6 +1,6 @@
-# stories-footer
+# Footer
 
-The stories-footer is a root component, always appears at the bottom of the page.
+The Footer (stories-footer) is a root component, always appears at the bottom of the page.
 
 <!-- Auto Generated Below -->
 
