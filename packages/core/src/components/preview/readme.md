@@ -1,6 +1,6 @@
-# stories-preview
+# str-preview
 
-The stories-preview is a wrapper container for stories-renderer component. It utilises stories-zoom component to manage visual size of the rendering content. 
+The str-preview is a wrapper container for str-renderer component. It utilises str-zoom component to manage visual size of the rendering content. 
 
 <!-- Auto Generated Below -->
 
@@ -9,13 +9,13 @@ The stories-preview is a wrapper container for stories-renderer component. It ut
 
 ### Depends on
 
-- [stories-zoom](../zoom)
+- [str-zoom](../zoom)
 
 ### Graph
 ```mermaid
 graph TD;
-  stories-preview --> stories-zoom
-  style stories-preview fill:#f9f,stroke:#333,stroke-width:4px
+  str-preview --> str-zoom
+  style str-preview fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

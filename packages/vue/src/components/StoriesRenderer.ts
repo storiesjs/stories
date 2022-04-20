@@ -6,7 +6,7 @@ import { ConcreteComponent, Component, ComponentOptions, defineComponent, h } fr
 import { DecoratorFunction, StoryComponent, StoryContext, StoryFn, StoryFnVueReturnType, LegacyStoryFn, VueFramework } from './types';
 import { rest } from './utils';
 
-export const VALUES = "STORIES_VALUES";
+export const VALUES = "STR_VALUES";
 
 /*
   This normalizes a functional component into a render method in ComponentOptions.
@@ -82,14 +82,14 @@ function decorateStory(
   );
 }
 
-const StoryVueRenderer = defineComponent({
-  name: "StoryVueRenderer",
+export const StrRenderer = defineComponent({
+  name: "str-renderer",
   props: {
     story: Object,
   },
   render() {
     const story = (this as any).story as StoryComponent;
-    console.log("StoryVueRenderer.story", story);
+    console.log("StrRenderer.story", story);
     if (story) {
       const storyFn: StoryFn = story.storyFn;
       const decorators: DecoratorFunction[] = story.decorators || [];
@@ -107,5 +107,3 @@ const StoryVueRenderer = defineComponent({
     return h("div", "No story selected");
   },
 });
-
-export default StoryVueRenderer;

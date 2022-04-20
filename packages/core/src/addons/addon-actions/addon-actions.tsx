@@ -17,7 +17,7 @@ export type AddonActionsState = {
 };
 
 @Component({
-  tag: 'stories-addon-actions',
+  tag: 'str-addon-actions',
   styleUrl: 'addon-actions.scss',
   shadow: true,
 })

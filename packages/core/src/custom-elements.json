@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-04-19T18:03:39",
+  "timestamp": "2022-04-20T19:20:24",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.2",
@@ -9,10 +9,10 @@
     {
       "filePath": "./src/addons/addon-actions/addon-actions.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-addon-actions",
-      "name": "stories-addon-actions",
-      "readme": "# stories-addon-actions\n\nThe stories-addon-actions displays a panel with data received by event handler (callback) arguments in your stories.\n\n",
-      "description": "The stories-addon-actions displays a panel with data received by event handler (callback) arguments in your stories.",
+      "tag": "str-addon-actions",
+      "name": "str-addon-actions",
+      "readme": "# str-addon-actions\n\nThe str-addon-actions displays a panel with data received by event handler (callback) arguments in your stories.\n\n",
+      "description": "The str-addon-actions displays a panel with data received by event handler (callback) arguments in your stories.",
       "docsTags": [],
       "usage": {},
       "properties": [],
@@ -40,10 +40,10 @@
     {
       "filePath": "./src/addons/addon-controls/addon-controls.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-addon-controls",
-      "name": "stories-addon-controls",
-      "readme": "# stories-addon-controls\n\nThe stories-addon-controls helps you interact with components via changing arguments.\n",
-      "description": "The stories-addon-controls helps you interact with components via changing arguments.",
+      "tag": "str-addon-controls",
+      "name": "str-addon-controls",
+      "readme": "# str-addon-controls\n\nThe str-addon-controls helps you interact with components via changing arguments.\n",
+      "description": "The str-addon-controls helps you interact with components via changing arguments.",
       "docsTags": [],
       "usage": {},
       "properties": [],
@@ -71,10 +71,10 @@
     {
       "filePath": "./src/addons/addons/addons.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-addons",
-      "name": "stories-addons",
-      "readme": "# stories-addons\n\nThe stories-addons is a wrapping component implemented for helping in addons management.\n",
-      "description": "The stories-addons is a wrapping component implemented for helping in addons management.",
+      "tag": "str-addons",
+      "name": "str-addons",
+      "readme": "# str-addons\n\nThe str-addons is a wrapping component implemented for helping in addons management.\n",
+      "description": "The str-addons is a wrapping component implemented for helping in addons management.",
       "docsTags": [],
       "usage": {},
       "properties": [],
@@ -135,10 +135,10 @@
     {
       "filePath": "./src/components/app/app.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-app",
-      "name": "stories-app",
-      "readme": "# stories-app\n\nThe stories-app is a main Stories Framework's application.\n",
-      "description": "The stories-app is a main Stories Framework's application.",
+      "tag": "str-app",
+      "name": "str-app",
+      "readme": "# str-app\n\nThe str-app is a main Stories Framework's application.\n",
+      "description": "The str-app is a main Stories Framework's application.",
       "docsTags": [],
       "usage": {},
       "properties": [
@@ -216,26 +216,26 @@
       "methods": [],
       "events": [
         {
-          "event": "storyChange",
+          "event": "strChange",
           "detail": "{ storyId: string; kinds: string[]; storyName: string; storyFn: StoryFn<AnyFramework, Args>; component?: any; subcomponents?: Record<string, any>; decorators?: DecoratorFunction<AnyFramework, Args>[]; args: Partial<Args>; argTypes: Partial<ArgTypes<Args>>; parameters?: Parameters; }",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "",
           "docsTags": [],
-          "name": "storyChange",
+          "name": "strChange",
           "description": "",
           "type": "{ storyId: string; kinds: string[]; storyName: string; storyFn: StoryFn<AnyFramework, Args>; component?: any; subcomponents?: Record<string, any>; decorators?: DecoratorFunction<AnyFramework, Args>[]; args: Partial<Args>; argTypes: Partial<ArgTypes<Args>>; parameters?: Parameters; }"
         },
         {
-          "event": "storyContextChange",
+          "event": "strContextChange",
           "detail": "{ component?: any; subcomponents?: Record<string, any>; } & StoryUpdate<Args>",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "",
           "docsTags": [],
-          "name": "storyContextChange",
+          "name": "strContextChange",
           "description": "",
           "type": "{ component?: any; subcomponents?: Record<string, any>; } & StoryUpdate<Args>"
         }
@@ -249,17 +249,17 @@
     {
       "filePath": "./src/components/badge/badge.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-badge",
-      "name": "stories-badge",
-      "readme": "# Badge\n\nThe Badge (stories-badge) is inline block element uses for notification of how many items associated with another element.\n",
-      "description": "The Badge (stories-badge) is inline block element uses for notification of how many items associated with another element.",
+      "tag": "str-badge",
+      "name": "str-badge",
+      "readme": "# Badge\n\nThe Badge (str-badge) is inline block element uses for notification of how many items associated with another element.\n",
+      "description": "The Badge (str-badge) is inline block element uses for notification of how many items associated with another element.",
       "docsTags": [],
       "usage": {
-        "angular": "```html\n<!-- Default -->\n<stories-badge>99</stories-badge>\n\n<!-- Colors -->\n<stories-badge color=\"primary\">11</stories-badge>\n<stories-badge color=\"secondary\">22</stories-badge>\n<stories-badge color=\"tertiary\">33</stories-badge>\n<stories-badge color=\"success\">44</stories-badge>\n<stories-badge color=\"warning\">55</stories-badge>\n<stories-badge color=\"danger\">66</stories-badge>\n<stories-badge color=\"light\">77</stories-badge>\n<stories-badge color=\"medium\">88</stories-badge>\n<stories-badge color=\"dark\">99</stories-badge>\n\n<!-- Button with badge on left and right -->\n<stories-button>\n  <stories-badge slot=\"start\">11</stories-badge>\n  <stories-label>My Button</stories-label>\n  <stories-badge slot=\"end\">22</stories-badge>\n</stories-item>\n```",
-        "javascript": "```html\n<!-- Default -->\n<stories-badge>99</stories-badge>\n\n<!-- Colors -->\n<stories-badge color=\"primary\">11</stories-badge>\n<stories-badge color=\"secondary\">22</stories-badge>\n<stories-badge color=\"tertiary\">33</stories-badge>\n<stories-badge color=\"success\">44</stories-badge>\n<stories-badge color=\"warning\">55</stories-badge>\n<stories-badge color=\"danger\">66</stories-badge>\n<stories-badge color=\"light\">77</stories-badge>\n<stories-badge color=\"medium\">88</stories-badge>\n<stories-badge color=\"dark\">99</stories-badge>\n\n<!-- Button with badge on left and right -->\n<stories-button>\n  <stories-badge slot=\"start\">11</stories-badge>\n  <stories-label>My Button</stories-label>\n  <stories-badge slot=\"end\">22</stories-badge>\n</stories-item>\n```",
-        "react": "```tsx\nimport React from 'react';\nimport { StoriesBadge, StoriesButton, StoriesLabel } from '@stories-js/react';\n\nexport const BadgeExample: React.FC = () => (\n  <div>\n    {/*-- Default --*/}\n    <StoriesBadge>99</StoriesBadge>\n\n    {/*-- Colors --*/}\n    <StoriesBadge color=\"primary\">11</StoriesBadge>\n    <StoriesBadge color=\"secondary\">22</StoriesBadge>\n    <StoriesBadge color=\"tertiary\">33</StoriesBadge>\n    <StoriesBadge color=\"success\">44</StoriesBadge>\n    <StoriesBadge color=\"warning\">55</StoriesBadge>\n    <StoriesBadge color=\"danger\">66</StoriesBadge>\n    <StoriesBadge color=\"light\">77</StoriesBadge>\n    <StoriesBadge color=\"medium\">88</StoriesBadge>\n    <StoriesBadge color=\"dark\">99</StoriesBadge>\n\n    {/*-- Button with badge on left and right --*/}\n    <StoriesButton>\n      <StoriesBadge slot=\"start\">11</StoriesBadge>\n      <StoriesLabel>My Button</StoriesLabel>\n      <StoriesBadge slot=\"end\">22</StoriesBadge>\n    </StoriesButton>\n  </fiv>\n);\n```\n",
-        "stencil": "```tsx\nimport { Component, h } from '@stencil/core';\n\n@Component({\n  tag: 'badge-example',\n  styleUrl: 'badge-example.css'\n})\nexport class BadgeExample {\n  render() {\n    return [\n      // Default\n      <stories-badge>99</stories-badge>,\n\n      // Colors\n      <stories-badge color=\"primary\">11</stories-badge>,\n      <stories-badge color=\"secondary\">22</stories-badge>,\n      <stories-badge color=\"tertiary\">33</stories-badge>,\n      <stories-badge color=\"success\">44</stories-badge>,\n      <stories-badge color=\"warning\">55</stories-badge>,\n      <stories-badge color=\"danger\">66</stories-badge>,\n      <stories-badge color=\"light\">77</stories-badge>,\n      <stories-badge color=\"medium\">88</stories-badge>,\n      <stories-badge color=\"dark\">99</stories-badge>,\n\n      // Button with badge on left and right\n      <stories-button>\n        <stories-badge slot=\"start\">11</stories-badge>\n        <stories-label>My Button</stories-label>\n        <stories-badge slot=\"end\">22</stories-badge>\n      </stories-button>\n    ];\n  }\n}\n```",
-        "vue": "```html\n<template>\n  <!-- Default -->\n  <stories-badge>99</stories-badge>\n\n  <!-- Colors -->\n  <stories-badge color=\"primary\">11</stories-badge>\n  <stories-badge color=\"secondary\">22</stories-badge>\n  <stories-badge color=\"tertiary\">33</stories-badge>\n  <stories-badge color=\"success\">44</stories-badge>\n  <stories-badge color=\"warning\">55</stories-badge>\n  <stories-badge color=\"danger\">66</stories-badge>\n  <stories-badge color=\"light\">77</stories-badge>\n  <stories-badge color=\"medium\">88</stories-badge>\n  <stories-badge color=\"dark\">99</stories-badge>\n\n  <!-- Button with badge on left and right -->\n  <stories-button>\n    <stories-badge slot=\"start\">11</stories-badge>\n    <stories-label>My Button</stories-label>\n    <stories-badge slot=\"end\">22</stories-badge>\n  </stories-button>\n</template>\n\n<script>\nimport { StoriesBadge, StoriesButton, StoriesLabel } from '@stories-js/vue';\nimport { defineComponent } from 'vue';\n\nexport default defineComponent({\n  components: { StoriesBadge, StoriesButton, StoriesLabel }\n});\n</script>\n```"
+        "angular": "```html\n<!-- Default -->\n<str-badge>99</str-badge>\n\n<!-- Colors -->\n<str-badge color=\"primary\">11</str-badge>\n<str-badge color=\"secondary\">22</str-badge>\n<str-badge color=\"tertiary\">33</str-badge>\n<str-badge color=\"success\">44</str-badge>\n<str-badge color=\"warning\">55</str-badge>\n<str-badge color=\"danger\">66</str-badge>\n<str-badge color=\"light\">77</str-badge>\n<str-badge color=\"medium\">88</str-badge>\n<str-badge color=\"dark\">99</str-badge>\n\n<!-- Button with badge on left and right -->\n<str-button>\n  <str-badge slot=\"start\">11</str-badge>\n  <str-label>My Button</str-label>\n  <str-badge slot=\"end\">22</str-badge>\n</str-item>\n```",
+        "javascript": "```html\n<!-- Default -->\n<str-badge>99</str-badge>\n\n<!-- Colors -->\n<str-badge color=\"primary\">11</str-badge>\n<str-badge color=\"secondary\">22</str-badge>\n<str-badge color=\"tertiary\">33</str-badge>\n<str-badge color=\"success\">44</str-badge>\n<str-badge color=\"warning\">55</str-badge>\n<str-badge color=\"danger\">66</str-badge>\n<str-badge color=\"light\">77</str-badge>\n<str-badge color=\"medium\">88</str-badge>\n<str-badge color=\"dark\">99</str-badge>\n\n<!-- Button with badge on left and right -->\n<str-button>\n  <str-badge slot=\"start\">11</str-badge>\n  <str-label>My Button</str-label>\n  <str-badge slot=\"end\">22</str-badge>\n</str-item>\n```",
+        "react": "```tsx\nimport React from 'react';\nimport { StoriesBadge, StoriesButton, StoriesLabel } from '@str-js/react';\n\nexport const BadgeExample: React.FC = () => (\n  <div>\n    {/*-- Default --*/}\n    <StoriesBadge>99</StoriesBadge>\n\n    {/*-- Colors --*/}\n    <StoriesBadge color=\"primary\">11</StoriesBadge>\n    <StoriesBadge color=\"secondary\">22</StoriesBadge>\n    <StoriesBadge color=\"tertiary\">33</StoriesBadge>\n    <StoriesBadge color=\"success\">44</StoriesBadge>\n    <StoriesBadge color=\"warning\">55</StoriesBadge>\n    <StoriesBadge color=\"danger\">66</StoriesBadge>\n    <StoriesBadge color=\"light\">77</StoriesBadge>\n    <StoriesBadge color=\"medium\">88</StoriesBadge>\n    <StoriesBadge color=\"dark\">99</StoriesBadge>\n\n    {/*-- Button with badge on left and right --*/}\n    <StoriesButton>\n      <StoriesBadge slot=\"start\">11</StoriesBadge>\n      <StoriesLabel>My Button</StoriesLabel>\n      <StoriesBadge slot=\"end\">22</StoriesBadge>\n    </StoriesButton>\n  </fiv>\n);\n```\n",
+        "stencil": "```tsx\nimport { Component, h } from '@stencil/core';\n\n@Component({\n  tag: 'badge-example',\n  styleUrl: 'badge-example.css'\n})\nexport class BadgeExample {\n  render() {\n    return [\n      // Default\n      <str-badge>99</str-badge>,\n\n      // Colors\n      <str-badge color=\"primary\">11</str-badge>,\n      <str-badge color=\"secondary\">22</str-badge>,\n      <str-badge color=\"tertiary\">33</str-badge>,\n      <str-badge color=\"success\">44</str-badge>,\n      <str-badge color=\"warning\">55</str-badge>,\n      <str-badge color=\"danger\">66</str-badge>,\n      <str-badge color=\"light\">77</str-badge>,\n      <str-badge color=\"medium\">88</str-badge>,\n      <str-badge color=\"dark\">99</str-badge>,\n\n      // Button with badge on left and right\n      <str-button>\n        <str-badge slot=\"start\">11</str-badge>\n        <str-label>My Button</str-label>\n        <str-badge slot=\"end\">22</str-badge>\n      </str-button>\n    ];\n  }\n}\n```",
+        "vue": "```html\n<template>\n  <!-- Default -->\n  <str-badge>99</str-badge>\n\n  <!-- Colors -->\n  <str-badge color=\"primary\">11</str-badge>\n  <str-badge color=\"secondary\">22</str-badge>\n  <str-badge color=\"tertiary\">33</str-badge>\n  <str-badge color=\"success\">44</str-badge>\n  <str-badge color=\"warning\">55</str-badge>\n  <str-badge color=\"danger\">66</str-badge>\n  <str-badge color=\"light\">77</str-badge>\n  <str-badge color=\"medium\">88</str-badge>\n  <str-badge color=\"dark\">99</str-badge>\n\n  <!-- Button with badge on left and right -->\n  <str-button>\n    <str-badge slot=\"start\">11</str-badge>\n    <str-label>My Button</str-label>\n    <str-badge slot=\"end\">22</str-badge>\n  </str-button>\n</template>\n\n<script>\nimport { StoriesBadge, StoriesButton, StoriesLabel } from '@str-js/vue';\nimport { defineComponent } from 'vue';\n\nexport default defineComponent({\n  components: { StoriesBadge, StoriesButton, StoriesLabel }\n});\n</script>\n```"
       },
       "properties": [
         {
@@ -505,10 +505,10 @@
     {
       "filePath": "./src/components/button/button.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-button",
-      "name": "stories-button",
-      "readme": "# Button\n\nThe Button (stories-button) is an styled HTML button element displays text, icons, or both.\n",
-      "description": "The Button (stories-button) is an styled HTML button element displays text, icons, or both.",
+      "tag": "str-button",
+      "name": "str-button",
+      "readme": "# Button\n\nThe Button (str-button) is an styled HTML button element displays text, icons, or both.\n",
+      "description": "The Button (str-button) is an styled HTML button element displays text, icons, or both.",
       "docsTags": [],
       "usage": {},
       "properties": [
@@ -1053,26 +1053,26 @@
       ],
       "events": [
         {
-          "event": "storiesBlur",
+          "event": "strBlur",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the button loses focus.",
           "docsTags": [],
-          "name": "storiesBlur",
+          "name": "strBlur",
           "description": "Emitted when the button loses focus.",
           "type": "void"
         },
         {
-          "event": "storiesFocus",
+          "event": "strFocus",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the button has focus.",
           "docsTags": [],
-          "name": "storiesFocus",
+          "name": "strFocus",
           "description": "Emitted when the button has focus.",
           "type": "void"
         }
@@ -1201,27 +1201,27 @@
       ],
       "slots": [],
       "dependents": [
-        "stories-tag"
+        "str-tag"
       ],
       "dependencies": [
-        "stories-spinner"
+        "str-spinner"
       ],
       "dependencyGraph": {
-        "stories-button": [
-          "stories-spinner"
+        "str-button": [
+          "str-spinner"
         ],
-        "stories-tag": [
-          "stories-button"
+        "str-tag": [
+          "str-button"
         ]
       }
     },
     {
       "filePath": "./src/components/checkbox/checkbox.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-checkbox",
-      "name": "stories-checkbox",
-      "readme": "# Checkbox\n\nThe Checkbox (stories-checkbox) is a styled HTML checkboxed input element.\n",
-      "description": "The Checkbox (stories-checkbox) is a styled HTML checkboxed input element.",
+      "tag": "str-checkbox",
+      "name": "str-checkbox",
+      "readme": "# Checkbox\n\nThe Checkbox (str-checkbox) is a styled HTML checkboxed input element.\n",
+      "description": "The Checkbox (str-checkbox) is a styled HTML checkboxed input element.",
       "docsTags": [],
       "usage": {},
       "properties": [
@@ -1510,38 +1510,38 @@
       ],
       "events": [
         {
-          "event": "storiesBlur",
+          "event": "strBlur",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the control loses focus.",
           "docsTags": [],
-          "name": "storiesBlur",
+          "name": "strBlur",
           "description": "Emitted when the control loses focus.",
           "type": "void"
         },
         {
-          "event": "storiesChange",
+          "event": "strChange",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the control's checked state changes.",
           "docsTags": [],
-          "name": "storiesChange",
+          "name": "strChange",
           "description": "Emitted when the control's checked state changes.",
           "type": "void"
         },
         {
-          "event": "storiesFocus",
+          "event": "strFocus",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the control gains focus.",
           "docsTags": [],
-          "name": "storiesFocus",
+          "name": "strFocus",
           "description": "Emitted when the control gains focus.",
           "type": "void"
         }
@@ -1640,10 +1640,10 @@
     {
       "filePath": "./src/components/col/col.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-col",
-      "name": "stories-col",
-      "readme": "# Column\n\nThe Column (stories-col) is a container for content within a grid. You put it inside of a row and it always expand to fill the space of a row.\n",
-      "description": "The Column (stories-col) is a container for content within a grid. You put it inside of a row and it always expand to fill the space of a row.",
+      "tag": "str-col",
+      "name": "str-col",
+      "readme": "# Column\n\nThe Column (str-col) is a container for content within a grid. You put it inside of a row and it always expand to fill the space of a row.\n",
+      "description": "The Column (str-col) is a container for content within a grid. You put it inside of a row and it always expand to fill the space of a row.",
       "docsTags": [],
       "usage": {},
       "properties": [
@@ -2470,43 +2470,43 @@
       "events": [],
       "cssProperties": [
         {
-          "name": "--stories-grid-column-padding",
+          "name": "--str-grid-column-padding",
           "annotation": "prop",
           "docs": "Padding for the Column",
           "description": "Padding for the Column"
         },
         {
-          "name": "--stories-grid-column-padding-lg",
+          "name": "--str-grid-column-padding-lg",
           "annotation": "prop",
           "docs": "Padding for the Column on lg screens and up",
           "description": "Padding for the Column on lg screens and up"
         },
         {
-          "name": "--stories-grid-column-padding-md",
+          "name": "--str-grid-column-padding-md",
           "annotation": "prop",
           "docs": "Padding for the Column on md screens and up",
           "description": "Padding for the Column on md screens and up"
         },
         {
-          "name": "--stories-grid-column-padding-sm",
+          "name": "--str-grid-column-padding-sm",
           "annotation": "prop",
           "docs": "Padding for the Column on sm screens and up",
           "description": "Padding for the Column on sm screens and up"
         },
         {
-          "name": "--stories-grid-column-padding-xl",
+          "name": "--str-grid-column-padding-xl",
           "annotation": "prop",
           "docs": "Padding for the Column on xl screens and up",
           "description": "Padding for the Column on xl screens and up"
         },
         {
-          "name": "--stories-grid-column-padding-xs",
+          "name": "--str-grid-column-padding-xs",
           "annotation": "prop",
           "docs": "Padding for the Column on xs screens and up",
           "description": "Padding for the Column on xs screens and up"
         },
         {
-          "name": "--stories-grid-columns",
+          "name": "--str-grid-columns",
           "annotation": "prop",
           "docs": "The number of total Columns in the Grid",
           "description": "The number of total Columns in the Grid"
@@ -2520,10 +2520,10 @@
     {
       "filePath": "./src/components/dropdown/dropdown.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-dropdown",
-      "name": "stories-dropdown",
-      "readme": "# Dropdown\n\nThe Dropdown (stories-dropdown) displays drop-down box that enables selection of an option from an available list of values.\n",
-      "description": "The Dropdown (stories-dropdown) displays drop-down box that enables selection of an option from an available list of values.",
+      "tag": "str-dropdown",
+      "name": "str-dropdown",
+      "readme": "# Dropdown\n\nThe Dropdown (str-dropdown) displays drop-down box that enables selection of an option from an available list of values.\n",
+      "description": "The Dropdown (str-dropdown) displays drop-down box that enables selection of an option from an available list of values.",
       "docsTags": [
         {
           "name": "slot",
@@ -2531,7 +2531,7 @@
         },
         {
           "name": "slot",
-          "text": "trigger - The dropdown's trigger, usually a `<stories-button>` element."
+          "text": "trigger - The dropdown's trigger, usually a `<str-button>` element."
         }
       ],
       "usage": {},
@@ -2919,50 +2919,50 @@
       ],
       "events": [
         {
-          "event": "storiesAfterHide",
+          "event": "strAfterHide",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted after the dropdown closes and all transitions are complete.",
           "docsTags": [],
-          "name": "storiesAfterHide",
+          "name": "strAfterHide",
           "description": "Emitted after the dropdown closes and all transitions are complete.",
           "type": "void"
         },
         {
-          "event": "storiesAfterShow",
+          "event": "strAfterShow",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted after the dropdown opens and all transitions are complete.",
           "docsTags": [],
-          "name": "storiesAfterShow",
+          "name": "strAfterShow",
           "description": "Emitted after the dropdown opens and all transitions are complete.",
           "type": "void"
         },
         {
-          "event": "storiesHide",
+          "event": "strHide",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the dropdown closes. Calling `event.preventDefault()` will prevent it from being closed.",
           "docsTags": [],
-          "name": "storiesHide",
+          "name": "strHide",
           "description": "Emitted when the dropdown closes. Calling `event.preventDefault()` will prevent it from being closed.",
           "type": "void"
         },
         {
-          "event": "storiesShow",
+          "event": "strShow",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the dropdown opens. Calling `event.preventDefault()` will prevent it from being opened.",
           "docsTags": [],
-          "name": "storiesShow",
+          "name": "strShow",
           "description": "Emitted when the dropdown opens. Calling `event.preventDefault()` will prevent it from being opened.",
           "type": "void"
         }
@@ -3006,26 +3006,26 @@
         },
         {
           "name": "trigger",
-          "docs": "The dropdown's trigger, usually a `<stories-button>` element."
+          "docs": "The dropdown's trigger, usually a `<str-button>` element."
         }
       ],
       "dependents": [
-        "stories-select"
+        "str-select"
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "stories-select": [
-          "stories-dropdown"
+        "str-select": [
+          "str-dropdown"
         ]
       }
     },
     {
       "filePath": "./src/components/footer/footer.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-footer",
-      "name": "stories-footer",
-      "readme": "# Footer\n\nThe Footer (stories-footer) is a root component, always appears at the bottom of the page.\n",
-      "description": "The Footer (stories-footer) is a root component, always appears at the bottom of the page.",
+      "tag": "str-footer",
+      "name": "str-footer",
+      "readme": "# Footer\n\nThe Footer (str-footer) is a root component, always appears at the bottom of the page.\n",
+      "description": "The Footer (str-footer) is a root component, always appears at the bottom of the page.",
       "docsTags": [],
       "usage": {},
       "properties": [],
@@ -3041,10 +3041,10 @@
     {
       "filePath": "./src/components/grid/grid.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-grid",
-      "name": "stories-grid",
-      "readme": "# Grid\n\nThe Grid (stories-grid) is a container designed on mobile-first flexbox system for building custom layouts. A layout based on a 12 columns by default, but could be easily customized to any number via CSS customization. Columns will expand to fill the row, and will resize to fit additional columns.\n",
-      "description": "The Grid (stories-grid) is a container designed on mobile-first flexbox system for building custom layouts. A layout based on a 12 columns by default, but could be easily customized to any number via CSS customization. Columns will expand to fill the row, and will resize to fit additional columns.",
+      "tag": "str-grid",
+      "name": "str-grid",
+      "readme": "# Grid\n\nThe Grid (str-grid) is a container designed on mobile-first flexbox system for building custom layouts. A layout based on a 12 columns by default, but could be easily customized to any number via CSS customization. Columns will expand to fill the row, and will resize to fit additional columns.\n",
+      "description": "The Grid (str-grid) is a container designed on mobile-first flexbox system for building custom layouts. A layout based on a 12 columns by default, but could be easily customized to any number via CSS customization. Columns will expand to fill the row, and will resize to fit additional columns.",
       "docsTags": [],
       "usage": {},
       "properties": [
@@ -3092,73 +3092,73 @@
       "events": [],
       "cssProperties": [
         {
-          "name": "--stories-grid-padding",
+          "name": "--str-grid-padding",
           "annotation": "prop",
           "docs": "Padding for the Grid",
           "description": "Padding for the Grid"
         },
         {
-          "name": "--stories-grid-padding-lg",
+          "name": "--str-grid-padding-lg",
           "annotation": "prop",
           "docs": "Padding for the Grid on lg screens",
           "description": "Padding for the Grid on lg screens"
         },
         {
-          "name": "--stories-grid-padding-md",
+          "name": "--str-grid-padding-md",
           "annotation": "prop",
           "docs": "Padding for the Grid on md screens",
           "description": "Padding for the Grid on md screens"
         },
         {
-          "name": "--stories-grid-padding-sm",
+          "name": "--str-grid-padding-sm",
           "annotation": "prop",
           "docs": "Padding for the Grid on sm screens",
           "description": "Padding for the Grid on sm screens"
         },
         {
-          "name": "--stories-grid-padding-xl",
+          "name": "--str-grid-padding-xl",
           "annotation": "prop",
           "docs": "Padding for the Grid on xl screens",
           "description": "Padding for the Grid on xl screens"
         },
         {
-          "name": "--stories-grid-padding-xs",
+          "name": "--str-grid-padding-xs",
           "annotation": "prop",
           "docs": "Padding for the Grid on xs screens",
           "description": "Padding for the Grid on xs screens"
         },
         {
-          "name": "--stories-grid-width",
+          "name": "--str-grid-width",
           "annotation": "prop",
           "docs": "Width of the fixed Grid",
           "description": "Width of the fixed Grid"
         },
         {
-          "name": "--stories-grid-width-lg",
+          "name": "--str-grid-width-lg",
           "annotation": "prop",
           "docs": "Width of the fixed Grid on lg screens",
           "description": "Width of the fixed Grid on lg screens"
         },
         {
-          "name": "--stories-grid-width-md",
+          "name": "--str-grid-width-md",
           "annotation": "prop",
           "docs": "Width of the fixed Grid on md screens",
           "description": "Width of the fixed Grid on md screens"
         },
         {
-          "name": "--stories-grid-width-sm",
+          "name": "--str-grid-width-sm",
           "annotation": "prop",
           "docs": "Width of the fixed Grid on sm screens",
           "description": "Width of the fixed Grid on sm screens"
         },
         {
-          "name": "--stories-grid-width-xl",
+          "name": "--str-grid-width-xl",
           "annotation": "prop",
           "docs": "Width of the fixed Grid on xl screens",
           "description": "Width of the fixed Grid on xl screens"
         },
         {
-          "name": "--stories-grid-width-xs",
+          "name": "--str-grid-width-xs",
           "annotation": "prop",
           "docs": "Width of the fixed Grid on xs screens",
           "description": "Width of the fixed Grid on xs screens"
@@ -3172,10 +3172,10 @@
     {
       "filePath": "./src/components/group/group.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-group",
-      "name": "stories-group",
-      "readme": "# Group\n\nThe Group (stories-group) is used to group multiple fields, usually checkboxes. It can be used for vertical (default) or horizontal organization of the fields that are supplied as its children.\n",
-      "description": "The Group (stories-group) is used to group multiple fields, usually checkboxes. It can be used for vertical (default) or horizontal organization of the fields that are supplied as its children.",
+      "tag": "str-group",
+      "name": "str-group",
+      "readme": "# Group\n\nThe Group (str-group) is used to group multiple fields, usually checkboxes. It can be used for vertical (default) or horizontal organization of the fields that are supplied as its children.\n",
+      "description": "The Group (str-group) is used to group multiple fields, usually checkboxes. It can be used for vertical (default) or horizontal organization of the fields that are supplied as its children.",
       "docsTags": [
         {
           "name": "slot",
@@ -3304,10 +3304,10 @@
     {
       "filePath": "./src/components/icon/icon.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-icon",
-      "name": "stories-icon",
-      "readme": "# Icon\n\nThe Icon (stories-icon) is an easy and performant way to use icons in your Stories application. It dynamically loads only visible SVG icons on demand.Icons should not be used for decoration.\n",
-      "description": "The Icon (stories-icon) is an easy and performant way to use icons in your Stories application. It dynamically loads only visible SVG icons on demand.Icons should not be used for decoration.",
+      "tag": "str-icon",
+      "name": "str-icon",
+      "readme": "# Icon\n\nThe Icon (str-icon) is an easy and performant way to use icons in your Stories application. It dynamically loads only visible SVG icons on demand.Icons should not be used for decoration.\n",
+      "description": "The Icon (str-icon) is an easy and performant way to use icons in your Stories application. It dynamically loads only visible SVG icons on demand.Icons should not be used for decoration.",
       "docsTags": [],
       "usage": {},
       "properties": [
@@ -3353,26 +3353,26 @@
       "cssProperties": [],
       "slots": [],
       "dependents": [
-        "stories-searchbar",
-        "stories-tool-button"
+        "str-searchbar",
+        "str-tool-button"
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "stories-searchbar": [
-          "stories-icon"
+        "str-searchbar": [
+          "str-icon"
         ],
-        "stories-tool-button": [
-          "stories-icon"
+        "str-tool-button": [
+          "str-icon"
         ]
       }
     },
     {
       "filePath": "./src/components/input/input.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-input",
-      "name": "stories-input",
-      "readme": "# Input\n\nThe Input (stories-input) component is a styled and enchanced HTML input element. It supports only standard text input events and types such as \"text\", \"password\", \"email\", \"number\", \"search\", \"tel\", and \"url\".\n",
-      "description": "The Input (stories-input) component is a styled and enchanced HTML input element. It supports only standard text input events and types such as \"text\", \"password\", \"email\", \"number\", \"search\", \"tel\", and \"url\".",
+      "tag": "str-input",
+      "name": "str-input",
+      "readme": "# Input\n\nThe Input (str-input) component is a styled and enchanced HTML input element. It supports only standard text input events and types such as \"text\", \"password\", \"email\", \"number\", \"search\", \"tel\", and \"url\".\n",
+      "description": "The Input (str-input) component is a styled and enchanced HTML input element. It supports only standard text input events and types such as \"text\", \"password\", \"email\", \"number\", \"search\", \"tel\", and \"url\".",
       "docsTags": [
         {
           "name": "slot",
@@ -5093,7 +5093,7 @@
       "events": [
         {
           "event": "stroiesBlur",
-          "detail": "void",
+          "detail": "any",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
@@ -5101,11 +5101,11 @@
           "docsTags": [],
           "name": "stroiesBlur",
           "description": "Emitted when the control loses focus.",
-          "type": "void"
+          "type": "any"
         },
         {
           "event": "stroiesChange",
-          "detail": "void",
+          "detail": "any",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
@@ -5113,11 +5113,11 @@
           "docsTags": [],
           "name": "stroiesChange",
           "description": "Emitted when the control's value changes.",
-          "type": "void"
+          "type": "any"
         },
         {
           "event": "stroiesClear",
-          "detail": "void",
+          "detail": "any",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
@@ -5125,11 +5125,11 @@
           "docsTags": [],
           "name": "stroiesClear",
           "description": "Emitted when the clear button is activated.",
-          "type": "void"
+          "type": "any"
         },
         {
           "event": "stroiesFocus",
-          "detail": "void",
+          "detail": "any",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
@@ -5137,11 +5137,11 @@
           "docsTags": [],
           "name": "stroiesFocus",
           "description": "Emitted when the control gains focus.",
-          "type": "void"
+          "type": "any"
         },
         {
           "event": "stroiesInput",
-          "detail": "void",
+          "detail": "any",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
@@ -5149,7 +5149,7 @@
           "docsTags": [],
           "name": "stroiesInput",
           "description": "Emitted when the control receives input.",
-          "type": "void"
+          "type": "any"
         }
       ],
       "cssProperties": [
@@ -5315,10 +5315,10 @@
     {
       "filePath": "./src/components/label/label.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-label",
-      "name": "stories-label",
-      "readme": "# Label\n\nThe Label (stories-label) is a wrapper element displays text, icons, or both. You can position it as inline, fixed, stacked, or floating element and will usually use it with another components.\n",
-      "description": "The Label (stories-label) is a wrapper element displays text, icons, or both. You can position it as inline, fixed, stacked, or floating element and will usually use it with another components.",
+      "tag": "str-label",
+      "name": "str-label",
+      "readme": "# Label\n\nThe Label (str-label) is a wrapper element displays text, icons, or both. You can position it as inline, fixed, stacked, or floating element and will usually use it with another components.\n",
+      "description": "The Label (str-label) is a wrapper element displays text, icons, or both. You can position it as inline, fixed, stacked, or floating element and will usually use it with another components.",
       "docsTags": [],
       "usage": {},
       "properties": [
@@ -5432,10 +5432,10 @@
     {
       "filePath": "./src/components/menu/menu.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-menu",
-      "name": "stories-menu",
-      "readme": "# Menu\n\nThe Menu (stories-menu) is a container for stories-menu-item components.\n",
-      "description": "The Menu (stories-menu) is a container for stories-menu-item components.",
+      "tag": "str-menu",
+      "name": "str-menu",
+      "readme": "# Menu\n\nThe Menu (str-menu) is a container for str-menu-item components.\n",
+      "description": "The Menu (str-menu) is a container for str-menu-item components.",
       "docsTags": [
         {
           "name": "slot",
@@ -5460,16 +5460,16 @@
       ],
       "events": [
         {
-          "event": "storiesSelect",
-          "detail": "{ item: HTMLStoriesMenuItemElement; }",
+          "event": "strSelect",
+          "detail": "{ item: HTMLStrMenuItemElement; }",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when a menu item is selected.",
           "docsTags": [],
-          "name": "storiesSelect",
+          "name": "strSelect",
           "description": "Emitted when a menu item is selected.",
-          "type": "{ item: HTMLStoriesMenuItemElement; }"
+          "type": "{ item: HTMLStrMenuItemElement; }"
         }
       ],
       "cssProperties": [
@@ -5493,21 +5493,21 @@
         }
       ],
       "dependents": [
-        "stories-select"
+        "str-select"
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "stories-select": [
-          "stories-menu"
+        "str-select": [
+          "str-menu"
         ]
       }
     },
     {
       "filePath": "./src/components/menu-divider/menu-divider.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-menu-divider",
-      "name": "stories-menu-divider",
-      "readme": "# stories-menu-divider\n",
+      "tag": "str-menu-divider",
+      "name": "str-menu-divider",
+      "readme": "# str-menu-divider\n",
       "description": "",
       "docsTags": [],
       "usage": {},
@@ -5543,9 +5543,9 @@
     {
       "filePath": "./src/components/menu-item/menu-item.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-menu-item",
-      "name": "stories-menu-item",
-      "readme": "# stories-menu-item\n",
+      "tag": "str-menu-item",
+      "name": "str-menu-item",
+      "readme": "# str-menu-item\n",
       "description": "",
       "docsTags": [
         {
@@ -5791,9 +5791,9 @@
     {
       "filePath": "./src/components/menu-label/menu-label.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-menu-label",
-      "name": "stories-menu-label",
-      "readme": "# stories-menu-label\n",
+      "tag": "str-menu-label",
+      "name": "str-menu-label",
+      "readme": "# str-menu-label\n",
       "description": "",
       "docsTags": [
         {
@@ -5875,10 +5875,10 @@
     {
       "filePath": "./src/components/preview/preview.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-preview",
-      "name": "stories-preview",
-      "readme": "# stories-preview\n\nThe stories-preview is a wrapper container for stories-renderer component. It utilises stories-zoom component to manage visual size of the rendering content. \n",
-      "description": "The stories-preview is a wrapper container for stories-renderer component. It utilises stories-zoom component to manage visual size of the rendering content.",
+      "tag": "str-preview",
+      "name": "str-preview",
+      "readme": "# str-preview\n\nThe str-preview is a wrapper container for str-renderer component. It utilises str-zoom component to manage visual size of the rendering content. \n",
+      "description": "The str-preview is a wrapper container for str-renderer component. It utilises str-zoom component to manage visual size of the rendering content.",
       "docsTags": [],
       "usage": {},
       "properties": [],
@@ -5889,20 +5889,20 @@
       "slots": [],
       "dependents": [],
       "dependencies": [
-        "stories-zoom"
+        "str-zoom"
       ],
       "dependencyGraph": {
-        "stories-preview": [
-          "stories-zoom"
+        "str-preview": [
+          "str-zoom"
         ]
       }
     },
     {
       "filePath": "./src/components/radio/radio.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-radio",
-      "name": "stories-radio",
-      "readme": "# stories-radio\n",
+      "tag": "str-radio",
+      "name": "str-radio",
+      "readme": "# str-radio\n",
       "description": "",
       "docsTags": [
         {
@@ -6049,26 +6049,26 @@
       ],
       "events": [
         {
-          "event": "storiesBlur",
+          "event": "strBlur",
           "detail": "any",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the control loses focus.",
           "docsTags": [],
-          "name": "storiesBlur",
+          "name": "strBlur",
           "description": "Emitted when the control loses focus.",
           "type": "any"
         },
         {
-          "event": "storiesFocus",
+          "event": "strFocus",
           "detail": "any",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the control gains focus.",
           "docsTags": [],
-          "name": "storiesFocus",
+          "name": "strFocus",
           "description": "Emitted when the control gains focus.",
           "type": "any"
         }
@@ -6178,10 +6178,10 @@
     {
       "filePath": "./src/components/radio-group/radio-group.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-radio-group",
-      "name": "stories-radio-group",
-      "readme": "# stories-radio-group\n\nThe stories-radio-group displays a group of options with radio buttons and enables selection of one option from the list.\n",
-      "description": "The stories-radio-group displays a group of options with radio buttons and enables selection of one option from the list.",
+      "tag": "str-radio-group",
+      "name": "str-radio-group",
+      "readme": "# str-radio-group\n\nThe str-radio-group displays a group of options with radio buttons and enables selection of one option from the list.\n",
+      "description": "The str-radio-group displays a group of options with radio buttons and enables selection of one option from the list.",
       "docsTags": [
         {
           "name": "slot",
@@ -6497,14 +6497,14 @@
       "methods": [],
       "events": [
         {
-          "event": "storiesChange",
+          "event": "strChange",
           "detail": "any",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the value has changed.",
           "docsTags": [],
-          "name": "storiesChange",
+          "name": "strChange",
           "description": "Emitted when the value has changed.",
           "type": "any"
         }
@@ -6519,14 +6519,14 @@
         {
           "name": "--margin-between-radios",
           "annotation": "prop",
-          "docs": "Margin between the gr-radio children",
-          "description": "Margin between the gr-radio children"
+          "docs": "Margin between the str-radio children",
+          "description": "Margin between the str-radio children"
         },
         {
           "name": "--margin-between-radios-horizontal",
           "annotation": "prop",
-          "docs": "Margin between the gr-radio children when layout is horizontal",
-          "description": "Margin between the gr-radio children when layout is horizontal"
+          "docs": "Margin between the str-radio children when layout is horizontal",
+          "description": "Margin between the str-radio children when layout is horizontal"
         }
       ],
       "slots": [
@@ -6550,10 +6550,10 @@
     {
       "filePath": "./src/components/router/router.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-router",
-      "name": "stories-router",
-      "readme": "# stories-router\n\nThe stories-router is a component managing showing content in another components based on the browser's URL. It doent change DOM and only coordinates content in navigation outlets such as stories-nav, stories-tabs, and stories-router-outlet.\n",
-      "description": "The stories-router is a component managing showing content in another components based on the browser's URL. It doent change DOM and only coordinates content in navigation outlets such as stories-nav, stories-tabs, and stories-router-outlet.",
+      "tag": "str-router",
+      "name": "str-router",
+      "readme": "# str-router\n\nThe str-router is a component managing showing content in another components based on the browser's URL. It doent change DOM and only coordinates content in navigation outlets such as str-nav, str-tabs, and str-router-outlet.\n",
+      "description": "The str-router is a component managing showing content in another components based on the browser's URL. It doent change DOM and only coordinates content in navigation outlets such as str-nav, str-tabs, and str-router-outlet.",
       "docsTags": [],
       "usage": {},
       "properties": [],
@@ -6569,10 +6569,10 @@
     {
       "filePath": "./src/components/row/row.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-row",
-      "name": "stories-row",
-      "readme": "# stories-row\n\nThe stories-row is a horizontal component of the grid system look after the columns are positioned properly.\n",
-      "description": "The stories-row is a horizontal component of the grid system look after the columns are positioned properly.",
+      "tag": "str-row",
+      "name": "str-row",
+      "readme": "# str-row\n\nThe str-row is a horizontal component of the grid system look after the columns are positioned properly.\n",
+      "description": "The str-row is a horizontal component of the grid system look after the columns are positioned properly.",
       "docsTags": [],
       "usage": {},
       "properties": [],
@@ -6588,10 +6588,10 @@
     {
       "filePath": "./src/components/searchbar/searchbar.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-searchbar",
-      "name": "stories-searchbar",
-      "readme": "# stories-searchbar\n\nThe stories-searchbar is a text field with an icon that can be used to search through stories.\n",
-      "description": "The stories-searchbar is a text field with an icon that can be used to search through stories.",
+      "tag": "str-searchbar",
+      "name": "str-searchbar",
+      "readme": "# str-searchbar\n\nThe str-searchbar is a text field with an icon that can be used to search through stories.\n",
+      "description": "The str-searchbar is a text field with an icon that can be used to search through stories.",
       "docsTags": [],
       "usage": {},
       "properties": [
@@ -7194,80 +7194,80 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the specified `stories-searchbar`. Use this method instead of the global\n`input.focus()`.",
+          "docs": "Sets focus on the specified `str-searchbar`. Use this method instead of the global\n`input.focus()`.",
           "docsTags": []
         }
       ],
       "events": [
         {
-          "event": "storiesBlur",
+          "event": "strBlur",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the input loses focus.",
           "docsTags": [],
-          "name": "storiesBlur",
+          "name": "strBlur",
           "description": "Emitted when the input loses focus.",
           "type": "void"
         },
         {
-          "event": "storiesCancel",
+          "event": "strCancel",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the cancel button is clicked.",
           "docsTags": [],
-          "name": "storiesCancel",
+          "name": "strCancel",
           "description": "Emitted when the cancel button is clicked.",
           "type": "void"
         },
         {
-          "event": "storiesChange",
+          "event": "strChange",
           "detail": "SearchbarChangeEventDetail",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the value has changed.",
           "docsTags": [],
-          "name": "storiesChange",
+          "name": "strChange",
           "description": "Emitted when the value has changed.",
           "type": "SearchbarChangeEventDetail"
         },
         {
-          "event": "storiesClear",
+          "event": "strClear",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the clear input button is clicked.",
           "docsTags": [],
-          "name": "storiesClear",
+          "name": "strClear",
           "description": "Emitted when the clear input button is clicked.",
           "type": "void"
         },
         {
-          "event": "storiesFocus",
+          "event": "strFocus",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the input has focus.",
           "docsTags": [],
-          "name": "storiesFocus",
+          "name": "strFocus",
           "description": "Emitted when the input has focus.",
           "type": "void"
         },
         {
-          "event": "storiesInput",
+          "event": "strInput",
           "detail": "KeyboardEvent",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when a keyboard input occurred.",
           "docsTags": [],
-          "name": "storiesInput",
+          "name": "strInput",
           "description": "Emitted when a keyboard input occurred.",
           "type": "KeyboardEvent"
         }
@@ -7343,21 +7343,21 @@
       "slots": [],
       "dependents": [],
       "dependencies": [
-        "stories-icon"
+        "str-icon"
       ],
       "dependencyGraph": {
-        "stories-searchbar": [
-          "stories-icon"
+        "str-searchbar": [
+          "str-icon"
         ]
       }
     },
     {
       "filePath": "./src/components/select/select.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-select",
-      "name": "stories-select",
-      "readme": "# Select\n\nThe Select (stories-select) displays a list or drop-down box that enables selection of an option or multiple options from an available list of values.\n",
-      "description": "The Select (stories-select) displays a list or drop-down box that enables selection of an option or multiple options from an available list of values.",
+      "tag": "str-select",
+      "name": "str-select",
+      "readme": "# Select\n\nThe Select (str-select) displays a list or drop-down box that enables selection of an option or multiple options from an available list of values.\n",
+      "description": "The Select (str-select) displays a list or drop-down box that enables selection of an option or multiple options from an available list of values.",
       "docsTags": [
         {
           "name": "slot",
@@ -7975,38 +7975,38 @@
       ],
       "events": [
         {
-          "event": "storiesBlur",
+          "event": "strBlur",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the control loses focus.",
           "docsTags": [],
-          "name": "storiesBlur",
+          "name": "strBlur",
           "description": "Emitted when the control loses focus.",
           "type": "void"
         },
         {
-          "event": "storiesChange",
+          "event": "strChange",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the control's value changes.",
           "docsTags": [],
-          "name": "storiesChange",
+          "name": "strChange",
           "description": "Emitted when the control's value changes.",
           "type": "void"
         },
         {
-          "event": "storiesFocus",
+          "event": "strFocus",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the control gains focus.",
           "docsTags": [],
-          "name": "storiesFocus",
+          "name": "strFocus",
           "description": "Emitted when the control gains focus.",
           "type": "void"
         }
@@ -8177,31 +8177,31 @@
       ],
       "dependents": [],
       "dependencies": [
-        "stories-tag",
-        "stories-dropdown",
-        "stories-menu"
+        "str-tag",
+        "str-dropdown",
+        "str-menu"
       ],
       "dependencyGraph": {
-        "stories-select": [
-          "stories-tag",
-          "stories-dropdown",
-          "stories-menu"
+        "str-select": [
+          "str-tag",
+          "str-dropdown",
+          "str-menu"
         ],
-        "stories-tag": [
-          "stories-button"
+        "str-tag": [
+          "str-button"
         ],
-        "stories-button": [
-          "stories-spinner"
+        "str-button": [
+          "str-spinner"
         ]
       }
     },
     {
       "filePath": "./src/components/sidebar/sidebar.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-sidebar",
-      "name": "stories-sidebar",
-      "readme": "# stories-sidebar\n\nThe stories-sidebar displays collection of names of stories. Every story's name is the link your can click to navigate to story.\n",
-      "description": "The stories-sidebar displays collection of names of stories. Every story's name is the link your can click to navigate to story.",
+      "tag": "str-sidebar",
+      "name": "str-sidebar",
+      "readme": "# str-sidebar\n\nThe str-sidebar displays collection of names of stories. Every story's name is the link your can click to navigate to story.\n",
+      "description": "The str-sidebar displays collection of names of stories. Every story's name is the link your can click to navigate to story.",
       "docsTags": [],
       "usage": {},
       "properties": [],
@@ -8217,10 +8217,10 @@
     {
       "filePath": "./src/components/spinner/spinner.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-spinner",
-      "name": "stories-spinner",
-      "readme": "# Spinner\n\nThe Spinner (stories-spinner) displays a continuous loader on the user interface, to indicate that a system is processing an entity.\n",
-      "description": "The Spinner (stories-spinner) displays a continuous loader on the user interface, to indicate that a system is processing an entity.",
+      "tag": "str-spinner",
+      "name": "str-spinner",
+      "readme": "# Spinner\n\nThe Spinner (str-spinner) displays a continuous loader on the user interface, to indicate that a system is processing an entity.\n",
+      "description": "The Spinner (str-spinner) displays a continuous loader on the user interface, to indicate that a system is processing an entity.",
       "docsTags": [],
       "usage": {},
       "properties": [],
@@ -8249,22 +8249,22 @@
       ],
       "slots": [],
       "dependents": [
-        "stories-button"
+        "str-button"
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "stories-button": [
-          "stories-spinner"
+        "str-button": [
+          "str-spinner"
         ]
       }
     },
     {
       "filePath": "./src/components/split-pane/split-pane.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-split-pane",
-      "name": "stories-split-pane",
-      "readme": "# stories-split-panel\n\nThe stories-split-panel is a component to split content vertically or horizontally.\n",
-      "description": "The stories-split-panel is a component to split content vertically or horizontally.",
+      "tag": "str-split-pane",
+      "name": "str-split-pane",
+      "readme": "# str-split-panel\n\nThe str-split-panel is a component to split content vertically or horizontally.\n",
+      "description": "The str-split-panel is a component to split content vertically or horizontally.",
       "docsTags": [],
       "usage": {},
       "properties": [
@@ -8426,14 +8426,14 @@
       "methods": [],
       "events": [
         {
-          "event": "storiesSizeChange",
+          "event": "strSizeChange",
           "detail": "number",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "",
           "docsTags": [],
-          "name": "storiesSizeChange",
+          "name": "strSizeChange",
           "description": "",
           "type": "number"
         }
@@ -8447,10 +8447,10 @@
     {
       "filePath": "./src/components/tab/tab.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-tab",
-      "name": "stories-tab",
-      "readme": "# stories-tab\n\nThe stories-tab is a child component of a stories-tab. \n\n> Note: This component should only be used with vanilla or Stencil JavaScript projects. For Angular, React, and Vue apps you do not need to use `stories-tab` to declare your tab components.\n\nSee the [stories-tabs](../tabs) for configuration details.\n",
-      "description": "The stories-tab is a child component of a stories-tab. \n\n> Note: This component should only be used with vanilla or Stencil JavaScript projects. For Angular, React, and Vue apps you do not need to use `stories-tab` to declare your tab components.\n\nSee the [stories-tabs](../tabs) for configuration details.",
+      "tag": "str-tab",
+      "name": "str-tab",
+      "readme": "# str-tab\n\nThe str-tab is a child component of a str-tab. \n\n> Note: This component should only be used with vanilla or Stencil JavaScript projects. For Angular, React, and Vue apps you do not need to use `str-tab` to declare your tab components.\n\nSee the [str-tabs](../tabs) for configuration details.\n",
+      "description": "The str-tab is a child component of a str-tab. \n\n> Note: This component should only be used with vanilla or Stencil JavaScript projects. For Angular, React, and Vue apps you do not need to use `str-tab` to declare your tab components.\n\nSee the [str-tabs](../tabs) for configuration details.",
       "docsTags": [],
       "usage": {},
       "properties": [
@@ -8460,7 +8460,7 @@
           "mutable": false,
           "attr": "tab",
           "reflectToAttr": false,
-          "docs": "A tab id must be provided for each `stories-tab`. It's used internally to reference\nthe selected tab or by the router to switch between them.",
+          "docs": "A tab id must be provided for each `str-tab`. It's used internally to reference\nthe selected tab or by the router to switch between them.",
           "docsTags": [],
           "values": [
             {
@@ -8469,7 +8469,7 @@
           ],
           "optional": false,
           "required": true,
-          "description": "A tab id must be provided for each `stories-tab`. It's used internally to reference\nthe selected tab or by the router to switch between them."
+          "description": "A tab id must be provided for each `str-tab`. It's used internally to reference\nthe selected tab or by the router to switch between them."
         }
       ],
       "attributes": [
@@ -8479,7 +8479,7 @@
           "mutable": false,
           "attr": "tab",
           "reflectToAttr": false,
-          "docs": "A tab id must be provided for each `stories-tab`. It's used internally to reference\nthe selected tab or by the router to switch between them.",
+          "docs": "A tab id must be provided for each `str-tab`. It's used internally to reference\nthe selected tab or by the router to switch between them.",
           "docsTags": [],
           "values": [
             {
@@ -8488,7 +8488,7 @@
           ],
           "optional": false,
           "required": true,
-          "description": "A tab id must be provided for each `stories-tab`. It's used internally to reference\nthe selected tab or by the router to switch between them."
+          "description": "A tab id must be provided for each `str-tab`. It's used internally to reference\nthe selected tab or by the router to switch between them."
         }
       ],
       "methods": [],
@@ -8502,10 +8502,10 @@
     {
       "filePath": "./src/components/tab-bar/tab-bar.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-tab-bar",
-      "name": "stories-tab-bar",
-      "readme": "# stories-tab-bar\n\nThe stories-tab-bar is a component that contains a set of [stories-tab-button's](../tab-button). Put the stories-tab-bar in the [stories-tabs](../tabs) to organize communication with every [stories-tab](../tab).\n",
-      "description": "The stories-tab-bar is a component that contains a set of [stories-tab-button's](../tab-button). Put the stories-tab-bar in the [stories-tabs](../tabs) to organize communication with every [stories-tab](../tab).",
+      "tag": "str-tab-bar",
+      "name": "str-tab-bar",
+      "readme": "# str-tab-bar\n\nThe str-tab-bar is a component that contains a set of [str-tab-button's](../tab-button). Put the str-tab-bar in the [str-tabs](../tabs) to organize communication with every [str-tab](../tab).\n",
+      "description": "The str-tab-bar is a component that contains a set of [str-tab-button's](../tab-button). Put the str-tab-bar in the [str-tabs](../tabs) to organize communication with every [str-tab](../tab).",
       "docsTags": [],
       "usage": {},
       "properties": [
@@ -8610,10 +8610,10 @@
     {
       "filePath": "./src/components/tab-button/tab-button.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-tab-button",
-      "name": "stories-tab-button",
-      "readme": "# stories-tab-button\n\nThe stories-tab-button is a component that is placed inside of a [stories-tab-bar](../tab-bar). You can change the layout of the text and icon in the tab bar.\n\nSee the [stories-tabs](../tabs) documentation for details on configuring tabs.\n",
-      "description": "The stories-tab-button is a component that is placed inside of a [stories-tab-bar](../tab-bar). You can change the layout of the text and icon in the tab bar.\n\nSee the [stories-tabs](../tabs) documentation for details on configuring tabs.",
+      "tag": "str-tab-button",
+      "name": "str-tab-button",
+      "readme": "# str-tab-button\n\nThe str-tab-button is a component that is placed inside of a [str-tab-bar](../tab-bar). You can change the layout of the text and icon in the tab bar.\n\nSee the [str-tabs](../tabs) documentation for details on configuring tabs.\n",
+      "description": "The str-tab-button is a component that is placed inside of a [str-tab-bar](../tab-bar). You can change the layout of the text and icon in the tab bar.\n\nSee the [str-tabs](../tabs) documentation for details on configuring tabs.",
       "docsTags": [],
       "usage": {},
       "properties": [
@@ -8698,7 +8698,7 @@
           "mutable": false,
           "attr": "tab",
           "reflectToAttr": false,
-          "docs": "A tab id must be provided for each `stories-tab`. It's used internally to reference\nthe selected tab or by the router to switch between them.",
+          "docs": "A tab id must be provided for each `str-tab`. It's used internally to reference\nthe selected tab or by the router to switch between them.",
           "docsTags": [],
           "values": [
             {
@@ -8707,7 +8707,7 @@
           ],
           "optional": true,
           "required": false,
-          "description": "A tab id must be provided for each `stories-tab`. It's used internally to reference\nthe selected tab or by the router to switch between them."
+          "description": "A tab id must be provided for each `str-tab`. It's used internally to reference\nthe selected tab or by the router to switch between them."
         }
       ],
       "attributes": [
@@ -8795,7 +8795,7 @@
           "mutable": false,
           "attr": "tab",
           "reflectToAttr": false,
-          "docs": "A tab id must be provided for each `stories-tab`. It's used internally to reference\nthe selected tab or by the router to switch between them.",
+          "docs": "A tab id must be provided for each `str-tab`. It's used internally to reference\nthe selected tab or by the router to switch between them.",
           "docsTags": [],
           "values": [
             {
@@ -8804,7 +8804,7 @@
           ],
           "optional": true,
           "required": false,
-          "description": "A tab id must be provided for each `stories-tab`. It's used internally to reference\nthe selected tab or by the router to switch between them."
+          "description": "A tab id must be provided for each `str-tab`. It's used internally to reference\nthe selected tab or by the router to switch between them."
         }
       ],
       "methods": [],
@@ -8879,10 +8879,10 @@
     {
       "filePath": "./src/components/tabs/tabs.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-tabs",
-      "name": "stories-tabs",
-      "readme": "# stories-tabs\n\nThe stories-tabs is a container works as a router outlet in order to handle navigation. It does not provide any UI feedback or mechanism to switch between tabs. In order to do so, an [stories-tab-bar](../tab-bar) should be provided as a direct child of `stories-tabs`.\n",
-      "description": "The stories-tabs is a container works as a router outlet in order to handle navigation. It does not provide any UI feedback or mechanism to switch between tabs. In order to do so, an [stories-tab-bar](../tab-bar) should be provided as a direct child of `stories-tabs`.",
+      "tag": "str-tabs",
+      "name": "str-tabs",
+      "readme": "# str-tabs\n\nThe str-tabs is a container works as a router outlet in order to handle navigation. It does not provide any UI feedback or mechanism to switch between tabs. In order to do so, an [str-tab-bar](../tab-bar) should be provided as a direct child of `str-tabs`.\n",
+      "description": "The str-tabs is a container works as a router outlet in order to handle navigation. It does not provide any UI feedback or mechanism to switch between tabs. In order to do so, an [str-tab-bar](../tab-bar) should be provided as a direct child of `str-tabs`.",
       "docsTags": [],
       "usage": {},
       "properties": [],
@@ -8902,10 +8902,10 @@
         {
           "name": "getTab",
           "returns": {
-            "type": "Promise<HTMLStoriesTabElement>",
+            "type": "Promise<HTMLStrTabElement>",
             "docs": ""
           },
-          "signature": "getTab(tab: string | HTMLStoriesTabElement) => Promise<HTMLStoriesTabElement | undefined>",
+          "signature": "getTab(tab: string | HTMLStrTabElement) => Promise<HTMLStrTabElement | undefined>",
           "parameters": [],
           "docs": "Get a specific tab by the value of its `tab` property or an element reference.",
           "docsTags": [
@@ -8921,7 +8921,7 @@
             "type": "Promise<boolean>",
             "docs": ""
           },
-          "signature": "select(tab: string | HTMLStoriesTabElement) => Promise<boolean>",
+          "signature": "select(tab: string | HTMLStrTabElement) => Promise<boolean>",
           "parameters": [],
           "docs": "Select a tab by the value of its `tab` property or an element reference.",
           "docsTags": [
@@ -8942,9 +8942,9 @@
     {
       "filePath": "./src/components/tag/tag.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-tag",
-      "name": "stories-tag",
-      "readme": "# stories-tag\n",
+      "tag": "str-tag",
+      "name": "str-tag",
+      "readme": "# str-tag\n",
       "description": "",
       "docsTags": [
         {
@@ -9160,14 +9160,14 @@
       "methods": [],
       "events": [
         {
-          "event": "storiesClear",
+          "event": "strClear",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the clear button is activated.",
           "docsTags": [],
-          "name": "storiesClear",
+          "name": "strClear",
           "description": "Emitted when the clear button is activated.",
           "type": "void"
         }
@@ -9283,29 +9283,29 @@
         }
       ],
       "dependents": [
-        "stories-select"
+        "str-select"
       ],
       "dependencies": [
-        "stories-button"
+        "str-button"
       ],
       "dependencyGraph": {
-        "stories-tag": [
-          "stories-button"
+        "str-tag": [
+          "str-button"
         ],
-        "stories-button": [
-          "stories-spinner"
+        "str-button": [
+          "str-spinner"
         ],
-        "stories-select": [
-          "stories-tag"
+        "str-select": [
+          "str-tag"
         ]
       }
     },
     {
       "filePath": "./src/components/textarea/textarea.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-textarea",
-      "name": "stories-textarea",
-      "readme": "# stories-textarea\n",
+      "tag": "str-textarea",
+      "name": "str-textarea",
+      "readme": "# str-textarea\n",
       "description": "",
       "docsTags": [
         {
@@ -9388,7 +9388,7 @@
           "mutable": false,
           "attr": "debounce",
           "reflectToAttr": false,
-          "docs": "Set the amount of time, in milliseconds, to wait to trigger the `stories-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.",
+          "docs": "Set the amount of time, in milliseconds, to wait to trigger the `str-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.",
           "docsTags": [],
           "default": "0",
           "values": [
@@ -9398,7 +9398,7 @@
           ],
           "optional": false,
           "required": false,
-          "description": "Set the amount of time, in milliseconds, to wait to trigger the `stories-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`."
+          "description": "Set the amount of time, in milliseconds, to wait to trigger the `str-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`."
         },
         {
           "name": "disabled",
@@ -9843,7 +9843,7 @@
           "mutable": false,
           "attr": "debounce",
           "reflectToAttr": false,
-          "docs": "Set the amount of time, in milliseconds, to wait to trigger the `stories-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.",
+          "docs": "Set the amount of time, in milliseconds, to wait to trigger the `str-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.",
           "docsTags": [],
           "default": "0",
           "values": [
@@ -9854,7 +9854,7 @@
           "optional": false,
           "required": false,
           "defaultValue": "0",
-          "description": "Set the amount of time, in milliseconds, to wait to trigger the `stories-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`."
+          "description": "Set the amount of time, in milliseconds, to wait to trigger the `str-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`."
         },
         {
           "name": "disabled",
@@ -10301,50 +10301,50 @@
       ],
       "events": [
         {
-          "event": "storiesBlur",
+          "event": "strBlur",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the textarea loses focus.",
           "docsTags": [],
-          "name": "storiesBlur",
+          "name": "strBlur",
           "description": "Emitted when the textarea loses focus.",
           "type": "void"
         },
         {
-          "event": "storiesChange",
+          "event": "strChange",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the textarea's value changes.",
           "docsTags": [],
-          "name": "storiesChange",
+          "name": "strChange",
           "description": "Emitted when the textarea's value changes.",
           "type": "void"
         },
         {
-          "event": "storiesFocus",
+          "event": "strFocus",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the textarea has focus.",
           "docsTags": [],
-          "name": "storiesFocus",
+          "name": "strFocus",
           "description": "Emitted when the textarea has focus.",
           "type": "void"
         },
         {
-          "event": "storiesInput",
+          "event": "strInput",
           "detail": "void",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the textarea receives input.",
           "docsTags": [],
-          "name": "storiesInput",
+          "name": "strInput",
           "description": "Emitted when the textarea receives input.",
           "type": "void"
         }
@@ -10486,10 +10486,10 @@
     {
       "filePath": "./src/components/tool-bar/tool-bar.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-tool-bar",
-      "name": "stories-tool-bar",
-      "readme": "# stories-toolbar\n\nThe stories-toolbar is a container for other Stories components such as stories-button, stories-toggle, etc.\n",
-      "description": "The stories-toolbar is a container for other Stories components such as stories-button, stories-toggle, etc.",
+      "tag": "str-tool-bar",
+      "name": "str-tool-bar",
+      "readme": "# str-toolbar\n\nThe str-toolbar is a container for other Stories components such as str-button, str-toggle, etc.\n",
+      "description": "The str-toolbar is a container for other Stories components such as str-button, str-toggle, etc.",
       "docsTags": [],
       "usage": {},
       "properties": [],
@@ -10505,10 +10505,10 @@
     {
       "filePath": "./src/components/tool-button/tool-button.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-tool-button",
-      "name": "stories-tool-button",
-      "readme": "# stories-toolbutton\n\n> Notice: Deprecated. Use stories-button instead\n",
-      "description": "> Notice: Deprecated. Use stories-button instead",
+      "tag": "str-tool-button",
+      "name": "str-tool-button",
+      "readme": "# str-toolbutton\n\n> Notice: Deprecated. Use str-button instead\n",
+      "description": "> Notice: Deprecated. Use str-button instead",
       "docsTags": [],
       "usage": {},
       "properties": [
@@ -10638,14 +10638,14 @@
       "methods": [],
       "events": [
         {
-          "event": "storiesAction",
+          "event": "strAction",
           "detail": "{ command: string; data?: unknown; }",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
           "docs": "Action Event",
           "docsTags": [],
-          "name": "storiesAction",
+          "name": "strAction",
           "description": "Action Event",
           "type": "{ command: string; data?: unknown; }"
         }
@@ -10653,27 +10653,27 @@
       "cssProperties": [],
       "slots": [],
       "dependents": [
-        "stories-tool-zoom"
+        "str-tool-zoom"
       ],
       "dependencies": [
-        "stories-icon"
+        "str-icon"
       ],
       "dependencyGraph": {
-        "stories-tool-button": [
-          "stories-icon"
+        "str-tool-button": [
+          "str-icon"
         ],
-        "stories-tool-zoom": [
-          "stories-tool-button"
+        "str-tool-zoom": [
+          "str-tool-button"
         ]
       }
     },
     {
       "filePath": "./src/components/tool-zoom/tool-zoom.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-tool-zoom",
-      "name": "stories-tool-zoom",
-      "readme": "# stories-tool-zoom\n\nThe stories-tool-zoom is a container for zoom-in, zoom-out, and zoom-reset buttons.\n",
-      "description": "The stories-tool-zoom is a container for zoom-in, zoom-out, and zoom-reset buttons.",
+      "tag": "str-tool-zoom",
+      "name": "str-tool-zoom",
+      "readme": "# str-tool-zoom\n\nThe str-tool-zoom is a container for zoom-in, zoom-out, and zoom-reset buttons.\n",
+      "description": "The str-tool-zoom is a container for zoom-in, zoom-out, and zoom-reset buttons.",
       "docsTags": [],
       "usage": {},
       "properties": [],
@@ -10684,24 +10684,24 @@
       "slots": [],
       "dependents": [],
       "dependencies": [
-        "stories-tool-button"
+        "str-tool-button"
       ],
       "dependencyGraph": {
-        "stories-tool-zoom": [
-          "stories-tool-button"
+        "str-tool-zoom": [
+          "str-tool-button"
         ],
-        "stories-tool-button": [
-          "stories-icon"
+        "str-tool-button": [
+          "str-icon"
         ]
       }
     },
     {
       "filePath": "./src/components/zoom/zoom.tsx",
       "encapsulation": "shadow",
-      "tag": "stories-zoom",
-      "name": "stories-zoom",
-      "readme": "# stories-zoom\n\nThe stories-zoom is a container managing visual zoom of content.\n",
-      "description": "The stories-zoom is a container managing visual zoom of content.",
+      "tag": "str-zoom",
+      "name": "str-zoom",
+      "readme": "# str-zoom\n\nThe str-zoom is a container managing visual zoom of content.\n",
+      "description": "The str-zoom is a container managing visual zoom of content.",
       "docsTags": [],
       "usage": {},
       "properties": [
@@ -10750,12 +10750,12 @@
       "cssProperties": [],
       "slots": [],
       "dependents": [
-        "stories-preview"
+        "str-preview"
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "stories-preview": [
-          "stories-zoom"
+        "str-preview": [
+          "str-zoom"
         ]
       }
     }

@@ -7,7 +7,7 @@ import { hasSlot } from '../../utils/slot';
  * @slot label - The field group label. Recommended for proper accessibility. Alternatively, you can use the label prop.
  */
 @Component({
-  tag: 'stories-group',
+  tag: 'str-group',
   styleUrl: 'group.scss',
   shadow: true,
 })

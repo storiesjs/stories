@@ -21,8 +21,8 @@ button {
 }; */
 
 button:hover, button:focus-visible {
-  // background: transparentize(var(--stories-color-secondary), 0.88);
-  // color: var(--stories-color-secondary);
+  // background: transparentize(var(--str-color-secondary), 0.88);
+  // color: var(--str-color-secondary);
   color: var(--color-hover);
   background: var(--background-hover);
   opacity: var(--background-hover-opacity);
@@ -37,8 +37,8 @@ button:focus:not(:focus-visible) {
 }
 
 button.active {
-  // background-color: var(--stories-background-hoverable);
-  // color: var(--stories-color-secondary);
+  // background-color: var(--str-background-hoverable);
+  // color: var(--str-color-secondary);
   color: var(--color-hover);
   background: var(--background-hover);
 }

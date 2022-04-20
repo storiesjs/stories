@@ -10,8 +10,8 @@ export const findElement = (selector: string, el: HTMLElement): HTMLElement | nu
 
 export const createColorClasses = (color: Color | undefined | null, cssClassMap: CssClassMap): CssClassMap => {
   return (typeof color === 'string' && color.length > 0) ? {
-    'stories-color': true,
-    [`stories-color-${color}`]: true,
+    'str-color': true,
+    [`str-color-${color}`]: true,
     ...cssClassMap
   } : cssClassMap;
 };

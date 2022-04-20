@@ -15,22 +15,22 @@ let id = 0;
  * @slot invalid-text - Invalid text tells a user how to fix the error. Alternatively, you can use the invalid-text prop.
  */
 @Component({
-  tag: 'stories-select',
+  tag: 'str-select',
   styleUrl: 'select.scss',
   shadow: true,
 })
 export class Select {
   private box: HTMLElement;
-  private dropdown: HTMLStoriesDropdownElement;
+  private dropdown: HTMLStrDropdownElement;
   private inputId = `select-${++id}`;
   private labelId = `select-label-${id}`;
   private helpTextId = `select-help-text-${id}`;
   private invalidTextId = `select-invalid-text-${id}`;
-  private menu: HTMLStoriesMenuElement;
+  private menu: HTMLStrMenuElement;
   private resizeObserver: ResizeObserver;
   private inheritedAttributes: { [k: string]: any } = {};
 
-  @Element() el: HTMLStoriesSelectElement;
+  @Element() el: HTMLStrSelectElement;
 
   @State() hasFocus = false;
   @State() hasHelpTextSlot = false;
@@ -117,17 +117,17 @@ export class Select {
   @Watch('value')
   handleValueChange() {
     this.syncItemsFromValue();
-    this.storiesChange.emit();
+    this.strChange.emit();
   }
 
   /** Emitted when the control's value changes. */
-  @Event() storiesChange!: EventEmitter<void>;
+  @Event() strChange!: EventEmitter<void>;
 
   /** Emitted when the control gains focus. */
-  @Event() storiesFocus!: EventEmitter<void>;
+  @Event() strFocus!: EventEmitter<void>;
 
   /** Emitted when the control loses focus. */
-  @Event() storiesBlur!: EventEmitter<void>;
+  @Event() strBlur!: EventEmitter<void>;
 
   connectedCallback() {
     this.handleClearClick = this.handleClearClick.bind(this);
@@ -166,17 +166,17 @@ export class Select {
   @Method()
   async setFocus() {
     this.hasFocus = true;
-    this.storiesFocus.emit();
+    this.strFocus.emit();
     this.dropdown.focusOnTrigger();
   }
 
-  getItemLabel(item: HTMLStoriesMenuItemElement) {
+  getItemLabel(item: HTMLStrMenuItemElement) {
     const slot = item.shadowRoot.querySelector('slot:not([name])') as HTMLSlotElement;
     return getTextContent(slot);
   }
 
   getItems() {
-    return [...this.el.querySelectorAll('stories-menu-item') as any];
+    return [...this.el.querySelectorAll('str-menu-item') as any];
   }
 
   getValueAsArray() {
@@ -187,14 +187,14 @@ export class Select {
     // Don't blur if the control is open. We'll move focus back once it closes.
     if (!this.isOpen) {
       this.hasFocus = false;
-      this.storiesBlur.emit();
+      this.strBlur.emit();
     }
   };
 
   private handleFocus = () => {
     if (!this.hasFocus) {
       this.hasFocus = true;
-      this.storiesFocus.emit();
+      this.strFocus.emit();
     }
   };
 
@@ -211,7 +211,7 @@ export class Select {
     const lastItem = items[items.length - 1];
 
     // Ignore key presses on tags
-    if (target.tagName.toLowerCase() === 'stories-tag') {
+    if (target.tagName.toLowerCase() === 'str-tag') {
       return;
     }
 
@@ -318,7 +318,7 @@ export class Select {
     // Report duplicate values since they can break selection logic
     const duplicateValues = items.map(item => item.value).filter((e, i, a) => a.indexOf(e) !== i);
     if (duplicateValues.length) {
-      throw new Error('Duplicate value found on <stories-menu-item> in <stories-select>: "' + duplicateValues.join('", "') + '"');
+      throw new Error('Duplicate value found on <str-menu-item> in <str-select>: "' + duplicateValues.join('", "') + '"');
     }
   }
 
@@ -340,14 +340,14 @@ export class Select {
 
       this.displayTags = checkedItems.map(item => {
         return (
-          <stories-tag
+          <str-tag
             type="info"
             size={this.size}
             pill={this.pill}
             clearable
             onClick={this.handleTagInteraction}
             onKeyDown={this.handleTagInteraction}
-            onStories-clear={event => {
+            onStrClear={event => {
               event.stopPropagation();
               if (!this.disabled) {
                 item.checked = false;
@@ -356,7 +356,7 @@ export class Select {
             }}
           >
             {this.getItemLabel(item)}
-          </stories-tag>
+          </str-tag>
         );
       });
 
@@ -365,9 +365,9 @@ export class Select {
         this.displayLabel = '';
         this.displayTags = this.displayTags.slice(0, this.maxTagsVisible);
         this.displayTags.push(
-          <stories-tag type="info" size={this.size} pill={this.pill}>
+          <str-tag type="info" size={this.size} pill={this.pill}>
             +{total - this.maxTagsVisible}
-          </stories-tag>,
+          </str-tag>,
         );
       }
     } else {
@@ -415,7 +415,7 @@ export class Select {
         onLabelClick={this.handleLabelClick}
         requiredIndicator={this.requiredIndicator}
       >
-        <stories-dropdown
+        <str-dropdown
           ref={el => (this.dropdown = el)}
           hoist={this.hoist}
           closeOnSelect={!this.multiple}
@@ -434,8 +434,8 @@ export class Select {
             'select-pill': this.pill,
             'select-invalid': this.invalid,
           }}
-          onStories-show={this.handleMenuShow}
-          onStories-hide={this.handleMenuHide}
+          onStrShow={this.handleMenuShow}
+          onStrHide={this.handleMenuHide}
         >
           <div
             slot="trigger"
@@ -508,10 +508,10 @@ export class Select {
             <input class="select-hidden-select" aria-hidden="true" value={hasSelection ? '1' : ''} tabIndex={-1} />
           </div>
 
-          <stories-menu ref={el => (this.menu = el)} class="select-menu" onStories-select={this.handleMenuSelect}>
+          <str-menu ref={el => (this.menu = el)} class="select-menu" onStrSelect={this.handleMenuSelect}>
             <slot onSlotchange={this.handleSlotChange} />
-          </stories-menu>
-        </stories-dropdown>
+          </str-menu>
+        </str-dropdown>
       </FormItem>
     );
   }

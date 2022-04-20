@@ -8,14 +8,14 @@ import { state } from '../../store';
 import type { StoryModules, StoryComponent, StoryContext } from '../../types';
 
 @Component({
-  tag: 'stories-app',
+  tag: 'str-app',
   styleUrl: 'app.scss',
   shadow: true,
 })
 export class App {
 
-  @Event() storyChange: EventEmitter<StoryComponent>;
-  @Event() storyContextChange: EventEmitter<StoryContext>;
+  @Event() strChange: EventEmitter<StoryComponent>;
+  @Event() strContextChange: EventEmitter<StoryContext>;
 
   /**
    * Story Modules
@@ -60,14 +60,14 @@ export class App {
     // We have to update the URL's hash to keep it in sync
     api.selectStory(storyId);
     // Send custom event about selected story
-    this.storyChange.emit(story);
-    console.log('storyChange emit', story)
+    this.strChange.emit(story);
+    console.log('strChange emit', story)
     // Create context for story
     const context: StoryContext | undefined = story ? this.createContext(story) : undefined;
     state.context = context;
     // Send custom event about selected story
-    this.storyContextChange.emit(context);
-    console.log('storyContextChange emit', story)
+    this.strContextChange.emit(context);
+    console.log('strContextChange emit', story)
     // Inform Addons about changes
     // this.addons.storyContextChanged(story, context);
   };

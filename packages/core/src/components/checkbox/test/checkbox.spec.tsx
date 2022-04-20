@@ -2,14 +2,14 @@ import { newSpecPage } from '@stencil/core/testing';
 
 import { Checkbox } from '../checkbox';
 
-describe('stories-checkbox', () => {
+describe('str-checkbox', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [Checkbox],
-      html: `<stories-checkbox></stories-checkbox>`,
+      html: `<str-checkbox></str-checkbox>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-checkbox>
+      <str-checkbox>
         <mock:shadow-root>
           <label class="checkbox" htmlfor="checkbox-1">
           <span class="checkbox-control">
@@ -20,7 +20,7 @@ describe('stories-checkbox', () => {
            </span>
         </mock:shadow-root>
         <input class="aux-input" name="checkbox-1" type="hidden" value="">
-      </stories-checkbox>
+      </str-checkbox>
     `);
   });
 });

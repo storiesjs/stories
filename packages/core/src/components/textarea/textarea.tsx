@@ -13,7 +13,7 @@ let id = 0;
  * @slot invalid-text - Invalid text tells a user how to fix the error. Alternatively, you can use the invalid-text prop.
  */
 @Component({
-  tag: 'stories-textarea',
+  tag: 'str-textarea',
   styleUrl: 'textarea.scss',
   shadow: true,
 })
@@ -25,7 +25,7 @@ export class Textarea {
   private textarea: HTMLTextAreaElement;
   private inheritedAttributes: { [k: string]: any } = {};
 
-  @Element() el!: HTMLStoriesTextareaElement;
+  @Element() el!: HTMLStrTextareaElement;
 
   @State() hasFocus = false;
   @State() hasHelpTextSlot = false;
@@ -104,13 +104,13 @@ export class Textarea {
   @Prop() autofocus = false;
 
   /**
-   * Set the amount of time, in milliseconds, to wait to trigger the `stories-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
+   * Set the amount of time, in milliseconds, to wait to trigger the `str-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
    */
   @Prop() debounce = 0;
 
   @Watch('debounce')
   protected debounceChanged() {
-    this.storiesChange = debounceEvent(this.storiesChange, this.debounce);
+    this.strChange = debounceEvent(this.strChange, this.debounce);
   }
 
   /**
@@ -123,7 +123,7 @@ export class Textarea {
     if (nativeInput && nativeInput.value !== value) {
       nativeInput.value = value;
     }
-    this.storiesChange.emit();
+    this.strChange.emit();
   }
 
   @Watch('helpText')
@@ -139,16 +139,16 @@ export class Textarea {
   }
 
   /** Emitted when the textarea's value changes. */
-  @Event() storiesChange: EventEmitter<void>;
+  @Event() strChange: EventEmitter<void>;
 
   /** Emitted when the textarea receives input. */
-  @Event() storiesInput: EventEmitter<void>;
+  @Event() strInput: EventEmitter<void>;
 
   /** Emitted when the textarea has focus. */
-  @Event() storiesFocus!: EventEmitter<void>;
+  @Event() strFocus!: EventEmitter<void>;
 
   /** Emitted when the textarea loses focus. */
-  @Event() storiesBlur!: EventEmitter<void>;
+  @Event() strBlur!: EventEmitter<void>;
 
   connectedCallback() {
     this.handleChange = this.handleChange.bind(this);
@@ -208,29 +208,29 @@ export class Textarea {
     if (this.value !== this.textarea.value) {
       this.value = this.textarea.value;
       this.setTextareaHeight();
-      this.storiesChange.emit();
-      this.storiesInput.emit();
+      this.strChange.emit();
+      this.strInput.emit();
     }
   }
 
   handleChange() {
-    this.storiesChange.emit();
+    this.strChange.emit();
   }
 
   handleInput() {
     this.value = this.textarea.value;
     this.setTextareaHeight();
-    this.storiesInput.emit();
+    this.strInput.emit();
   }
 
   handleBlur() {
     this.hasFocus = false;
-    this.storiesBlur.emit();
+    this.strBlur.emit();
   }
 
   handleFocus() {
     this.hasFocus = true;
-    this.storiesFocus.emit();
+    this.strFocus.emit();
   }
 
   handleLabelClick() {

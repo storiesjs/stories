@@ -1,6 +1,6 @@
-# stories-addon-controls
+# str-addon-controls
 
-The stories-addon-controls helps you interact with components via changing arguments.
+The str-addon-controls helps you interact with components via changing arguments.
 
 <!-- Auto Generated Below -->
 

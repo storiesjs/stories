@@ -9,25 +9,25 @@ export class BadgeExample {
   render() {
     return [
       // Default
-      <stories-badge>99</stories-badge>,
+      <str-badge>99</str-badge>,
 
       // Colors
-      <stories-badge color="primary">11</stories-badge>,
-      <stories-badge color="secondary">22</stories-badge>,
-      <stories-badge color="tertiary">33</stories-badge>,
-      <stories-badge color="success">44</stories-badge>,
-      <stories-badge color="warning">55</stories-badge>,
-      <stories-badge color="danger">66</stories-badge>,
-      <stories-badge color="light">77</stories-badge>,
-      <stories-badge color="medium">88</stories-badge>,
-      <stories-badge color="dark">99</stories-badge>,
+      <str-badge color="primary">11</str-badge>,
+      <str-badge color="secondary">22</str-badge>,
+      <str-badge color="tertiary">33</str-badge>,
+      <str-badge color="success">44</str-badge>,
+      <str-badge color="warning">55</str-badge>,
+      <str-badge color="danger">66</str-badge>,
+      <str-badge color="light">77</str-badge>,
+      <str-badge color="medium">88</str-badge>,
+      <str-badge color="dark">99</str-badge>,
 
       // Button with badge on left and right
-      <stories-button>
-        <stories-badge slot="start">11</stories-badge>
-        <stories-label>My Button</stories-label>
-        <stories-badge slot="end">22</stories-badge>
-      </stories-button>
+      <str-button>
+        <str-badge slot="start">11</str-badge>
+        <str-label>My Button</str-label>
+        <str-badge slot="end">22</str-badge>
+      </str-button>
     ];
   }
 }

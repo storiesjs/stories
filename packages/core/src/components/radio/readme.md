@@ -1,4 +1,4 @@
-# stories-radio
+# str-radio
 
 <!-- Auto Generated Below -->
 
@@ -14,10 +14,10 @@
 
 ## Events
 
-| Event          | Description                           | Type               |
-| -------------- | ------------------------------------- | ------------------ |
-| `storiesBlur`  | Emitted when the control loses focus. | `CustomEvent<any>` |
-| `storiesFocus` | Emitted when the control gains focus. | `CustomEvent<any>` |
+| Event      | Description                           | Type               |
+| ---------- | ------------------------------------- | ------------------ |
+| `strBlur`  | Emitted when the control loses focus. | `CustomEvent<any>` |
+| `strFocus` | Emitted when the control gains focus. | `CustomEvent<any>` |
 
 
 ## Methods

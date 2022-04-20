@@ -4,7 +4,7 @@ import { Component, h, Prop } from '@stencil/core';
 import { icons } from '../../icons';
 
 @Component({
-  tag: 'stories-icon',
+  tag: 'str-icon',
   styleUrl: 'icon.scss',
   shadow: true,
 })

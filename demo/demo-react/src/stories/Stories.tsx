@@ -1,21 +1,21 @@
 import { useState } from 'react';
 import {
-  StoriesApp,
-  StoriesSidebar,
-  StoriesPreview,
-  StoriesReactRenderer,
+  StrApp,
+  StrSidebar,
+  StrPreview,
+  StrRenderer,
   StoryComponent,
   StoryContext,
-  StoriesToolBar,
-  StoriesToolZoom,
-  StoriesSplitPane,
-  StoriesTabButton,
-  StoriesLabel,
-  StoriesTab,
-  StoriesTabs,
-  StoriesTabBar,
-  StoriesAddonActions,
-  StoriesAddonControls,
+  StrToolBar,
+  StrToolZoom,
+  StrSplitPane,
+  StrTabButton,
+  StrLabel,
+  StrTab,
+  StrTabs,
+  StrTabBar,
+  StrAddonActions,
+  StrAddonControls,
 } from '@stories-js/react';
 
 /* Theme variables */
@@ -38,39 +38,39 @@ function Stories() {
   }
 
   return (
-    <StoriesApp modules={modules} onStoryChange={storyChange} onStoryContextChange={storyContextChange}>
-        <StoriesSplitPane split="horizontal" minSize={150} defaultSize={250}>
-          <StoriesSidebar slot="slot1" />
+    <StrApp modules={modules} onStrChange={storyChange} onStrContextChange={storyContextChange}>
+        <StrSplitPane split="horizontal" minSize={150} defaultSize={250}>
+          <StrSidebar slot="slot1" />
           <div slot="slot2">
-            <StoriesToolBar>
-              <StoriesToolZoom slot="left" />
-            </StoriesToolBar>
-            <StoriesSplitPane split="vertical" minSize={250} defaultSize={500}>
-              <StoriesPreview slot="slot1">
-                <StoriesReactRenderer story={story} context={context}/>
-              </StoriesPreview>
-              <StoriesTabs slot="slot2">
-                <StoriesTabBar>
-                  <StoriesTabButton tab="actions">
-                    <StoriesLabel color="primary">Actions</StoriesLabel>
-                  </StoriesTabButton>
-                  <StoriesTabButton tab="controls">
-                    <StoriesLabel color="primary">Controls</StoriesLabel>
-                  </StoriesTabButton>
-                </StoriesTabBar>
+            <StrToolBar>
+              <StrToolZoom slot="left" />
+            </StrToolBar>
+            <StrSplitPane split="vertical" minSize={250} defaultSize={500}>
+              <StrPreview slot="slot1">
+                <StrRenderer story={story} context={context}/>
+              </StrPreview>
+              <StrTabs slot="slot2">
+                <StrTabBar>
+                  <StrTabButton tab="actions">
+                    <StrLabel color="primary">Actions</StrLabel>
+                  </StrTabButton>
+                  <StrTabButton tab="controls">
+                    <StrLabel color="primary">Controls</StrLabel>
+                  </StrTabButton>
+                </StrTabBar>
 
-                <StoriesTab tab="actions">
-                  <StoriesAddonActions />
-                </StoriesTab>
+                <StrTab tab="actions">
+                  <StrAddonActions />
+                </StrTab>
 
-                <StoriesTab tab="controls">
-                  <StoriesAddonControls />
-                </StoriesTab>
-              </StoriesTabs>
-            </StoriesSplitPane>
+                <StrTab tab="controls">
+                  <StrAddonControls />
+                </StrTab>
+              </StrTabs>
+            </StrSplitPane>
           </div>
-        </StoriesSplitPane>
-    </StoriesApp>
+        </StrSplitPane>
+    </StrApp>
   );
 }
 

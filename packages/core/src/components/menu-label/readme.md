@@ -1,4 +1,4 @@
-# stories-menu-label
+# str-menu-label
 
 <!-- Auto Generated Below -->
 

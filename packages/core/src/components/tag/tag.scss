@@ -23,28 +23,28 @@
    * @prop --clear-margin-left: Margin left of the clear icon
    * @prop --clear-margin-right: Margin right of the clear icon
    */
-  --height: calc(var(--stories-form-element-height-medium) * 0.8);
-  --line-height: calc(var(--stories-form-element-height-medium) - 1px * 2);
+  --height: calc(var(--str-form-element-height-medium) * 0.8);
+  --line-height: calc(var(--str-form-element-height-medium) - 1px * 2);
 
-  --border-radius: var(--stories-form-element-border-radius-medium);
+  --border-radius: var(--str-form-element-border-radius-medium);
   --border-width: 1px;
   --border-style: solid;
 
   --padding-top: 0;
-  --padding-start: var(--stories-spacing-small);
-  --padding-end: var(--stories-spacing-small);
+  --padding-start: var(--str-spacing-small);
+  --padding-end: var(--str-spacing-small);
   --padding-bottom: 0;
 
-  --font-size: var(--stories-form-element-font-size-medium);
+  --font-size: var(--str-form-element-font-size-medium);
 
-  --background-color: rgba(var(--stories-color-primary-rgb), 0.05);
-  --border-color: rgba(var(--stories-color-primary-rgb), 0.2);
-  --color: var(--stories-color-primary-shade);
+  --background-color: rgba(var(--str-color-primary-rgb), 0.05);
+  --border-color: rgba(var(--str-color-primary-rgb), 0.2);
+  --color: var(--str-color-primary-shade);
 
-  --clear-color: var(--stories-color-primary);
-  --clear-color-hover: var(--stories-color-primary-shade);
-  --clear-margin-left: var(--stories-spacing-xx-small);
-  --clear-margin-right: calc(-1 * var(--stories-spacing-xxx-small));
+  --clear-color: var(--str-color-primary);
+  --clear-color-hover: var(--str-color-primary-shade);
+  --clear-margin-left: var(--str-spacing-xx-small);
+  --clear-margin-right: calc(-1 * var(--str-spacing-xxx-small));
 
   display: inline-block;
 
@@ -61,65 +61,65 @@
 // --------------------------------------------------
 
 :host(.tag-success) {
-  --background-color: rgba(var(--stories-color-success-rgb), 0.05);
-  --border-color: rgba(var(--stories-color-success-rgb), 0.2);
-  --color: var(--stories-color-success-shade);
+  --background-color: rgba(var(--str-color-success-rgb), 0.05);
+  --border-color: rgba(var(--str-color-success-rgb), 0.2);
+  --color: var(--str-color-success-shade);
 
-  --clear-color: var(--stories-color-success);
-  --clear-color-hover: var(--stories-color-success-shade);
+  --clear-color: var(--str-color-success);
+  --clear-color-hover: var(--str-color-success-shade);
 }
 
 :host(.tag-info) {
-  --background-color: rgba(var(--stories-color-medium-rgb), 0.05);
-  --border-color: rgba(var(--stories-color-medium-rgb), 0.2);
-  --color: var(--stories-color-medium-shade);
+  --background-color: rgba(var(--str-color-medium-rgb), 0.05);
+  --border-color: rgba(var(--str-color-medium-rgb), 0.2);
+  --color: var(--str-color-medium-shade);
 
-  --clear-color: var(--stories-color-medium);
-  --clear-color-hover: var(--stories-color-medium-shade);
+  --clear-color: var(--str-color-medium);
+  --clear-color-hover: var(--str-color-medium-shade);
 }
 
 :host(.tag-warning) {
-  --background-color: rgba(var(--stories-color-warning-rgb), 0.05);
-  --border-color: rgba(var(--stories-color-warning-rgb), 0.2);
-  --color: var(--stories-color-warning-shade);
+  --background-color: rgba(var(--str-color-warning-rgb), 0.05);
+  --border-color: rgba(var(--str-color-warning-rgb), 0.2);
+  --color: var(--str-color-warning-shade);
 
-  --clear-color: var(--stories-color-warning);
-  --clear-color-hover: var(--stories-color-warning-shade);
+  --clear-color: var(--str-color-warning);
+  --clear-color-hover: var(--str-color-warning-shade);
 }
 
 :host(.tag-danger) {
-  --background-color: rgba(var(--stories-color-danger-rgb), 0.05);
-  --border-color: rgba(var(--stories-color-danger-rgb), 0.2);
-  --color: var(--stories-color-danger-shade);
+  --background-color: rgba(var(--str-color-danger-rgb), 0.05);
+  --border-color: rgba(var(--str-color-danger-rgb), 0.2);
+  --color: var(--str-color-danger-shade);
 
-  --clear-color: var(--stories-color-danger);
-  --clear-color-hover: var(--stories-color-danger-shade);
+  --clear-color: var(--str-color-danger);
+  --clear-color-hover: var(--str-color-danger-shade);
 }
 
 // Sizes
 // --------------------------------------------------
 
 :host(.tag-small) {
-  --font-size: var(--stories-form-element-font-size-small);
-  --height: calc(var(--stories-form-element-height-small) * 0.8);
-  --line-height: calc(var(--stories-form-element-height-small) - 1px * 2);
-  --border-radius: var(--stories-form-element-border-radius-small);
-  --padding-start: var(--stories-spacing-x-small);
-  --padding-end: var(--stories-spacing-x-small);
+  --font-size: var(--str-form-element-font-size-small);
+  --height: calc(var(--str-form-element-height-small) * 0.8);
+  --line-height: calc(var(--str-form-element-height-small) - 1px * 2);
+  --border-radius: var(--str-form-element-border-radius-small);
+  --padding-start: var(--str-spacing-x-small);
+  --padding-end: var(--str-spacing-x-small);
 
-  --clear-margin-left: var(--stories-spacing-xx-small);
-  --clear-margin-right: calc(-1 * var(--stories-spacing-xxx-small));
+  --clear-margin-left: var(--str-spacing-xx-small);
+  --clear-margin-right: calc(-1 * var(--str-spacing-xxx-small));
 }
 
 :host(.tag-large) {
-  --font-size: var(--stories-form-element-font-size-large);
-  --height: calc(var(--stories-form-element-height-large) * 0.8);
-  --line-height: calc(var(--stories-form-element-height-large) - 1px * 2);
-  --border-radius: var(--stories-form-element-border-radius-large);
-  --padding: 0 var(--stories-spacing-medium);
+  --font-size: var(--str-form-element-font-size-large);
+  --height: calc(var(--str-form-element-height-large) * 0.8);
+  --line-height: calc(var(--str-form-element-height-large) - 1px * 2);
+  --border-radius: var(--str-form-element-border-radius-large);
+  --padding: 0 var(--str-spacing-medium);
 
-  --clear-margin-left: var(--stories-spacing-xx-small);
-  --clear-margin-right: calc(-1 * var(--stories-spacing-x-small));
+  --clear-margin-left: var(--str-spacing-xx-small);
+  --clear-margin-right: calc(-1 * var(--str-spacing-x-small));
 }
 
 .tag {
@@ -135,9 +135,9 @@
   user-select: none;
   cursor: default;
 
-  font-family: var(--stories-font-family);
+  font-family: var(--str-font-family);
   font-size: var(--font-size);
-  font-weight: var(--stories-font-weight-normal);
+  font-weight: var(--str-font-weight-normal);
   height: var(--height);
   line-height: var(--line-height);
 

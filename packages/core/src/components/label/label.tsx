@@ -5,7 +5,7 @@ import type { Color } from '../../types';
 import { createColorClasses } from '../../utils/utils';
 
 @Component({
-  tag: 'stories-label',
+  tag: 'str-label',
   styleUrl: 'label.scss',
   shadow: true,
 })

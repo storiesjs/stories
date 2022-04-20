@@ -19,7 +19,7 @@ export type AddonControlsState = {
 };
 
 @Component({
-  tag: 'stories-addon-controls',
+  tag: 'str-addon-controls',
   styleUrl: 'addon-controls.scss',
   shadow: true,
 })

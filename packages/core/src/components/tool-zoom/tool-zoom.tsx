@@ -5,7 +5,7 @@ import { state } from '../../store';
 import type { ToolEvent } from '../../types';
 
 @Component({
-  tag: 'stories-tool-zoom',
+  tag: 'str-tool-zoom',
   styleUrl: 'tool-zoom.scss',
   shadow: true,
 })
@@ -25,9 +25,9 @@ export class ToolZoom {
 
   render(): JSX.Element[] {
     return [
-      <stories-tool-button command="zoomIn" icon="zoomIn" onStoriesAction={this.actionHandler}></stories-tool-button>,
-      <stories-tool-button command="zoomOut" icon="zoomOut" onStoriesAction={this.actionHandler}></stories-tool-button>,
-      <stories-tool-button command="zoomReset" icon="zoomReset" onStoriesAction={this.actionHandler}></stories-tool-button>,
+      <str-tool-button command="zoomIn" icon="zoomIn" onStrAction={this.actionHandler}></str-tool-button>,
+      <str-tool-button command="zoomOut" icon="zoomOut" onStrAction={this.actionHandler}></str-tool-button>,
+      <str-tool-button command="zoomReset" icon="zoomReset" onStrAction={this.actionHandler}></str-tool-button>,
     ];
   }
 

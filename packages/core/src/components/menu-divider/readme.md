@@ -1,4 +1,4 @@
-# stories-menu-divider
+# str-menu-divider
 
 <!-- Auto Generated Below -->
 

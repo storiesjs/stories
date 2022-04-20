@@ -1,11 +1,11 @@
 import { newE2EPage } from '@stencil/core/testing';
 
-describe('stories-searchbar', () => {
+describe('str-searchbar', () => {
   it('renders', async () => {
     const page = await newE2EPage();
-    await page.setContent('<stories-searchbar></stories-searchbar>');
+    await page.setContent('<str-searchbar></str-searchbar>');
 
-    const element = await page.find('stories-searchbar');
+    const element = await page.find('str-searchbar');
     expect(element).toHaveClass('hydrated');
   });
 });

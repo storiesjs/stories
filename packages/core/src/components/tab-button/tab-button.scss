@@ -87,7 +87,7 @@
 // Tab Button: States
 // --------------------------------------------------
 
-:host(.stories-focused) .button-native {
+:host(.str-focused) .button-native {
   color: var(--color-focused);
 
   &::after {
@@ -122,8 +122,8 @@
 // Tab Button: Label / Icon
 // --------------------------------------------------
 
-::slotted(stories-label),
-::slotted(stories-icon) {
+::slotted(str-label),
+::slotted(str-icon) {
   display: block;
 
   align-self: center;
@@ -138,18 +138,18 @@
   box-sizing: border-box;
 }
 
-::slotted(stories-label) {
+::slotted(str-label) {
   order: 0;
 }
 
-::slotted(stories-icon) {
+::slotted(str-icon) {
   order: -1;
 
   height: 1em;
 }
 
 
-:host(.tab-has-label-only) ::slotted(stories-label) {
+:host(.tab-has-label-only) ::slotted(str-label) {
   white-space: normal;
 }
 
@@ -157,7 +157,7 @@
 // Tab Button: Badge
 // --------------------------------------------------
 
-::slotted(stories-badge) {
+::slotted(str-badge) {
   box-sizing: border-box;
 
   position: absolute;
@@ -181,10 +181,10 @@
   flex-direction: column-reverse;
 }
 
-:host(.tab-layout-icon-hide) ::slotted(stories-icon) {
+:host(.tab-layout-icon-hide) ::slotted(str-icon) {
   display: none;
 }
 
-:host(.tab-layout-label-hide) ::slotted(stories-label) {
+:host(.tab-layout-label-hide) ::slotted(str-label) {
   display: none;
 }

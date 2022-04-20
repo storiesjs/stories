@@ -7,7 +7,7 @@ import { getTextContent } from '../../utils/slot';
  * @slot - The menu's content, including menu items, menu dividers, and menu labels.
  */
 @Component({
-  tag: 'stories-menu',
+  tag: 'str-menu',
   styleUrl: 'menu.scss',
   shadow: true,
 })
@@ -18,7 +18,7 @@ export class Menu {
   private menu: HTMLElement;
 
   /** Emitted when a menu item is selected. */
-  @Event() storiesSelect: EventEmitter<{ item: HTMLStoriesMenuItemElement }>;
+  @Event() strSelect: EventEmitter<{ item: HTMLStrMenuItemElement }>;
 
   connectedCallback() {
     this.handleClick = this.handleClick.bind(this);
@@ -50,24 +50,24 @@ export class Menu {
   getItems() {
     const slot = this.menu.querySelector('slot');
     return [...slot.assignedElements({ flatten: true })].filter(
-      (el: any) => el.tagName.toLowerCase() === 'stories-menu-item' && !el.disabled,
-    ) as [HTMLStoriesMenuItemElement];
+      (el: any) => el.tagName.toLowerCase() === 'str-menu-item' && !el.disabled,
+    ) as [HTMLStrMenuItemElement];
   }
 
   getActiveItem() {
     return this.getItems().find(i => i === document.activeElement);
   }
 
-  setActiveItem(item: HTMLStoriesMenuItemElement) {
+  setActiveItem(item: HTMLStrMenuItemElement) {
     item.setFocus();
   }
 
   handleClick(event: MouseEvent) {
     const target = event.target as HTMLElement;
-    const item = target.closest('stories-menu-item');
+    const item = target.closest('str-menu-item');
 
     if (item && !item.disabled) {
-      this.storiesSelect.emit({ item });
+      this.strSelect.emit({ item });
     }
   }
 
@@ -78,7 +78,7 @@ export class Menu {
       event.preventDefault();
 
       if (item) {
-        this.storiesSelect.emit({ item });
+        this.strSelect.emit({ item });
       }
     }
 

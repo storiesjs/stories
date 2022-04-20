@@ -1,6 +1,6 @@
 # Select
 
-The Select (stories-select) displays a list or drop-down box that enables selection of an option or multiple options from an available list of values.
+The Select (str-select) displays a list or drop-down box that enables selection of an option or multiple options from an available list of values.
 
 <!-- Auto Generated Below -->
 
@@ -28,11 +28,11 @@ The Select (stories-select) displays a list or drop-down box that enables select
 
 ## Events
 
-| Event           | Description                               | Type                |
-| --------------- | ----------------------------------------- | ------------------- |
-| `storiesBlur`   | Emitted when the control loses focus.     | `CustomEvent<void>` |
-| `storiesChange` | Emitted when the control's value changes. | `CustomEvent<void>` |
-| `storiesFocus`  | Emitted when the control gains focus.     | `CustomEvent<void>` |
+| Event       | Description                               | Type                |
+| ----------- | ----------------------------------------- | ------------------- |
+| `strBlur`   | Emitted when the control loses focus.     | `CustomEvent<void>` |
+| `strChange` | Emitted when the control's value changes. | `CustomEvent<void>` |
+| `strFocus`  | Emitted when the control gains focus.     | `CustomEvent<void>` |
 
 
 ## Methods
@@ -92,19 +92,19 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [stories-tag](../tag)
-- [stories-dropdown](../dropdown)
-- [stories-menu](../menu)
+- [str-tag](../tag)
+- [str-dropdown](../dropdown)
+- [str-menu](../menu)
 
 ### Graph
 ```mermaid
 graph TD;
-  stories-select --> stories-tag
-  stories-select --> stories-dropdown
-  stories-select --> stories-menu
-  stories-tag --> stories-button
-  stories-button --> stories-spinner
-  style stories-select fill:#f9f,stroke:#333,stroke-width:4px
+  str-select --> str-tag
+  str-select --> str-dropdown
+  str-select --> str-menu
+  str-tag --> str-button
+  str-button --> str-spinner
+  style str-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

@@ -6,8 +6,8 @@
  * @prop --stroke-width: The width of the indicator.
  */
 :host {
-  --track-color: var(--stories-color-light-shade);
-  --indicator-color: var(--stories-color-primary);
+  --track-color: var(--str-color-light-shade);
+  --indicator-color: var(--str-color-primary);
   --stroke-width: 2px;
 
   display: inline-flex;

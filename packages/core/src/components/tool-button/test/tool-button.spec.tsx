@@ -2,20 +2,20 @@ import { newSpecPage } from '@stencil/core/testing';
 
 import { ToolButton } from '../tool-button';
 
-describe('stories-tool-button', () => {
+describe('str-tool-button', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [ToolButton],
-      html: `<stories-tool-button></stories-tool-button>`,
+      html: `<str-tool-button></str-tool-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-tool-button>
+      <str-tool-button>
         <mock:shadow-root>
           <button>
-            <stories-icon></stories-icon>
+            <str-icon></str-icon>
           </button>
         </mock:shadow-root>
-      </stories-tool-button>
+      </str-tool-button>
     `);
   });
 });

@@ -8,18 +8,18 @@ import { Components } from '@stories-js/core';
 
 
 
-export declare interface StoriesAddonActions extends Components.StoriesAddonActions {}
+export declare interface StrAddonActions extends Components.StrAddonActions {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
   methods: ['storyContextChanged']
 })
 @Component({
-  selector: 'stories-addon-actions',
+  selector: 'str-addon-actions',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>'
 })
-export class StoriesAddonActions {
+export class StrAddonActions {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -28,18 +28,18 @@ export class StoriesAddonActions {
 }
 
 
-export declare interface StoriesAddonControls extends Components.StoriesAddonControls {}
+export declare interface StrAddonControls extends Components.StrAddonControls {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
   methods: ['storyContextChanged']
 })
 @Component({
-  selector: 'stories-addon-controls',
+  selector: 'str-addon-controls',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>'
 })
-export class StoriesAddonControls {
+export class StrAddonControls {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -48,18 +48,18 @@ export class StoriesAddonControls {
 }
 
 
-export declare interface StoriesAddons extends Components.StoriesAddons {}
+export declare interface StrAddons extends Components.StrAddons {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
   methods: ['registerAddon', 'unregisterAddon', 'findAddon', 'storyContextChanged']
 })
 @Component({
-  selector: 'stories-addons',
+  selector: 'str-addons',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>'
 })
-export class StoriesAddons {
+export class StrAddons {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -69,15 +69,15 @@ export class StoriesAddons {
 
 import type { StoryComponent as IAppStoryComponent } from '@stories-js/core';
 import type { StoryContext as IAppStoryContext } from '@stories-js/core';
-export declare interface StoriesApp extends Components.StoriesApp {
+export declare interface StrApp extends Components.StrApp {
   /**
    *  
    */
-  storyChange: EventEmitter<CustomEvent<IAppStoryComponent>>;
+  strChange: EventEmitter<CustomEvent<IAppStoryComponent>>;
   /**
    *  
    */
-  storyContextChange: EventEmitter<CustomEvent<IAppStoryContext>>;
+  strContextChange: EventEmitter<CustomEvent<IAppStoryContext>>;
 
 }
 
@@ -86,34 +86,34 @@ export declare interface StoriesApp extends Components.StoriesApp {
   inputs: ['modules', 'store']
 })
 @Component({
-  selector: 'stories-app',
+  selector: 'str-app',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['modules', 'store']
 })
-export class StoriesApp {
+export class StrApp {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['storyChange', 'storyContextChange']);
+    proxyOutputs(this, this.el, ['strChange', 'strContextChange']);
   }
 }
 
 
-export declare interface StoriesBadge extends Components.StoriesBadge {}
+export declare interface StrBadge extends Components.StrBadge {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
   inputs: ['size', 'type']
 })
 @Component({
-  selector: 'stories-badge',
+  selector: 'str-badge',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['size', 'type']
 })
-export class StoriesBadge {
+export class StrBadge {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -122,15 +122,15 @@ export class StoriesBadge {
 }
 
 
-export declare interface StoriesButton extends Components.StoriesButton {
+export declare interface StrButton extends Components.StrButton {
   /**
    * Emitted when the button has focus. 
    */
-  storiesFocus: EventEmitter<CustomEvent<void>>;
+  strFocus: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the button loses focus. 
    */
-  storiesBlur: EventEmitter<CustomEvent<void>>;
+  strBlur: EventEmitter<CustomEvent<void>>;
 
 }
 
@@ -140,34 +140,34 @@ export declare interface StoriesButton extends Components.StoriesButton {
   methods: ['setFocus', 'removeFocus']
 })
 @Component({
-  selector: 'stories-button',
+  selector: 'str-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['caret', 'circle', 'disabled', 'expand', 'href', 'loading', 'pill', 'rel', 'size', 'target', 'type', 'variant']
 })
-export class StoriesButton {
+export class StrButton {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['storiesFocus', 'storiesBlur']);
+    proxyOutputs(this, this.el, ['strFocus', 'strBlur']);
   }
 }
 
 
-export declare interface StoriesCheckbox extends Components.StoriesCheckbox {
+export declare interface StrCheckbox extends Components.StrCheckbox {
   /**
    * Emitted when the control loses focus. 
    */
-  storiesBlur: EventEmitter<CustomEvent<void>>;
+  strBlur: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the control gains focus. 
    */
-  storiesFocus: EventEmitter<CustomEvent<void>>;
+  strFocus: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the control's checked state changes. 
    */
-  storiesChange: EventEmitter<CustomEvent<void>>;
+  strChange: EventEmitter<CustomEvent<void>>;
 
 }
 
@@ -177,34 +177,34 @@ export declare interface StoriesCheckbox extends Components.StoriesCheckbox {
   methods: ['setFocus', 'removeFocus']
 })
 @Component({
-  selector: 'stories-checkbox',
+  selector: 'str-checkbox',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['checked', 'disabled', 'indeterminate', 'invalid', 'invalidText', 'name', 'value']
 })
-export class StoriesCheckbox {
+export class StrCheckbox {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['storiesBlur', 'storiesFocus', 'storiesChange']);
+    proxyOutputs(this, this.el, ['strBlur', 'strFocus', 'strChange']);
   }
 }
 
 
-export declare interface StoriesCol extends Components.StoriesCol {}
+export declare interface StrCol extends Components.StrCol {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
   inputs: ['offset', 'offsetLg', 'offsetMd', 'offsetSm', 'offsetXl', 'offsetXs', 'pull', 'pullLg', 'pullMd', 'pullSm', 'pullXl', 'pullXs', 'push', 'pushLg', 'pushMd', 'pushSm', 'pushXl', 'pushXs', 'size', 'sizeLg', 'sizeMd', 'sizeSm', 'sizeXl', 'sizeXs']
 })
 @Component({
-  selector: 'stories-col',
+  selector: 'str-col',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['offset', 'offsetLg', 'offsetMd', 'offsetSm', 'offsetXl', 'offsetXs', 'pull', 'pullLg', 'pullMd', 'pullSm', 'pullXl', 'pullXs', 'push', 'pushLg', 'pushMd', 'pushSm', 'pushXl', 'pushXs', 'size', 'sizeLg', 'sizeMd', 'sizeSm', 'sizeXl', 'sizeXs']
 })
-export class StoriesCol {
+export class StrCol {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -213,23 +213,23 @@ export class StoriesCol {
 }
 
 
-export declare interface StoriesDropdown extends Components.StoriesDropdown {
+export declare interface StrDropdown extends Components.StrDropdown {
   /**
    * Emitted when the dropdown opens. Calling `event.preventDefault()` will prevent it from being opened. 
    */
-  storiesShow: EventEmitter<CustomEvent<void>>;
+  strShow: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted after the dropdown opens and all transitions are complete. 
    */
-  storiesAfterShow: EventEmitter<CustomEvent<void>>;
+  strAfterShow: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the dropdown closes. Calling `event.preventDefault()` will prevent it from being closed. 
    */
-  storiesHide: EventEmitter<CustomEvent<void>>;
+  strHide: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted after the dropdown closes and all transitions are complete. 
    */
-  storiesAfterHide: EventEmitter<CustomEvent<void>>;
+  strAfterHide: EventEmitter<CustomEvent<void>>;
 
 }
 
@@ -239,32 +239,32 @@ export declare interface StoriesDropdown extends Components.StoriesDropdown {
   methods: ['show', 'hide', 'focusOnTrigger']
 })
 @Component({
-  selector: 'stories-dropdown',
+  selector: 'str-dropdown',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['closeOnSelect', 'containingElement', 'distance', 'hoist', 'open', 'placement', 'skidding']
 })
-export class StoriesDropdown {
+export class StrDropdown {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['storiesShow', 'storiesAfterShow', 'storiesHide', 'storiesAfterHide']);
+    proxyOutputs(this, this.el, ['strShow', 'strAfterShow', 'strHide', 'strAfterHide']);
   }
 }
 
 
-export declare interface StoriesFooter extends Components.StoriesFooter {}
+export declare interface StrFooter extends Components.StrFooter {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined
 })
 @Component({
-  selector: 'stories-footer',
+  selector: 'str-footer',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>'
 })
-export class StoriesFooter {
+export class StrFooter {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -273,19 +273,19 @@ export class StoriesFooter {
 }
 
 
-export declare interface StoriesGrid extends Components.StoriesGrid {}
+export declare interface StrGrid extends Components.StrGrid {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
   inputs: ['fixed']
 })
 @Component({
-  selector: 'stories-grid',
+  selector: 'str-grid',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['fixed']
 })
-export class StoriesGrid {
+export class StrGrid {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -294,19 +294,19 @@ export class StoriesGrid {
 }
 
 
-export declare interface StoriesGroup extends Components.StoriesGroup {}
+export declare interface StrGroup extends Components.StrGroup {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
   inputs: ['horizontal', 'label']
 })
 @Component({
-  selector: 'stories-group',
+  selector: 'str-group',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['horizontal', 'label']
 })
-export class StoriesGroup {
+export class StrGroup {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -315,19 +315,19 @@ export class StoriesGroup {
 }
 
 
-export declare interface StoriesIcon extends Components.StoriesIcon {}
+export declare interface StrIcon extends Components.StrIcon {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
   inputs: ['name']
 })
 @Component({
-  selector: 'stories-icon',
+  selector: 'str-icon',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['name']
 })
-export class StoriesIcon {
+export class StrIcon {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -336,27 +336,27 @@ export class StoriesIcon {
 }
 
 
-export declare interface StoriesInput extends Components.StoriesInput {
+export declare interface StrInput extends Components.StrInput {
   /**
    * Emitted when the control's value changes. 
    */
-  stroiesChange: EventEmitter<CustomEvent<void>>;
+  stroiesChange: EventEmitter<CustomEvent<any>>;
   /**
    * Emitted when the clear button is activated. 
    */
-  stroiesClear: EventEmitter<CustomEvent<void>>;
+  stroiesClear: EventEmitter<CustomEvent<any>>;
   /**
    * Emitted when the control receives input. 
    */
-  stroiesInput: EventEmitter<CustomEvent<void>>;
+  stroiesInput: EventEmitter<CustomEvent<any>>;
   /**
    * Emitted when the control gains focus. 
    */
-  stroiesFocus: EventEmitter<CustomEvent<void>>;
+  stroiesFocus: EventEmitter<CustomEvent<any>>;
   /**
    * Emitted when the control loses focus. 
    */
-  stroiesBlur: EventEmitter<CustomEvent<void>>;
+  stroiesBlur: EventEmitter<CustomEvent<any>>;
 
 }
 
@@ -366,12 +366,12 @@ export declare interface StoriesInput extends Components.StoriesInput {
   methods: ['setFocus', 'removeFocus', 'select', 'setSelectionRange', 'setRangeText']
 })
 @Component({
-  selector: 'stories-input',
+  selector: 'str-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['autocapitalize', 'autocomplete', 'autocorrect', 'autofocus', 'clearable', 'debounce', 'disabled', 'enterkeyhint', 'helpText', 'inputmode', 'invalid', 'invalidText', 'label', 'max', 'maxlength', 'min', 'name', 'pill', 'placeholder', 'readonly', 'requiredIndicator', 'size', 'spellcheck', 'step', 'togglePassword', 'type', 'value']
 })
-export class StoriesInput {
+export class StrInput {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -381,19 +381,19 @@ export class StoriesInput {
 }
 
 
-export declare interface StoriesLabel extends Components.StoriesLabel {}
+export declare interface StrLabel extends Components.StrLabel {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
   inputs: ['color', 'position']
 })
 @Component({
-  selector: 'stories-label',
+  selector: 'str-label',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['color', 'position']
 })
-export class StoriesLabel {
+export class StrLabel {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -402,11 +402,11 @@ export class StoriesLabel {
 }
 
 
-export declare interface StoriesMenu extends Components.StoriesMenu {
+export declare interface StrMenu extends Components.StrMenu {
   /**
    * Emitted when a menu item is selected. 
    */
-  storiesSelect: EventEmitter<CustomEvent<{ item: HTMLStoriesMenuItemElement }>>;
+  strSelect: EventEmitter<CustomEvent<{ item: HTMLStrMenuItemElement }>>;
 
 }
 
@@ -415,31 +415,31 @@ export declare interface StoriesMenu extends Components.StoriesMenu {
   methods: ['typeToSelect']
 })
 @Component({
-  selector: 'stories-menu',
+  selector: 'str-menu',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>'
 })
-export class StoriesMenu {
+export class StrMenu {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['storiesSelect']);
+    proxyOutputs(this, this.el, ['strSelect']);
   }
 }
 
 
-export declare interface StoriesMenuDivider extends Components.StoriesMenuDivider {}
+export declare interface StrMenuDivider extends Components.StrMenuDivider {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined
 })
 @Component({
-  selector: 'stories-menu-divider',
+  selector: 'str-menu-divider',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>'
 })
-export class StoriesMenuDivider {
+export class StrMenuDivider {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -448,7 +448,7 @@ export class StoriesMenuDivider {
 }
 
 
-export declare interface StoriesMenuItem extends Components.StoriesMenuItem {}
+export declare interface StrMenuItem extends Components.StrMenuItem {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
@@ -456,12 +456,12 @@ export declare interface StoriesMenuItem extends Components.StoriesMenuItem {}
   methods: ['setFocus', 'removeFocus']
 })
 @Component({
-  selector: 'stories-menu-item',
+  selector: 'str-menu-item',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['checked', 'disabled', 'value']
 })
-export class StoriesMenuItem {
+export class StrMenuItem {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -470,17 +470,17 @@ export class StoriesMenuItem {
 }
 
 
-export declare interface StoriesMenuLabel extends Components.StoriesMenuLabel {}
+export declare interface StrMenuLabel extends Components.StrMenuLabel {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined
 })
 @Component({
-  selector: 'stories-menu-label',
+  selector: 'str-menu-label',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>'
 })
-export class StoriesMenuLabel {
+export class StrMenuLabel {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -489,17 +489,17 @@ export class StoriesMenuLabel {
 }
 
 
-export declare interface StoriesPreview extends Components.StoriesPreview {}
+export declare interface StrPreview extends Components.StrPreview {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined
 })
 @Component({
-  selector: 'stories-preview',
+  selector: 'str-preview',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>'
 })
-export class StoriesPreview {
+export class StrPreview {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -508,15 +508,15 @@ export class StoriesPreview {
 }
 
 
-export declare interface StoriesRadio extends Components.StoriesRadio {
+export declare interface StrRadio extends Components.StrRadio {
   /**
    * Emitted when the control loses focus. 
    */
-  storiesBlur: EventEmitter<CustomEvent<any>>;
+  strBlur: EventEmitter<CustomEvent<any>>;
   /**
    * Emitted when the control gains focus. 
    */
-  storiesFocus: EventEmitter<CustomEvent<any>>;
+  strFocus: EventEmitter<CustomEvent<any>>;
 
 }
 
@@ -526,26 +526,26 @@ export declare interface StoriesRadio extends Components.StoriesRadio {
   methods: ['setFocus', 'removeFocus']
 })
 @Component({
-  selector: 'stories-radio',
+  selector: 'str-radio',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['checked', 'disabled', 'value']
 })
-export class StoriesRadio {
+export class StrRadio {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['storiesBlur', 'storiesFocus']);
+    proxyOutputs(this, this.el, ['strBlur', 'strFocus']);
   }
 }
 
 
-export declare interface StoriesRadioGroup extends Components.StoriesRadioGroup {
+export declare interface StrRadioGroup extends Components.StrRadioGroup {
   /**
    * Emitted when the value has changed. 
    */
-  storiesChange: EventEmitter<CustomEvent<any>>;
+  strChange: EventEmitter<CustomEvent<any>>;
 
 }
 
@@ -554,32 +554,32 @@ export declare interface StoriesRadioGroup extends Components.StoriesRadioGroup 
   inputs: ['allowEmptySelection', 'horizontal', 'invalid', 'invalidText', 'label', 'name', 'requiredIndicator', 'value']
 })
 @Component({
-  selector: 'stories-radio-group',
+  selector: 'str-radio-group',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['allowEmptySelection', 'horizontal', 'invalid', 'invalidText', 'label', 'name', 'requiredIndicator', 'value']
 })
-export class StoriesRadioGroup {
+export class StrRadioGroup {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['storiesChange']);
+    proxyOutputs(this, this.el, ['strChange']);
   }
 }
 
 
-export declare interface StoriesRouter extends Components.StoriesRouter {}
+export declare interface StrRouter extends Components.StrRouter {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined
 })
 @Component({
-  selector: 'stories-router',
+  selector: 'str-router',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>'
 })
-export class StoriesRouter {
+export class StrRouter {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -588,17 +588,17 @@ export class StoriesRouter {
 }
 
 
-export declare interface StoriesRow extends Components.StoriesRow {}
+export declare interface StrRow extends Components.StrRow {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined
 })
 @Component({
-  selector: 'stories-row',
+  selector: 'str-row',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>'
 })
-export class StoriesRow {
+export class StrRow {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -607,31 +607,31 @@ export class StoriesRow {
 }
 
 import type { SearchbarChangeEventDetail as ISearchbarSearchbarChangeEventDetail } from '@stories-js/core';
-export declare interface StoriesSearchbar extends Components.StoriesSearchbar {
+export declare interface StrSearchbar extends Components.StrSearchbar {
   /**
    * Emitted when a keyboard input occurred. 
    */
-  storiesInput: EventEmitter<CustomEvent<KeyboardEvent>>;
+  strInput: EventEmitter<CustomEvent<KeyboardEvent>>;
   /**
    * Emitted when the value has changed. 
    */
-  storiesChange: EventEmitter<CustomEvent<ISearchbarSearchbarChangeEventDetail>>;
+  strChange: EventEmitter<CustomEvent<ISearchbarSearchbarChangeEventDetail>>;
   /**
    * Emitted when the cancel button is clicked. 
    */
-  storiesCancel: EventEmitter<CustomEvent<void>>;
+  strCancel: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the clear input button is clicked. 
    */
-  storiesClear: EventEmitter<CustomEvent<void>>;
+  strClear: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the input loses focus. 
    */
-  storiesBlur: EventEmitter<CustomEvent<void>>;
+  strBlur: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the input has focus. 
    */
-  storiesFocus: EventEmitter<CustomEvent<void>>;
+  strFocus: EventEmitter<CustomEvent<void>>;
 
 }
 
@@ -641,34 +641,34 @@ export declare interface StoriesSearchbar extends Components.StoriesSearchbar {
   methods: ['setFocus', 'getInputElement']
 })
 @Component({
-  selector: 'stories-searchbar',
+  selector: 'str-searchbar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['cancelButtonIcon', 'clearIcon', 'color', 'debounce', 'disabled', 'inputmode', 'placeholder', 'searchIcon', 'showCancelButton', 'showClearButton', 'type', 'value']
 })
-export class StoriesSearchbar {
+export class StrSearchbar {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['storiesInput', 'storiesChange', 'storiesCancel', 'storiesClear', 'storiesBlur', 'storiesFocus']);
+    proxyOutputs(this, this.el, ['strInput', 'strChange', 'strCancel', 'strClear', 'strBlur', 'strFocus']);
   }
 }
 
 
-export declare interface StoriesSelect extends Components.StoriesSelect {
+export declare interface StrSelect extends Components.StrSelect {
   /**
    * Emitted when the control's value changes. 
    */
-  storiesChange: EventEmitter<CustomEvent<void>>;
+  strChange: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the control gains focus. 
    */
-  storiesFocus: EventEmitter<CustomEvent<void>>;
+  strFocus: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the control loses focus. 
    */
-  storiesBlur: EventEmitter<CustomEvent<void>>;
+  strBlur: EventEmitter<CustomEvent<void>>;
 
 }
 
@@ -678,32 +678,32 @@ export declare interface StoriesSelect extends Components.StoriesSelect {
   methods: ['setFocus']
 })
 @Component({
-  selector: 'stories-select',
+  selector: 'str-select',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['clearable', 'disabled', 'helpText', 'hoist', 'invalid', 'invalidText', 'label', 'maxTagsVisible', 'multiple', 'name', 'pill', 'placeholder', 'requiredIndicator', 'size', 'value']
 })
-export class StoriesSelect {
+export class StrSelect {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['storiesChange', 'storiesFocus', 'storiesBlur']);
+    proxyOutputs(this, this.el, ['strChange', 'strFocus', 'strBlur']);
   }
 }
 
 
-export declare interface StoriesSidebar extends Components.StoriesSidebar {}
+export declare interface StrSidebar extends Components.StrSidebar {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined
 })
 @Component({
-  selector: 'stories-sidebar',
+  selector: 'str-sidebar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>'
 })
-export class StoriesSidebar {
+export class StrSidebar {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -712,17 +712,17 @@ export class StoriesSidebar {
 }
 
 
-export declare interface StoriesSpinner extends Components.StoriesSpinner {}
+export declare interface StrSpinner extends Components.StrSpinner {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined
 })
 @Component({
-  selector: 'stories-spinner',
+  selector: 'str-spinner',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>'
 })
-export class StoriesSpinner {
+export class StrSpinner {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -731,11 +731,11 @@ export class StoriesSpinner {
 }
 
 
-export declare interface StoriesSplitPane extends Components.StoriesSplitPane {
+export declare interface StrSplitPane extends Components.StrSplitPane {
   /**
    *  
    */
-  storiesSizeChange: EventEmitter<CustomEvent<number>>;
+  strSizeChange: EventEmitter<CustomEvent<number>>;
 
 }
 
@@ -744,34 +744,34 @@ export declare interface StoriesSplitPane extends Components.StoriesSplitPane {
   inputs: ['defaultSize', 'isResizing', 'minSize', 'split']
 })
 @Component({
-  selector: 'stories-split-pane',
+  selector: 'str-split-pane',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['defaultSize', 'isResizing', 'minSize', 'split']
 })
-export class StoriesSplitPane {
+export class StrSplitPane {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['storiesSizeChange']);
+    proxyOutputs(this, this.el, ['strSizeChange']);
   }
 }
 
 
-export declare interface StoriesTab extends Components.StoriesTab {}
+export declare interface StrTab extends Components.StrTab {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
   inputs: ['tab']
 })
 @Component({
-  selector: 'stories-tab',
+  selector: 'str-tab',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['tab']
 })
-export class StoriesTab {
+export class StrTab {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -780,19 +780,19 @@ export class StoriesTab {
 }
 
 
-export declare interface StoriesTabBar extends Components.StoriesTabBar {}
+export declare interface StrTabBar extends Components.StrTabBar {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
   inputs: ['color', 'selectedTab']
 })
 @Component({
-  selector: 'stories-tab-bar',
+  selector: 'str-tab-bar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['color', 'selectedTab']
 })
-export class StoriesTabBar {
+export class StrTabBar {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -801,19 +801,19 @@ export class StoriesTabBar {
 }
 
 
-export declare interface StoriesTabButton extends Components.StoriesTabButton {}
+export declare interface StrTabButton extends Components.StrTabButton {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
   inputs: ['disabled', 'layout', 'selected', 'tab']
 })
 @Component({
-  selector: 'stories-tab-button',
+  selector: 'str-tab-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['disabled', 'layout', 'selected', 'tab']
 })
-export class StoriesTabButton {
+export class StrTabButton {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -822,18 +822,18 @@ export class StoriesTabButton {
 }
 
 
-export declare interface StoriesTabs extends Components.StoriesTabs {}
+export declare interface StrTabs extends Components.StrTabs {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
   methods: ['select', 'getTab', 'getSelected']
 })
 @Component({
-  selector: 'stories-tabs',
+  selector: 'str-tabs',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>'
 })
-export class StoriesTabs {
+export class StrTabs {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -842,11 +842,11 @@ export class StoriesTabs {
 }
 
 
-export declare interface StoriesTag extends Components.StoriesTag {
+export declare interface StrTag extends Components.StrTag {
   /**
    * Emitted when the clear button is activated. 
    */
-  storiesClear: EventEmitter<CustomEvent<void>>;
+  strClear: EventEmitter<CustomEvent<void>>;
 
 }
 
@@ -855,38 +855,38 @@ export declare interface StoriesTag extends Components.StoriesTag {
   inputs: ['clearable', 'pill', 'size', 'type']
 })
 @Component({
-  selector: 'stories-tag',
+  selector: 'str-tag',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['clearable', 'pill', 'size', 'type']
 })
-export class StoriesTag {
+export class StrTag {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['storiesClear']);
+    proxyOutputs(this, this.el, ['strClear']);
   }
 }
 
 
-export declare interface StoriesTextarea extends Components.StoriesTextarea {
+export declare interface StrTextarea extends Components.StrTextarea {
   /**
    * Emitted when the textarea's value changes. 
    */
-  storiesChange: EventEmitter<CustomEvent<void>>;
+  strChange: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the textarea receives input. 
    */
-  storiesInput: EventEmitter<CustomEvent<void>>;
+  strInput: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the textarea has focus. 
    */
-  storiesFocus: EventEmitter<CustomEvent<void>>;
+  strFocus: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the textarea loses focus. 
    */
-  storiesBlur: EventEmitter<CustomEvent<void>>;
+  strBlur: EventEmitter<CustomEvent<void>>;
 
 }
 
@@ -896,32 +896,32 @@ export declare interface StoriesTextarea extends Components.StoriesTextarea {
   methods: ['setFocus', 'removeFocus', 'select', 'setSelectionRange', 'setRangeText']
 })
 @Component({
-  selector: 'stories-textarea',
+  selector: 'str-textarea',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['autocapitalize', 'autocorrect', 'autofocus', 'debounce', 'disabled', 'enterkeyhint', 'helpText', 'inputmode', 'invalid', 'invalidText', 'label', 'maxlength', 'name', 'placeholder', 'readonly', 'requiredIndicator', 'resize', 'rows', 'size', 'spellcheck', 'value']
 })
-export class StoriesTextarea {
+export class StrTextarea {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['storiesChange', 'storiesInput', 'storiesFocus', 'storiesBlur']);
+    proxyOutputs(this, this.el, ['strChange', 'strInput', 'strFocus', 'strBlur']);
   }
 }
 
 
-export declare interface StoriesToolBar extends Components.StoriesToolBar {}
+export declare interface StrToolBar extends Components.StrToolBar {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined
 })
 @Component({
-  selector: 'stories-tool-bar',
+  selector: 'str-tool-bar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>'
 })
-export class StoriesToolBar {
+export class StrToolBar {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -930,11 +930,11 @@ export class StoriesToolBar {
 }
 
 import type { ToolEvent as IToolButtonToolEvent } from '@stories-js/core';
-export declare interface StoriesToolButton extends Components.StoriesToolButton {
+export declare interface StrToolButton extends Components.StrToolButton {
   /**
    * Action Event 
    */
-  storiesAction: EventEmitter<CustomEvent<IToolButtonToolEvent>>;
+  strAction: EventEmitter<CustomEvent<IToolButtonToolEvent>>;
 
 }
 
@@ -943,32 +943,32 @@ export declare interface StoriesToolButton extends Components.StoriesToolButton 
   inputs: ['command', 'disabled', 'icon']
 })
 @Component({
-  selector: 'stories-tool-button',
+  selector: 'str-tool-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['command', 'disabled', 'icon']
 })
-export class StoriesToolButton {
+export class StrToolButton {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['storiesAction']);
+    proxyOutputs(this, this.el, ['strAction']);
   }
 }
 
 
-export declare interface StoriesToolZoom extends Components.StoriesToolZoom {}
+export declare interface StrToolZoom extends Components.StrToolZoom {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined
 })
 @Component({
-  selector: 'stories-tool-zoom',
+  selector: 'str-tool-zoom',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>'
 })
-export class StoriesToolZoom {
+export class StrToolZoom {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -977,19 +977,19 @@ export class StoriesToolZoom {
 }
 
 
-export declare interface StoriesZoom extends Components.StoriesZoom {}
+export declare interface StrZoom extends Components.StrZoom {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
   inputs: ['zoom']
 })
 @Component({
-  selector: 'stories-zoom',
+  selector: 'str-zoom',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['zoom']
 })
-export class StoriesZoom {
+export class StrZoom {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();

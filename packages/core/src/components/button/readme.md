@@ -1,6 +1,6 @@
 # Button
 
-The Button (stories-button) is an styled HTML button element displays text, icons, or both.
+The Button (str-button) is an styled HTML button element displays text, icons, or both.
 
 <!-- Auto Generated Below -->
 
@@ -25,10 +25,10 @@ The Button (stories-button) is an styled HTML button element displays text, icon
 
 ## Events
 
-| Event          | Description                          | Type                |
-| -------------- | ------------------------------------ | ------------------- |
-| `storiesBlur`  | Emitted when the button loses focus. | `CustomEvent<void>` |
-| `storiesFocus` | Emitted when the button has focus.   | `CustomEvent<void>` |
+| Event      | Description                          | Type                |
+| ---------- | ------------------------------------ | ------------------- |
+| `strBlur`  | Emitted when the button loses focus. | `CustomEvent<void>` |
+| `strFocus` | Emitted when the button has focus.   | `CustomEvent<void>` |
 
 
 ## Methods
@@ -84,18 +84,18 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [stories-tag](../tag)
+ - [str-tag](../tag)
 
 ### Depends on
 
-- [stories-spinner](../spinner)
+- [str-spinner](../spinner)
 
 ### Graph
 ```mermaid
 graph TD;
-  stories-button --> stories-spinner
-  stories-tag --> stories-button
-  style stories-button fill:#f9f,stroke:#333,stroke-width:4px
+  str-button --> str-spinner
+  str-tag --> str-button
+  style str-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

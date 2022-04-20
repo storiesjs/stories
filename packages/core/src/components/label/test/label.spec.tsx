@@ -2,18 +2,18 @@ import { newSpecPage } from '@stencil/core/testing';
 
 import { Label } from '../label';
 
-describe('stories-label', () => {
+describe('str-label', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [Label],
-      html: `<stories-label></stories-label>`,
+      html: `<str-label></str-label>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-label class="label-fixed">
+      <str-label class="label-fixed">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </stories-label>
+      </str-label>
     `);
   });
 });

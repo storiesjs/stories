@@ -1,4 +1,6 @@
-import { Component, Host, h, Element, State, Prop, Event, EventEmitter, Method } from '@stencil/core';
+import type { EventEmitter } from '@stencil/core';
+import { Component, Host, h, Element, State, Prop, Event, Method } from '@stencil/core';
+
 import { addEventListener, inheritAttributes, removeEventListener } from '../../utils/helpers';
 
 let id = 0;
@@ -7,7 +9,7 @@ let id = 0;
  * @slot - The radio's label.
  */
 @Component({
-  tag: 'stories-radio',
+  tag: 'str-radio',
   styleUrl: 'radio.scss',
   shadow: true,
 })
@@ -15,10 +17,10 @@ export class Radio {
   private inputId = `radio-${++id}`;
   private labelId = `radio-label-${id}`;
   private input: HTMLInputElement;
-  private radioGroup: HTMLStoriesRadioGroupElement | null = null;
+  private radioGroup: HTMLStrRadioGroupElement | null = null;
   private inheritedAttributes: { [k: string]: any } = {};
 
-  @Element() el: HTMLStoriesRadioElement;
+  @Element() el: HTMLStrRadioElement;
 
   @State() hasFocus = false;
 
@@ -38,10 +40,10 @@ export class Radio {
   @State() buttonTabindex = -1;
 
   /** Emitted when the control loses focus. */
-  @Event() storiesBlur: EventEmitter;
+  @Event() strBlur: EventEmitter;
 
   /** Emitted when the control gains focus. */
-  @Event() storiesFocus: EventEmitter;
+  @Event() strFocus: EventEmitter;
 
   /** @internal */
   @Method()
@@ -56,13 +58,13 @@ export class Radio {
     if (this.value === undefined) {
       this.value = this.inputId;
     }
-    const radioGroup = (this.radioGroup = this.el.closest('stories-radio-group'));
+    const radioGroup = (this.radioGroup = this.el.closest('str-radio-group'));
     if (radioGroup) {
       this.updateState();
-      addEventListener(radioGroup, 'stories-change', this.updateState);
+      addEventListener(radioGroup, 'strChange', this.updateState);
 
       // Needed for the Vue wrappers
-      addEventListener(radioGroup, 'v-stories-change', this.updateState);
+      addEventListener(radioGroup, 'v-str-change', this.updateState);
     }
   }
 
@@ -73,10 +75,10 @@ export class Radio {
   disconnectedCallback() {
     const radioGroup = this.radioGroup;
     if (radioGroup) {
-      removeEventListener(radioGroup, 'stories-change', this.updateState);
+      removeEventListener(radioGroup, 'strChange', this.updateState);
 
       // Needed for the Vue wrappers
-      removeEventListener(radioGroup, 'v-stories-change', this.updateState);
+      removeEventListener(radioGroup, 'v-str-change', this.updateState);
       this.radioGroup = null;
     }
   }
@@ -101,12 +103,12 @@ export class Radio {
 
   handleBlur() {
     this.hasFocus = false;
-    this.storiesBlur.emit();
+    this.strBlur.emit();
   }
 
   handleFocus() {
     this.hasFocus = true;
-    this.storiesFocus.emit();
+    this.strFocus.emit();
   }
 
   render() {

@@ -1,6 +1,6 @@
-# stories-tool-zoom
+# str-tool-zoom
 
-The stories-tool-zoom is a container for zoom-in, zoom-out, and zoom-reset buttons.
+The str-tool-zoom is a container for zoom-in, zoom-out, and zoom-reset buttons.
 
 <!-- Auto Generated Below -->
 
@@ -9,14 +9,14 @@ The stories-tool-zoom is a container for zoom-in, zoom-out, and zoom-reset butto
 
 ### Depends on
 
-- [stories-tool-button](../tool-button)
+- [str-tool-button](../tool-button)
 
 ### Graph
 ```mermaid
 graph TD;
-  stories-tool-zoom --> stories-tool-button
-  stories-tool-button --> stories-icon
-  style stories-tool-zoom fill:#f9f,stroke:#333,stroke-width:4px
+  str-tool-zoom --> str-tool-button
+  str-tool-button --> str-icon
+  style str-tool-zoom fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

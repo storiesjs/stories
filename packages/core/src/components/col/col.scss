@@ -5,15 +5,15 @@
 // --------------------------------------------------
 
 /// @prop - The padding for the grid column
-$grid-column-padding:        var(--stories-grid-column-padding, 5px) !default;
+$grid-column-padding:        var(--str-grid-column-padding, 5px) !default;
 
 /// @prop - The padding for the column at different breakpoints
 $grid-column-paddings: (
-  xs: var(--stories-grid-column-padding-xs, $grid-column-padding),
-  sm: var(--stories-grid-column-padding-sm, $grid-column-padding),
-  md: var(--stories-grid-column-padding-md, $grid-column-padding),
-  lg: var(--stories-grid-column-padding-lg, $grid-column-padding),
-  xl: var(--stories-grid-column-padding-xl, $grid-column-padding)
+  xs: var(--str-grid-column-padding-xs, $grid-column-padding),
+  sm: var(--str-grid-column-padding-sm, $grid-column-padding),
+  md: var(--str-grid-column-padding-md, $grid-column-padding),
+  lg: var(--str-grid-column-padding-lg, $grid-column-padding),
+  xl: var(--str-grid-column-padding-xl, $grid-column-padding)
 ) !default;
 
 // Column
@@ -21,13 +21,13 @@ $grid-column-paddings: (
 
 :host {
   /**
-   * @prop --stories-grid-columns: The number of total Columns in the Grid
-   * @prop --stories-grid-column-padding: Padding for the Column
-   * @prop --stories-grid-column-padding-xs: Padding for the Column on xs screens and up
-   * @prop --stories-grid-column-padding-sm: Padding for the Column on sm screens and up
-   * @prop --stories-grid-column-padding-md: Padding for the Column on md screens and up
-   * @prop --stories-grid-column-padding-lg: Padding for the Column on lg screens and up
-   * @prop --stories-grid-column-padding-xl: Padding for the Column on xl screens and up
+   * @prop --str-grid-columns: The number of total Columns in the Grid
+   * @prop --str-grid-column-padding: Padding for the Column
+   * @prop --str-grid-column-padding-xs: Padding for the Column on xs screens and up
+   * @prop --str-grid-column-padding-sm: Padding for the Column on sm screens and up
+   * @prop --str-grid-column-padding-md: Padding for the Column on md screens and up
+   * @prop --str-grid-column-padding-lg: Padding for the Column on lg screens and up
+   * @prop --str-grid-column-padding-xl: Padding for the Column on xl screens and up
    */
   @include make-breakpoint-padding($grid-column-paddings);
   @include margin(0);

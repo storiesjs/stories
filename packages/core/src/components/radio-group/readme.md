@@ -1,6 +1,6 @@
-# stories-radio-group
+# str-radio-group
 
-The stories-radio-group displays a group of options with radio buttons and enables selection of one option from the list.
+The str-radio-group displays a group of options with radio buttons and enables selection of one option from the list.
 
 <!-- Auto Generated Below -->
 
@@ -21,9 +21,9 @@ The stories-radio-group displays a group of options with radio buttons and enabl
 
 ## Events
 
-| Event           | Description                         | Type               |
-| --------------- | ----------------------------------- | ------------------ |
-| `storiesChange` | Emitted when the value has changed. | `CustomEvent<any>` |
+| Event       | Description                         | Type               |
+| ----------- | ----------------------------------- | ------------------ |
+| `strChange` | Emitted when the value has changed. | `CustomEvent<any>` |
 
 
 ## Slots
@@ -40,8 +40,8 @@ The stories-radio-group displays a group of options with radio buttons and enabl
 | Name                                 | Description                                                           |
 | ------------------------------------ | --------------------------------------------------------------------- |
 | `--align-radios`                     | Alignment of radio's on cross-axis, an `align-items` Flexbox property |
-| `--margin-between-radios`            | Margin between the gr-radio children                                  |
-| `--margin-between-radios-horizontal` | Margin between the gr-radio children when layout is horizontal        |
+| `--margin-between-radios`            | Margin between the str-radio children                                 |
+| `--margin-between-radios-horizontal` | Margin between the str-radio children when layout is horizontal       |
 
 
 ----------------------------------------------

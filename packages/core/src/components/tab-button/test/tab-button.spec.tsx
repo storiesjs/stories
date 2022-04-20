@@ -2,14 +2,14 @@ import { newSpecPage } from '@stencil/core/testing';
 
 import { TabButton } from '../tab-button';
 
-describe('stories-tab-button', () => {
+describe('str-tab-button', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [TabButton],
-      html: `<stories-tab-button></stories-tab-button>`,
+      html: `<str-tab-button></str-tab-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-tab-button class="tab-layout-icon-start" role="tab" tabindex="0">
+      <str-tab-button class="tab-layout-icon-start" role="tab" tabindex="0">
         <mock:shadow-root>
           <a class="button-native" href="#" part="native" tabindex="-1">
             <span class="button-inner">
@@ -17,7 +17,7 @@ describe('stories-tab-button', () => {
             </span>
           </a>
         </mock:shadow-root>
-      </stories-tab-button>
+      </str-tab-button>
     `);
   });
 });

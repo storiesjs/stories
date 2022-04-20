@@ -2,17 +2,17 @@ import type {EventEmitter } from '@stencil/core';
 import { Component, Host, h, Element, Prop, Event, Watch, Method } from '@stencil/core';
 
 import Popover from '../../utils/popover';
-import { scrollIntoView } from '../../utils/scroll';
+// import { scrollIntoView } from '../../utils/scroll';
 import { getNearestTabbableElement } from '../../utils/tabbable';
 
 let id = 0;
 
 /**
  * @slot - The dropdown's content.
- * @slot trigger - The dropdown's trigger, usually a `<stories-button>` element.
+ * @slot trigger - The dropdown's trigger, usually a `<str-button>` element.
  */
 @Component({
-  tag: 'stories-dropdown',
+  tag: 'str-dropdown',
   styleUrl: 'dropdown.scss',
   shadow: true,
 })
@@ -24,7 +24,7 @@ export class Dropdown {
   private popover: Popover;
   private trigger: HTMLElement;
 
-  @Element() el:  HTMLStoriesDropdownElement;
+  @Element() el:  HTMLStrDropdownElement;
 
   /** Indicates whether or not the dropdown is open. You can use this in lieu of the show/hide methods. */
   @Prop({ mutable: true, reflect: true }) open = false;
@@ -66,16 +66,16 @@ export class Dropdown {
   @Prop() hoist = false;
 
   /** Emitted when the dropdown opens. Calling `event.preventDefault()` will prevent it from being opened. */
-  @Event() storiesShow: EventEmitter<void>;
+  @Event() strShow: EventEmitter<void>;
 
   /** Emitted after the dropdown opens and all transitions are complete. */
-  @Event() storiesAfterShow: EventEmitter<void>;
+  @Event() strAfterShow: EventEmitter<void>;
 
   /** Emitted when the dropdown closes. Calling `event.preventDefault()` will prevent it from being closed. */
-  @Event() storiesHide: EventEmitter<void>;
+  @Event() strHide: EventEmitter<void>;
 
   /** Emitted after the dropdown closes and all transitions are complete. */
-  @Event() storiesAfterHide: EventEmitter<void>;
+  @Event() strAfterHide: EventEmitter<void>;
 
   @Watch('open')
   handleOpenChange(): void {
@@ -103,7 +103,7 @@ export class Dropdown {
 
     this.handleDocumentKeyDown = this.handleDocumentKeyDown.bind(this);
     this.handleDocumentMouseDown = this.handleDocumentMouseDown.bind(this);
-    this.handleMenuItemActivate = this.handleMenuItemActivate.bind(this);
+    // this.handleMenuItemActivate = this.handleMenuItemActivate.bind(this);
     this.handlePanelSelect = this.handlePanelSelect.bind(this);
     this.handleTriggerClick = this.handleTriggerClick.bind(this);
     this.handleTriggerKeyDown = this.handleTriggerKeyDown.bind(this);
@@ -118,8 +118,8 @@ export class Dropdown {
       distance: this.distance,
       skidding: this.skidding,
       transitionElement: this.panel,
-      onAfterHide: () => this.storiesAfterHide.emit(),
-      onAfterShow: () => this.storiesAfterShow.emit(),
+      onAfterHide: () => this.strAfterHide.emit(),
+      onAfterShow: () => this.strAfterShow.emit(),
       onTransitionEnd: () => {
         if (!this.open) {
           this.panel.scrollTop = 0;
@@ -146,14 +146,14 @@ export class Dropdown {
       return;
     }
 
-    const storiesShow = this.storiesShow.emit();
-    if (storiesShow.defaultPrevented) {
+    const strShow = this.strShow.emit();
+    if (strShow.defaultPrevented) {
       this.open = false;
       return;
     }
 
-    this.panel.addEventListener('stories-activate', this.handleMenuItemActivate);
-    this.panel.addEventListener('stories-select', this.handlePanelSelect);
+    // this.panel.addEventListener('strActivate', this.handleMenuItemActivate);
+    this.panel.addEventListener('strSelect', this.handlePanelSelect);
     document.addEventListener('keydown', this.handleDocumentKeyDown);
     document.addEventListener('mousedown', this.handleDocumentMouseDown);
 
@@ -170,15 +170,15 @@ export class Dropdown {
       return;
     }
 
-    const storiesHide = this.storiesHide.emit();
-    if (storiesHide.defaultPrevented) {
+    const strHide = this.strHide.emit();
+    if (strHide.defaultPrevented) {
       this.open = true;
       return;
     }
 
-    this.panel.removeEventListener('stories-activate', this.handleMenuItemActivate);
-    this.panel.removeEventListener('stories-select', this.handlePanelSelect);
-    document.addEventListener('keydown', this.handleDocumentKeyDown);
+    // this.panel.removeEventListener('strActivate', this.handleMenuItemActivate);
+    this.panel.removeEventListener('strSelect', this.handlePanelSelect);
+    document.removeEventListener('keydown', this.handleDocumentKeyDown);
     document.removeEventListener('mousedown', this.handleDocumentMouseDown);
 
     this.isVisible = false;
@@ -204,7 +204,7 @@ export class Dropdown {
     return this.panel
       .querySelector('slot')
       .assignedElements({ flatten: true })
-      .filter(el => el.tagName.toLowerCase() === 'stories-menu')[0] as HTMLStoriesMenuElement;
+      .filter(el => el.tagName.toLowerCase() === 'str-menu')[0] as HTMLStrMenuElement;
   }
 
   handleDocumentKeyDown(event: KeyboardEvent): void {
@@ -218,7 +218,7 @@ export class Dropdown {
     // Handle tabbing
     if (event.key === 'Tab') {
       // Tabbing within an open menu should close the dropdown and refocus the trigger
-      if (this.open && document.activeElement?.tagName.toLowerCase() === 'stories-menu-item') {
+      if (this.open && document.activeElement?.tagName.toLowerCase() === 'str-menu-item') {
         event.preventDefault();
         this.hide();
         this.focusOnTrigger();
@@ -252,16 +252,16 @@ export class Dropdown {
     }
   }
 
-  handleMenuItemActivate(event: CustomEvent): void {
-    const item = event.target as HTMLStoriesMenuItemElement;
-    scrollIntoView(item, this.panel);
-  }
+  // handleMenuItemActivate(event: CustomEvent): void {
+  //   const item = event.target as HTMLStrMenuItemElement;
+  //   scrollIntoView(item, this.panel);
+  // }
 
   handlePanelSelect(event: CustomEvent): void {
     const target = event.target as HTMLElement;
 
     // Hide the dropdown when a menu item is selected
-    if (this.closeOnSelect && target.tagName.toLowerCase() === 'stories-menu') {
+    if (this.closeOnSelect && target.tagName.toLowerCase() === 'str-menu') {
       this.hide();
       this.focusOnTrigger();
     }
@@ -273,7 +273,7 @@ export class Dropdown {
 
   handleTriggerKeyDown(event: KeyboardEvent): void {
     const menu = this.getMenu();
-    const menuItems = menu ? [...menu.querySelectorAll('stories-menu-item') as any] : null;
+    const menuItems = menu ? [...menu.querySelectorAll('str-menu-item') as any] : null;
     const firstMenuItem = menuItems[0];
     const lastMenuItem = menuItems[menuItems.length - 1];
 
@@ -340,7 +340,7 @@ export class Dropdown {
   // that gets slotted in) so screen readers will understand them. The accessible trigger could be the slotted element,
   // a child of the slotted element, or an element in the slotted element's shadow root.
   //
-  // For example, the accessible trigger of an <stories-button> is a <button> located inside its shadow root.
+  // For example, the accessible trigger of an <str-button> is a <button> located inside its shadow root.
   //
   // To determine this, we assume the first tabbable element in the trigger slot is the "accessible trigger."
   //

@@ -2,14 +2,14 @@ import { newSpecPage } from '@stencil/core/testing';
 
 import { Button } from '../button';
 
-describe('stories-button', () => {
+describe('str-button', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [Button],
-      html: `<stories-button></stories-button>`,
+      html: `<str-button></str-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-button class="button-default button-medium" size="medium" variant="default">
+      <str-button class="button-default button-medium" size="medium" variant="default">
         <mock:shadow-root>
            <button class="button-native" type="button">
             <span class="button-inner">
@@ -20,7 +20,7 @@ describe('stories-button', () => {
             </span>
           </button>
         </mock:shadow-root>
-      </stories-button>
+      </str-button>
     `);
   });
 });

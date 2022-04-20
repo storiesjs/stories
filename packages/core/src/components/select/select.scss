@@ -39,41 +39,41 @@
    *
    * @prop --focus-ring: The focus ring style to use when the control receives focus, a `box-shadow` property.
    */
-  --font-size: var(--stories-form-element-font-size-medium);
-  --font-weight: var(--stories-font-weight-normal);
+  --font-size: var(--str-form-element-font-size-medium);
+  --font-weight: var(--str-font-weight-normal);
 
-  --background-color: var(--stories-color-white);
-  --background-color-hover: var(--stories-color-white);
-  --background-color-focus: var(--stories-color-white);
-  --background-color-invalid: var(--stories-color-white);
-  --background-color-invalid-hover: var(--stories-color-white);
+  --background-color: var(--str-color-white);
+  --background-color-hover: var(--str-color-white);
+  --background-color-focus: var(--str-color-white);
+  --background-color-invalid: var(--str-color-white);
+  --background-color-invalid-hover: var(--str-color-white);
 
-  --border-radius: var(--stories-form-element-border-radius-small);
-  --border-color: var(--stories-color-light-shade);
-  --border-color-hover: var(--stories-color-medium);
-  --border-color-focus: var(--stories-color-primary);
-  --border-color-invalid: var(--stories-color-danger);
-  --border-color-invalid-hover: var(--stories-color-danger-shade);
+  --border-radius: var(--str-form-element-border-radius-small);
+  --border-color: var(--str-color-light-shade);
+  --border-color-hover: var(--str-color-medium);
+  --border-color-focus: var(--str-color-primary);
+  --border-color-invalid: var(--str-color-danger);
+  --border-color-invalid-hover: var(--str-color-danger-shade);
 
-  --color: var(--stories-color-dark-tint);
+  --color: var(--str-color-dark-tint);
 
-  --placeholder-color: var(--stories-color-medium-tint);
+  --placeholder-color: var(--str-color-medium-tint);
 
-  --min-height: var(--stories-form-element-height-medium);
+  --min-height: var(--str-form-element-height-medium);
 
-  --label-margin-start: var(--stories-spacing-medium);
-  --label-margin-end: var(--stories-spacing-medium);
+  --label-margin-start: var(--str-spacing-medium);
+  --label-margin-end: var(--str-spacing-medium);
 
-  --clear-icon-margin-end: var(--stories-spacing-medium);
+  --clear-icon-margin-end: var(--str-spacing-medium);
 
-  --caret-margin-end: var(--stories-spacing-medium);
+  --caret-margin-end: var(--str-spacing-medium);
 
   --tags-padding-top: 3px;
   --tags-padding-bottom: 3px;
 
-  --tags-margin-end: var(--stories-spacing-xx-small);
+  --tags-margin-end: var(--str-spacing-xx-small);
 
-  --focus-ring: 0 0 0 var(--stories-focus-ring-width) rgb(var(--stories-color-primary-rgb), 0.33);
+  --focus-ring: 0 0 0 var(--str-focus-ring-width) rgb(var(--str-color-primary-rgb), 0.33);
 
   display: block;
 
@@ -90,25 +90,25 @@
 // --------------------------------------------------
 
 .select-small {
-  --font-size: var(--stories-form-element-font-size-small);
-  --min-height: var(--stories-form-element-height-small);
+  --font-size: var(--str-form-element-font-size-small);
+  --min-height: var(--str-form-element-height-small);
 
-  --label-margin-start: var(--stories-spacing-small);
-  --label-margin-end: var(--stories-spacing-small);
-  --clear-icon-margin-end: var(--stories-spacing-small);
-  --caret-margin-end: var(--stories-spacing-small);
+  --label-margin-start: var(--str-spacing-small);
+  --label-margin-end: var(--str-spacing-small);
+  --clear-icon-margin-end: var(--str-spacing-small);
+  --caret-margin-end: var(--str-spacing-small);
   --tags-padding-top: 2px;
   --tags-padding-bottom: 2px;
 }
 
 .select-large {
-  --font-size: var(--stories-form-element-font-size-large);
-  --min-height: var(--stories-form-element-height-large);
+  --font-size: var(--str-form-element-font-size-large);
+  --min-height: var(--str-form-element-height-large);
 
-  --label-margin-start: var(--stories-spacing-large);
-  --label-margin-end: var(--stories-spacing-large);
-  --clear-icon-margin-end: var(--stories-spacing-large);
-  --caret-margin-end: var(--stories-spacing-large);
+  --label-margin-start: var(--str-spacing-large);
+  --label-margin-end: var(--str-spacing-large);
+  --clear-icon-margin-end: var(--str-spacing-large);
+  --caret-margin-end: var(--str-spacing-large);
   --tags-padding-top: 4px;
   --tags-padding-bottom: 4px;
 }
@@ -123,7 +123,7 @@
   justify-content: start;
   position: relative;
   width: 100%;
-  font-family: var(--stories-font-family);
+  font-family: var(--str-font-family);
   font-size: var(--font-size);
   font-weight: var(--font-weight);
   letter-spacing: normal;
@@ -203,7 +203,7 @@
   display: inline-flex;
   align-items: center;
   font-size: inherit;
-  color: var(--stories-color-medium);
+  color: var(--str-color-medium);
   border: none;
   background: none;
   padding: 0;
@@ -212,7 +212,7 @@
   margin-right: var(--clear-icon-margin-end);
 
   &:hover {
-    color: var(--stories-color-dark);
+    color: var(--str-color-dark);
   }
 
   &:focus {
@@ -257,15 +257,15 @@
   align-items: center;
   flex-wrap: wrap;
   justify-content: left;
-  margin-left: var(--stories-spacing-xx-small);
+  margin-left: var(--str-spacing-xx-small);
 
   padding-bottom: var(--tags-padding-bottom);
 
-  gr-tag {
+  str-tag {
     padding-top: var(--tags-padding-top);
   }
 
-  gr-tag:not(:last-of-type) {
+  str-tag:not(:last-of-type) {
     margin-right: var(--tags-margin-end);
   }
 }

@@ -1,24 +1,24 @@
 import { newE2EPage } from '@stencil/core/testing';
 
-describe('gr-select', () => {
+describe('str-select', () => {
   it('renders', async () => {
     const page = await newE2EPage();
     await page.setContent(`
-      <gr-select></gr-select>
+      <str-select></str-select>
     `);
 
-    const element = await page.find('gr-select');
+    const element = await page.find('str-select');
     expect(element).toHaveClass('hydrated');
   });
 
-  it('should emit gr-focus when gaining focus', async () => {
+  it('should emit str-focus when gaining focus', async () => {
     const page = await newE2EPage({
       html: `
-        <gr-select></gr-select>
+        <str-select></str-select>
       `,
     });
-    const select = await page.find('gr-select');
-    const grFocus = await select.spyOnEvent('gr-focus');
+    const select = await page.find('str-select');
+    const grFocus = await select.spyOnEvent('str-focus');
 
     await select.click();
 

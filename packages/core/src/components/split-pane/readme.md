@@ -1,6 +1,6 @@
-# stories-split-panel
+# str-split-panel
 
-The stories-split-panel is a component to split content vertically or horizontally.
+The str-split-panel is a component to split content vertically or horizontally.
 
 <!-- Auto Generated Below -->
 
@@ -17,9 +17,9 @@ The stories-split-panel is a component to split content vertically or horizontal
 
 ## Events
 
-| Event               | Description | Type                  |
-| ------------------- | ----------- | --------------------- |
-| `storiesSizeChange` |             | `CustomEvent<number>` |
+| Event           | Description | Type                  |
+| --------------- | ----------- | --------------------- |
+| `strSizeChange` |             | `CustomEvent<number>` |
 
 
 ----------------------------------------------

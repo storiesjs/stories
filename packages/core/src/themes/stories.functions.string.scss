@@ -95,8 +95,8 @@
 // --> :host-context([dir=rtl]):host(.fixed)
 // --> :host-context([dir=rtl]).fixed
 //
-// @include add-root-selector("[dir=rtl]", ":host(.tab-layout-icon-hide) ::slotted(stories-badge)")
-// --> :host-context([dir=rtl]).tab-layout-icon-hide ::slotted(stories-badge)
+// @include add-root-selector("[dir=rtl]", ":host(.tab-layout-icon-hide) ::slotted(str-badge)")
+// --> :host-context([dir=rtl]).tab-layout-icon-hide ::slotted(str-badge)
 //
 // @include add-root-selector("[dir=rtl]", ".shadow")
 // --> [dir=rtl] .shadow

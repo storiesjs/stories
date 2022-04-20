@@ -8,7 +8,7 @@ import { hasSlot } from '../../utils/slot';
 let id = 0;
 
 @Component({
-  tag: 'stories-checkbox',
+  tag: 'str-checkbox',
   styleUrl: 'checkbox.scss',
   shadow: true,
 })
@@ -20,7 +20,7 @@ export class Checkbox {
   private input: HTMLInputElement;
   private inheritedAttributes: { [k: string]: any } = {};
 
-  @Element() el: HTMLStoriesCheckboxElement;
+  @Element() el: HTMLStrCheckboxElement;
 
   @State() hasInvalidTextSlot = false;
 
@@ -54,20 +54,20 @@ export class Checkbox {
   @Prop({ reflect: true }) invalid = false;
 
   /** Emitted when the control loses focus. */
-  @Event() storiesBlur: EventEmitter<void>;
+  @Event() strBlur: EventEmitter<void>;
 
   /** Emitted when the control gains focus. */
-  @Event() storiesFocus: EventEmitter<void>;
+  @Event() strFocus: EventEmitter<void>;
 
   /** Emitted when the control's checked state changes. */
-  @Event() storiesChange: EventEmitter<void>;
+  @Event() strChange: EventEmitter<void>;
 
   @Watch('checked')
   @Watch('indeterminate')
   handleCheckedChange(): void {
     this.input.checked = this.checked;
     this.input.indeterminate = this.indeterminate;
-    this.storiesChange.emit();
+    this.strChange.emit();
   }
 
   @Watch('invalidText')
@@ -117,12 +117,12 @@ export class Checkbox {
 
   handleBlur(): void {
     this.hasFocus = false;
-    this.storiesBlur.emit();
+    this.strBlur.emit();
   }
 
   handleFocus(): void {
     this.hasFocus = true;
-    this.storiesFocus.emit();
+    this.strFocus.emit();
   }
 
   handleMouseDown(event: MouseEvent): void {

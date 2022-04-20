@@ -1,11 +1,11 @@
 import { newE2EPage } from '@stencil/core/testing';
 
-describe('gr-dropdown', () => {
+describe('str-dropdown', () => {
   it('renders', async () => {
     const page = await newE2EPage();
-    await page.setContent('<gr-dropdown></gr-dropdown>');
+    await page.setContent('<str-dropdown></str-dropdown>');
 
-    const element = await page.find('gr-dropdown');
+    const element = await page.find('str-dropdown');
     expect(element).toHaveClass('hydrated');
   });
 });

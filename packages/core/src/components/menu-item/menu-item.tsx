@@ -6,7 +6,7 @@ import { Component, Method, Prop, State, h, Host, Element } from '@stencil/core'
  * @slot end - Content is placed to the right of the menu item's label (will be to the left when we support right-to-left direction)
  */
 @Component({
-  tag: 'stories-menu-item',
+  tag: 'str-menu-item',
   styleUrl: 'menu-item.scss',
   shadow: true,
 })

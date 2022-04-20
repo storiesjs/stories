@@ -2,7 +2,7 @@
 import { Component, Host, h, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'stories-grid',
+  tag: 'str-grid',
   styleUrl: 'grid.scss',
   shadow: true,
 })

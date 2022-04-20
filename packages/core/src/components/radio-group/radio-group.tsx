@@ -12,7 +12,7 @@ let id = 0;
  * @slot invalid-text - Invalid text tells a user how to fix the error. Alternatively, you can use the invalid-text prop.
  */
 @Component({
-  tag: 'stories-radio-group',
+  tag: 'str-radio-group',
   styleUrl: 'radio-group.scss',
   shadow: true,
 })
@@ -53,7 +53,7 @@ export class RadioGroup {
   valueChanged(value: any | undefined) {
     this.setRadioTabindex(value);
 
-    this.storiesChange.emit({ value });
+    this.strChange.emit({ value });
   }
 
   @Watch('label')
@@ -63,7 +63,7 @@ export class RadioGroup {
   }
 
   /** Emitted when the value has changed. */
-  @Event() storiesChange!: EventEmitter;
+  @Event() strChange!: EventEmitter;
 
   connectedCallback() {
     this.handleSlotChange = this.handleSlotChange.bind(this);
@@ -104,14 +104,14 @@ export class RadioGroup {
     }
   };
 
-  private getRadios(): HTMLStoriesRadioElement[] {
-    return Array.from(this.el.querySelectorAll('stories-radio'));
+  private getRadios(): HTMLStrRadioElement[] {
+    return Array.from(this.el.querySelectorAll('str-radio'));
   }
 
   private onClick = (ev: Event) => {
     ev.preventDefault();
 
-    const selectedRadio = ev.target && (ev.target as HTMLElement).closest('stories-radio');
+    const selectedRadio = ev.target && (ev.target as HTMLElement).closest('str-radio');
     if (selectedRadio) {
       const currentValue = this.value;
       const newValue = selectedRadio.value;

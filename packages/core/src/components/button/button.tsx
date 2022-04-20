@@ -7,7 +7,7 @@ import { inheritAttributes } from '../../utils/helpers';
 // import { createColorClasses, hostContext } from '../../utils';
 
 @Component({
-  tag: 'stories-button',
+  tag: 'str-button',
   styleUrl: 'button.scss',
   shadow: true,
 })
@@ -84,12 +84,12 @@ export class Button {
   /**
    * Emitted when the button has focus.
    */
-  @Event() storiesFocus!: EventEmitter<void>;
+  @Event() strFocus!: EventEmitter<void>;
 
   /**
    * Emitted when the button loses focus.
    */
-  @Event() storiesBlur!: EventEmitter<void>;
+  @Event() strBlur!: EventEmitter<void>;
 
   componentWillLoad(): void {
     this.inheritedAttributes = inheritAttributes(this.el, ['aria-label', 'tabindex', 'title']);
@@ -127,11 +127,11 @@ export class Button {
   };
 
   private onFocus = () => {
-    this.storiesFocus.emit();
+    this.strFocus.emit();
   };
 
   private onBlur = () => {
-    this.storiesBlur.emit();
+    this.strBlur.emit();
   };
 
   render(): JSX.Element {
@@ -192,7 +192,7 @@ export class Button {
             )}
           </span>
 
-          {this.loading && <stories-spinner />}
+          {this.loading && <str-spinner />}
         </TagType>
       </Host>
     );

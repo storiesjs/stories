@@ -55,16 +55,16 @@ const FormItem: FunctionalComponent<FormItemProps> = (props, children) => {
   return (
     <div
       class={{
-        'form-control': true,
-        [`form-control-${props.size}`]: true,
-        'form-control-has-label': hasLabel,
-        'form-control-has-help-text': hasHelpText,
-        'form-control-has-invalid-text': hasInvalidText,
+        'form-item': true,
+        [`form-item-${props.size}`]: true,
+        'form-item-has-label': hasLabel,
+        'form-item-has-help-text': hasHelpText,
+        'form-item-has-invalid-text': hasInvalidText,
       }}
     >
       <label
         id={props.labelId}
-        class="form-control-label"
+        class="form-item-label"
         htmlFor={props.inputId}
         aria-hidden={hasLabel ? 'false' : 'true'}
         onClick={props.onLabelClick}
@@ -82,16 +82,16 @@ const FormItem: FunctionalComponent<FormItemProps> = (props, children) => {
         )}
       </label>
 
-      <div class="form-control-input">{children}</div>
+      <div class="form-item-input">{children}</div>
 
       {showHelpText && (
-        <div id={props.helpTextId} class="form-control-help-text" aria-hidden={hasHelpText ? 'false' : 'true'}>
+        <div id={props.helpTextId} class="form-item-help-text" aria-hidden={hasHelpText ? 'false' : 'true'}>
           <slot name="help-text">{props.helpText}</slot>
         </div>
       )}
 
       {showInvalidText && (
-        <div id={props.invalidTextId} class="form-control-invalid-text" aria-hidden={hasInvalidText ? 'false' : 'true'}>
+        <div id={props.invalidTextId} class="form-item-invalid-text" aria-hidden={hasInvalidText ? 'false' : 'true'}>
           <div class="icon">
             <svg role="img" aria-hidden="true" viewBox="0 0 512 512">
               <title>Alert Circle</title>

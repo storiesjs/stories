@@ -1,6 +1,6 @@
-# stories-addons
+# str-addons
 
-The stories-addons is a wrapping component implemented for helping in addons management.
+The str-addons is a wrapping component implemented for helping in addons management.
 
 <!-- Auto Generated Below -->
 

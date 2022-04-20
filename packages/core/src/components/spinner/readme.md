@@ -1,6 +1,6 @@
 # Spinner
 
-The Spinner (stories-spinner) displays a continuous loader on the user interface, to indicate that a system is processing an entity.
+The Spinner (str-spinner) displays a continuous loader on the user interface, to indicate that a system is processing an entity.
 
 <!-- Auto Generated Below -->
 
@@ -18,13 +18,13 @@ The Spinner (stories-spinner) displays a continuous loader on the user interface
 
 ### Used by
 
- - [stories-button](../button)
+ - [str-button](../button)
 
 ### Graph
 ```mermaid
 graph TD;
-  stories-button --> stories-spinner
-  style stories-spinner fill:#f9f,stroke:#333,stroke-width:4px
+  str-button --> str-spinner
+  style str-spinner fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

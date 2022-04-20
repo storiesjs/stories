@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import App from './App.vue'
-import Stories from './Stories.vue'
+import Stories from './stories/Stories.vue'
 import { StoriesVue } from '@stories-js/vue';
 
 if (process.env.VUE_APP_STORIES) {

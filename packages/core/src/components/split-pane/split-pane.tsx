@@ -3,7 +3,7 @@ import type { EventEmitter } from '@stencil/core';
 import { Component, h, Prop, Element, Event } from '@stencil/core';
 
 @Component({
-  tag: 'stories-split-pane',
+  tag: 'str-split-pane',
   styleUrl: 'split-pane.scss',
   shadow: true,
 })
@@ -19,7 +19,7 @@ export class SplitPane {
   top: number;
   value: number;
 
-  @Event({ bubbles: true, composed: true }) storiesSizeChange: EventEmitter<number>;
+  @Event({ bubbles: true, composed: true }) strSizeChange: EventEmitter<number>;
 
   componentDidLoad(): void {
     if (this.defaultSize > 0 || this.minSize > 0) {
@@ -71,7 +71,7 @@ export class SplitPane {
   pointerUp = (e: PointerEvent): void => {
     e.preventDefault();
 		this.isResizing = false;
-		this.storiesSizeChange.emit(this.value);
+		this.strSizeChange.emit(this.value);
 		this.el.removeEventListener("pointermove", this.pointerMove);
 		this.el.removeEventListener("pointerup", this.pointerUp);
 	}

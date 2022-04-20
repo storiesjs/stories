@@ -1,7 +1,7 @@
 import { Component, h } from '@stencil/core';
 
 @Component({
-  tag: 'stories-spinner',
+  tag: 'str-spinner',
   styleUrl: 'spinner.scss',
   shadow: true,
 })

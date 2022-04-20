@@ -2,20 +2,20 @@ import { newSpecPage } from '@stencil/core/testing';
 
 import { Preview } from '../preview';
 
-describe('stories-preview', () => {
+describe('str-preview', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [Preview],
-      html: `<stories-preview></stories-preview>`,
+      html: `<str-preview></str-preview>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-preview>
+      <str-preview>
         <mock:shadow-root>
-          <stories-zoom zoom="1">
+          <str-zoom zoom="1">
             <slot></slot>
-          </stories-zoom>
+          </str-zoom>
         </mock:shadow-root>
-      </stories-preview>
+      </str-preview>
     `);
   });
 });

@@ -1,7 +1,7 @@
 import { Component, Host, h } from '@stencil/core';
 
 @Component({
-  tag: 'stories-menu-divider',
+  tag: 'str-menu-divider',
   styleUrl: 'menu-divider.scss',
   shadow: true,
 })

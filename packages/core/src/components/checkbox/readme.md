@@ -1,6 +1,6 @@
 # Checkbox
 
-The Checkbox (stories-checkbox) is a styled HTML checkboxed input element.
+The Checkbox (str-checkbox) is a styled HTML checkboxed input element.
 
 <!-- Auto Generated Below -->
 
@@ -20,11 +20,11 @@ The Checkbox (stories-checkbox) is a styled HTML checkboxed input element.
 
 ## Events
 
-| Event           | Description                                       | Type                |
-| --------------- | ------------------------------------------------- | ------------------- |
-| `storiesBlur`   | Emitted when the control loses focus.             | `CustomEvent<void>` |
-| `storiesChange` | Emitted when the control's checked state changes. | `CustomEvent<void>` |
-| `storiesFocus`  | Emitted when the control gains focus.             | `CustomEvent<void>` |
+| Event       | Description                                       | Type                |
+| ----------- | ------------------------------------------------- | ------------------- |
+| `strBlur`   | Emitted when the control loses focus.             | `CustomEvent<void>` |
+| `strChange` | Emitted when the control's checked state changes. | `CustomEvent<void>` |
+| `strFocus`  | Emitted when the control gains focus.             | `CustomEvent<void>` |
 
 
 ## Methods

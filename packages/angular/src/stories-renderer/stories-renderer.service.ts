@@ -4,7 +4,7 @@ import type { StoryModules } from '@stories-js/core';
 @Injectable({
   providedIn: 'root'
 })
-export class StoriesAngularService {
+export class StoriesRendererService {
   modules: StoryModules = [];
 
   setModules(modules: StoryModules): void {

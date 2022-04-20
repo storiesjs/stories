@@ -1,6 +1,6 @@
 # Dropdown
 
-The Dropdown (stories-dropdown) displays drop-down box that enables selection of an option from an available list of values.
+The Dropdown (str-dropdown) displays drop-down box that enables selection of an option from an available list of values.
 
 <!-- Auto Generated Below -->
 
@@ -20,12 +20,12 @@ The Dropdown (stories-dropdown) displays drop-down box that enables selection of
 
 ## Events
 
-| Event              | Description                                                                                           | Type                |
-| ------------------ | ----------------------------------------------------------------------------------------------------- | ------------------- |
-| `storiesAfterHide` | Emitted after the dropdown closes and all transitions are complete.                                   | `CustomEvent<void>` |
-| `storiesAfterShow` | Emitted after the dropdown opens and all transitions are complete.                                    | `CustomEvent<void>` |
-| `storiesHide`      | Emitted when the dropdown closes. Calling `event.preventDefault()` will prevent it from being closed. | `CustomEvent<void>` |
-| `storiesShow`      | Emitted when the dropdown opens. Calling `event.preventDefault()` will prevent it from being opened.  | `CustomEvent<void>` |
+| Event          | Description                                                                                           | Type                |
+| -------------- | ----------------------------------------------------------------------------------------------------- | ------------------- |
+| `strAfterHide` | Emitted after the dropdown closes and all transitions are complete.                                   | `CustomEvent<void>` |
+| `strAfterShow` | Emitted after the dropdown opens and all transitions are complete.                                    | `CustomEvent<void>` |
+| `strHide`      | Emitted when the dropdown closes. Calling `event.preventDefault()` will prevent it from being closed. | `CustomEvent<void>` |
+| `strShow`      | Emitted when the dropdown opens. Calling `event.preventDefault()` will prevent it from being opened.  | `CustomEvent<void>` |
 
 
 ## Methods
@@ -63,10 +63,10 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot        | Description                                                   |
-| ----------- | ------------------------------------------------------------- |
-|             | The dropdown's content.                                       |
-| `"trigger"` | The dropdown's trigger, usually a `<stories-button>` element. |
+| Slot        | Description                                               |
+| ----------- | --------------------------------------------------------- |
+|             | The dropdown's content.                                   |
+| `"trigger"` | The dropdown's trigger, usually a `<str-button>` element. |
 
 
 ## CSS Custom Properties
@@ -84,13 +84,13 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [stories-select](../select)
+ - [str-select](../select)
 
 ### Graph
 ```mermaid
 graph TD;
-  stories-select --> stories-dropdown
-  style stories-dropdown fill:#f9f,stroke:#333,stroke-width:4px
+  str-select --> str-dropdown
+  style str-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

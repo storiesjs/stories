@@ -25,11 +25,11 @@
   box-sizing: border-box;
 }
 
-:host(.stories-color) {
+:host(.str-color) {
   color: current-color(base);
 }
 
-:host(.stories-text-wrap),
+:host(.str-text-wrap),
 :host([text-wrap]) {
   white-space: normal;
 }

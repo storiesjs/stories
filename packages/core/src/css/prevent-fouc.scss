@@ -1,13 +1,13 @@
-gr-button:not(.hydrated),
-gr-checkbox:not(.hydrated),
-gr-dropdown:not(.hydrated),
-gr-fieldgroup:not(.hydrated),
-gr-menu:not(.hydrated),
-gr-menu-item:not(.hydrated),
-gr-menu-label:not(.hydrated),
-gr-radio-group:not(.hydrated),
-gr-radio:not(.hydrated),
-gr-select:not(.hydrated),
-gr-tag:not(.hydrated) {
+str-button:not(.hydrated),
+str-checkbox:not(.hydrated),
+str-dropdown:not(.hydrated),
+str-fieldstroup:not(.hydrated),
+str-menu:not(.hydrated),
+str-menu-item:not(.hydrated),
+str-menu-label:not(.hydrated),
+str-radio-stroup:not(.hydrated),
+str-radio:not(.hydrated),
+str-select:not(.hydrated),
+str-tag:not(.hydrated) {
   visibility: hidden;
 }

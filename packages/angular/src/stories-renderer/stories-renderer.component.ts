@@ -8,11 +8,11 @@ import type { Subscription } from 'rxjs';
 import type { StoryComponent } from './types';
 
 @Component({
-  selector: 'stories-angular-renderer',
-  templateUrl: './stories-angular-renderer.component.html',
-  styleUrls: ['./stories-angular-renderer.component.css']
+  selector: 'str-renderer',
+  templateUrl: './stories-renderer.component.html',
+  styleUrls: ['./stories-renderer.component.css']
 })
-export class StoriesAngularRendererComponent {
+export class StoriesRendererComponent {
   doc: Document | undefined;
   compRef: ComponentRef<unknown> | undefined;
 

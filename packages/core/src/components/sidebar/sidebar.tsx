@@ -5,7 +5,7 @@ import { state } from '../../store';
 import type { StoryComponents, StoryComponent } from '../../types';
 
 @Component({
-  tag: 'stories-sidebar',
+  tag: 'str-sidebar',
   styleUrl: 'sidebar.scss',
   shadow: true,
 })

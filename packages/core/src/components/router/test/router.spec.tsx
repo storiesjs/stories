@@ -3,18 +3,18 @@ import { newSpecPage } from '@stencil/core/testing';
 
 import { Router } from '../router';
 
-describe('stories-router', () => {
+describe('str-router', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [Router],
-      html: `<stories-router></stories-router>`,
+      html: `<str-router></str-router>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-router>
+      <str-router>
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </stories-router>
+      </str-router>
     `);
   });
 });

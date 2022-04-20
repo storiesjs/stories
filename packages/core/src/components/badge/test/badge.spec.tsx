@@ -2,18 +2,18 @@ import { newSpecPage } from '@stencil/core/testing';
 
 import { Badge } from '../badge';
 
-describe('stories-badge', () => {
+describe('str-badge', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [Badge],
-      html: `<stories-badge></stories-badge>`,
+      html: `<str-badge></str-badge>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-badge>
+      <str-badge>
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </stories-badge>
+      </str-badge>
     `);
   });
 });

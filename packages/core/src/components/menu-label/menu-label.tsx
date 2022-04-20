@@ -4,7 +4,7 @@ import { Component, Host, h } from '@stencil/core';
  * @slot - The menu label's content.
  */
 @Component({
-  tag: 'stories-menu-label',
+  tag: 'str-menu-label',
   styleUrl: 'menu-label.scss',
   shadow: true,
 })

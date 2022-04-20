@@ -1,42 +1,42 @@
 import { newE2EPage } from '@stencil/core/testing';
 
-describe('stories-textarea', () => {
+describe('str-textarea', () => {
   it('should render', async () => {
     const page = await newE2EPage();
-    await page.setContent('<stories-textarea></stories-textarea>');
+    await page.setContent('<str-textarea></str-textarea>');
 
-    const element = await page.find('stories-textarea');
+    const element = await page.find('str-textarea');
     expect(element).toHaveClass('hydrated');
   });
 
-  it('should emit stories-focus when gaining focus', async () => {
+  it('should emit str-focus when gaining focus', async () => {
     const page = await newE2EPage({
       html: `
-        <stories-textarea></stories-textarea>
+        <str-textarea></str-textarea>
       `,
     });
-    const textarea = await page.find('stories-textarea');
-    const storiesFocus = await textarea.spyOnEvent('stories-focus');
+    const textarea = await page.find('str-textarea');
+    const strFocus = await textarea.spyOnEvent('str-focus');
 
     await textarea.click();
 
-    expect(storiesFocus).toHaveReceivedEventTimes(1);
+    expect(strFocus).toHaveReceivedEventTimes(1);
   });
 
-  it('should emit stories-blur when losing focus', async () => {
+  it('should emit str-blur when losing focus', async () => {
     const page = await newE2EPage({
       html: `
-        <stories-textarea></stories-textarea>
+        <str-textarea></str-textarea>
         <button>Native Button</button>
       `,
     });
-    const textarea = await page.find('stories-textarea');
+    const textarea = await page.find('str-textarea');
     const nativeButton = await page.find('button');
-    const storiesBlur = await textarea.spyOnEvent('stories-blur');
+    const strBlur = await textarea.spyOnEvent('str-blur');
 
     await textarea.click();
     await nativeButton.click();
 
-    expect(storiesBlur).toHaveReceivedEventTimes(1);
+    expect(strBlur).toHaveReceivedEventTimes(1);
   });
 });

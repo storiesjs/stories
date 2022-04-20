@@ -1,7 +1,7 @@
 import { Component, Host, h, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'stories-badge',
+  tag: 'str-badge',
   styleUrl: 'badge.scss',
   shadow: true,
 })

@@ -1,15 +1,15 @@
 # Menu
 
-The Menu (stories-menu) is a container for stories-menu-item components.
+The Menu (str-menu) is a container for str-menu-item components.
 
 <!-- Auto Generated Below -->
 
 
 ## Events
 
-| Event           | Description                           | Type                                                 |
-| --------------- | ------------------------------------- | ---------------------------------------------------- |
-| `storiesSelect` | Emitted when a menu item is selected. | `CustomEvent<{ item: HTMLStoriesMenuItemElement; }>` |
+| Event       | Description                           | Type                                             |
+| ----------- | ------------------------------------- | ------------------------------------------------ |
+| `strSelect` | Emitted when a menu item is selected. | `CustomEvent<{ item: HTMLStrMenuItemElement; }>` |
 
 
 ## Methods
@@ -47,13 +47,13 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [stories-select](../select)
+ - [str-select](../select)
 
 ### Graph
 ```mermaid
 graph TD;
-  stories-select --> stories-menu
-  style stories-menu fill:#f9f,stroke:#333,stroke-width:4px
+  str-select --> str-menu
+  style str-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

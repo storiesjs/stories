@@ -1,6 +1,6 @@
 # Input
 
-The Input (stories-input) component is a styled and enchanced HTML input element. It supports only standard text input events and types such as "text", "password", "email", "number", "search", "tel", and "url".
+The Input (str-input) component is a styled and enchanced HTML input element. It supports only standard text input events and types such as "text", "password", "email", "number", "search", "tel", and "url".
 
 <!-- Auto Generated Below -->
 
@@ -40,13 +40,13 @@ The Input (stories-input) component is a styled and enchanced HTML input element
 
 ## Events
 
-| Event           | Description                                 | Type                |
-| --------------- | ------------------------------------------- | ------------------- |
-| `stroiesBlur`   | Emitted when the control loses focus.       | `CustomEvent<void>` |
-| `stroiesChange` | Emitted when the control's value changes.   | `CustomEvent<void>` |
-| `stroiesClear`  | Emitted when the clear button is activated. | `CustomEvent<void>` |
-| `stroiesFocus`  | Emitted when the control gains focus.       | `CustomEvent<void>` |
-| `stroiesInput`  | Emitted when the control receives input.    | `CustomEvent<void>` |
+| Event           | Description                                 | Type               |
+| --------------- | ------------------------------------------- | ------------------ |
+| `stroiesBlur`   | Emitted when the control loses focus.       | `CustomEvent<any>` |
+| `stroiesChange` | Emitted when the control's value changes.   | `CustomEvent<any>` |
+| `stroiesClear`  | Emitted when the clear button is activated. | `CustomEvent<any>` |
+| `stroiesFocus`  | Emitted when the control gains focus.       | `CustomEvent<any>` |
+| `stroiesInput`  | Emitted when the control receives input.    | `CustomEvent<any>` |
 
 
 ## Methods

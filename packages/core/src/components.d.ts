@@ -9,19 +9,19 @@ import { Addon, Color, Commands, SearchbarChangeEventDetail, StoryComponent, Sto
 import { AppState } from "./store";
 import { AutocompleteTypes } from "./interface";
 export namespace Components {
-    interface StoriesAddonActions {
+    interface StrAddonActions {
         "storyContextChanged": (story: StoryComponent, context: StoryContext) => Promise<void>;
     }
-    interface StoriesAddonControls {
+    interface StrAddonControls {
         "storyContextChanged": (story: StoryComponent, context: StoryContext) => Promise<void>;
     }
-    interface StoriesAddons {
+    interface StrAddons {
         "findAddon": (id: string) => Promise<Addon>;
         "registerAddon": (addon: Addon) => Promise<void>;
         "storyContextChanged": (story: StoryComponent, context: StoryContext) => Promise<void>;
         "unregisterAddon": (addon: Addon) => Promise<void>;
     }
-    interface StoriesApp {
+    interface StrApp {
         /**
           * Story Modules
          */
@@ -31,7 +31,7 @@ export namespace Components {
          */
         "store": AppState;
     }
-    interface StoriesBadge {
+    interface StrBadge {
         /**
           * The badge's size.
          */
@@ -41,7 +41,7 @@ export namespace Components {
          */
         "type": 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
-    interface StoriesButton {
+    interface StrButton {
         /**
           * Set to true to draw the button with a caret for use with dropdowns, popovers, etc.
          */
@@ -99,7 +99,7 @@ export namespace Components {
          */
         "variant"?: 'default' | 'primary' | 'secondary' | 'danger' | 'plain';
     }
-    interface StoriesCheckbox {
+    interface StrCheckbox {
         /**
           * Set to true to draw the checkbox in a checked state.
          */
@@ -137,7 +137,7 @@ export namespace Components {
          */
         "value": string;
     }
-    interface StoriesCol {
+    interface StrCol {
         /**
           * The amount to offset the column, in terms of how many columns it should shift to the end of the total available.
          */
@@ -235,7 +235,7 @@ export namespace Components {
          */
         "sizeXs"?: string;
     }
-    interface StoriesDropdown {
+    interface StrDropdown {
         /**
           * Determines whether the dropdown should hide when a menu item is selected.
          */
@@ -288,15 +288,15 @@ export namespace Components {
          */
         "skidding": number;
     }
-    interface StoriesFooter {
+    interface StrFooter {
     }
-    interface StoriesGrid {
+    interface StrGrid {
         /**
           * If `true`, the grid will have a fixed width based on the screen size.
          */
         "fixed": boolean;
     }
-    interface StoriesGroup {
+    interface StrGroup {
         /**
           * Render the fields horizontal instead of vertical
          */
@@ -306,13 +306,13 @@ export namespace Components {
          */
         "label": string;
     }
-    interface StoriesIcon {
+    interface StrIcon {
         /**
           * Icon name
          */
         "name": string;
     }
-    interface StoriesInput {
+    interface StrInput {
         /**
           * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user. Available options: `"off"`, `"none"`, `"on"`, `"sentences"`, `"words"`, `"characters"`.
          */
@@ -442,7 +442,7 @@ export namespace Components {
          */
         "value": string;
     }
-    interface StoriesLabel {
+    interface StrLabel {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
          */
@@ -452,15 +452,15 @@ export namespace Components {
          */
         "position"?: 'fixed' | 'stacked' | 'floating';
     }
-    interface StoriesMenu {
+    interface StrMenu {
         /**
           * Initiates type-to-select logic, which automatically selects an option based on what the user is currently typing. The key passed will be appended to the internal query and the selection will be updated. After a brief period, the internal query is cleared automatically. This method is intended to be used with the keydown event. Useful for enabling type-to-select when the menu doesn't have focus.
          */
         "typeToSelect": (key: string) => Promise<void>;
     }
-    interface StoriesMenuDivider {
+    interface StrMenuDivider {
     }
-    interface StoriesMenuItem {
+    interface StrMenuItem {
         /**
           * Set to true to draw the item in a checked state.
          */
@@ -482,11 +482,11 @@ export namespace Components {
          */
         "value": string;
     }
-    interface StoriesMenuLabel {
+    interface StrMenuLabel {
     }
-    interface StoriesPreview {
+    interface StrPreview {
     }
-    interface StoriesRadio {
+    interface StrRadio {
         /**
           * Set to true to draw the radio in a checked state.
          */
@@ -509,7 +509,7 @@ export namespace Components {
          */
         "value": string;
     }
-    interface StoriesRadioGroup {
+    interface StrRadioGroup {
         /**
           * If `true`, the radios can be deselected.
          */
@@ -543,11 +543,11 @@ export namespace Components {
          */
         "value"?: any | null;
     }
-    interface StoriesRouter {
+    interface StrRouter {
     }
-    interface StoriesRow {
+    interface StrRow {
     }
-    interface StoriesSearchbar {
+    interface StrSearchbar {
         /**
           * Set the cancel button icon. Only applies to `md` mode. Defaults to `"arrow-back-sharp"`.
          */
@@ -585,7 +585,7 @@ export namespace Components {
          */
         "searchIcon"?: string;
         /**
-          * Sets focus on the specified `stories-searchbar`. Use this method instead of the global `input.focus()`.
+          * Sets focus on the specified `str-searchbar`. Use this method instead of the global `input.focus()`.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -605,7 +605,7 @@ export namespace Components {
          */
         "value"?: string | null;
     }
-    interface StoriesSelect {
+    interface StrSelect {
         /**
           * Set to true to add a clear button when the select is populated.
          */
@@ -671,24 +671,24 @@ export namespace Components {
          */
         "value": string | Array<string>;
     }
-    interface StoriesSidebar {
+    interface StrSidebar {
     }
-    interface StoriesSpinner {
+    interface StrSpinner {
     }
-    interface StoriesSplitPane {
+    interface StrSplitPane {
         "defaultSize": number;
         "isResizing": boolean;
         "minSize": number;
         "split": "horizontal" | "vertical";
     }
-    interface StoriesTab {
+    interface StrTab {
         "active": boolean;
         /**
-          * A tab id must be provided for each `stories-tab`. It's used internally to reference the selected tab or by the router to switch between them.
+          * A tab id must be provided for each `str-tab`. It's used internally to reference the selected tab or by the router to switch between them.
          */
         "tab": string;
     }
-    interface StoriesTabBar {
+    interface StrTabBar {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
          */
@@ -698,7 +698,7 @@ export namespace Components {
          */
         "selectedTab"?: string;
     }
-    interface StoriesTabButton {
+    interface StrTabButton {
         /**
           * If `true`, the user cannot interact with the tab button.
          */
@@ -712,11 +712,11 @@ export namespace Components {
          */
         "selected": boolean;
         /**
-          * A tab id must be provided for each `stories-tab`. It's used internally to reference the selected tab or by the router to switch between them.
+          * A tab id must be provided for each `str-tab`. It's used internally to reference the selected tab or by the router to switch between them.
          */
         "tab"?: string;
     }
-    interface StoriesTabs {
+    interface StrTabs {
         /**
           * Get the currently selected tab.
          */
@@ -725,14 +725,14 @@ export namespace Components {
           * Get a specific tab by the value of its `tab` property or an element reference.
           * @param tab The tab instance to select. If passed a string, it should be the value of the tab's `tab` property.
          */
-        "getTab": (tab: string | HTMLStoriesTabElement) => Promise<HTMLStoriesTabElement | undefined>;
+        "getTab": (tab: string | HTMLStrTabElement) => Promise<HTMLStrTabElement | undefined>;
         /**
           * Select a tab by the value of its `tab` property or an element reference.
           * @param tab The tab instance to select. If passed a string, it should be the value of the tab's `tab` property.
          */
-        "select": (tab: string | HTMLStoriesTabElement) => Promise<boolean>;
+        "select": (tab: string | HTMLStrTabElement) => Promise<boolean>;
     }
-    interface StoriesTag {
+    interface StrTag {
         /**
           * Set to true to make the tag clearable.
          */
@@ -750,7 +750,7 @@ export namespace Components {
          */
         "type": 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
-    interface StoriesTextarea {
+    interface StrTextarea {
         /**
           * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user. Available options: `"off"`, `"none"`, `"on"`, `"sentences"`, `"words"`, `"characters"`.
          */
@@ -764,7 +764,7 @@ export namespace Components {
          */
         "autofocus": boolean;
         /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `stories-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
+          * Set the amount of time, in milliseconds, to wait to trigger the `str-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
          */
         "debounce": number;
         /**
@@ -856,9 +856,9 @@ export namespace Components {
          */
         "value": string;
     }
-    interface StoriesToolBar {
+    interface StrToolBar {
     }
-    interface StoriesToolButton {
+    interface StrToolButton {
         /**
           * command property
          */
@@ -872,309 +872,309 @@ export namespace Components {
          */
         "icon": string;
     }
-    interface StoriesToolZoom {
+    interface StrToolZoom {
     }
-    interface StoriesZoom {
+    interface StrZoom {
         "zoom": number;
     }
 }
 declare global {
-    interface HTMLStoriesAddonActionsElement extends Components.StoriesAddonActions, HTMLStencilElement {
+    interface HTMLStrAddonActionsElement extends Components.StrAddonActions, HTMLStencilElement {
     }
-    var HTMLStoriesAddonActionsElement: {
-        prototype: HTMLStoriesAddonActionsElement;
-        new (): HTMLStoriesAddonActionsElement;
+    var HTMLStrAddonActionsElement: {
+        prototype: HTMLStrAddonActionsElement;
+        new (): HTMLStrAddonActionsElement;
     };
-    interface HTMLStoriesAddonControlsElement extends Components.StoriesAddonControls, HTMLStencilElement {
+    interface HTMLStrAddonControlsElement extends Components.StrAddonControls, HTMLStencilElement {
     }
-    var HTMLStoriesAddonControlsElement: {
-        prototype: HTMLStoriesAddonControlsElement;
-        new (): HTMLStoriesAddonControlsElement;
+    var HTMLStrAddonControlsElement: {
+        prototype: HTMLStrAddonControlsElement;
+        new (): HTMLStrAddonControlsElement;
     };
-    interface HTMLStoriesAddonsElement extends Components.StoriesAddons, HTMLStencilElement {
+    interface HTMLStrAddonsElement extends Components.StrAddons, HTMLStencilElement {
     }
-    var HTMLStoriesAddonsElement: {
-        prototype: HTMLStoriesAddonsElement;
-        new (): HTMLStoriesAddonsElement;
+    var HTMLStrAddonsElement: {
+        prototype: HTMLStrAddonsElement;
+        new (): HTMLStrAddonsElement;
     };
-    interface HTMLStoriesAppElement extends Components.StoriesApp, HTMLStencilElement {
+    interface HTMLStrAppElement extends Components.StrApp, HTMLStencilElement {
     }
-    var HTMLStoriesAppElement: {
-        prototype: HTMLStoriesAppElement;
-        new (): HTMLStoriesAppElement;
+    var HTMLStrAppElement: {
+        prototype: HTMLStrAppElement;
+        new (): HTMLStrAppElement;
     };
-    interface HTMLStoriesBadgeElement extends Components.StoriesBadge, HTMLStencilElement {
+    interface HTMLStrBadgeElement extends Components.StrBadge, HTMLStencilElement {
     }
-    var HTMLStoriesBadgeElement: {
-        prototype: HTMLStoriesBadgeElement;
-        new (): HTMLStoriesBadgeElement;
+    var HTMLStrBadgeElement: {
+        prototype: HTMLStrBadgeElement;
+        new (): HTMLStrBadgeElement;
     };
-    interface HTMLStoriesButtonElement extends Components.StoriesButton, HTMLStencilElement {
+    interface HTMLStrButtonElement extends Components.StrButton, HTMLStencilElement {
     }
-    var HTMLStoriesButtonElement: {
-        prototype: HTMLStoriesButtonElement;
-        new (): HTMLStoriesButtonElement;
+    var HTMLStrButtonElement: {
+        prototype: HTMLStrButtonElement;
+        new (): HTMLStrButtonElement;
     };
-    interface HTMLStoriesCheckboxElement extends Components.StoriesCheckbox, HTMLStencilElement {
+    interface HTMLStrCheckboxElement extends Components.StrCheckbox, HTMLStencilElement {
     }
-    var HTMLStoriesCheckboxElement: {
-        prototype: HTMLStoriesCheckboxElement;
-        new (): HTMLStoriesCheckboxElement;
+    var HTMLStrCheckboxElement: {
+        prototype: HTMLStrCheckboxElement;
+        new (): HTMLStrCheckboxElement;
     };
-    interface HTMLStoriesColElement extends Components.StoriesCol, HTMLStencilElement {
+    interface HTMLStrColElement extends Components.StrCol, HTMLStencilElement {
     }
-    var HTMLStoriesColElement: {
-        prototype: HTMLStoriesColElement;
-        new (): HTMLStoriesColElement;
+    var HTMLStrColElement: {
+        prototype: HTMLStrColElement;
+        new (): HTMLStrColElement;
     };
-    interface HTMLStoriesDropdownElement extends Components.StoriesDropdown, HTMLStencilElement {
+    interface HTMLStrDropdownElement extends Components.StrDropdown, HTMLStencilElement {
     }
-    var HTMLStoriesDropdownElement: {
-        prototype: HTMLStoriesDropdownElement;
-        new (): HTMLStoriesDropdownElement;
+    var HTMLStrDropdownElement: {
+        prototype: HTMLStrDropdownElement;
+        new (): HTMLStrDropdownElement;
     };
-    interface HTMLStoriesFooterElement extends Components.StoriesFooter, HTMLStencilElement {
+    interface HTMLStrFooterElement extends Components.StrFooter, HTMLStencilElement {
     }
-    var HTMLStoriesFooterElement: {
-        prototype: HTMLStoriesFooterElement;
-        new (): HTMLStoriesFooterElement;
+    var HTMLStrFooterElement: {
+        prototype: HTMLStrFooterElement;
+        new (): HTMLStrFooterElement;
     };
-    interface HTMLStoriesGridElement extends Components.StoriesGrid, HTMLStencilElement {
+    interface HTMLStrGridElement extends Components.StrGrid, HTMLStencilElement {
     }
-    var HTMLStoriesGridElement: {
-        prototype: HTMLStoriesGridElement;
-        new (): HTMLStoriesGridElement;
+    var HTMLStrGridElement: {
+        prototype: HTMLStrGridElement;
+        new (): HTMLStrGridElement;
     };
-    interface HTMLStoriesGroupElement extends Components.StoriesGroup, HTMLStencilElement {
+    interface HTMLStrGroupElement extends Components.StrGroup, HTMLStencilElement {
     }
-    var HTMLStoriesGroupElement: {
-        prototype: HTMLStoriesGroupElement;
-        new (): HTMLStoriesGroupElement;
+    var HTMLStrGroupElement: {
+        prototype: HTMLStrGroupElement;
+        new (): HTMLStrGroupElement;
     };
-    interface HTMLStoriesIconElement extends Components.StoriesIcon, HTMLStencilElement {
+    interface HTMLStrIconElement extends Components.StrIcon, HTMLStencilElement {
     }
-    var HTMLStoriesIconElement: {
-        prototype: HTMLStoriesIconElement;
-        new (): HTMLStoriesIconElement;
+    var HTMLStrIconElement: {
+        prototype: HTMLStrIconElement;
+        new (): HTMLStrIconElement;
     };
-    interface HTMLStoriesInputElement extends Components.StoriesInput, HTMLStencilElement {
+    interface HTMLStrInputElement extends Components.StrInput, HTMLStencilElement {
     }
-    var HTMLStoriesInputElement: {
-        prototype: HTMLStoriesInputElement;
-        new (): HTMLStoriesInputElement;
+    var HTMLStrInputElement: {
+        prototype: HTMLStrInputElement;
+        new (): HTMLStrInputElement;
     };
-    interface HTMLStoriesLabelElement extends Components.StoriesLabel, HTMLStencilElement {
+    interface HTMLStrLabelElement extends Components.StrLabel, HTMLStencilElement {
     }
-    var HTMLStoriesLabelElement: {
-        prototype: HTMLStoriesLabelElement;
-        new (): HTMLStoriesLabelElement;
+    var HTMLStrLabelElement: {
+        prototype: HTMLStrLabelElement;
+        new (): HTMLStrLabelElement;
     };
-    interface HTMLStoriesMenuElement extends Components.StoriesMenu, HTMLStencilElement {
+    interface HTMLStrMenuElement extends Components.StrMenu, HTMLStencilElement {
     }
-    var HTMLStoriesMenuElement: {
-        prototype: HTMLStoriesMenuElement;
-        new (): HTMLStoriesMenuElement;
+    var HTMLStrMenuElement: {
+        prototype: HTMLStrMenuElement;
+        new (): HTMLStrMenuElement;
     };
-    interface HTMLStoriesMenuDividerElement extends Components.StoriesMenuDivider, HTMLStencilElement {
+    interface HTMLStrMenuDividerElement extends Components.StrMenuDivider, HTMLStencilElement {
     }
-    var HTMLStoriesMenuDividerElement: {
-        prototype: HTMLStoriesMenuDividerElement;
-        new (): HTMLStoriesMenuDividerElement;
+    var HTMLStrMenuDividerElement: {
+        prototype: HTMLStrMenuDividerElement;
+        new (): HTMLStrMenuDividerElement;
     };
-    interface HTMLStoriesMenuItemElement extends Components.StoriesMenuItem, HTMLStencilElement {
+    interface HTMLStrMenuItemElement extends Components.StrMenuItem, HTMLStencilElement {
     }
-    var HTMLStoriesMenuItemElement: {
-        prototype: HTMLStoriesMenuItemElement;
-        new (): HTMLStoriesMenuItemElement;
+    var HTMLStrMenuItemElement: {
+        prototype: HTMLStrMenuItemElement;
+        new (): HTMLStrMenuItemElement;
     };
-    interface HTMLStoriesMenuLabelElement extends Components.StoriesMenuLabel, HTMLStencilElement {
+    interface HTMLStrMenuLabelElement extends Components.StrMenuLabel, HTMLStencilElement {
     }
-    var HTMLStoriesMenuLabelElement: {
-        prototype: HTMLStoriesMenuLabelElement;
-        new (): HTMLStoriesMenuLabelElement;
+    var HTMLStrMenuLabelElement: {
+        prototype: HTMLStrMenuLabelElement;
+        new (): HTMLStrMenuLabelElement;
     };
-    interface HTMLStoriesPreviewElement extends Components.StoriesPreview, HTMLStencilElement {
+    interface HTMLStrPreviewElement extends Components.StrPreview, HTMLStencilElement {
     }
-    var HTMLStoriesPreviewElement: {
-        prototype: HTMLStoriesPreviewElement;
-        new (): HTMLStoriesPreviewElement;
+    var HTMLStrPreviewElement: {
+        prototype: HTMLStrPreviewElement;
+        new (): HTMLStrPreviewElement;
     };
-    interface HTMLStoriesRadioElement extends Components.StoriesRadio, HTMLStencilElement {
+    interface HTMLStrRadioElement extends Components.StrRadio, HTMLStencilElement {
     }
-    var HTMLStoriesRadioElement: {
-        prototype: HTMLStoriesRadioElement;
-        new (): HTMLStoriesRadioElement;
+    var HTMLStrRadioElement: {
+        prototype: HTMLStrRadioElement;
+        new (): HTMLStrRadioElement;
     };
-    interface HTMLStoriesRadioGroupElement extends Components.StoriesRadioGroup, HTMLStencilElement {
+    interface HTMLStrRadioGroupElement extends Components.StrRadioGroup, HTMLStencilElement {
     }
-    var HTMLStoriesRadioGroupElement: {
-        prototype: HTMLStoriesRadioGroupElement;
-        new (): HTMLStoriesRadioGroupElement;
+    var HTMLStrRadioGroupElement: {
+        prototype: HTMLStrRadioGroupElement;
+        new (): HTMLStrRadioGroupElement;
     };
-    interface HTMLStoriesRouterElement extends Components.StoriesRouter, HTMLStencilElement {
+    interface HTMLStrRouterElement extends Components.StrRouter, HTMLStencilElement {
     }
-    var HTMLStoriesRouterElement: {
-        prototype: HTMLStoriesRouterElement;
-        new (): HTMLStoriesRouterElement;
+    var HTMLStrRouterElement: {
+        prototype: HTMLStrRouterElement;
+        new (): HTMLStrRouterElement;
     };
-    interface HTMLStoriesRowElement extends Components.StoriesRow, HTMLStencilElement {
+    interface HTMLStrRowElement extends Components.StrRow, HTMLStencilElement {
     }
-    var HTMLStoriesRowElement: {
-        prototype: HTMLStoriesRowElement;
-        new (): HTMLStoriesRowElement;
+    var HTMLStrRowElement: {
+        prototype: HTMLStrRowElement;
+        new (): HTMLStrRowElement;
     };
-    interface HTMLStoriesSearchbarElement extends Components.StoriesSearchbar, HTMLStencilElement {
+    interface HTMLStrSearchbarElement extends Components.StrSearchbar, HTMLStencilElement {
     }
-    var HTMLStoriesSearchbarElement: {
-        prototype: HTMLStoriesSearchbarElement;
-        new (): HTMLStoriesSearchbarElement;
+    var HTMLStrSearchbarElement: {
+        prototype: HTMLStrSearchbarElement;
+        new (): HTMLStrSearchbarElement;
     };
-    interface HTMLStoriesSelectElement extends Components.StoriesSelect, HTMLStencilElement {
+    interface HTMLStrSelectElement extends Components.StrSelect, HTMLStencilElement {
     }
-    var HTMLStoriesSelectElement: {
-        prototype: HTMLStoriesSelectElement;
-        new (): HTMLStoriesSelectElement;
+    var HTMLStrSelectElement: {
+        prototype: HTMLStrSelectElement;
+        new (): HTMLStrSelectElement;
     };
-    interface HTMLStoriesSidebarElement extends Components.StoriesSidebar, HTMLStencilElement {
+    interface HTMLStrSidebarElement extends Components.StrSidebar, HTMLStencilElement {
     }
-    var HTMLStoriesSidebarElement: {
-        prototype: HTMLStoriesSidebarElement;
-        new (): HTMLStoriesSidebarElement;
+    var HTMLStrSidebarElement: {
+        prototype: HTMLStrSidebarElement;
+        new (): HTMLStrSidebarElement;
     };
-    interface HTMLStoriesSpinnerElement extends Components.StoriesSpinner, HTMLStencilElement {
+    interface HTMLStrSpinnerElement extends Components.StrSpinner, HTMLStencilElement {
     }
-    var HTMLStoriesSpinnerElement: {
-        prototype: HTMLStoriesSpinnerElement;
-        new (): HTMLStoriesSpinnerElement;
+    var HTMLStrSpinnerElement: {
+        prototype: HTMLStrSpinnerElement;
+        new (): HTMLStrSpinnerElement;
     };
-    interface HTMLStoriesSplitPaneElement extends Components.StoriesSplitPane, HTMLStencilElement {
+    interface HTMLStrSplitPaneElement extends Components.StrSplitPane, HTMLStencilElement {
     }
-    var HTMLStoriesSplitPaneElement: {
-        prototype: HTMLStoriesSplitPaneElement;
-        new (): HTMLStoriesSplitPaneElement;
+    var HTMLStrSplitPaneElement: {
+        prototype: HTMLStrSplitPaneElement;
+        new (): HTMLStrSplitPaneElement;
     };
-    interface HTMLStoriesTabElement extends Components.StoriesTab, HTMLStencilElement {
+    interface HTMLStrTabElement extends Components.StrTab, HTMLStencilElement {
     }
-    var HTMLStoriesTabElement: {
-        prototype: HTMLStoriesTabElement;
-        new (): HTMLStoriesTabElement;
+    var HTMLStrTabElement: {
+        prototype: HTMLStrTabElement;
+        new (): HTMLStrTabElement;
     };
-    interface HTMLStoriesTabBarElement extends Components.StoriesTabBar, HTMLStencilElement {
+    interface HTMLStrTabBarElement extends Components.StrTabBar, HTMLStencilElement {
     }
-    var HTMLStoriesTabBarElement: {
-        prototype: HTMLStoriesTabBarElement;
-        new (): HTMLStoriesTabBarElement;
+    var HTMLStrTabBarElement: {
+        prototype: HTMLStrTabBarElement;
+        new (): HTMLStrTabBarElement;
     };
-    interface HTMLStoriesTabButtonElement extends Components.StoriesTabButton, HTMLStencilElement {
+    interface HTMLStrTabButtonElement extends Components.StrTabButton, HTMLStencilElement {
     }
-    var HTMLStoriesTabButtonElement: {
-        prototype: HTMLStoriesTabButtonElement;
-        new (): HTMLStoriesTabButtonElement;
+    var HTMLStrTabButtonElement: {
+        prototype: HTMLStrTabButtonElement;
+        new (): HTMLStrTabButtonElement;
     };
-    interface HTMLStoriesTabsElement extends Components.StoriesTabs, HTMLStencilElement {
+    interface HTMLStrTabsElement extends Components.StrTabs, HTMLStencilElement {
     }
-    var HTMLStoriesTabsElement: {
-        prototype: HTMLStoriesTabsElement;
-        new (): HTMLStoriesTabsElement;
+    var HTMLStrTabsElement: {
+        prototype: HTMLStrTabsElement;
+        new (): HTMLStrTabsElement;
     };
-    interface HTMLStoriesTagElement extends Components.StoriesTag, HTMLStencilElement {
+    interface HTMLStrTagElement extends Components.StrTag, HTMLStencilElement {
     }
-    var HTMLStoriesTagElement: {
-        prototype: HTMLStoriesTagElement;
-        new (): HTMLStoriesTagElement;
+    var HTMLStrTagElement: {
+        prototype: HTMLStrTagElement;
+        new (): HTMLStrTagElement;
     };
-    interface HTMLStoriesTextareaElement extends Components.StoriesTextarea, HTMLStencilElement {
+    interface HTMLStrTextareaElement extends Components.StrTextarea, HTMLStencilElement {
     }
-    var HTMLStoriesTextareaElement: {
-        prototype: HTMLStoriesTextareaElement;
-        new (): HTMLStoriesTextareaElement;
+    var HTMLStrTextareaElement: {
+        prototype: HTMLStrTextareaElement;
+        new (): HTMLStrTextareaElement;
     };
-    interface HTMLStoriesToolBarElement extends Components.StoriesToolBar, HTMLStencilElement {
+    interface HTMLStrToolBarElement extends Components.StrToolBar, HTMLStencilElement {
     }
-    var HTMLStoriesToolBarElement: {
-        prototype: HTMLStoriesToolBarElement;
-        new (): HTMLStoriesToolBarElement;
+    var HTMLStrToolBarElement: {
+        prototype: HTMLStrToolBarElement;
+        new (): HTMLStrToolBarElement;
     };
-    interface HTMLStoriesToolButtonElement extends Components.StoriesToolButton, HTMLStencilElement {
+    interface HTMLStrToolButtonElement extends Components.StrToolButton, HTMLStencilElement {
     }
-    var HTMLStoriesToolButtonElement: {
-        prototype: HTMLStoriesToolButtonElement;
-        new (): HTMLStoriesToolButtonElement;
+    var HTMLStrToolButtonElement: {
+        prototype: HTMLStrToolButtonElement;
+        new (): HTMLStrToolButtonElement;
     };
-    interface HTMLStoriesToolZoomElement extends Components.StoriesToolZoom, HTMLStencilElement {
+    interface HTMLStrToolZoomElement extends Components.StrToolZoom, HTMLStencilElement {
     }
-    var HTMLStoriesToolZoomElement: {
-        prototype: HTMLStoriesToolZoomElement;
-        new (): HTMLStoriesToolZoomElement;
+    var HTMLStrToolZoomElement: {
+        prototype: HTMLStrToolZoomElement;
+        new (): HTMLStrToolZoomElement;
     };
-    interface HTMLStoriesZoomElement extends Components.StoriesZoom, HTMLStencilElement {
+    interface HTMLStrZoomElement extends Components.StrZoom, HTMLStencilElement {
     }
-    var HTMLStoriesZoomElement: {
-        prototype: HTMLStoriesZoomElement;
-        new (): HTMLStoriesZoomElement;
+    var HTMLStrZoomElement: {
+        prototype: HTMLStrZoomElement;
+        new (): HTMLStrZoomElement;
     };
     interface HTMLElementTagNameMap {
-        "stories-addon-actions": HTMLStoriesAddonActionsElement;
-        "stories-addon-controls": HTMLStoriesAddonControlsElement;
-        "stories-addons": HTMLStoriesAddonsElement;
-        "stories-app": HTMLStoriesAppElement;
-        "stories-badge": HTMLStoriesBadgeElement;
-        "stories-button": HTMLStoriesButtonElement;
-        "stories-checkbox": HTMLStoriesCheckboxElement;
-        "stories-col": HTMLStoriesColElement;
-        "stories-dropdown": HTMLStoriesDropdownElement;
-        "stories-footer": HTMLStoriesFooterElement;
-        "stories-grid": HTMLStoriesGridElement;
-        "stories-group": HTMLStoriesGroupElement;
-        "stories-icon": HTMLStoriesIconElement;
-        "stories-input": HTMLStoriesInputElement;
-        "stories-label": HTMLStoriesLabelElement;
-        "stories-menu": HTMLStoriesMenuElement;
-        "stories-menu-divider": HTMLStoriesMenuDividerElement;
-        "stories-menu-item": HTMLStoriesMenuItemElement;
-        "stories-menu-label": HTMLStoriesMenuLabelElement;
-        "stories-preview": HTMLStoriesPreviewElement;
-        "stories-radio": HTMLStoriesRadioElement;
-        "stories-radio-group": HTMLStoriesRadioGroupElement;
-        "stories-router": HTMLStoriesRouterElement;
-        "stories-row": HTMLStoriesRowElement;
-        "stories-searchbar": HTMLStoriesSearchbarElement;
-        "stories-select": HTMLStoriesSelectElement;
-        "stories-sidebar": HTMLStoriesSidebarElement;
-        "stories-spinner": HTMLStoriesSpinnerElement;
-        "stories-split-pane": HTMLStoriesSplitPaneElement;
-        "stories-tab": HTMLStoriesTabElement;
-        "stories-tab-bar": HTMLStoriesTabBarElement;
-        "stories-tab-button": HTMLStoriesTabButtonElement;
-        "stories-tabs": HTMLStoriesTabsElement;
-        "stories-tag": HTMLStoriesTagElement;
-        "stories-textarea": HTMLStoriesTextareaElement;
-        "stories-tool-bar": HTMLStoriesToolBarElement;
-        "stories-tool-button": HTMLStoriesToolButtonElement;
-        "stories-tool-zoom": HTMLStoriesToolZoomElement;
-        "stories-zoom": HTMLStoriesZoomElement;
+        "str-addon-actions": HTMLStrAddonActionsElement;
+        "str-addon-controls": HTMLStrAddonControlsElement;
+        "str-addons": HTMLStrAddonsElement;
+        "str-app": HTMLStrAppElement;
+        "str-badge": HTMLStrBadgeElement;
+        "str-button": HTMLStrButtonElement;
+        "str-checkbox": HTMLStrCheckboxElement;
+        "str-col": HTMLStrColElement;
+        "str-dropdown": HTMLStrDropdownElement;
+        "str-footer": HTMLStrFooterElement;
+        "str-grid": HTMLStrGridElement;
+        "str-group": HTMLStrGroupElement;
+        "str-icon": HTMLStrIconElement;
+        "str-input": HTMLStrInputElement;
+        "str-label": HTMLStrLabelElement;
+        "str-menu": HTMLStrMenuElement;
+        "str-menu-divider": HTMLStrMenuDividerElement;
+        "str-menu-item": HTMLStrMenuItemElement;
+        "str-menu-label": HTMLStrMenuLabelElement;
+        "str-preview": HTMLStrPreviewElement;
+        "str-radio": HTMLStrRadioElement;
+        "str-radio-group": HTMLStrRadioGroupElement;
+        "str-router": HTMLStrRouterElement;
+        "str-row": HTMLStrRowElement;
+        "str-searchbar": HTMLStrSearchbarElement;
+        "str-select": HTMLStrSelectElement;
+        "str-sidebar": HTMLStrSidebarElement;
+        "str-spinner": HTMLStrSpinnerElement;
+        "str-split-pane": HTMLStrSplitPaneElement;
+        "str-tab": HTMLStrTabElement;
+        "str-tab-bar": HTMLStrTabBarElement;
+        "str-tab-button": HTMLStrTabButtonElement;
+        "str-tabs": HTMLStrTabsElement;
+        "str-tag": HTMLStrTagElement;
+        "str-textarea": HTMLStrTextareaElement;
+        "str-tool-bar": HTMLStrToolBarElement;
+        "str-tool-button": HTMLStrToolButtonElement;
+        "str-tool-zoom": HTMLStrToolZoomElement;
+        "str-zoom": HTMLStrZoomElement;
     }
 }
 declare namespace LocalJSX {
-    interface StoriesAddonActions {
+    interface StrAddonActions {
     }
-    interface StoriesAddonControls {
+    interface StrAddonControls {
     }
-    interface StoriesAddons {
+    interface StrAddons {
     }
-    interface StoriesApp {
+    interface StrApp {
         /**
           * Story Modules
          */
         "modules"?: StoryModules;
-        "onStoryChange"?: (event: CustomEvent<StoryComponent>) => void;
-        "onStoryContextChange"?: (event: CustomEvent<StoryContext>) => void;
+        "onStrChange"?: (event: CustomEvent<StoryComponent>) => void;
+        "onStrContextChange"?: (event: CustomEvent<StoryContext>) => void;
         /**
           * Story Modules
          */
         "store"?: AppState;
     }
-    interface StoriesBadge {
+    interface StrBadge {
         /**
           * The badge's size.
          */
@@ -1184,7 +1184,7 @@ declare namespace LocalJSX {
          */
         "type"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
-    interface StoriesButton {
+    interface StrButton {
         /**
           * Set to true to draw the button with a caret for use with dropdowns, popovers, etc.
          */
@@ -1212,11 +1212,11 @@ declare namespace LocalJSX {
         /**
           * Emitted when the button loses focus.
          */
-        "onStoriesBlur"?: (event: CustomEvent<void>) => void;
+        "onStrBlur"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the button has focus.
          */
-        "onStoriesFocus"?: (event: CustomEvent<void>) => void;
+        "onStrFocus"?: (event: CustomEvent<void>) => void;
         /**
           * Set to true to draw a pill-style button with rounded edges.
          */
@@ -1242,7 +1242,7 @@ declare namespace LocalJSX {
          */
         "variant"?: 'default' | 'primary' | 'secondary' | 'danger' | 'plain';
     }
-    interface StoriesCheckbox {
+    interface StrCheckbox {
         /**
           * Set to true to draw the checkbox in a checked state.
          */
@@ -1270,21 +1270,21 @@ declare namespace LocalJSX {
         /**
           * Emitted when the control loses focus.
          */
-        "onStoriesBlur"?: (event: CustomEvent<void>) => void;
+        "onStrBlur"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the control's checked state changes.
          */
-        "onStoriesChange"?: (event: CustomEvent<void>) => void;
+        "onStrChange"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the control gains focus.
          */
-        "onStoriesFocus"?: (event: CustomEvent<void>) => void;
+        "onStrFocus"?: (event: CustomEvent<void>) => void;
         /**
           * The checkbox's value attribute.
          */
         "value"?: string;
     }
-    interface StoriesCol {
+    interface StrCol {
         /**
           * The amount to offset the column, in terms of how many columns it should shift to the end of the total available.
          */
@@ -1382,7 +1382,7 @@ declare namespace LocalJSX {
          */
         "sizeXs"?: string;
     }
-    interface StoriesDropdown {
+    interface StrDropdown {
         /**
           * Determines whether the dropdown should hide when a menu item is selected.
          */
@@ -1402,19 +1402,19 @@ declare namespace LocalJSX {
         /**
           * Emitted after the dropdown closes and all transitions are complete.
          */
-        "onStoriesAfterHide"?: (event: CustomEvent<void>) => void;
+        "onStrAfterHide"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted after the dropdown opens and all transitions are complete.
          */
-        "onStoriesAfterShow"?: (event: CustomEvent<void>) => void;
+        "onStrAfterShow"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the dropdown closes. Calling `event.preventDefault()` will prevent it from being closed.
          */
-        "onStoriesHide"?: (event: CustomEvent<void>) => void;
+        "onStrHide"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the dropdown opens. Calling `event.preventDefault()` will prevent it from being opened.
          */
-        "onStoriesShow"?: (event: CustomEvent<void>) => void;
+        "onStrShow"?: (event: CustomEvent<void>) => void;
         /**
           * Indicates whether or not the dropdown is open. You can use this in lieu of the show/hide methods.
          */
@@ -1439,15 +1439,15 @@ declare namespace LocalJSX {
          */
         "skidding"?: number;
     }
-    interface StoriesFooter {
+    interface StrFooter {
     }
-    interface StoriesGrid {
+    interface StrGrid {
         /**
           * If `true`, the grid will have a fixed width based on the screen size.
          */
         "fixed"?: boolean;
     }
-    interface StoriesGroup {
+    interface StrGroup {
         /**
           * Render the fields horizontal instead of vertical
          */
@@ -1457,13 +1457,13 @@ declare namespace LocalJSX {
          */
         "label"?: string;
     }
-    interface StoriesIcon {
+    interface StrIcon {
         /**
           * Icon name
          */
         "name"?: string;
     }
-    interface StoriesInput {
+    interface StrInput {
         /**
           * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user. Available options: `"off"`, `"none"`, `"on"`, `"sentences"`, `"words"`, `"characters"`.
          */
@@ -1535,23 +1535,23 @@ declare namespace LocalJSX {
         /**
           * Emitted when the control loses focus.
          */
-        "onStroiesBlur"?: (event: CustomEvent<void>) => void;
+        "onStroiesBlur"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the control's value changes.
          */
-        "onStroiesChange"?: (event: CustomEvent<void>) => void;
+        "onStroiesChange"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the clear button is activated.
          */
-        "onStroiesClear"?: (event: CustomEvent<void>) => void;
+        "onStroiesClear"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the control gains focus.
          */
-        "onStroiesFocus"?: (event: CustomEvent<void>) => void;
+        "onStroiesFocus"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the control receives input.
          */
-        "onStroiesInput"?: (event: CustomEvent<void>) => void;
+        "onStroiesInput"?: (event: CustomEvent<any>) => void;
         /**
           * Set to true to draw a pill-style input with rounded edges.
          */
@@ -1593,7 +1593,7 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
-    interface StoriesLabel {
+    interface StrLabel {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
          */
@@ -1603,15 +1603,15 @@ declare namespace LocalJSX {
          */
         "position"?: 'fixed' | 'stacked' | 'floating';
     }
-    interface StoriesMenu {
+    interface StrMenu {
         /**
           * Emitted when a menu item is selected.
          */
-        "onStoriesSelect"?: (event: CustomEvent<{ item: HTMLStoriesMenuItemElement }>) => void;
+        "onStrSelect"?: (event: CustomEvent<{ item: HTMLStrMenuItemElement }>) => void;
     }
-    interface StoriesMenuDivider {
+    interface StrMenuDivider {
     }
-    interface StoriesMenuItem {
+    interface StrMenuItem {
         /**
           * Set to true to draw the item in a checked state.
          */
@@ -1625,11 +1625,11 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
-    interface StoriesMenuLabel {
+    interface StrMenuLabel {
     }
-    interface StoriesPreview {
+    interface StrPreview {
     }
-    interface StoriesRadio {
+    interface StrRadio {
         /**
           * Set to true to draw the radio in a checked state.
          */
@@ -1641,17 +1641,17 @@ declare namespace LocalJSX {
         /**
           * Emitted when the control loses focus.
          */
-        "onStoriesBlur"?: (event: CustomEvent<any>) => void;
+        "onStrBlur"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the control gains focus.
          */
-        "onStoriesFocus"?: (event: CustomEvent<any>) => void;
+        "onStrFocus"?: (event: CustomEvent<any>) => void;
         /**
           * The radio's value attribute.
          */
         "value"?: string;
     }
-    interface StoriesRadioGroup {
+    interface StrRadioGroup {
         /**
           * If `true`, the radios can be deselected.
          */
@@ -1679,7 +1679,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value has changed.
          */
-        "onStoriesChange"?: (event: CustomEvent<any>) => void;
+        "onStrChange"?: (event: CustomEvent<any>) => void;
         /**
           * Set to true to display a required indicator, adds an asterisk to label
          */
@@ -1689,11 +1689,11 @@ declare namespace LocalJSX {
          */
         "value"?: any | null;
     }
-    interface StoriesRouter {
+    interface StrRouter {
     }
-    interface StoriesRow {
+    interface StrRow {
     }
-    interface StoriesSearchbar {
+    interface StrSearchbar {
         /**
           * Set the cancel button icon. Only applies to `md` mode. Defaults to `"arrow-back-sharp"`.
          */
@@ -1721,31 +1721,31 @@ declare namespace LocalJSX {
         /**
           * Emitted when the input loses focus.
          */
-        "onStoriesBlur"?: (event: CustomEvent<void>) => void;
+        "onStrBlur"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the cancel button is clicked.
          */
-        "onStoriesCancel"?: (event: CustomEvent<void>) => void;
+        "onStrCancel"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the value has changed.
          */
-        "onStoriesChange"?: (event: CustomEvent<SearchbarChangeEventDetail>) => void;
+        "onStrChange"?: (event: CustomEvent<SearchbarChangeEventDetail>) => void;
         /**
           * Emitted when the clear input button is clicked.
          */
-        "onStoriesClear"?: (event: CustomEvent<void>) => void;
+        "onStrClear"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onStoriesFocus"?: (event: CustomEvent<void>) => void;
+        "onStrFocus"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onStoriesInput"?: (event: CustomEvent<KeyboardEvent>) => void;
+        "onStrInput"?: (event: CustomEvent<KeyboardEvent>) => void;
         /**
           * Emitted when the styles change.
          */
-        "onStoriesStyle"?: (event: CustomEvent<StyleEventDetail>) => void;
+        "onStrStyle"?: (event: CustomEvent<StyleEventDetail>) => void;
         /**
           * Set the input's placeholder. `placeholder` can accept either plaintext or HTML as a string. To display characters normally reserved for HTML, they must be escaped. For example `<Stories>` would become `&lt;Stories&gt;`
          */
@@ -1771,7 +1771,7 @@ declare namespace LocalJSX {
          */
         "value"?: string | null;
     }
-    interface StoriesSelect {
+    interface StrSelect {
         /**
           * Set to true to add a clear button when the select is populated.
          */
@@ -1815,15 +1815,15 @@ declare namespace LocalJSX {
         /**
           * Emitted when the control loses focus.
          */
-        "onStoriesBlur"?: (event: CustomEvent<void>) => void;
+        "onStrBlur"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the control's value changes.
          */
-        "onStoriesChange"?: (event: CustomEvent<void>) => void;
+        "onStrChange"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the control gains focus.
          */
-        "onStoriesFocus"?: (event: CustomEvent<void>) => void;
+        "onStrFocus"?: (event: CustomEvent<void>) => void;
         /**
           * Set to true to draw a pill-style select with rounded edges.
          */
@@ -1845,36 +1845,36 @@ declare namespace LocalJSX {
          */
         "value"?: string | Array<string>;
     }
-    interface StoriesSidebar {
+    interface StrSidebar {
     }
-    interface StoriesSpinner {
+    interface StrSpinner {
     }
-    interface StoriesSplitPane {
+    interface StrSplitPane {
         "defaultSize"?: number;
         "isResizing"?: boolean;
         "minSize"?: number;
-        "onStoriesSizeChange"?: (event: CustomEvent<number>) => void;
+        "onStrSizeChange"?: (event: CustomEvent<number>) => void;
         "split"?: "horizontal" | "vertical";
     }
-    interface StoriesTab {
+    interface StrTab {
         "active"?: boolean;
         /**
-          * A tab id must be provided for each `stories-tab`. It's used internally to reference the selected tab or by the router to switch between them.
+          * A tab id must be provided for each `str-tab`. It's used internally to reference the selected tab or by the router to switch between them.
          */
         "tab": string;
     }
-    interface StoriesTabBar {
+    interface StrTabBar {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
          */
         "color"?: Color;
-        "onStoriesTabBarChange"?: (event: CustomEvent<TabBarChangedEventDetail>) => void;
+        "onStrTabBarChange"?: (event: CustomEvent<TabBarChangedEventDetail>) => void;
         /**
           * The selected tab component
          */
         "selectedTab"?: string;
     }
-    interface StoriesTabButton {
+    interface StrTabButton {
         /**
           * If `true`, the user cannot interact with the tab button.
          */
@@ -1886,19 +1886,19 @@ declare namespace LocalJSX {
         /**
           * Emitted when the tab bar is clicked
          */
-        "onStoriesTabButtonClick"?: (event: CustomEvent<TabButtonClickEventDetail>) => void;
+        "onStrTabButtonClick"?: (event: CustomEvent<TabButtonClickEventDetail>) => void;
         /**
           * The selected tab component
          */
         "selected"?: boolean;
         /**
-          * A tab id must be provided for each `stories-tab`. It's used internally to reference the selected tab or by the router to switch between them.
+          * A tab id must be provided for each `str-tab`. It's used internally to reference the selected tab or by the router to switch between them.
          */
         "tab"?: string;
     }
-    interface StoriesTabs {
+    interface StrTabs {
     }
-    interface StoriesTag {
+    interface StrTag {
         /**
           * Set to true to make the tag clearable.
          */
@@ -1906,7 +1906,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the clear button is activated.
          */
-        "onStoriesClear"?: (event: CustomEvent<void>) => void;
+        "onStrClear"?: (event: CustomEvent<void>) => void;
         /**
           * Set to true to draw a pill-style tag with rounded edges.
          */
@@ -1920,7 +1920,7 @@ declare namespace LocalJSX {
          */
         "type"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
-    interface StoriesTextarea {
+    interface StrTextarea {
         /**
           * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user. Available options: `"off"`, `"none"`, `"on"`, `"sentences"`, `"words"`, `"characters"`.
          */
@@ -1934,7 +1934,7 @@ declare namespace LocalJSX {
          */
         "autofocus"?: boolean;
         /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `stories-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
+          * Set the amount of time, in milliseconds, to wait to trigger the `str-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
          */
         "debounce"?: number;
         /**
@@ -1976,19 +1976,19 @@ declare namespace LocalJSX {
         /**
           * Emitted when the textarea loses focus.
          */
-        "onStoriesBlur"?: (event: CustomEvent<void>) => void;
+        "onStrBlur"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the textarea's value changes.
          */
-        "onStoriesChange"?: (event: CustomEvent<void>) => void;
+        "onStrChange"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the textarea has focus.
          */
-        "onStoriesFocus"?: (event: CustomEvent<void>) => void;
+        "onStrFocus"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the textarea receives input.
          */
-        "onStoriesInput"?: (event: CustomEvent<void>) => void;
+        "onStrInput"?: (event: CustomEvent<void>) => void;
         /**
           * The textarea's placeholder text.
          */
@@ -2022,9 +2022,9 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
-    interface StoriesToolBar {
+    interface StrToolBar {
     }
-    interface StoriesToolButton {
+    interface StrToolButton {
         /**
           * command property
          */
@@ -2040,98 +2040,98 @@ declare namespace LocalJSX {
         /**
           * Action Event
          */
-        "onStoriesAction"?: (event: CustomEvent<ToolEvent>) => void;
+        "onStrAction"?: (event: CustomEvent<ToolEvent>) => void;
     }
-    interface StoriesToolZoom {
+    interface StrToolZoom {
     }
-    interface StoriesZoom {
+    interface StrZoom {
         "zoom"?: number;
     }
     interface IntrinsicElements {
-        "stories-addon-actions": StoriesAddonActions;
-        "stories-addon-controls": StoriesAddonControls;
-        "stories-addons": StoriesAddons;
-        "stories-app": StoriesApp;
-        "stories-badge": StoriesBadge;
-        "stories-button": StoriesButton;
-        "stories-checkbox": StoriesCheckbox;
-        "stories-col": StoriesCol;
-        "stories-dropdown": StoriesDropdown;
-        "stories-footer": StoriesFooter;
-        "stories-grid": StoriesGrid;
-        "stories-group": StoriesGroup;
-        "stories-icon": StoriesIcon;
-        "stories-input": StoriesInput;
-        "stories-label": StoriesLabel;
-        "stories-menu": StoriesMenu;
-        "stories-menu-divider": StoriesMenuDivider;
-        "stories-menu-item": StoriesMenuItem;
-        "stories-menu-label": StoriesMenuLabel;
-        "stories-preview": StoriesPreview;
-        "stories-radio": StoriesRadio;
-        "stories-radio-group": StoriesRadioGroup;
-        "stories-router": StoriesRouter;
-        "stories-row": StoriesRow;
-        "stories-searchbar": StoriesSearchbar;
-        "stories-select": StoriesSelect;
-        "stories-sidebar": StoriesSidebar;
-        "stories-spinner": StoriesSpinner;
-        "stories-split-pane": StoriesSplitPane;
-        "stories-tab": StoriesTab;
-        "stories-tab-bar": StoriesTabBar;
-        "stories-tab-button": StoriesTabButton;
-        "stories-tabs": StoriesTabs;
-        "stories-tag": StoriesTag;
-        "stories-textarea": StoriesTextarea;
-        "stories-tool-bar": StoriesToolBar;
-        "stories-tool-button": StoriesToolButton;
-        "stories-tool-zoom": StoriesToolZoom;
-        "stories-zoom": StoriesZoom;
+        "str-addon-actions": StrAddonActions;
+        "str-addon-controls": StrAddonControls;
+        "str-addons": StrAddons;
+        "str-app": StrApp;
+        "str-badge": StrBadge;
+        "str-button": StrButton;
+        "str-checkbox": StrCheckbox;
+        "str-col": StrCol;
+        "str-dropdown": StrDropdown;
+        "str-footer": StrFooter;
+        "str-grid": StrGrid;
+        "str-group": StrGroup;
+        "str-icon": StrIcon;
+        "str-input": StrInput;
+        "str-label": StrLabel;
+        "str-menu": StrMenu;
+        "str-menu-divider": StrMenuDivider;
+        "str-menu-item": StrMenuItem;
+        "str-menu-label": StrMenuLabel;
+        "str-preview": StrPreview;
+        "str-radio": StrRadio;
+        "str-radio-group": StrRadioGroup;
+        "str-router": StrRouter;
+        "str-row": StrRow;
+        "str-searchbar": StrSearchbar;
+        "str-select": StrSelect;
+        "str-sidebar": StrSidebar;
+        "str-spinner": StrSpinner;
+        "str-split-pane": StrSplitPane;
+        "str-tab": StrTab;
+        "str-tab-bar": StrTabBar;
+        "str-tab-button": StrTabButton;
+        "str-tabs": StrTabs;
+        "str-tag": StrTag;
+        "str-textarea": StrTextarea;
+        "str-tool-bar": StrToolBar;
+        "str-tool-button": StrToolButton;
+        "str-tool-zoom": StrToolZoom;
+        "str-zoom": StrZoom;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "stories-addon-actions": LocalJSX.StoriesAddonActions & JSXBase.HTMLAttributes<HTMLStoriesAddonActionsElement>;
-            "stories-addon-controls": LocalJSX.StoriesAddonControls & JSXBase.HTMLAttributes<HTMLStoriesAddonControlsElement>;
-            "stories-addons": LocalJSX.StoriesAddons & JSXBase.HTMLAttributes<HTMLStoriesAddonsElement>;
-            "stories-app": LocalJSX.StoriesApp & JSXBase.HTMLAttributes<HTMLStoriesAppElement>;
-            "stories-badge": LocalJSX.StoriesBadge & JSXBase.HTMLAttributes<HTMLStoriesBadgeElement>;
-            "stories-button": LocalJSX.StoriesButton & JSXBase.HTMLAttributes<HTMLStoriesButtonElement>;
-            "stories-checkbox": LocalJSX.StoriesCheckbox & JSXBase.HTMLAttributes<HTMLStoriesCheckboxElement>;
-            "stories-col": LocalJSX.StoriesCol & JSXBase.HTMLAttributes<HTMLStoriesColElement>;
-            "stories-dropdown": LocalJSX.StoriesDropdown & JSXBase.HTMLAttributes<HTMLStoriesDropdownElement>;
-            "stories-footer": LocalJSX.StoriesFooter & JSXBase.HTMLAttributes<HTMLStoriesFooterElement>;
-            "stories-grid": LocalJSX.StoriesGrid & JSXBase.HTMLAttributes<HTMLStoriesGridElement>;
-            "stories-group": LocalJSX.StoriesGroup & JSXBase.HTMLAttributes<HTMLStoriesGroupElement>;
-            "stories-icon": LocalJSX.StoriesIcon & JSXBase.HTMLAttributes<HTMLStoriesIconElement>;
-            "stories-input": LocalJSX.StoriesInput & JSXBase.HTMLAttributes<HTMLStoriesInputElement>;
-            "stories-label": LocalJSX.StoriesLabel & JSXBase.HTMLAttributes<HTMLStoriesLabelElement>;
-            "stories-menu": LocalJSX.StoriesMenu & JSXBase.HTMLAttributes<HTMLStoriesMenuElement>;
-            "stories-menu-divider": LocalJSX.StoriesMenuDivider & JSXBase.HTMLAttributes<HTMLStoriesMenuDividerElement>;
-            "stories-menu-item": LocalJSX.StoriesMenuItem & JSXBase.HTMLAttributes<HTMLStoriesMenuItemElement>;
-            "stories-menu-label": LocalJSX.StoriesMenuLabel & JSXBase.HTMLAttributes<HTMLStoriesMenuLabelElement>;
-            "stories-preview": LocalJSX.StoriesPreview & JSXBase.HTMLAttributes<HTMLStoriesPreviewElement>;
-            "stories-radio": LocalJSX.StoriesRadio & JSXBase.HTMLAttributes<HTMLStoriesRadioElement>;
-            "stories-radio-group": LocalJSX.StoriesRadioGroup & JSXBase.HTMLAttributes<HTMLStoriesRadioGroupElement>;
-            "stories-router": LocalJSX.StoriesRouter & JSXBase.HTMLAttributes<HTMLStoriesRouterElement>;
-            "stories-row": LocalJSX.StoriesRow & JSXBase.HTMLAttributes<HTMLStoriesRowElement>;
-            "stories-searchbar": LocalJSX.StoriesSearchbar & JSXBase.HTMLAttributes<HTMLStoriesSearchbarElement>;
-            "stories-select": LocalJSX.StoriesSelect & JSXBase.HTMLAttributes<HTMLStoriesSelectElement>;
-            "stories-sidebar": LocalJSX.StoriesSidebar & JSXBase.HTMLAttributes<HTMLStoriesSidebarElement>;
-            "stories-spinner": LocalJSX.StoriesSpinner & JSXBase.HTMLAttributes<HTMLStoriesSpinnerElement>;
-            "stories-split-pane": LocalJSX.StoriesSplitPane & JSXBase.HTMLAttributes<HTMLStoriesSplitPaneElement>;
-            "stories-tab": LocalJSX.StoriesTab & JSXBase.HTMLAttributes<HTMLStoriesTabElement>;
-            "stories-tab-bar": LocalJSX.StoriesTabBar & JSXBase.HTMLAttributes<HTMLStoriesTabBarElement>;
-            "stories-tab-button": LocalJSX.StoriesTabButton & JSXBase.HTMLAttributes<HTMLStoriesTabButtonElement>;
-            "stories-tabs": LocalJSX.StoriesTabs & JSXBase.HTMLAttributes<HTMLStoriesTabsElement>;
-            "stories-tag": LocalJSX.StoriesTag & JSXBase.HTMLAttributes<HTMLStoriesTagElement>;
-            "stories-textarea": LocalJSX.StoriesTextarea & JSXBase.HTMLAttributes<HTMLStoriesTextareaElement>;
-            "stories-tool-bar": LocalJSX.StoriesToolBar & JSXBase.HTMLAttributes<HTMLStoriesToolBarElement>;
-            "stories-tool-button": LocalJSX.StoriesToolButton & JSXBase.HTMLAttributes<HTMLStoriesToolButtonElement>;
-            "stories-tool-zoom": LocalJSX.StoriesToolZoom & JSXBase.HTMLAttributes<HTMLStoriesToolZoomElement>;
-            "stories-zoom": LocalJSX.StoriesZoom & JSXBase.HTMLAttributes<HTMLStoriesZoomElement>;
+            "str-addon-actions": LocalJSX.StrAddonActions & JSXBase.HTMLAttributes<HTMLStrAddonActionsElement>;
+            "str-addon-controls": LocalJSX.StrAddonControls & JSXBase.HTMLAttributes<HTMLStrAddonControlsElement>;
+            "str-addons": LocalJSX.StrAddons & JSXBase.HTMLAttributes<HTMLStrAddonsElement>;
+            "str-app": LocalJSX.StrApp & JSXBase.HTMLAttributes<HTMLStrAppElement>;
+            "str-badge": LocalJSX.StrBadge & JSXBase.HTMLAttributes<HTMLStrBadgeElement>;
+            "str-button": LocalJSX.StrButton & JSXBase.HTMLAttributes<HTMLStrButtonElement>;
+            "str-checkbox": LocalJSX.StrCheckbox & JSXBase.HTMLAttributes<HTMLStrCheckboxElement>;
+            "str-col": LocalJSX.StrCol & JSXBase.HTMLAttributes<HTMLStrColElement>;
+            "str-dropdown": LocalJSX.StrDropdown & JSXBase.HTMLAttributes<HTMLStrDropdownElement>;
+            "str-footer": LocalJSX.StrFooter & JSXBase.HTMLAttributes<HTMLStrFooterElement>;
+            "str-grid": LocalJSX.StrGrid & JSXBase.HTMLAttributes<HTMLStrGridElement>;
+            "str-group": LocalJSX.StrGroup & JSXBase.HTMLAttributes<HTMLStrGroupElement>;
+            "str-icon": LocalJSX.StrIcon & JSXBase.HTMLAttributes<HTMLStrIconElement>;
+            "str-input": LocalJSX.StrInput & JSXBase.HTMLAttributes<HTMLStrInputElement>;
+            "str-label": LocalJSX.StrLabel & JSXBase.HTMLAttributes<HTMLStrLabelElement>;
+            "str-menu": LocalJSX.StrMenu & JSXBase.HTMLAttributes<HTMLStrMenuElement>;
+            "str-menu-divider": LocalJSX.StrMenuDivider & JSXBase.HTMLAttributes<HTMLStrMenuDividerElement>;
+            "str-menu-item": LocalJSX.StrMenuItem & JSXBase.HTMLAttributes<HTMLStrMenuItemElement>;
+            "str-menu-label": LocalJSX.StrMenuLabel & JSXBase.HTMLAttributes<HTMLStrMenuLabelElement>;
+            "str-preview": LocalJSX.StrPreview & JSXBase.HTMLAttributes<HTMLStrPreviewElement>;
+            "str-radio": LocalJSX.StrRadio & JSXBase.HTMLAttributes<HTMLStrRadioElement>;
+            "str-radio-group": LocalJSX.StrRadioGroup & JSXBase.HTMLAttributes<HTMLStrRadioGroupElement>;
+            "str-router": LocalJSX.StrRouter & JSXBase.HTMLAttributes<HTMLStrRouterElement>;
+            "str-row": LocalJSX.StrRow & JSXBase.HTMLAttributes<HTMLStrRowElement>;
+            "str-searchbar": LocalJSX.StrSearchbar & JSXBase.HTMLAttributes<HTMLStrSearchbarElement>;
+            "str-select": LocalJSX.StrSelect & JSXBase.HTMLAttributes<HTMLStrSelectElement>;
+            "str-sidebar": LocalJSX.StrSidebar & JSXBase.HTMLAttributes<HTMLStrSidebarElement>;
+            "str-spinner": LocalJSX.StrSpinner & JSXBase.HTMLAttributes<HTMLStrSpinnerElement>;
+            "str-split-pane": LocalJSX.StrSplitPane & JSXBase.HTMLAttributes<HTMLStrSplitPaneElement>;
+            "str-tab": LocalJSX.StrTab & JSXBase.HTMLAttributes<HTMLStrTabElement>;
+            "str-tab-bar": LocalJSX.StrTabBar & JSXBase.HTMLAttributes<HTMLStrTabBarElement>;
+            "str-tab-button": LocalJSX.StrTabButton & JSXBase.HTMLAttributes<HTMLStrTabButtonElement>;
+            "str-tabs": LocalJSX.StrTabs & JSXBase.HTMLAttributes<HTMLStrTabsElement>;
+            "str-tag": LocalJSX.StrTag & JSXBase.HTMLAttributes<HTMLStrTagElement>;
+            "str-textarea": LocalJSX.StrTextarea & JSXBase.HTMLAttributes<HTMLStrTextareaElement>;
+            "str-tool-bar": LocalJSX.StrToolBar & JSXBase.HTMLAttributes<HTMLStrToolBarElement>;
+            "str-tool-button": LocalJSX.StrToolButton & JSXBase.HTMLAttributes<HTMLStrToolButtonElement>;
+            "str-tool-zoom": LocalJSX.StrToolZoom & JSXBase.HTMLAttributes<HTMLStrToolZoomElement>;
+            "str-zoom": LocalJSX.StrZoom & JSXBase.HTMLAttributes<HTMLStrZoomElement>;
         }
     }
 }

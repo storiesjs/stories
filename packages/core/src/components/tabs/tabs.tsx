@@ -3,7 +3,7 @@ import { Component, Host, h, Element, State, Method } from '@stencil/core';
 
 import type { TabButtonClickEventDetail } from '../../types';
 
-const getTab = (tabs: HTMLStoriesTabElement[], tab: string | HTMLStoriesTabElement): HTMLStoriesTabElement | undefined => {
+const getTab = (tabs: HTMLStrTabElement[], tab: string | HTMLStrTabElement): HTMLStrTabElement | undefined => {
   const tabEl = (typeof tab === 'string')
     ? tabs.find(t => t.tab === tab)
     : tab;
@@ -15,15 +15,15 @@ const getTab = (tabs: HTMLStoriesTabElement[], tab: string | HTMLStoriesTabEleme
 };
 
 @Component({
-  tag: 'stories-tabs',
+  tag: 'str-tabs',
   styleUrl: 'tabs.scss',
   shadow: true,
 })
 export class Tabs {
-  @Element() el!: HTMLStoriesTabsElement;
+  @Element() el!: HTMLStrTabsElement;
 
-  private leavingTab?: HTMLStoriesTabElement;
-  @State() selectedTab?: HTMLStoriesTabElement;
+  private leavingTab?: HTMLStrTabElement;
+  @State() selectedTab?: HTMLStrTabElement;
 
   async componentWillLoad(): Promise<void> {
     const tabs = this.tabs;
@@ -33,7 +33,7 @@ export class Tabs {
   }
 
   componentWillRender(): void {
-    const tabBar = this.el.querySelector('stories-tab-bar');
+    const tabBar = this.el.querySelector('str-tab-bar');
     if (tabBar) {
       const tab = this.selectedTab ? this.selectedTab.tab : undefined;
       tabBar.selectedTab = tab;
@@ -46,7 +46,7 @@ export class Tabs {
    * @param tab The tab instance to select. If passed a string, it should be the value of the tab's `tab` property.
    */
   @Method()
-  async select(tab: string | HTMLStoriesTabElement): Promise<boolean> {
+  async select(tab: string | HTMLStrTabElement): Promise<boolean> {
     const selectedTab = getTab(this.tabs, tab);
     if (!this.shouldSwitch(selectedTab)) {
       return false;
@@ -63,7 +63,7 @@ export class Tabs {
    * @param tab The tab instance to select. If passed a string, it should be the value of the tab's `tab` property.
    */
   @Method()
-  async getTab(tab: string | HTMLStoriesTabElement): Promise<HTMLStoriesTabElement | undefined> {
+  async getTab(tab: string | HTMLStrTabElement): Promise<HTMLStrTabElement | undefined> {
     return getTab(this.tabs, tab);
   }
 
@@ -75,7 +75,7 @@ export class Tabs {
     return Promise.resolve(this.selectedTab ? this.selectedTab.tab : undefined);
   }
 
-  private setActive(selectedTab: HTMLStoriesTabElement): Promise<void> {
+  private setActive(selectedTab: HTMLStrTabElement): Promise<void> {
     this.leavingTab = this.selectedTab;
     this.selectedTab = selectedTab;
     selectedTab.active = true;
@@ -98,13 +98,13 @@ export class Tabs {
     }
   }
 
-  private shouldSwitch(selectedTab: HTMLStoriesTabElement | undefined): selectedTab is HTMLStoriesTabElement {
+  private shouldSwitch(selectedTab: HTMLStrTabElement | undefined): selectedTab is HTMLStrTabElement {
     const leavingTab = this.selectedTab;
     return selectedTab !== undefined && selectedTab !== leavingTab;
   }
 
   private get tabs() {
-    return Array.from(this.el.querySelectorAll('stories-tab'));
+    return Array.from(this.el.querySelectorAll('str-tab'));
   }
 
   private onTabClicked = (ev: CustomEvent<TabButtonClickEventDetail>) => {
@@ -115,7 +115,7 @@ export class Tabs {
   render(): JSX.Element {
     return (
       <Host
-        onStoriesTabButtonClick={this.onTabClicked}
+        onStrTabButtonClick={this.onTabClicked}
       >
         <div class="tabs-inner">
           <slot></slot>

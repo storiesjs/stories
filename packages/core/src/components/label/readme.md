@@ -1,6 +1,6 @@
 # Label
 
-The Label (stories-label) is a wrapper element displays text, icons, or both. You can position it as inline, fixed, stacked, or floating element and will usually use it with another components.
+The Label (str-label) is a wrapper element displays text, icons, or both. You can position it as inline, fixed, stacked, or floating element and will usually use it with another components.
 
 <!-- Auto Generated Below -->
 

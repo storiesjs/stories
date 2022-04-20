@@ -2,18 +2,18 @@
 import { Component, Host, h, Element, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'stories-tab',
+  tag: 'str-tab',
   styleUrl: 'tab.scss',
   shadow: true,
 })
 export class Tab {
-  @Element() el!: HTMLStoriesTabElement;
+  @Element() el!: HTMLStrTabElement;
 
   /** @internal */
   @Prop({ mutable: true }) active = false;
 
   /**
-   * A tab id must be provided for each `stories-tab`. It's used internally to reference
+   * A tab id must be provided for each `str-tab`. It's used internally to reference
    * the selected tab or by the router to switch between them.
    */
   @Prop() tab!: string;
@@ -25,7 +25,7 @@ export class Tab {
         aria-hidden={!active ? 'true' : null}
         aria-labelledby={`tab-button-${tab}`}
         class={{
-          'stories-page': true,
+          'str-page': true,
           'tab-hidden': !active
         }}
         role="tabpanel"

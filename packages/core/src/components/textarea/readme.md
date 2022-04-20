@@ -1,4 +1,4 @@
-# stories-textarea
+# str-textarea
 
 <!-- Auto Generated Below -->
 
@@ -10,7 +10,7 @@
 | `autocapitalize`    | `autocapitalize`     | Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user. Available options: `"off"`, `"none"`, `"on"`, `"sentences"`, `"words"`, `"characters"`. | `string`                                                                              | `'off'`      |
 | `autocorrect`       | `autocorrect`        | Whether auto correction should be enabled when the user is entering/editing the text value.                                                                                                               | `"off" \| "on"`                                                                       | `'off'`      |
 | `autofocus`         | `autofocus`          | This Boolean attribute lets you specify that a form control should have input focus when the page loads.                                                                                                  | `boolean`                                                                             | `false`      |
-| `debounce`          | `debounce`           | Set the amount of time, in milliseconds, to wait to trigger the `stories-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.                              | `number`                                                                              | `0`          |
+| `debounce`          | `debounce`           | Set the amount of time, in milliseconds, to wait to trigger the `str-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.                                  | `number`                                                                              | `0`          |
 | `disabled`          | `disabled`           | Set to true to disable the textarea.                                                                                                                                                                      | `boolean`                                                                             | `false`      |
 | `enterkeyhint`      | `enterkeyhint`       | A hint to the browser for which enter key to display. Possible values: `"enter"`, `"done"`, `"go"`, `"next"`, `"previous"`, `"search"`, and `"send"`.                                                     | `"done" \| "enter" \| "go" \| "next" \| "previous" \| "search" \| "send"`             | `undefined`  |
 | `helpText`          | `help-text`          | The textarea's help text. Alternatively, you can use the help-text slot.                                                                                                                                  | `string`                                                                              | `''`         |
@@ -32,12 +32,12 @@
 
 ## Events
 
-| Event           | Description                                | Type                |
-| --------------- | ------------------------------------------ | ------------------- |
-| `storiesBlur`   | Emitted when the textarea loses focus.     | `CustomEvent<void>` |
-| `storiesChange` | Emitted when the textarea's value changes. | `CustomEvent<void>` |
-| `storiesFocus`  | Emitted when the textarea has focus.       | `CustomEvent<void>` |
-| `storiesInput`  | Emitted when the textarea receives input.  | `CustomEvent<void>` |
+| Event       | Description                                | Type                |
+| ----------- | ------------------------------------------ | ------------------- |
+| `strBlur`   | Emitted when the textarea loses focus.     | `CustomEvent<void>` |
+| `strChange` | Emitted when the textarea's value changes. | `CustomEvent<void>` |
+| `strFocus`  | Emitted when the textarea has focus.       | `CustomEvent<void>` |
+| `strInput`  | Emitted when the textarea receives input.  | `CustomEvent<void>` |
 
 
 ## Methods

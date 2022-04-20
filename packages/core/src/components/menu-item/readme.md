@@ -1,4 +1,4 @@
-# stories-menu-item
+# str-menu-item
 
 <!-- Auto Generated Below -->
 

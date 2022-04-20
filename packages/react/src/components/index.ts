@@ -1,3 +1,3 @@
 export * from "./proxies";
-export * from './stories-react/StoriesReactRenderer';
-export * from './stories-react/types';
+export * from './stories-renderer/StoriesRenderer';
+export * from './stories-renderer/types';

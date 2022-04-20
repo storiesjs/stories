@@ -1,11 +1,11 @@
 import { newE2EPage } from '@stencil/core/testing';
 
-describe('gr-menu-label', () => {
+describe('str-menu-label', () => {
   it('renders', async () => {
     const page = await newE2EPage();
-    await page.setContent('<gr-menu-label></gr-menu-label>');
+    await page.setContent('<str-menu-label></str-menu-label>');
 
-    const element = await page.find('gr-menu-label');
+    const element = await page.find('str-menu-label');
     expect(element).toHaveClass('hydrated');
   });
 });

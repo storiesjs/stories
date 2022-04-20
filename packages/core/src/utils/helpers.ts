@@ -1,7 +1,7 @@
 /**
  * Elements inside of web components sometimes need to inherit global attributes
- * set on the host. For example, the inner input in `stories-input` should inherit
- * the `title` attribute that developers set directly on `stories-input`. This
+ * set on the host. For example, the inner input in `str-input` should inherit
+ * the `title` attribute that developers set directly on `str-input`. This
  * helper function should be called in componentWillLoad and assigned to a variable
  * that is later used in the render function.
  *
@@ -36,10 +36,10 @@ export const hasShadowDom = (el: HTMLElement): boolean => {
   return !!el.shadowRoot && !!(el as Element).attachShadow;
 };
 
-export const findItemLabel = (componentEl: HTMLElement): HTMLStoriesLabelElement | null => {
-  const itemEl = componentEl.closest('stories-item');
+export const findItemLabel = (componentEl: HTMLElement): HTMLStrLabelElement | null => {
+  const itemEl = componentEl.closest('str-item');
   if (itemEl) {
-    return itemEl.querySelector('stories-label');
+    return itemEl.querySelector('str-label');
   }
   return null;
 };
@@ -82,7 +82,7 @@ export const getAriaLabel = (componentEl: HTMLElement, inputId: string): { label
   let labelText;
 
   // If the user provides their own label via the aria-labelledby attr
-  // we should use that instead of looking for an stories-label
+  // we should use that instead of looking for an str-label
   const labelledBy = componentEl.getAttribute('aria-labelledby');
 
   // Grab the id off of the component in case they are using

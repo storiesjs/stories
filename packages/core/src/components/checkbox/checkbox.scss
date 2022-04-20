@@ -28,27 +28,27 @@
    * @prop --focus-ring: The focus ring style to use when the checkbox receives focus, a `box-shadow` property.
    */
 
-  --label-color: var(--stories-color-dark-tint);
+  --label-color: var(--str-color-dark-tint);
 
-  --control-size: var(--stories-toggle-size);
+  --control-size: var(--str-toggle-size);
 
-  --control-border-color: var(--stories-color-light-shade);
-  --control-background-color: var(--stories-color-white);
+  --control-border-color: var(--str-color-light-shade);
+  --control-background-color: var(--str-color-white);
 
-  --control-border-color-hover: var(--stories-color-medium);
-  --control-background-color-hover: var(--stories-color-white);
+  --control-border-color-hover: var(--str-color-medium);
+  --control-background-color-hover: var(--str-color-white);
 
-  --control-color-checked: var(--stories-color-primary-contrast);
-  --control-border-color-checked: var(--stories-color-primary);
-  --control-background-color-checked: var(--stories-color-primary);
+  --control-color-checked: var(--str-color-primary-contrast);
+  --control-border-color-checked: var(--str-color-primary);
+  --control-background-color-checked: var(--str-color-primary);
 
-  --control-border-color-checked-hover: var(--stories-color-primary-shade);
-  --control-background-color-checked-hover: var(--stories-color-primary-shade);
+  --control-border-color-checked-hover: var(--str-color-primary-shade);
+  --control-background-color-checked-hover: var(--str-color-primary-shade);
 
-  --control-border-color-checked-focus: var(--stories-color-primary-shade);
-  --control-background-color-checked-focus: var(--stories-color-primary-shade);
+  --control-border-color-checked-focus: var(--str-color-primary-shade);
+  --control-background-color-checked-focus: var(--str-color-primary-shade);
 
-  --focus-ring: 0 0 0 var(--stories-focus-ring-width) rgb(var(--stories-color-primary-rgb), 0.33);
+  --focus-ring: 0 0 0 var(--str-focus-ring-width) rgb(var(--str-color-primary-rgb), 0.33);
 
   display: inline-block;
   box-sizing: border-box;
@@ -67,9 +67,9 @@
 .checkbox {
   display: inline-flex;
   align-items: center;
-  font-family: var(--stories-font-family);
-  font-size: var(--stories-form-element-font-size-medium);
-  font-weight: var(--stories-font-weight-normal);
+  font-family: var(--str-font-family);
+  font-size: var(--str-form-element-font-size-medium);
+  font-weight: var(--str-font-weight-normal);
   color: var(--label-color);
   vertical-align: middle;
   cursor: pointer;
@@ -95,7 +95,7 @@
   width: var(--control-size);
   height: var(--control-size);
   border: solid 1px var(--control-border-color);
-  border-radius: var(--stories-form-element-border-radius-small);
+  border-radius: var(--str-form-element-border-radius-small);
   background-color: var(--control-background-color);
   color: transparent;
   transition: 150ms border-color, 150ms background-color, 150ms color, 150ms box-shadow;
@@ -151,14 +151,14 @@
 
 // Invalid
 .checkbox:not(.checkbox-disabled).checkbox-invalid .checkbox-control {
-  border-color: var(--stories-form-element-invalid-text-color);
+  border-color: var(--str-form-element-invalid-text-color);
 }
 
 // Checked/indeterminate + invalid
 .checkbox.checkbox-checked:not(.checkbox-disabled).checkbox-invalid .checkbox-control,
 .checkbox.checkbox-indeterminate:not(.checkbox-disabled).checkbox-invalid .checkbox-control {
-  border-color: var(--stories-form-element-invalid-text-color);
-  background-color: var(--stories-form-element-invalid-text-color);
+  border-color: var(--str-form-element-invalid-text-color);
+  background-color: var(--str-form-element-invalid-text-color);
 }
 
 // Disabled
@@ -167,7 +167,7 @@
 }
 
 .checkbox-label {
-  line-height: var(--stories-line-height-normal);
+  line-height: var(--str-line-height-normal);
   margin-left: 0.5em;
   user-select: none;
 }
@@ -188,15 +188,15 @@
   .checkbox-invalid-text {
     display: flex;
     margin-left: -2px;
-    line-height: var(--stories-line-height-normal);
-    color: var(--stories-form-element-invalid-text-color);
-    margin-top: var(--stories-spacing-xxx-small);
-    font-size: var(--stories-form-element-invalid-text-font-size-medium);
+    line-height: var(--str-line-height-normal);
+    color: var(--str-form-element-invalid-text-color);
+    margin-top: var(--str-spacing-xxx-small);
+    font-size: var(--str-form-element-invalid-text-font-size-medium);
     min-height: 1.875rem;
 
     .icon {
-      margin-top: var(--stories-spacing-xxx-small);
-      margin-right: var(--stories-spacing-xx-small);
+      margin-top: var(--str-spacing-xxx-small);
+      margin-right: var(--str-spacing-xx-small);
 
       svg {
         width: 1.4em;

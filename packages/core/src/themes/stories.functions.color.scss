@@ -1,31 +1,31 @@
 // Gets the active color's css variable from a variation. Alpha is optional.
 // --------------------------------------------------------------------------------------------
 // Example usage:
-// current-color(base) => var(--stories-color-base)
-// current-color(contrast, 0.1) => rgba(var(--stories-color-contrast-rgb), 0.1)
+// current-color(base) => var(--str-color-base)
+// current-color(contrast, 0.1) => rgba(var(--str-color-contrast-rgb), 0.1)
 // --------------------------------------------------------------------------------------------
 @function current-color($variation, $alpha: null) {
   @if $alpha == null {
-    @return var(--stories-color-#{$variation});
+    @return var(--str-color-#{$variation});
   } @else {
-    @return rgba(var(--stories-color-#{$variation}-rgb), #{$alpha});
+    @return rgba(var(--str-color-#{$variation}-rgb), #{$alpha});
   }
 }
 
 // Gets the specific color's css variable from the name and variation. Alpha/rgb are optional.
 // --------------------------------------------------------------------------------------------
 // Example usage:
-// stories-color(primary, base) => var(--stories-color-primary, #3880ff)
-// stories-color(secondary, contrast) => var(--stories-color-secondary-contrast)
-// stories-color(primary, base, 0.5) => rgba(var(--stories-color-primary-rgb, 56, 128, 255), 0.5)
+// str-color(primary, base) => var(--str-color-primary, #3880ff)
+// str-color(secondary, contrast) => var(--str-color-secondary-contrast)
+// str-color(primary, base, 0.5) => rgba(var(--str-color-primary-rgb, 56, 128, 255), 0.5)
 // --------------------------------------------------------------------------------------------
-@function stories-color($name, $variation, $alpha: null, $rgb: null) {
+@function str-color($name, $variation, $alpha: null, $rgb: null) {
   $values: map-get($colors, $name);
   $value: map-get($values, $variation);
-  $variable: --stories-color-#{$name}-#{$variation};
+  $variable: --str-color-#{$name}-#{$variation};
 
   @if ($variation == base) {
-    $variable: --stories-color-#{$name};
+    $variable: --str-color-#{$name};
   }
 
   @if ($alpha) {

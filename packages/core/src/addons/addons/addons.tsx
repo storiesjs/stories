@@ -5,7 +5,7 @@ import { state } from '../../store';
 import type { StoryComponent, StoryContext, Addon } from '../../types';
 
 @Component({
-  tag: 'stories-addons',
+  tag: 'str-addons',
   styleUrl: 'addons.scss',
   shadow: true,
 })

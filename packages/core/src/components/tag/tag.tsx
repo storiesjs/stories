@@ -5,7 +5,7 @@ import { Component, Host, h, Prop, Event } from '@stencil/core';
  * @slot - The tag's content.
  */
 @Component({
-  tag: 'stories-tag',
+  tag: 'str-tag',
   styleUrl: 'tag.scss',
   shadow: true,
 })
@@ -23,14 +23,14 @@ export class Tag {
   @Prop({ reflect: true }) clearable = false;
 
   /** Emitted when the clear button is activated. */
-  @Event() storiesClear: EventEmitter<void>;
+  @Event() strClear: EventEmitter<void>;
 
   connectedCallback() {
     this.handleClearClick = this.handleClearClick.bind(this);
   }
 
   handleClearClick() {
-    this.storiesClear.emit();
+    this.strClear.emit();
   }
 
   render() {
@@ -47,7 +47,7 @@ export class Tag {
           <slot></slot>
 
           {this.clearable && (
-            <stories-button
+            <str-button
               variant="plain"
               size={this.size}
               class="tag-clear"
@@ -65,7 +65,7 @@ export class Tag {
                   d="M368 368L144 144M368 144L144 368"
                 />
               </svg>
-            </stories-button>
+            </str-button>
           )}
         </span>
       </Host>

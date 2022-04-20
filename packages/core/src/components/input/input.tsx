@@ -17,7 +17,7 @@ let id = 0;
  * @slot end - Used to append an icon or similar element to the input.
  */
 @Component({
-  tag: 'stories-input',
+  tag: 'str-input',
   styleUrl: 'input.scss',
   shadow: true,
 })
@@ -29,7 +29,7 @@ export class Input {
   private invalidTextId = `input-invalid-text-${id}`;
   private inheritedAttributes: { [k: string]: any } = {};
 
-  @Element() el!: HTMLStoriesInputElement;
+  @Element() el!: HTMLStrInputElement;
 
   @State() hasFocus = false;
   @State() hasHelpTextSlot = false;
@@ -163,19 +163,19 @@ export class Input {
   }
 
   /** Emitted when the control's value changes. */
-  @Event() stroiesChange: EventEmitter<void>;
+  @Event() stroiesChange: EventEmitter;
 
   /** Emitted when the clear button is activated. */
-  @Event() stroiesClear: EventEmitter<void>;
+  @Event() stroiesClear: EventEmitter;
 
   /** Emitted when the control receives input. */
-  @Event() stroiesInput: EventEmitter<void>;
+  @Event() stroiesInput: EventEmitter;
 
   /** Emitted when the control gains focus. */
-  @Event() stroiesFocus: EventEmitter<void>;
+  @Event() stroiesFocus: EventEmitter;
 
   /** Emitted when the control loses focus. */
-  @Event() stroiesBlur: EventEmitter<void>;
+  @Event() stroiesBlur: EventEmitter;
 
   connectedCallback(): void {
     this.handleBlur = this.handleBlur.bind(this);

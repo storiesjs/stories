@@ -2,14 +2,14 @@ import { newSpecPage } from '@stencil/core/testing';
 
 import { Input } from '../input';
 
-describe('stories-input', () => {
+describe('str-input', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [Input],
-      html: `<stories-input></stories-input>`,
+      html: `<str-input></str-input>`,
     });
     expect(page.root).toEqualHtml(`
-     <stories-input size="medium" type="text" value="">
+     <str-input size="medium" type="text" value="">
        <mock:shadow-root>
          <div class="form-control form-control-medium">
            <label aria-hidden="true" class="form-control-label" htmlfor="input-1" id="input-label-1">
@@ -32,7 +32,7 @@ describe('stories-input', () => {
          </div>
        </mock:shadow-root>
        <input class="aux-input" type="hidden" value="">
-      </stories-input>
+      </str-input>
     `);
   });
 });

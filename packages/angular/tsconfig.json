@@ -15,12 +15,6 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
-    "paths": {
-      "angular": [
-        "dist/angular/angular",
-        "dist/angular"
-      ]
-    },
     "module": "es2015",
     "lib": [
       "es2015",

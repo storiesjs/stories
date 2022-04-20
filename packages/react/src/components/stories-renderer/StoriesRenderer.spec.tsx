@@ -5,7 +5,7 @@ import { render, fireEvent } from '@testing-library/react';
 import type { RenderResult } from '@testing-library/react';
 import * as React from 'react';
 
-import { StoriesReactRenderer } from './StoriesReactRenderer';
+import { StrRenderer } from './StoriesRenderer';
 import type { StoryComponent, StoryContext } from "./types";
 
 type ButtonProps = {
@@ -18,7 +18,7 @@ const Button: React.FC<ButtonProps> = ({label, onClick}) => {
   return <button className='my-story' onClick={onClick}>{label}</button>
 };
 
-describe('<StoriesReactRenderer />', () => {
+describe('<StoriesRenderer />', () => {
   let documentBody: RenderResult;
   let container: HTMLElement;
 
@@ -42,7 +42,7 @@ describe('<StoriesReactRenderer />', () => {
     });
 
     beforeEach(() => {
-      documentBody = render(<StoriesReactRenderer story={story}/>);
+      documentBody = render(<StrRenderer story={story}/>);
       container = documentBody.container;
     });
 
@@ -86,7 +86,7 @@ describe('<StoriesReactRenderer />', () => {
     });
 
     beforeEach(() => {
-      documentBody = render(<StoriesReactRenderer context={context} story={story}/>);
+      documentBody = render(<StrRenderer context={context} story={story}/>);
       container = documentBody.container;
       // screen.debug(container)
     });

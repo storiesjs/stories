@@ -2,14 +2,14 @@ import { newSpecPage } from '@stencil/core/testing';
 
 import { ToolBar } from '../tool-bar';
 
-describe('stories-tool-bar', () => {
+describe('str-tool-bar', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [ToolBar],
-      html: `<stories-tool-bar></stories-tool-bar>`,
+      html: `<str-tool-bar></str-tool-bar>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-tool-bar>
+      <str-tool-bar>
         <mock:shadow-root>
           <div class="bar">
             <div class="inner">
@@ -22,7 +22,7 @@ describe('stories-tool-bar', () => {
             </div>
           </div>
         </mock:shadow-root>
-      </stories-tool-bar>
+      </str-tool-bar>
     `);
   });
 });
