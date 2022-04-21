@@ -1,6 +1,6 @@
-# str-addon-actions
+# Actions
 
-The str-addon-actions displays a panel with data received by event handler (callback) arguments in your stories.
+The Actions (str-addon-actions) displays a panel with data received by event handler (callback) arguments in your stories.
 
 
 <!-- Auto Generated Below -->

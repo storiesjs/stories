@@ -1,6 +1,6 @@
-# str-app
+# App
 
-The str-app is a main Stories Framework's application.
+The App (str-app) is a main Stories Framework's application.
 
 <!-- Auto Generated Below -->
 

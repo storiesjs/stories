@@ -1,4 +1,6 @@
-# str-textarea
+# Textarea
+
+The Textarea (str-textarea) can be used as an input with multiple lines of text.
 
 <!-- Auto Generated Below -->
 

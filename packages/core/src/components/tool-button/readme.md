@@ -1,4 +1,4 @@
-# str-toolbutton
+# Tool button
 
 > Notice: Deprecated. Use str-button instead
 

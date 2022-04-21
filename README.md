@@ -30,6 +30,16 @@ Stories supports visual testing on both client and server-side rendering out of 
 
 Look at documentation on our [website](https://www.storiesjs.org)
 
+## Attribution
+
+### Graphite Design System
+
+The components is based on or inspired by [Graphite Design System Content](https://graphitedesignsystem.com/).
+
+### Freshworks Crayons
+
+The components is based on or inspired by [Freshworks Crayons System](https://crayons.freshworks.com/).
+
 ## License
 
 [GNU General Public License v2.0](https://github.com/storiesjs/stories/blob/main/LICENSE)

@@ -1,4 +1,6 @@
-# str-tag
+# Tag
+
+The Tag (str-tag) is used as label to organize things or to indicate a selection.
 
 <!-- Auto Generated Below -->
 

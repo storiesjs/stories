@@ -1,6 +1,6 @@
 # Menu
 
-The Menu (str-menu) is a container for str-menu-item components.
+The Menu (str-menu) is a container for [str-menu-item](../menu-item) components.
 
 <!-- Auto Generated Below -->
 

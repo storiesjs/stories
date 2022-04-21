@@ -1,6 +1,6 @@
-# str-row
+# Row
 
-The str-row is a horizontal component of the grid system look after the columns are positioned properly.
+The Row (str-row) is a horizontal component of the grid system look after the columns are positioned properly.
 
 <!-- Auto Generated Below -->
 

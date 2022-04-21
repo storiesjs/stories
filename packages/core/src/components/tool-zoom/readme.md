@@ -1,6 +1,6 @@
-# str-tool-zoom
+# Tool zoom
 
-The str-tool-zoom is a container for zoom-in, zoom-out, and zoom-reset buttons.
+The Tool zoom (str-tool-zoom) is a container for zoom-in, zoom-out, and zoom-reset buttons.
 
 <!-- Auto Generated Below -->
 

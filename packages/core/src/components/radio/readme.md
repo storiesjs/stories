@@ -1,4 +1,6 @@
-# str-radio
+# Radio
+
+The Radio (str-radio) is one option from a group of many.
 
 <!-- Auto Generated Below -->
 

@@ -1,6 +1,6 @@
-# str-preview
+# Preview
 
-The str-preview is a wrapper container for str-renderer component. It utilises str-zoom component to manage visual size of the rendering content. 
+The Preview (str-preview) is a wrapper container for [str-renderer](../renderer) component. It utilises [str-zoom](../zoom) component to manage visual size of the rendering content. 
 
 <!-- Auto Generated Below -->
 

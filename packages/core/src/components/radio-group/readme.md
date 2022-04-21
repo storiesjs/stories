@@ -1,6 +1,6 @@
-# str-radio-group
+# Radio group
 
-The str-radio-group displays a group of options with radio buttons and enables selection of one option from the list.
+The Radio group (str-radio-group) displays a group of options with radio buttons and enables selection of one option from the list.
 
 <!-- Auto Generated Below -->
 

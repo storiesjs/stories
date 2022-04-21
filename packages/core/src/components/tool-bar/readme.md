@@ -1,6 +1,6 @@
-# str-toolbar
+# Toolbar
 
-The str-toolbar is a container for other Stories components such as str-button, str-toggle, etc.
+The Toolbar (str-toolbar) is a container for other Stories components such as [str-button](../button), [str-checkbox](../checkbox), etc.
 
 <!-- Auto Generated Below -->
 

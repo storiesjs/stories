@@ -1,6 +1,6 @@
-# str-zoom
+# Zoom
 
-The str-zoom is a container managing visual zoom of content.
+The Zoom (str-zoom) is a container managing visual zoom of content.
 
 <!-- Auto Generated Below -->
 

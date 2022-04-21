@@ -1,6 +1,6 @@
 # Icon
 
-The Icon (str-icon) is an easy and performant way to use icons in your Stories application. It dynamically loads only visible SVG icons on demand.Icons should not be used for decoration.
+The Icon (str-icon) is an easy and performant way to use icons in your Stories application. It dynamically loads only visible SVG icons on demand. Icons should not be used for decoration.
 
 <!-- Auto Generated Below -->
 

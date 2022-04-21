@@ -1,6 +1,6 @@
-# str-tab-bar
+#  Tabbar
 
-The str-tab-bar is a component that contains a set of [str-tab-button's](../tab-button). Put the str-tab-bar in the [str-tabs](../tabs) to organize communication with every [str-tab](../tab).
+The Tabbar (str-tab-bar) is a component that contains a set of [str-tab-button's](../tab-button). Put the str-tab-bar in the [str-tabs](../tabs) to organize communication with every [str-tab](../tab).
 
 <!-- Auto Generated Below -->
 

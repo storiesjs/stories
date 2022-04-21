@@ -1,4 +1,6 @@
-# str-menu-divider
+# Menu divider
+
+The Menu divider (str-menu-divider) is used to visually group [str-menu-item's](../menu-item).
 
 <!-- Auto Generated Below -->
 

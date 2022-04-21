@@ -1,6 +1,6 @@
-# str-searchbar
+# Search bar
 
-The str-searchbar is a text field with an icon that can be used to search through stories.
+The Search bar (str-searchbar) is a text field with an icon that can be used to search through stories.
 
 <!-- Auto Generated Below -->
 

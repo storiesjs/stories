@@ -1,4 +1,6 @@
-# str-menu-item
+# Menu item
+
+The Menu item (str-menu-item) provide options for the user to pick from in a [str-menu](../menu).
 
 <!-- Auto Generated Below -->
 

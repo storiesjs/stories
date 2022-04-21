@@ -1,6 +1,6 @@
 # Spinner
 
-The Spinner (str-spinner) displays a continuous loader on the user interface, to indicate that a system is processing an entity.
+The Spinner (str-spinner) displays a continuous loader on the user interface.
 
 <!-- Auto Generated Below -->
 

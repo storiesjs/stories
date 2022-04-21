@@ -1,6 +1,6 @@
-# str-split-panel
+# Split panel
 
-The str-split-panel is a component to split content vertically or horizontally.
+The Split panel (str-split-panel) is a component to split content vertically or horizontally.
 
 <!-- Auto Generated Below -->
 

@@ -1,6 +1,6 @@
-# str-tab
+# Tab
 
-The str-tab is a child component of a str-tab. 
+The Tab (str-tab) is a child component of a [str-tabs](../tabs). 
 
 > Note: This component should only be used with vanilla or Stencil JavaScript projects. For Angular, React, and Vue apps you do not need to use `str-tab` to declare your tab components.
 

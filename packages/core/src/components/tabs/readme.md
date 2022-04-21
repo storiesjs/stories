@@ -1,6 +1,6 @@
-# str-tabs
+# Tabs
 
-The str-tabs is a container works as a router outlet in order to handle navigation. It does not provide any UI feedback or mechanism to switch between tabs. In order to do so, an [str-tab-bar](../tab-bar) should be provided as a direct child of `str-tabs`.
+The Tabs (str-tabs) is a container works as a router outlet in order to handle navigation. It does not provide any UI feedback or mechanism to switch between tabs. In order to do so, an [str-tab-bar](../tab-bar) should be provided as a direct child of `str-tabs`.
 
 <!-- Auto Generated Below -->
 

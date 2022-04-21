@@ -1,6 +1,6 @@
-# str-addon-controls
+# Controls
 
-The str-addon-controls helps you interact with components via changing arguments.
+The Controls (str-addon-controls) helps you interact with components via changing arguments.
 
 <!-- Auto Generated Below -->
 

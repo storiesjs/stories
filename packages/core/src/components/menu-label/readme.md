@@ -1,4 +1,6 @@
-# str-menu-label
+#  Menu label
+
+The Menu label (str-menu-label) is used to describe a group of [str-menu-item's](../menu-item).
 
 <!-- Auto Generated Below -->
 
