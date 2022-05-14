@@ -9,9 +9,11 @@ describe('str-badge', () => {
       html: `<str-badge></str-badge>`,
     });
     expect(page.root).toEqualHtml(`
-      <str-badge>
+      <str-badge class="badge-medium badge-pill badge-primary" size="medium" type="primary">
         <mock:shadow-root>
-          <slot></slot>
+          <span class="badge">
+            <slot></slot>
+          </span>
         </mock:shadow-root>
       </str-badge>
     `);

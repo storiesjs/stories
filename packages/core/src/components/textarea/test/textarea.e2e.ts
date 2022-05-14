@@ -16,7 +16,7 @@ describe('str-textarea', () => {
       `,
     });
     const textarea = await page.find('str-textarea');
-    const strFocus = await textarea.spyOnEvent('str-focus');
+    const strFocus = await textarea.spyOnEvent('strFocus');
 
     await textarea.click();
 
@@ -32,7 +32,7 @@ describe('str-textarea', () => {
     });
     const textarea = await page.find('str-textarea');
     const nativeButton = await page.find('button');
-    const strBlur = await textarea.spyOnEvent('str-blur');
+    const strBlur = await textarea.spyOnEvent('strBlur');
 
     await textarea.click();
     await nativeButton.click();

@@ -353,7 +353,7 @@ export class Input {
             onInput={this.handleInput}
             onBlur={this.handleBlur}
             onFocus={this.handleFocus}
-            class="input-control"
+            class="input-item"
             {...this.inheritedAttributes}
           />
 

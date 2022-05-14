@@ -18,7 +18,7 @@ describe('str-select', () => {
       `,
     });
     const select = await page.find('str-select');
-    const grFocus = await select.spyOnEvent('str-focus');
+    const grFocus = await select.spyOnEvent('strFocus');
 
     await select.click();
 

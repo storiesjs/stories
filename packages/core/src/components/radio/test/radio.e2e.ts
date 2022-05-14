@@ -16,7 +16,7 @@ describe('str-radio', () => {
       `,
     });
     const radio = await page.find('str-radio');
-    const grFocus = await radio.spyOnEvent('str-focus');
+    const grFocus = await radio.spyOnEvent('strFocus');
 
     await radio.click();
 
@@ -32,7 +32,7 @@ describe('str-radio', () => {
     });
     const radio = await page.find('str-radio');
     const nativeButton = await page.find('button');
-    const grBlur = await radio.spyOnEvent('str-blur');
+    const grBlur = await radio.spyOnEvent('strBlur');
 
     await radio.click();
     await nativeButton.click();

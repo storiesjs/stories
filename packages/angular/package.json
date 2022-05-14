@@ -70,6 +70,7 @@
     "@angular-devkit/build-angular": "~12.0.5",
     "@angular/cli": "~12.0.5",
     "@angular/compiler-cli": "~12.0.5",
+    "@stencil/core": "^2.15.2",
     "@stories-js/core": "0.3.0",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
