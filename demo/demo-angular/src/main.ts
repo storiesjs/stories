@@ -1,7 +1,7 @@
 import { enableProdMode } from '@angular/core';
 import type { Type } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { defineCustomElements } from '@stories-js/core/loader';
+// import { defineCustomElements, applyPolyfills } from '@stories-js/core/loader';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
@@ -15,7 +15,6 @@ if (environment.production) {
 let ngModule: Type<unknown>;
 
 if (environment.stories) {
-  defineCustomElements(window);
   ngModule = StoriesModule;
 } else {
   ngModule = AppModule;
@@ -23,3 +22,7 @@ if (environment.stories) {
 
 platformBrowserDynamic().bootstrapModule(ngModule)
   .catch(err => console.error(err));
+
+// applyPolyfills().then(() => {
+//   defineCustomElements(window);
+// });

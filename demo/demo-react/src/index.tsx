@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import ReactDOM from 'react-dom';
+import { applyPolyfills, defineCustomElements } from '@stories-js/core/loader';
 import './index.css';
 import App from './App';
 import Stories from './stories/Stories';
@@ -24,3 +25,7 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+applyPolyfills().then(() => {
+  defineCustomElements(window);
+});

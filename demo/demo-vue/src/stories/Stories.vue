@@ -35,15 +35,20 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { StoryComponent, StoryContext } from "@stories-js/core";
+import { applyPolyfills, defineCustomElements } from '@stories-js/core/loader';
 
 import { StrRenderer } from "@stories-js/vue";
 
 import storyModules from "./stories-list";
 
-console.log('storyModules', storyModules)
+console.log('storyModules', storyModules);
+
+applyPolyfills().then(() => {
+  defineCustomElements(window);
+});
 
 export default defineComponent({
-  name: "str-browser",
+  // name: "str-browser",
   components: {
     StrRenderer,
   },

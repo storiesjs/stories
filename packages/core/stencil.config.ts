@@ -40,6 +40,7 @@ export const config: Config = {
     angular({
       componentCorePackage: '@stories-js/core',
       directivesProxyFile: '../angular/src/directives/proxies.ts',
+      directivesArrayFile: '../angular/src/directives/index.ts'
     }),
     vue({
       componentCorePackage: '@stories-js/core',

@@ -3,53 +3,14 @@ import { CUSTOM_ELEMENTS_SCHEMA, ModuleWithProviders } from '@angular/core';
 import { NgModule } from '@angular/core';
 import type { StoryModules } from '@stories-js/core';
 
-import {
-  StrAddonActions,
-  StrAddonControls,
-  StrAddons,
-
-  StrApp,
-
-  StrIcon,
-  StrLabel,
-  StrPreview,
-  StrSidebar,
-  StrSplitPane,
-  StrTab,
-  StrTabBar,
-  StrTabButton,
-  StrTabs,
-  StrToolBar,
-  StrToolButton,
-  StrToolZoom,
-  StrZoom
-
-} from '../directives/proxies';
+import { DIRECTIVES } from '../directives';
 
 import { StoriesRendererComponent } from './stories-renderer.component';
 import { StoriesRendererService } from './stories-renderer.service';
 
 @NgModule({
   declarations: [
-    StrAddonActions,
-    StrAddonControls,
-    StrAddons,
-
-    StrApp,
-
-    StrIcon,
-    StrLabel,
-    StrPreview,
-    StrSidebar,
-    StrSplitPane,
-    StrTab,
-    StrTabBar,
-    StrTabButton,
-    StrTabs,
-    StrToolBar,
-    StrToolButton,
-    StrToolZoom,
-    StrZoom,
+    ...DIRECTIVES,
 
     StoriesRendererComponent,
   ],
@@ -57,25 +18,7 @@ import { StoriesRendererService } from './stories-renderer.service';
     StoriesRendererService
   ],
   exports: [
-    StrAddonActions,
-    StrAddonControls,
-    StrAddons,
-
-    StrApp,
-
-    StrIcon,
-    StrLabel,
-    StrPreview,
-    StrSidebar,
-    StrSplitPane,
-    StrTab,
-    StrTabBar,
-    StrTabButton,
-    StrTabs,
-    StrToolBar,
-    StrToolButton,
-    StrToolZoom,
-    StrZoom,
+    ...DIRECTIVES,
 
     StoriesRendererComponent,
   ],
