@@ -39,7 +39,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/storiesjs/stories.git"
+    "url": "https://github.com/storiesjs/stories.git",
+    "directory": "packages/react"
   },
   "scripts": {
     "build": "yarn run clean && yarn run compile",

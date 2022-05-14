@@ -39,6 +39,11 @@
   "files": [
     "/dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/storiesjs/stories.git",
+    "directory": "packages/cli"
+  },
   "scripts": {
     "clean": "rimraf dist",
     "build": "microbundle",

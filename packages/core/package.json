@@ -40,7 +40,8 @@
   "collection:main": "dist/collection/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/storiesjs/stories.git"
+    "url": "https://github.com/storiesjs/stories.git",
+    "directory": "packages/core"
   },
   "files": [
     "components/",
