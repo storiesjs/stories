@@ -10,7 +10,7 @@ The Split panel (str-split-panel) is a component to split content vertically or 
 | Property      | Attribute      | Description | Type                         | Default     |
 | ------------- | -------------- | ----------- | ---------------------------- | ----------- |
 | `defaultSize` | `default-size` |             | `number`                     | `0`         |
-| `isResizing`  | `resizing`     |             | `boolean`                    | `undefined` |
+| `isResizing`  | `resizing`     |             | `boolean`                    | `false`     |
 | `minSize`     | `min-size`     |             | `number`                     | `0`         |
 | `split`       | `split`        |             | `"horizontal" \| "vertical"` | `undefined` |
 

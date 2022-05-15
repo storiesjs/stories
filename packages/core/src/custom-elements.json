@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-05-14T21:07:17",
+  "timestamp": "2022-05-15T19:35:32",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.15.2",
@@ -8271,9 +8271,9 @@
         {
           "name": "defaultSize",
           "type": "number",
-          "mutable": false,
+          "mutable": true,
           "attr": "default-size",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
           "default": "0",
@@ -8294,6 +8294,7 @@
           "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
+          "default": "false",
           "values": [
             {
               "type": "boolean"
@@ -8306,9 +8307,9 @@
         {
           "name": "minSize",
           "type": "number",
-          "mutable": false,
+          "mutable": true,
           "attr": "min-size",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
           "default": "0",
@@ -8324,9 +8325,9 @@
         {
           "name": "split",
           "type": "\"horizontal\" | \"vertical\"",
-          "mutable": false,
+          "mutable": true,
           "attr": "split",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
           "values": [
@@ -8348,9 +8349,9 @@
         {
           "name": "default-size",
           "type": "number",
-          "mutable": false,
+          "mutable": true,
           "attr": "default-size",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
           "default": "0",
@@ -8372,6 +8373,7 @@
           "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
+          "default": "false",
           "values": [
             {
               "type": "boolean"
@@ -8379,14 +8381,15 @@
           ],
           "optional": false,
           "required": false,
+          "defaultValue": "false",
           "description": ""
         },
         {
           "name": "min-size",
           "type": "number",
-          "mutable": false,
+          "mutable": true,
           "attr": "min-size",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
           "default": "0",
@@ -8403,9 +8406,9 @@
         {
           "name": "split",
           "type": "\"horizontal\" | \"vertical\"",
-          "mutable": false,
+          "mutable": true,
           "attr": "split",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
           "values": [

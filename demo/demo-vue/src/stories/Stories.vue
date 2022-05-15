@@ -6,11 +6,11 @@
         <str-tool-bar>
           <str-tool-zoom slot="left"></str-tool-zoom>
         </str-tool-bar>
-        <str-split-pane split="vertical" min-size="250" default-size="500">
+         <str-split-pane split="vertical" min-size="250" default-size="500">
           <str-preview slot="slot1">
-            <str-renderer :story="story"></str-renderer>
+            <StrRenderer :story="story"></StrRenderer>
           </str-preview>
-          <str-tabs slot="slot2">
+           <str-tabs slot="slot2">
             <str-tab-bar>
               <!-- <str-tab-button tab="actions">
                 <str-label color="primary">Actions</str-label>
@@ -25,8 +25,8 @@
             <str-tab tab="controls">
               <str-addon-controls></str-addon-controls>
             </str-tab>
-          </str-tabs>
-        </str-split-pane>
+           </str-tabs>
+         </str-split-pane>
       </div>
     </str-split-pane>
   </str-app>
@@ -48,7 +48,6 @@ applyPolyfills().then(() => {
 });
 
 export default defineComponent({
-  // name: "str-browser",
   components: {
     StrRenderer,
   },
@@ -59,20 +58,15 @@ export default defineComponent({
       context: null as StoryContext | null,
     };
   },
-  // data: () => ({
-  //   modules: storyModules,
-  //   story: null as StoryComponent | null,
-  //   context: null as StoryContext | null,
-  // }),
   methods: {
     storySelected(event: CustomEvent<StoryComponent>) {
-      console.log("!!! storySelected", event.detail);
+      console.log("storySelected", event.detail);
       this.story = event.detail;
     },
     contextSelected(event: CustomEvent<StoryContext>) {
       console.log("contextSelected", event.detail);
       this.context = event.detail;
-    }
+    },
   },
 });
 </script>
@@ -87,3 +81,28 @@ export default defineComponent({
   margin-top: 0px;
 }
 </style>
+
+/*
+ <str-split-pane split="vertical" min-size="250" default-size="500">
+          <str-preview slot="slot1">
+            <str-renderer :story="story"></str-renderer>
+          </str-preview>
+          <str-tabs slot="slot2">
+            <str-tab-bar>
+              <str-tab-button tab="actions">
+                <str-label color="primary">Actions</str-label>
+              </str-tab-button>
+              <str-tab-button tab="controls">
+                <str-label color="primary">Controls</str-label>
+              </str-tab-button>
+            </str-tab-bar>
+            <str-tab tab="actions">
+              <str-addon-actions></str-addon-actions>
+            </str-tab>
+            <str-tab tab="controls">
+              <str-addon-controls></str-addon-controls>
+            </str-tab>
+          </str-tabs>
+        </str-split-pane>
+
+ */

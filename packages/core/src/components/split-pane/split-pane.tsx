@@ -8,10 +8,10 @@ import { Component, h, Prop, Element, Event } from '@stencil/core';
   shadow: true,
 })
 export class SplitPane {
-  @Prop() split: "horizontal" | "vertical";
-  @Prop() minSize = 0;
-  @Prop() defaultSize = 0;
-  @Prop({ attribute: "resizing", mutable: true, reflect: true }) isResizing: boolean;
+  @Prop({ attribute: "split", mutable: true, reflect: true}) split: "horizontal" | "vertical";
+  @Prop({ attribute: "min-size", mutable: true, reflect: true}) minSize = 0;
+  @Prop({ attribute: "default-size", mutable: true, reflect: true}) defaultSize = 0;
+  @Prop({ attribute: "resizing", mutable: true, reflect: true }) isResizing = false;
 
   @Element() el: HTMLElement;
   median: HTMLDivElement;
