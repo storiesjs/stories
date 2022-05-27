@@ -9,7 +9,7 @@ describe('str-split-pane', () => {
       html: `<str-split-pane></str-split-pane>`,
     });
     expect(page.root).toEqualHtml(`
-      <str-split-pane>
+      <str-split-pane default-size="0" min-size="0">
         <mock:shadow-root>
           <slot name="slot1"></slot>
           <div id="median"></div>

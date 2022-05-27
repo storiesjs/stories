@@ -68,8 +68,7 @@
   "dependencies": {
     "@stencil/core": "^2.15.2",
     "@stencil/store": "^1.5.0",
-    "@popperjs/core": "^2.11.5",
-    "telejson": "6.0.8"
+    "@popperjs/core": "^2.11.5"
   },
   "devDependencies": {
     "@stencil/angular-output-target": "^0.4.0",

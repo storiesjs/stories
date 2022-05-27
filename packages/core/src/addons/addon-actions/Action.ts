@@ -1,10 +1,5 @@
-/* eslint-disable @typescript-eslint/ban-types */
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import type { Options as TelejsonOptions } from 'telejson';
-
 import { messages } from '../../types';
+import { uuid } from '../../utils/uuid';
 
 export type HandlerFunction = (...args: any[]) => void;
 
@@ -24,7 +19,7 @@ interface Options {
   limit: number;
 }
 
-export type ActionOptions = Partial<Options> & Partial<TelejsonOptions>;
+export type ActionOptions = Partial<Options>;
 
 export const DefaultActionOptions: ActionOptions = {
   clearOnStoryChange: true,
@@ -33,7 +28,7 @@ export const DefaultActionOptions: ActionOptions = {
 
 type SyntheticEvent = any;
 
-const findProto = (obj: unknown, callback: (proto: any) => boolean): Function | null => {
+const findProto = (obj: unknown, callback: (proto: any) => boolean): any | null => {
   const proto = Object.getPrototypeOf(obj);
   if (!proto || callback(proto)) return proto;
   return findProto(proto, callback);
@@ -75,8 +70,7 @@ export function action(name: string, options: ActionOptions = {}): HandlerFuncti
   };
 
   const handler: HandlerFunction = (...args: any[]) => {
-    const id = (new Date()).getTime().toString(); // uuidv4();
-    const maxDepth = 1;
+    const id = uuid();
     const serializedArgs = args.map(serializeArg);
     const normalizedArgs = args.length > 1 ? serializedArgs : serializedArgs[0];
 
@@ -86,8 +80,6 @@ export function action(name: string, options: ActionOptions = {}): HandlerFuncti
       data: { name, args: normalizedArgs },
       options: {
         ...actionOptions,
-        maxDepth: maxDepth,
-        allowFunction: actionOptions.allowFunction || false,
       },
     };
     let cache: any | null = [];

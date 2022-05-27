@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { parseKind, sanitize, storyNameFromExport, toId } from "@componentdriven/csf";
 import deepmerge from 'deepmerge';
 

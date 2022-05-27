@@ -1,8 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 /**
  * A basic pub-sub mechanism for sibling component communication
  */

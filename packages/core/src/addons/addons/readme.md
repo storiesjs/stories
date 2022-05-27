@@ -17,7 +17,7 @@ Type: `Promise<Addon>`
 
 
 
-### `registerAddon(addon: Addon) => Promise<void>`
+### `registerAddon(addonId: string, addon: Addon) => Promise<void>`
 
 
 
@@ -37,7 +37,7 @@ Type: `Promise<void>`
 
 
 
-### `unregisterAddon(addon: Addon) => Promise<void>`
+### `unregisterAddon(addonId: string) => Promise<void>`
 
 
 

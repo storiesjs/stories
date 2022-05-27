@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
-
 export type KeyCollection = string[];
 
 export type Shortcuts = {

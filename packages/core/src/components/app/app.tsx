@@ -6,6 +6,7 @@ import { api } from '../../api';
 import type { AppState} from '../../store';
 import { state } from '../../store';
 import type { StoryModules, StoryComponent, StoryContext } from '../../types';
+import Log from '../../utils/logger';
 
 @Component({
   tag: 'str-app',
@@ -56,24 +57,24 @@ export class App {
     const storyId = api.getStoryIdFromURL();
     // Set story in state
     const story = state.story = (storyId ? state.stories[storyId] : undefined);
-    console.log('onHash',storyId, story)
+    Log.debug('onHash', storyId, story)
     // We have to update the URL's hash to keep it in sync
     api.selectStory(storyId);
     // Send custom event about selected story
     this.strChange.emit(story);
-    console.log('strChange emit', story)
+    Log.debug('strChange emit', story)
     // Create context for story
     const context: StoryContext | undefined = story ? this.createContext(story) : undefined;
     state.context = context;
     // Send custom event about selected story
     this.strContextChange.emit(context);
-    console.log('strContextChange emit', story)
+    Log.debug('strContextChange emit', story)
     // Inform Addons about changes
     // this.addons.storyContextChanged(story, context);
   };
 
   componentDidLoad(): void {
-    console.log('componentDidLoad',this.modules )
+    Log.debug('componentDidLoad',this.modules )
     api.setStories(this.modules);
     // Update internal state and sync it with hash
     this.onHash();

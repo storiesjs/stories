@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Component, h, Method } from '@stencil/core';
 
 import { state } from '../../store';
@@ -12,23 +11,21 @@ import type { StoryComponent, StoryContext, Addon } from '../../types';
 export class Addons {
 
   @Method()
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  async registerAddon(addon: Addon): Promise<void> {
+  async registerAddon(addonId: string, addon: Addon): Promise<void> {
     const addons = state.addons;
-    if (addons[addon.id]) {
-      throw new Error(`Please remove duplicate addon ${addon.id}`);
+    if (addons[addonId]) {
+      throw new Error(`Please remove duplicate addon ${addonId}`);
     }
-    addons[addon.id] = addon;
+    addons[addonId] = addon;
   }
 
   @Method()
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  async unregisterAddon(addon: Addon): Promise<void> {
+  async unregisterAddon(addonId: string): Promise<void> {
     const addons = state.addons;
-    if (!addons[addon.id]) {
-      throw new Error(`Cannot unregister addon ${addon.id}`);
+    if (!addons[addonId]) {
+      throw new Error(`Cannot unregister addon ${addonId}`);
     }
-    delete addons[addon.id];
+    delete addons[addonId];
   }
 
   @Method()

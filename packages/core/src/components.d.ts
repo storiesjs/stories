@@ -17,9 +17,9 @@ export namespace Components {
     }
     interface StrAddons {
         "findAddon": (id: string) => Promise<Addon>;
-        "registerAddon": (addon: Addon) => Promise<void>;
+        "registerAddon": (addonId: string, addon: Addon) => Promise<void>;
         "storyContextChanged": (story: StoryComponent, context: StoryContext) => Promise<void>;
-        "unregisterAddon": (addon: Addon) => Promise<void>;
+        "unregisterAddon": (addonId: string) => Promise<void>;
     }
     interface StrApp {
         /**

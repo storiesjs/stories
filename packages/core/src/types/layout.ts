@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
 export type LayoutAPI = {
     toggleFullscreen: (toggled?: boolean) => void;
     togglePanel:(toggled?: boolean) => void;
