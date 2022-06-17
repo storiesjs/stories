@@ -2,7 +2,7 @@ import type { OnInit } from '@angular/core';
 import { HostListener } from '@angular/core';
 import { Component } from '@angular/core';
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
-import { StoriesAngularService } from '@stories-js/angular';
+import { StoriesRendererService } from '@stories-js/angular';
 import type { StoryComponent } from '@stories-js/angular';
 import type { StoryContext, StoryModules } from '@stories-js/core';
 
@@ -16,20 +16,20 @@ export class StoriesComponent implements OnInit {
   story: StoryComponent | undefined;
   context: StoryContext | undefined;
 
-  constructor(private service: StoriesAngularService) {}
+  constructor(private service: StoriesRendererService) {}
 
   ngOnInit(): void {
       this.modules = this.service.modules;
       console.log('StoriesComponent.modules', this.modules);
   }
 
-  @HostListener('storyChange', ['$event.detail'])
+  @HostListener('strChange', ['$event.detail'])
   setStory(story: StoryComponent): void {
     console.log('StoriesComponent.setStory', story);
     this.story = story;
   }
 
-  @HostListener('storyContextChange', ['$event.detail'])
+  @HostListener('strContextChange', ['$event.detail'])
   setContext(context: StoryContext): void {
     console.log('StoriesComponent.setContext', context);
     this.context = context;

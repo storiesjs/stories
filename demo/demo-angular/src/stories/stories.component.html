@@ -1,31 +1,31 @@
-<stories-app [modules]="modules" (storyChange)="setStory" (storyContextChange)="setContext">
-  <stories-split-pane split="horizontal" minSize="150" defaultSize="250">
-    <stories-sidebar slot="slot1"></stories-sidebar>
+<str-app [modules]="modules" (strChange)="setStory" (strContextChange)="setContext">
+  <str-split-pane split="horizontal" minSize="150" defaultSize="250">
+    <str-sidebar slot="slot1"></str-sidebar>
     <div slot="slot2">
-      <stories-tool-bar>
-        <stories-tool-zoom slot="left"></stories-tool-zoom>
-      </stories-tool-bar>
-      <stories-split-pane split="vertical"  minSize="250" defaultSize="500">
-        <stories-preview slot="slot1">
-          <stories-angular-renderer [story]="story"></stories-angular-renderer>
-        </stories-preview>
-        <stories-tabs slot="slot2">
-          <stories-tab-bar>
-            <stories-tab-button tab="actions">
-              <stories-label color="primary">Actions</stories-label>
-            </stories-tab-button>
-            <stories-tab-button tab="controls">
-              <stories-label color="primary">Controls</stories-label>
-            </stories-tab-button>
-          </stories-tab-bar>
-          <stories-tab tab="actions">
-            <stories-addon-actions></stories-addon-actions>
-          </stories-tab>
-          <stories-tab tab="controls">
-            <stories-addon-controls></stories-addon-controls>
-          </stories-tab>
-        </stories-tabs>
-      </stories-split-pane>
+      <str-tool-bar>
+        <str-tool-zoom slot="left"></str-tool-zoom>
+      </str-tool-bar>
+      <str-split-pane split="vertical"  minSize="250" defaultSize="500">
+        <str-preview slot="slot1">
+          <str-renderer [story]="story"></str-renderer>
+        </str-preview>
+        <str-tabs slot="slot2">
+          <str-tab-bar>
+            <str-tab-button tab="actions">
+              <str-label color="primary">Actions</str-label>
+            </str-tab-button>
+            <str-tab-button tab="controls">
+              <str-label color="primary">Controls</str-label>
+            </str-tab-button>
+          </str-tab-bar>
+          <str-tab tab="actions">
+            <str-addon-actions></str-addon-actions>
+          </str-tab>
+          <str-tab tab="controls">
+            <str-addon-controls></str-addon-controls>
+          </str-tab>
+        </str-tabs>
+      </str-split-pane>
     </div>
-  </stories-split-pane>
-</stories-app>
+  </str-split-pane>
+</str-app>

@@ -1,0 +1,86 @@
+@import '../../themes/stories.globals';
+
+// Dropdown
+// --------------------------------------------------
+
+:host {
+  /**
+   * @prop --panel-background-color: Background color of the dropdown panel
+   *
+   * @prop --panel-border-radius: Border radius of the dropdown panel
+   * @prop --panel-border-color: Border color of the button
+   *
+   * @prop --panel-box-shadow: Box shadow of the dropdown panel
+   *
+   * @prop --transition: Transition of the dropdown
+   */
+  --panel-background-color: var(--str-color-white);
+
+  --panel-border-radius: var(--str-border-radius-medium);
+  --panel-border-color: var(--str-panel-border-color);
+
+  --panel-box-shadow: var(--str-shadow-large);
+
+  --transition: 150ms opacity, 150ms transform;
+
+  display: inline-block;
+  position: relative;
+
+  box-sizing: border-box;
+
+  & *,
+  & *:before,
+  & *:after {
+    box-sizing: inherit;
+  }
+}
+
+.dropdown-trigger {
+  display: block;
+}
+
+.dropdown-positioner {
+  position: absolute;
+  z-index: var(--str-z-index-dropdown);
+}
+
+.dropdown-panel {
+  max-height: 50vh;
+  font-family: var(--str-font-family);
+  font-size: var(--str-font-size-medium);
+  font-weight: var(--str-font-weight-normal);
+  background-color: var(--panel-background-color);
+  border: solid 1px var(--panel-border-color);
+  border-radius: var(--panel-border-radius);
+  box-shadow: var(--panel-box-shadow);
+  opacity: 0;
+  overflow: auto;
+  overscroll-behavior: none;
+  pointer-events: none;
+  transform: scale(0.9);
+  transition: var(--transition);
+}
+
+.dropdown-positioner {
+  &[data-popper-placement^='top'] .dropdown-panel {
+    transform-origin: bottom;
+  }
+
+  &[data-popper-placement^='bottom'] .dropdown-panel {
+    transform-origin: top;
+  }
+
+  &[data-popper-placement^='left'] .dropdown-panel {
+    transform-origin: right;
+  }
+
+  &[data-popper-placement^='right'] .dropdown-panel {
+    transform-origin: left;
+  }
+
+  &.popover-visible .dropdown-panel {
+    opacity: 1;
+    transform: none;
+    pointer-events: all;
+  }
+}

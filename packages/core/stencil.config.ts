@@ -40,6 +40,7 @@ export const config: Config = {
     angular({
       componentCorePackage: '@stories-js/core',
       directivesProxyFile: '../angular/src/directives/proxies.ts',
+      directivesArrayFile: '../angular/src/directives/index.ts'
     }),
     vue({
       componentCorePackage: '@stories-js/core',
@@ -48,16 +49,16 @@ export const config: Config = {
       includeDefineCustomElements: false,
       componentModels: [
         {
-          elements: ['stories-checkbox', 'stories-toggle'],
+          elements: ['str-checkbox', 'str-toggle'],
           targetAttr: 'checked',
-          event: 'v-stories-change',
-          externalEvent: 'storiesChange'
+          event: 'v-str-change',
+          externalEvent: 'strChange'
         },
         {
-          elements: ['stories-input', 'stories-radio-group', 'stories-radio', 'stories-searchbar', 'stories-select', 'stories-textarea'],
+          elements: ['str-input', 'str-radio-group', 'str-radio', 'str-searchbar', 'str-select', 'str-textarea'],
           targetAttr: 'value',
-          event: 'v-stories-change',
-          externalEvent: 'storiesChange'
+          event: 'v-str-change',
+          externalEvent: 'strChange'
         }
       ],
     }),
@@ -85,7 +86,7 @@ export const config: Config = {
     },
     {
       type: 'docs-readme',
-      footer: 'Built with ❤ at StoriesJS',
+      footer: 'Built with [StencilJS](https://stenciljs.com/) at StoriesJS',
     },
     {
       type: 'custom',

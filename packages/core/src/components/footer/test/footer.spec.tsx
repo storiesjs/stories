@@ -2,18 +2,18 @@ import { newSpecPage } from '@stencil/core/testing';
 
 import { Footer } from '../footer';
 
-describe('stories-footer', () => {
+describe('str-footer', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [Footer],
-      html: `<stories-footer></stories-footer>`,
+      html: `<str-footer></str-footer>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-footer role="contentinfo">
+      <str-footer role="contentinfo">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </stories-footer>
+      </str-footer>
     `);
   });
 });

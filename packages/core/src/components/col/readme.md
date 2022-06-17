@@ -1,6 +1,6 @@
-# stories-col
+# Column
 
-The stories-col is a container for content within a grid. You put it inside of a row and it always expand to fill the space of a row.
+The Column (str-col) is a container for content within a [str-grid](../grid). You put it inside of a row and it always expand to fill the space of a row.
 
 <!-- Auto Generated Below -->
 
@@ -37,17 +37,17 @@ The stories-col is a container for content within a grid. You put it inside of a
 
 ## CSS Custom Properties
 
-| Name                               | Description                                 |
-| ---------------------------------- | ------------------------------------------- |
-| `--stories-grid-column-padding`    | Padding for the Column                      |
-| `--stories-grid-column-padding-lg` | Padding for the Column on lg screens and up |
-| `--stories-grid-column-padding-md` | Padding for the Column on md screens and up |
-| `--stories-grid-column-padding-sm` | Padding for the Column on sm screens and up |
-| `--stories-grid-column-padding-xl` | Padding for the Column on xl screens and up |
-| `--stories-grid-column-padding-xs` | Padding for the Column on xs screens and up |
-| `--stories-grid-columns`           | The number of total Columns in the Grid     |
+| Name                           | Description                                 |
+| ------------------------------ | ------------------------------------------- |
+| `--str-grid-column-padding`    | Padding for the Column                      |
+| `--str-grid-column-padding-lg` | Padding for the Column on lg screens and up |
+| `--str-grid-column-padding-md` | Padding for the Column on md screens and up |
+| `--str-grid-column-padding-sm` | Padding for the Column on sm screens and up |
+| `--str-grid-column-padding-xl` | Padding for the Column on xl screens and up |
+| `--str-grid-column-padding-xs` | Padding for the Column on xs screens and up |
+| `--str-grid-columns`           | The number of total Columns in the Grid     |
 
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

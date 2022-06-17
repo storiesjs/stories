@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { StoriesAngularModule } from '@stories-js/angular';
+import { StoriesRendererModule } from '@stories-js/angular';
+import { defineCustomElements } from '@stories-js/core/loader';
 
 import { ButtonModule } from '../app/button/button.module';
 
 import modules from './stories-list';
 import { StoriesComponent } from './stories.component';
+
+defineCustomElements();
 
 @NgModule({
   declarations: [
@@ -13,7 +16,7 @@ import { StoriesComponent } from './stories.component';
   ],
   imports: [
     BrowserModule,
-    StoriesAngularModule.withStories(modules),
+    StoriesRendererModule.withStories(modules),
     ButtonModule
   ],
   bootstrap: [StoriesComponent],

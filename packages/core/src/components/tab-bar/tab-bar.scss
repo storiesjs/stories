@@ -7,7 +7,7 @@
    * @prop --color: Color of the tab bar
    */
 
-  @include padding-horizontal(var(--stories-safe-area-left), var(--stories-safe-area-right));
+  @include padding-horizontal(var(--str-safe-area-left), var(--str-safe-area-right));
 
   display: flex;
 
@@ -17,7 +17,7 @@
   width: auto;
   height: 40px;
 
-  padding-bottom: var(--stories-safe-area-bottom, 0);
+  padding-bottom: var(--str-safe-area-bottom, 0);
 
   border-top: var(--border);
 
@@ -34,36 +34,36 @@
   box-sizing: content-box !important;
 }
 
-:host(.stories-color) ::slotted(stories-tab-button) {
+:host(.str-color) ::slotted(str-tab-button) {
   --background-focused: #{current-color(shade)};
   --color-selected: #{current-color(contrast)};
 }
 
-:host(.stories-color) ::slotted(.tab-selected) {
+:host(.str-color) ::slotted(.tab-selected) {
   color: #{current-color(contrast)};;
 }
 
-:host(.stories-color),
-:host(.stories-color) ::slotted(stories-tab-button) {
+:host(.str-color),
+:host(.str-color) ::slotted(str-tab-button) {
   color: #{current-color(contrast, .7)};
 }
 
-:host(.stories-color),
-:host(.stories-color) ::slotted(stories-tab-button) {
+:host(.str-color),
+:host(.str-color) ::slotted(str-tab-button) {
   background: #{current-color(base)};
 }
 
-// :host(.tab-bar-translucent) ::slotted(stories-tab-button.stories-focused),
-:host(.stories-color) ::slotted(stories-tab-button.stories-focused) {
+// :host(.tab-bar-translucent) ::slotted(str-tab-button.str-focused),
+:host(.str-color) ::slotted(str-tab-button.str-focused) {
   background: var(--background-focused)
 }
 
-// :host(.tab-bar-translucent) ::slotted(stories-tab-button) {
+// :host(.tab-bar-translucent) ::slotted(str-tab-button) {
 //   background: transparent;
 // }
 
 // :host([slot="top"]) {
-//   padding-top: var(--stories-safe-area-top, 0);
+//   padding-top: var(--str-safe-area-top, 0);
 //   padding-bottom: 0;
 
 //   border-top: 0;

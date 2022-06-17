@@ -5,22 +5,23 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Addon, CheckboxChangeEventDetail, Color, Commands, InputChangeEventDetail, RouterDirection, SearchbarChangeEventDetail, StoryComponent, StoryContext, StoryModules, StyleEventDetail, TabBarChangedEventDetail, TabButtonClickEventDetail, TabButtonLayout, TextFieldTypes, ToolEvent } from "./types";
+import { Addon, Color, Commands, SearchbarChangeEventDetail, StoryComponent, StoryContext, StoryModules, StyleEventDetail, TabBarChangedEventDetail, TabButtonClickEventDetail, TabButtonLayout, TextFieldTypes, ToolEvent } from "./types";
 import { AppState } from "./store";
+import { AutocompleteTypes } from "./interface";
 export namespace Components {
-    interface StoriesAddonActions {
+    interface StrAddonActions {
         "storyContextChanged": (story: StoryComponent, context: StoryContext) => Promise<void>;
     }
-    interface StoriesAddonControls {
+    interface StrAddonControls {
         "storyContextChanged": (story: StoryComponent, context: StoryContext) => Promise<void>;
     }
-    interface StoriesAddons {
+    interface StrAddons {
         "findAddon": (id: string) => Promise<Addon>;
-        "registerAddon": (addon: Addon) => Promise<void>;
+        "registerAddon": (addonId: string, addon: Addon) => Promise<void>;
         "storyContextChanged": (story: StoryComponent, context: StoryContext) => Promise<void>;
-        "unregisterAddon": (addon: Addon) => Promise<void>;
+        "unregisterAddon": (addonId: string) => Promise<void>;
     }
-    interface StoriesApp {
+    interface StrApp {
         /**
           * Story Modules
          */
@@ -30,21 +31,25 @@ export namespace Components {
          */
         "store": AppState;
     }
-    interface StoriesBadge {
+    interface StrBadge {
         /**
-          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
+          * The badge's size.
          */
-        "color"?: Color;
+        "size": 'small' | 'medium' | 'large';
+        /**
+          * The badge's type.
+         */
+        "type": 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
-    interface StoriesButton {
+    interface StrButton {
         /**
-          * The type of button.
+          * Set to true to draw the button with a caret for use with dropdowns, popovers, etc.
          */
-        "buttonType": string;
+        "caret": boolean;
         /**
-          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
+          * Set to true to draw a circle button.
          */
-        "color"?: Color;
+        "circle": boolean;
         /**
           * If `true`, the user cannot interact with the button.
          */
@@ -54,71 +59,85 @@ export namespace Components {
          */
         "expand"?: 'full' | 'block';
         /**
-          * Set to `"clear"` for a transparent button, to `"outline"` for a transparent button with a border, or to `"solid"`. The default style is `"solid"` except inside of a toolbar, where the default is `"clear"`.
-         */
-        "fill"?: 'clear' | 'outline' | 'solid' | 'default';
-        /**
-          * Contains a URL or a URL fragment that the hyperlink points to. If this property is set, an anchor tag will be rendered.
+          * Contains a URL or a URL fragment that the hyperlink points to.
          */
         "href": string | undefined;
         /**
-          * When using a router, it specifies the transition direction when navigating to another page using `href`.
+          * Set to true to draw the button in a loading state.
          */
-        "routerDirection": RouterDirection;
+        "loading": boolean;
         /**
-          * The button shape.
+          * Set to true to draw a pill-style button with rounded edges.
          */
-        "shape"?: 'round';
+        "pill": boolean;
         /**
-          * The button size.
+          * Specifies the relationship of the target object to the link object. The value is a space-separated list of [link types](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types).
          */
-        "size"?: 'small' | 'default' | 'large';
+        "rel": string | undefined;
         /**
-          * If `true`, activates a button with a heavier font weight.
+          * Removes focus from the button.
          */
-        "strong": boolean;
+        "removeFocus": () => Promise<void>;
         /**
-          * Specifies where to display the linked URL. Only applies when an `href` is provided. Special keywords: `"_blank"`, `"_self"`, `"_parent"`, `"_top"`.
+          * Sets focus on the button.
+         */
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * The button's size.
+         */
+        "size": 'small' | 'medium' | 'large';
+        /**
+          * Specifies where to display the linked URL. Special keywords: `"_blank"`, `"_self"`, `"_parent"`, `"_top"`.
          */
         "target": string | undefined;
         /**
           * The type of the button.
          */
         "type": 'submit' | 'reset' | 'button';
-    }
-    interface StoriesButtons {
         /**
-          * If true, buttons will disappear when its parent toolbar has fully collapsed if the toolbar is not the first toolbar. If the toolbar is the first toolbar, the buttons will be hidden and will only be shown once all toolbars have fully collapsed.
+          * The different variants. The options are: `"default"`, `"primary"`, `"secondary"`, `"danger"`, and `"plain"`.
          */
-        "collapse": boolean;
+        "variant"?: 'default' | 'primary' | 'secondary' | 'danger' | 'plain';
     }
-    interface StoriesCheckbox {
+    interface StrCheckbox {
         /**
-          * If `true`, the checkbox is selected.
+          * Set to true to draw the checkbox in a checked state.
          */
         "checked": boolean;
         /**
-          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
-         */
-        "color"?: Color;
-        /**
-          * If `true`, the user cannot interact with the checkbox.
+          * Set to true to disable the checkbox.
          */
         "disabled": boolean;
         /**
-          * If `true`, the checkbox will visually appear as indeterminate.
+          * Set to true to draw the checkbox in an indeterminate state.
          */
         "indeterminate": boolean;
+        /**
+          * Set to true to indicate this field is invalid. Will display the invalid text.
+         */
+        "invalid": boolean;
+        /**
+          * The radio group's invalid text. Alternatively, you can use the invalid-text slot.
+         */
+        "invalidText": string;
         /**
           * The name of the control, which is submitted with the form data.
          */
         "name": string;
         /**
-          * The value of the checkbox does not mean if it's checked or not, use the `checked` property for that.  The value of a checkbox is analogous to the value of an `<input type="checkbox">`, it's only used when the checkbox participates in a native `<form>`.
+          * Removes focus from the checkbox.
          */
-        "value": any | null;
+        "removeFocus": () => Promise<void>;
+        /**
+          * Sets focus on the checkbox.
+         */
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * The checkbox's value attribute.
+         */
+        "value": string;
     }
-    interface StoriesCol {
+    interface StrCol {
         /**
           * The amount to offset the column, in terms of how many columns it should shift to the end of the total available.
          */
@@ -216,115 +235,214 @@ export namespace Components {
          */
         "sizeXs"?: string;
     }
-    interface StoriesFooter {
+    interface StrDropdown {
+        /**
+          * Determines whether the dropdown should hide when a menu item is selected.
+         */
+        "closeOnSelect": boolean;
+        /**
+          * The dropdown will close when the user interacts outside of this element (e.g. clicking).
+         */
+        "containingElement": HTMLElement;
+        /**
+          * The distance in pixels from which to offset the panel away from its trigger.
+         */
+        "distance": number;
+        /**
+          * Sets focus on the trigger.
+         */
+        "focusOnTrigger": () => Promise<void>;
+        /**
+          * Hides the dropdown panel
+         */
+        "hide": () => Promise<void>;
+        /**
+          * Enable this option to prevent the panel from being clipped when the component is placed inside a container with `overflow: auto|scroll`.
+         */
+        "hoist": boolean;
+        /**
+          * Indicates whether or not the dropdown is open. You can use this in lieu of the show/hide methods.
+         */
+        "open": boolean;
+        /**
+          * The preferred placement of the dropdown panel. Note that the actual placement may vary as needed to keep the panel inside of the viewport.
+         */
+        "placement": | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right'
+    | 'right-start'
+    | 'right-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end';
+        /**
+          * Shows the dropdown panel
+         */
+        "show": () => Promise<void>;
+        /**
+          * The distance in pixels from which to offset the panel along its trigger.
+         */
+        "skidding": number;
     }
-    interface StoriesGrid {
+    interface StrFooter {
+    }
+    interface StrGrid {
         /**
           * If `true`, the grid will have a fixed width based on the screen size.
          */
         "fixed": boolean;
     }
-    interface StoriesIcon {
+    interface StrGroup {
+        /**
+          * Render the fields horizontal instead of vertical
+         */
+        "horizontal": boolean;
+        /**
+          * The field group label. Recommended for proper accessibility. Alternatively, you can use the label slot.
+         */
+        "label": string;
+    }
+    interface StrIcon {
         /**
           * Icon name
          */
         "name": string;
     }
-    interface StoriesInput {
+    interface StrInput {
+        /**
+          * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user. Available options: `"off"`, `"none"`, `"on"`, `"sentences"`, `"words"`, `"characters"`.
+         */
+        "autocapitalize": string;
+        /**
+          * Indicates whether the value of the control can be automatically completed by the browser.
+         */
+        "autocomplete": AutocompleteTypes;
+        /**
+          * Whether auto correction should be enabled when the user is entering/editing the text value.
+         */
+        "autocorrect": 'on' | 'off';
         /**
           * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
          */
         "autofocus": boolean;
         /**
-          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
+          * Set to true to add a clear button when the input is populated.
          */
-        "clearInput": boolean;
+        "clearable": boolean;
         /**
-          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
-         */
-        "color"?: Color;
-        /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
+          * Set the amount of time, in milliseconds, to wait to trigger the `stroies-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
          */
         "debounce": number;
         /**
-          * If `true`, the user cannot interact with the input.
+          * Set to true to disable the input control.
          */
         "disabled": boolean;
         /**
-          * This is required for a WebKit bug which requires us to blur and focus an input to properly focus the input in an item with delegatesFocus. It will no longer be needed with iOS 14.
+          * A hint to the browser for which enter key to display. Possible values: `"enter"`, `"done"`, `"go"`, `"next"`, `"previous"`, `"search"`, and `"send"`.
          */
-        "fireFocusEvents": boolean;
+        "enterkeyhint"?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
         /**
-          * Returns the native `<input>` element used under the hood.
+          * The input's help text. Alternatively, you can use the help-text slot.
          */
-        "getInputElement": () => Promise<HTMLInputElement>;
+        "helpText": string;
         /**
-          * A hint to the browser for which keyboard to display. Possible values: `"none"`, `"text"`, `"tel"`, `"url"`, `"email"`, `"numeric"`, `"decimal"`, and `"search"`.
+          * The input's inputmode attribute.
          */
-        "inputmode"?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
+        "inputmode": 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'search' | 'email' | 'url';
+        /**
+          * Set to true to indicate this field is invalid. Will display the invalid text instead of the help text
+         */
+        "invalid": boolean;
+        /**
+          * The input's invalid text. Alternatively, you can use the invalid-text slot.
+         */
+        "invalidText": string;
+        /**
+          * The inputs's label. Alternatively, you can use the label slot.
+         */
+        "label": string;
         /**
           * The maximum value, which must not be less than its minimum (min attribute) value.
          */
         "max"?: string;
         /**
-          * If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the maximum number of characters that the user can enter.
+          * Specifies how many characters are allowed.
          */
-        "maxlength"?: number;
+        "maxlength": number;
         /**
           * The minimum value, which must not be greater than its maximum (max attribute) value.
          */
         "min"?: string;
         /**
-          * If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the minimum number of characters that the user can enter.
-         */
-        "minlength"?: number;
-        /**
-          * The name of the control, which is submitted with the form data.
+          * The input's name.
          */
         "name": string;
         /**
-          * A regular expression that the value is checked against. The pattern must match the entire value, not just some subset. Use the title attribute to describe the pattern to help the user. This attribute applies when the value of the type attribute is `"text"`, `"search"`, `"tel"`, `"url"`, `"email"`, `"date"`, or `"password"`, otherwise it is ignored. When the type attribute is `"date"`, `pattern` will only be used in browsers that do not support the `"date"` input type natively. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date for more information.
+          * Set to true to draw a pill-style input with rounded edges.
          */
-        "pattern"?: string;
+        "pill": boolean;
         /**
-          * Instructional text that shows before the input has a value. This property applies only when the `type` property is set to `"email"`, `"number"`, `"password"`, `"search"`, `"tel"`, `"text"`, or `"url"`, otherwise it is ignored.
+          * The input's placeholder text.
          */
-        "placeholder"?: string;
+        "placeholder": string;
         /**
           * If `true`, the user cannot modify the value.
          */
         "readonly": boolean;
         /**
-          * If `true`, the user must fill in a value before submitting a form.
+          * Removes focus from the input.
          */
-        "required": boolean;
+        "removeFocus": () => Promise<void>;
         /**
-          * Sets blur on the native `input` in `stories-input`. Use this method instead of the global `input.blur()`.
+          * Set to true to display a required indicator, adds an asterisk to label
          */
-        "setBlur": () => Promise<void>;
+        "requiredIndicator": boolean;
         /**
-          * Sets focus on the native `input` in `stories-input`. Use this method instead of the global `input.focus()`.
+          * Selects all the text in the input.
          */
-        "setFocus": () => Promise<void>;
+        "select": () => Promise<void>;
         /**
-          * The initial size of the control. This value is in pixels unless the value of the type attribute is `"text"` or `"password"`, in which case it is an integer number of characters. This attribute applies only when the `type` attribute is set to `"text"`, `"search"`, `"tel"`, `"url"`, `"email"`, or `"password"`, otherwise it is ignored.
+          * Sets focus on the input.
          */
-        "size"?: number;
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * Replaces a range of text with a new string.
+         */
+        "setRangeText": (replacement: string, start: number, end: number, selectMode?: 'select' | 'start' | 'end' | 'preserve') => Promise<void>;
+        /**
+          * Sets the start and end positions of the text selection (0-based).
+         */
+        "setSelectionRange": (selectionStart: number, selectionEnd: number, selectionDirection?: 'forward' | 'backward' | 'none') => Promise<void>;
+        /**
+          * The input's size.
+         */
+        "size": 'small' | 'medium' | 'large';
+        /**
+          * If `true`, the element will have its spelling and grammar checked.
+         */
+        "spellcheck": boolean;
         /**
           * Works with the min and max attributes to limit the increments at which a value can be set. Possible values are: `"any"` or a positive floating point number.
          */
         "step"?: string;
         /**
+          * Set to true to add a password toggle button for password inputs.
+         */
+        "togglePassword": boolean;
+        /**
           * The type of control to display. The default type is text.
          */
         "type": TextFieldTypes;
         /**
-          * The value of the input.
+          * The input's value attribute.
          */
-        "value"?: string | number | null;
+        "value": string;
     }
-    interface StoriesLabel {
+    interface StrLabel {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
          */
@@ -334,13 +452,102 @@ export namespace Components {
          */
         "position"?: 'fixed' | 'stacked' | 'floating';
     }
-    interface StoriesPreview {
+    interface StrMenu {
+        /**
+          * Initiates type-to-select logic, which automatically selects an option based on what the user is currently typing. The key passed will be appended to the internal query and the selection will be updated. After a brief period, the internal query is cleared automatically. This method is intended to be used with the keydown event. Useful for enabling type-to-select when the menu doesn't have focus.
+         */
+        "typeToSelect": (key: string) => Promise<void>;
     }
-    interface StoriesRouter {
+    interface StrMenuDivider {
     }
-    interface StoriesRow {
+    interface StrMenuItem {
+        /**
+          * Set to true to draw the item in a checked state.
+         */
+        "checked": boolean;
+        /**
+          * Set to true to draw the menu item in a disabled state.
+         */
+        "disabled": boolean;
+        /**
+          * Removes focus from the menu item.
+         */
+        "removeFocus": () => Promise<void>;
+        /**
+          * Sets focus on the menu item.
+         */
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * A unique value to store in the menu item. This can be used as a way to identify menu items when selected.
+         */
+        "value": string;
     }
-    interface StoriesSearchbar {
+    interface StrMenuLabel {
+    }
+    interface StrPreview {
+    }
+    interface StrRadio {
+        /**
+          * Set to true to draw the radio in a checked state.
+         */
+        "checked": boolean;
+        /**
+          * Set to true to disable the radio.
+         */
+        "disabled": boolean;
+        /**
+          * Removes focus from the radio.
+         */
+        "removeFocus": () => Promise<void>;
+        "setButtonTabindex": (value: number) => Promise<void>;
+        /**
+          * Sets focus on the radio.
+         */
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * The radio's value attribute.
+         */
+        "value": string;
+    }
+    interface StrRadioGroup {
+        /**
+          * If `true`, the radios can be deselected.
+         */
+        "allowEmptySelection": boolean;
+        /**
+          * Render the radios horizontal instead of vertical
+         */
+        "horizontal": boolean;
+        /**
+          * Set to true to indicate this field is invalid. Will display the invalid text.
+         */
+        "invalid": boolean;
+        /**
+          * The radio group's invalid text. Alternatively, you can use the invalid-text slot.
+         */
+        "invalidText": string;
+        /**
+          * The radio group label. Required for proper accessibility. Alternatively, you can use the label slot.
+         */
+        "label": string;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name": string;
+        /**
+          * Set to true to display a required indicator, adds an asterisk to label
+         */
+        "requiredIndicator": boolean;
+        /**
+          * the value of the radio group.
+         */
+        "value"?: any | null;
+    }
+    interface StrRouter {
+    }
+    interface StrRow {
+    }
+    interface StrSearchbar {
         /**
           * Set the cancel button icon. Only applies to `md` mode. Defaults to `"arrow-back-sharp"`.
          */
@@ -378,7 +585,7 @@ export namespace Components {
          */
         "searchIcon"?: string;
         /**
-          * Sets focus on the specified `stories-searchbar`. Use this method instead of the global `input.focus()`.
+          * Sets focus on the specified `str-searchbar`. Use this method instead of the global `input.focus()`.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -398,22 +605,90 @@ export namespace Components {
          */
         "value"?: string | null;
     }
-    interface StoriesSidebar {
+    interface StrSelect {
+        /**
+          * Set to true to add a clear button when the select is populated.
+         */
+        "clearable": boolean;
+        /**
+          * Set to true to disable the select control.
+         */
+        "disabled": boolean;
+        /**
+          * The select's help text. Alternatively, you can use the help-text slot.
+         */
+        "helpText": string;
+        /**
+          * Enable this option to prevent the panel from being clipped when the component is placed inside a container with `overflow: auto|scroll`.
+         */
+        "hoist": boolean;
+        /**
+          * Set to true to indicate this field is invalid. Will display the invalid text instead of the help text
+         */
+        "invalid": boolean;
+        /**
+          * The select's invalid text. Alternatively, you can use the invalid-text slot.
+         */
+        "invalidText": string;
+        /**
+          * The select's label. Alternatively, you can use the label slot.
+         */
+        "label": string;
+        /**
+          * The maximum number of tags to show when `multiple` is true. After the maximum, "+n" will be shown to indicate the number of additional items that are selected. Set to -1 to remove the limit.
+         */
+        "maxTagsVisible": number;
+        /**
+          * Set to true to enable multiselect.
+         */
+        "multiple": boolean;
+        /**
+          * The select's name.
+         */
+        "name": string;
+        /**
+          * Set to true to draw a pill-style select with rounded edges.
+         */
+        "pill": boolean;
+        /**
+          * The select's placeholder text.
+         */
+        "placeholder": string;
+        /**
+          * Set to true to display a required indicator, adds an asterisk to label
+         */
+        "requiredIndicator": boolean;
+        /**
+          * Sets focus on the select.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * The select's size.
+         */
+        "size": 'small' | 'medium' | 'large';
+        /**
+          * The value of the control. This will be a string or an array depending on `multiple`.
+         */
+        "value": string | Array<string>;
     }
-    interface StoriesSplitPane {
+    interface StrSidebar {
+    }
+    interface StrSpinner {
+    }
+    interface StrSplitPane {
         "defaultSize": number;
         "isResizing": boolean;
         "minSize": number;
         "split": "horizontal" | "vertical";
     }
-    interface StoriesTab {
+    interface StrTab {
         "active": boolean;
         /**
-          * A tab id must be provided for each `stories-tab`. It's used internally to reference the selected tab or by the router to switch between them.
+          * A tab id must be provided for each `str-tab`. It's used internally to reference the selected tab or by the router to switch between them.
          */
         "tab": string;
     }
-    interface StoriesTabBar {
+    interface StrTabBar {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
          */
@@ -423,7 +698,7 @@ export namespace Components {
          */
         "selectedTab"?: string;
     }
-    interface StoriesTabButton {
+    interface StrTabButton {
         /**
           * If `true`, the user cannot interact with the tab button.
          */
@@ -437,11 +712,11 @@ export namespace Components {
          */
         "selected": boolean;
         /**
-          * A tab id must be provided for each `stories-tab`. It's used internally to reference the selected tab or by the router to switch between them.
+          * A tab id must be provided for each `str-tab`. It's used internally to reference the selected tab or by the router to switch between them.
          */
         "tab"?: string;
     }
-    interface StoriesTabs {
+    interface StrTabs {
         /**
           * Get the currently selected tab.
          */
@@ -450,16 +725,140 @@ export namespace Components {
           * Get a specific tab by the value of its `tab` property or an element reference.
           * @param tab The tab instance to select. If passed a string, it should be the value of the tab's `tab` property.
          */
-        "getTab": (tab: string | HTMLStoriesTabElement) => Promise<HTMLStoriesTabElement | undefined>;
+        "getTab": (tab: string | HTMLStrTabElement) => Promise<HTMLStrTabElement | undefined>;
         /**
           * Select a tab by the value of its `tab` property or an element reference.
           * @param tab The tab instance to select. If passed a string, it should be the value of the tab's `tab` property.
          */
-        "select": (tab: string | HTMLStoriesTabElement) => Promise<boolean>;
+        "select": (tab: string | HTMLStrTabElement) => Promise<boolean>;
     }
-    interface StoriesToolBar {
+    interface StrTag {
+        /**
+          * Set to true to make the tag clearable.
+         */
+        "clearable": boolean;
+        /**
+          * Set to true to draw a pill-style tag with rounded edges.
+         */
+        "pill": boolean;
+        /**
+          * The tag's size.
+         */
+        "size": 'small' | 'medium' | 'large';
+        /**
+          * The tag's type.
+         */
+        "type": 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
-    interface StoriesToolButton {
+    interface StrTextarea {
+        /**
+          * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user. Available options: `"off"`, `"none"`, `"on"`, `"sentences"`, `"words"`, `"characters"`.
+         */
+        "autocapitalize": string;
+        /**
+          * Whether auto correction should be enabled when the user is entering/editing the text value.
+         */
+        "autocorrect": 'on' | 'off';
+        /**
+          * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
+         */
+        "autofocus": boolean;
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `str-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
+         */
+        "debounce": number;
+        /**
+          * Set to true to disable the textarea.
+         */
+        "disabled": boolean;
+        /**
+          * A hint to the browser for which enter key to display. Possible values: `"enter"`, `"done"`, `"go"`, `"next"`, `"previous"`, `"search"`, and `"send"`.
+         */
+        "enterkeyhint"?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+        /**
+          * The textarea's help text. Alternatively, you can use the help-text slot.
+         */
+        "helpText": string;
+        /**
+          * The textarea's inputmode attribute.
+         */
+        "inputmode": 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'search' | 'email' | 'url';
+        /**
+          * Set to true to indicate this field is invalid. Will display the invalid text instead of the help text
+         */
+        "invalid": boolean;
+        /**
+          * The input's invalid text. Alternatively, you can use the invalid-text slot.
+         */
+        "invalidText": string;
+        /**
+          * The textarea's label. Alternatively, you can use the label slot.
+         */
+        "label": string | undefined;
+        /**
+          * Specifies how many characters are allowed.
+         */
+        "maxlength": number;
+        /**
+          * The textarea's name attribute.
+         */
+        "name": string;
+        /**
+          * The textarea's placeholder text.
+         */
+        "placeholder": string;
+        /**
+          * If `true`, the user cannot modify the value.
+         */
+        "readonly": boolean;
+        /**
+          * Removes focus fromt the textarea.
+         */
+        "removeFocus": () => Promise<void>;
+        /**
+          * Set to true to display a required indicator, adds an asterisk to label
+         */
+        "requiredIndicator": boolean;
+        /**
+          * Controls how the textarea can be resized.
+         */
+        "resize": 'none' | 'vertical' | 'auto';
+        /**
+          * The number of rows to display by default.
+         */
+        "rows": number;
+        /**
+          * Selects all the text in the input.
+         */
+        "select": () => Promise<void>;
+        /**
+          * Sets focus on the textarea.
+         */
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * Replaces a range of text with a new string.
+         */
+        "setRangeText": (replacement: string, start: number, end: number, selectMode?: 'select' | 'start' | 'end' | 'preserve') => Promise<void>;
+        /**
+          * Sets the start and end positions of the text selection (0-based).
+         */
+        "setSelectionRange": (selectionStart: number, selectionEnd: number, selectionDirection?: 'forward' | 'backward' | 'none') => Promise<void>;
+        /**
+          * The textarea's size.
+         */
+        "size": 'small' | 'medium' | 'large';
+        /**
+          * If `true`, the element will have its spelling and grammar checked.
+         */
+        "spellcheck": boolean;
+        /**
+          * The textarea's value attribute.
+         */
+        "value": string;
+    }
+    interface StrToolBar {
+    }
+    interface StrToolButton {
         /**
           * command property
          */
@@ -473,246 +872,327 @@ export namespace Components {
          */
         "icon": string;
     }
-    interface StoriesToolZoom {
+    interface StrToolZoom {
     }
-    interface StoriesZoom {
+    interface StrZoom {
         "zoom": number;
     }
 }
 declare global {
-    interface HTMLStoriesAddonActionsElement extends Components.StoriesAddonActions, HTMLStencilElement {
+    interface HTMLStrAddonActionsElement extends Components.StrAddonActions, HTMLStencilElement {
     }
-    var HTMLStoriesAddonActionsElement: {
-        prototype: HTMLStoriesAddonActionsElement;
-        new (): HTMLStoriesAddonActionsElement;
+    var HTMLStrAddonActionsElement: {
+        prototype: HTMLStrAddonActionsElement;
+        new (): HTMLStrAddonActionsElement;
     };
-    interface HTMLStoriesAddonControlsElement extends Components.StoriesAddonControls, HTMLStencilElement {
+    interface HTMLStrAddonControlsElement extends Components.StrAddonControls, HTMLStencilElement {
     }
-    var HTMLStoriesAddonControlsElement: {
-        prototype: HTMLStoriesAddonControlsElement;
-        new (): HTMLStoriesAddonControlsElement;
+    var HTMLStrAddonControlsElement: {
+        prototype: HTMLStrAddonControlsElement;
+        new (): HTMLStrAddonControlsElement;
     };
-    interface HTMLStoriesAddonsElement extends Components.StoriesAddons, HTMLStencilElement {
+    interface HTMLStrAddonsElement extends Components.StrAddons, HTMLStencilElement {
     }
-    var HTMLStoriesAddonsElement: {
-        prototype: HTMLStoriesAddonsElement;
-        new (): HTMLStoriesAddonsElement;
+    var HTMLStrAddonsElement: {
+        prototype: HTMLStrAddonsElement;
+        new (): HTMLStrAddonsElement;
     };
-    interface HTMLStoriesAppElement extends Components.StoriesApp, HTMLStencilElement {
+    interface HTMLStrAppElement extends Components.StrApp, HTMLStencilElement {
     }
-    var HTMLStoriesAppElement: {
-        prototype: HTMLStoriesAppElement;
-        new (): HTMLStoriesAppElement;
+    var HTMLStrAppElement: {
+        prototype: HTMLStrAppElement;
+        new (): HTMLStrAppElement;
     };
-    interface HTMLStoriesBadgeElement extends Components.StoriesBadge, HTMLStencilElement {
+    interface HTMLStrBadgeElement extends Components.StrBadge, HTMLStencilElement {
     }
-    var HTMLStoriesBadgeElement: {
-        prototype: HTMLStoriesBadgeElement;
-        new (): HTMLStoriesBadgeElement;
+    var HTMLStrBadgeElement: {
+        prototype: HTMLStrBadgeElement;
+        new (): HTMLStrBadgeElement;
     };
-    interface HTMLStoriesButtonElement extends Components.StoriesButton, HTMLStencilElement {
+    interface HTMLStrButtonElement extends Components.StrButton, HTMLStencilElement {
     }
-    var HTMLStoriesButtonElement: {
-        prototype: HTMLStoriesButtonElement;
-        new (): HTMLStoriesButtonElement;
+    var HTMLStrButtonElement: {
+        prototype: HTMLStrButtonElement;
+        new (): HTMLStrButtonElement;
     };
-    interface HTMLStoriesButtonsElement extends Components.StoriesButtons, HTMLStencilElement {
+    interface HTMLStrCheckboxElement extends Components.StrCheckbox, HTMLStencilElement {
     }
-    var HTMLStoriesButtonsElement: {
-        prototype: HTMLStoriesButtonsElement;
-        new (): HTMLStoriesButtonsElement;
+    var HTMLStrCheckboxElement: {
+        prototype: HTMLStrCheckboxElement;
+        new (): HTMLStrCheckboxElement;
     };
-    interface HTMLStoriesCheckboxElement extends Components.StoriesCheckbox, HTMLStencilElement {
+    interface HTMLStrColElement extends Components.StrCol, HTMLStencilElement {
     }
-    var HTMLStoriesCheckboxElement: {
-        prototype: HTMLStoriesCheckboxElement;
-        new (): HTMLStoriesCheckboxElement;
+    var HTMLStrColElement: {
+        prototype: HTMLStrColElement;
+        new (): HTMLStrColElement;
     };
-    interface HTMLStoriesColElement extends Components.StoriesCol, HTMLStencilElement {
+    interface HTMLStrDropdownElement extends Components.StrDropdown, HTMLStencilElement {
     }
-    var HTMLStoriesColElement: {
-        prototype: HTMLStoriesColElement;
-        new (): HTMLStoriesColElement;
+    var HTMLStrDropdownElement: {
+        prototype: HTMLStrDropdownElement;
+        new (): HTMLStrDropdownElement;
     };
-    interface HTMLStoriesFooterElement extends Components.StoriesFooter, HTMLStencilElement {
+    interface HTMLStrFooterElement extends Components.StrFooter, HTMLStencilElement {
     }
-    var HTMLStoriesFooterElement: {
-        prototype: HTMLStoriesFooterElement;
-        new (): HTMLStoriesFooterElement;
+    var HTMLStrFooterElement: {
+        prototype: HTMLStrFooterElement;
+        new (): HTMLStrFooterElement;
     };
-    interface HTMLStoriesGridElement extends Components.StoriesGrid, HTMLStencilElement {
+    interface HTMLStrGridElement extends Components.StrGrid, HTMLStencilElement {
     }
-    var HTMLStoriesGridElement: {
-        prototype: HTMLStoriesGridElement;
-        new (): HTMLStoriesGridElement;
+    var HTMLStrGridElement: {
+        prototype: HTMLStrGridElement;
+        new (): HTMLStrGridElement;
     };
-    interface HTMLStoriesIconElement extends Components.StoriesIcon, HTMLStencilElement {
+    interface HTMLStrGroupElement extends Components.StrGroup, HTMLStencilElement {
     }
-    var HTMLStoriesIconElement: {
-        prototype: HTMLStoriesIconElement;
-        new (): HTMLStoriesIconElement;
+    var HTMLStrGroupElement: {
+        prototype: HTMLStrGroupElement;
+        new (): HTMLStrGroupElement;
     };
-    interface HTMLStoriesInputElement extends Components.StoriesInput, HTMLStencilElement {
+    interface HTMLStrIconElement extends Components.StrIcon, HTMLStencilElement {
     }
-    var HTMLStoriesInputElement: {
-        prototype: HTMLStoriesInputElement;
-        new (): HTMLStoriesInputElement;
+    var HTMLStrIconElement: {
+        prototype: HTMLStrIconElement;
+        new (): HTMLStrIconElement;
     };
-    interface HTMLStoriesLabelElement extends Components.StoriesLabel, HTMLStencilElement {
+    interface HTMLStrInputElement extends Components.StrInput, HTMLStencilElement {
     }
-    var HTMLStoriesLabelElement: {
-        prototype: HTMLStoriesLabelElement;
-        new (): HTMLStoriesLabelElement;
+    var HTMLStrInputElement: {
+        prototype: HTMLStrInputElement;
+        new (): HTMLStrInputElement;
     };
-    interface HTMLStoriesPreviewElement extends Components.StoriesPreview, HTMLStencilElement {
+    interface HTMLStrLabelElement extends Components.StrLabel, HTMLStencilElement {
     }
-    var HTMLStoriesPreviewElement: {
-        prototype: HTMLStoriesPreviewElement;
-        new (): HTMLStoriesPreviewElement;
+    var HTMLStrLabelElement: {
+        prototype: HTMLStrLabelElement;
+        new (): HTMLStrLabelElement;
     };
-    interface HTMLStoriesRouterElement extends Components.StoriesRouter, HTMLStencilElement {
+    interface HTMLStrMenuElement extends Components.StrMenu, HTMLStencilElement {
     }
-    var HTMLStoriesRouterElement: {
-        prototype: HTMLStoriesRouterElement;
-        new (): HTMLStoriesRouterElement;
+    var HTMLStrMenuElement: {
+        prototype: HTMLStrMenuElement;
+        new (): HTMLStrMenuElement;
     };
-    interface HTMLStoriesRowElement extends Components.StoriesRow, HTMLStencilElement {
+    interface HTMLStrMenuDividerElement extends Components.StrMenuDivider, HTMLStencilElement {
     }
-    var HTMLStoriesRowElement: {
-        prototype: HTMLStoriesRowElement;
-        new (): HTMLStoriesRowElement;
+    var HTMLStrMenuDividerElement: {
+        prototype: HTMLStrMenuDividerElement;
+        new (): HTMLStrMenuDividerElement;
     };
-    interface HTMLStoriesSearchbarElement extends Components.StoriesSearchbar, HTMLStencilElement {
+    interface HTMLStrMenuItemElement extends Components.StrMenuItem, HTMLStencilElement {
     }
-    var HTMLStoriesSearchbarElement: {
-        prototype: HTMLStoriesSearchbarElement;
-        new (): HTMLStoriesSearchbarElement;
+    var HTMLStrMenuItemElement: {
+        prototype: HTMLStrMenuItemElement;
+        new (): HTMLStrMenuItemElement;
     };
-    interface HTMLStoriesSidebarElement extends Components.StoriesSidebar, HTMLStencilElement {
+    interface HTMLStrMenuLabelElement extends Components.StrMenuLabel, HTMLStencilElement {
     }
-    var HTMLStoriesSidebarElement: {
-        prototype: HTMLStoriesSidebarElement;
-        new (): HTMLStoriesSidebarElement;
+    var HTMLStrMenuLabelElement: {
+        prototype: HTMLStrMenuLabelElement;
+        new (): HTMLStrMenuLabelElement;
     };
-    interface HTMLStoriesSplitPaneElement extends Components.StoriesSplitPane, HTMLStencilElement {
+    interface HTMLStrPreviewElement extends Components.StrPreview, HTMLStencilElement {
     }
-    var HTMLStoriesSplitPaneElement: {
-        prototype: HTMLStoriesSplitPaneElement;
-        new (): HTMLStoriesSplitPaneElement;
+    var HTMLStrPreviewElement: {
+        prototype: HTMLStrPreviewElement;
+        new (): HTMLStrPreviewElement;
     };
-    interface HTMLStoriesTabElement extends Components.StoriesTab, HTMLStencilElement {
+    interface HTMLStrRadioElement extends Components.StrRadio, HTMLStencilElement {
     }
-    var HTMLStoriesTabElement: {
-        prototype: HTMLStoriesTabElement;
-        new (): HTMLStoriesTabElement;
+    var HTMLStrRadioElement: {
+        prototype: HTMLStrRadioElement;
+        new (): HTMLStrRadioElement;
     };
-    interface HTMLStoriesTabBarElement extends Components.StoriesTabBar, HTMLStencilElement {
+    interface HTMLStrRadioGroupElement extends Components.StrRadioGroup, HTMLStencilElement {
     }
-    var HTMLStoriesTabBarElement: {
-        prototype: HTMLStoriesTabBarElement;
-        new (): HTMLStoriesTabBarElement;
+    var HTMLStrRadioGroupElement: {
+        prototype: HTMLStrRadioGroupElement;
+        new (): HTMLStrRadioGroupElement;
     };
-    interface HTMLStoriesTabButtonElement extends Components.StoriesTabButton, HTMLStencilElement {
+    interface HTMLStrRouterElement extends Components.StrRouter, HTMLStencilElement {
     }
-    var HTMLStoriesTabButtonElement: {
-        prototype: HTMLStoriesTabButtonElement;
-        new (): HTMLStoriesTabButtonElement;
+    var HTMLStrRouterElement: {
+        prototype: HTMLStrRouterElement;
+        new (): HTMLStrRouterElement;
     };
-    interface HTMLStoriesTabsElement extends Components.StoriesTabs, HTMLStencilElement {
+    interface HTMLStrRowElement extends Components.StrRow, HTMLStencilElement {
     }
-    var HTMLStoriesTabsElement: {
-        prototype: HTMLStoriesTabsElement;
-        new (): HTMLStoriesTabsElement;
+    var HTMLStrRowElement: {
+        prototype: HTMLStrRowElement;
+        new (): HTMLStrRowElement;
     };
-    interface HTMLStoriesToolBarElement extends Components.StoriesToolBar, HTMLStencilElement {
+    interface HTMLStrSearchbarElement extends Components.StrSearchbar, HTMLStencilElement {
     }
-    var HTMLStoriesToolBarElement: {
-        prototype: HTMLStoriesToolBarElement;
-        new (): HTMLStoriesToolBarElement;
+    var HTMLStrSearchbarElement: {
+        prototype: HTMLStrSearchbarElement;
+        new (): HTMLStrSearchbarElement;
     };
-    interface HTMLStoriesToolButtonElement extends Components.StoriesToolButton, HTMLStencilElement {
+    interface HTMLStrSelectElement extends Components.StrSelect, HTMLStencilElement {
     }
-    var HTMLStoriesToolButtonElement: {
-        prototype: HTMLStoriesToolButtonElement;
-        new (): HTMLStoriesToolButtonElement;
+    var HTMLStrSelectElement: {
+        prototype: HTMLStrSelectElement;
+        new (): HTMLStrSelectElement;
     };
-    interface HTMLStoriesToolZoomElement extends Components.StoriesToolZoom, HTMLStencilElement {
+    interface HTMLStrSidebarElement extends Components.StrSidebar, HTMLStencilElement {
     }
-    var HTMLStoriesToolZoomElement: {
-        prototype: HTMLStoriesToolZoomElement;
-        new (): HTMLStoriesToolZoomElement;
+    var HTMLStrSidebarElement: {
+        prototype: HTMLStrSidebarElement;
+        new (): HTMLStrSidebarElement;
     };
-    interface HTMLStoriesZoomElement extends Components.StoriesZoom, HTMLStencilElement {
+    interface HTMLStrSpinnerElement extends Components.StrSpinner, HTMLStencilElement {
     }
-    var HTMLStoriesZoomElement: {
-        prototype: HTMLStoriesZoomElement;
-        new (): HTMLStoriesZoomElement;
+    var HTMLStrSpinnerElement: {
+        prototype: HTMLStrSpinnerElement;
+        new (): HTMLStrSpinnerElement;
+    };
+    interface HTMLStrSplitPaneElement extends Components.StrSplitPane, HTMLStencilElement {
+    }
+    var HTMLStrSplitPaneElement: {
+        prototype: HTMLStrSplitPaneElement;
+        new (): HTMLStrSplitPaneElement;
+    };
+    interface HTMLStrTabElement extends Components.StrTab, HTMLStencilElement {
+    }
+    var HTMLStrTabElement: {
+        prototype: HTMLStrTabElement;
+        new (): HTMLStrTabElement;
+    };
+    interface HTMLStrTabBarElement extends Components.StrTabBar, HTMLStencilElement {
+    }
+    var HTMLStrTabBarElement: {
+        prototype: HTMLStrTabBarElement;
+        new (): HTMLStrTabBarElement;
+    };
+    interface HTMLStrTabButtonElement extends Components.StrTabButton, HTMLStencilElement {
+    }
+    var HTMLStrTabButtonElement: {
+        prototype: HTMLStrTabButtonElement;
+        new (): HTMLStrTabButtonElement;
+    };
+    interface HTMLStrTabsElement extends Components.StrTabs, HTMLStencilElement {
+    }
+    var HTMLStrTabsElement: {
+        prototype: HTMLStrTabsElement;
+        new (): HTMLStrTabsElement;
+    };
+    interface HTMLStrTagElement extends Components.StrTag, HTMLStencilElement {
+    }
+    var HTMLStrTagElement: {
+        prototype: HTMLStrTagElement;
+        new (): HTMLStrTagElement;
+    };
+    interface HTMLStrTextareaElement extends Components.StrTextarea, HTMLStencilElement {
+    }
+    var HTMLStrTextareaElement: {
+        prototype: HTMLStrTextareaElement;
+        new (): HTMLStrTextareaElement;
+    };
+    interface HTMLStrToolBarElement extends Components.StrToolBar, HTMLStencilElement {
+    }
+    var HTMLStrToolBarElement: {
+        prototype: HTMLStrToolBarElement;
+        new (): HTMLStrToolBarElement;
+    };
+    interface HTMLStrToolButtonElement extends Components.StrToolButton, HTMLStencilElement {
+    }
+    var HTMLStrToolButtonElement: {
+        prototype: HTMLStrToolButtonElement;
+        new (): HTMLStrToolButtonElement;
+    };
+    interface HTMLStrToolZoomElement extends Components.StrToolZoom, HTMLStencilElement {
+    }
+    var HTMLStrToolZoomElement: {
+        prototype: HTMLStrToolZoomElement;
+        new (): HTMLStrToolZoomElement;
+    };
+    interface HTMLStrZoomElement extends Components.StrZoom, HTMLStencilElement {
+    }
+    var HTMLStrZoomElement: {
+        prototype: HTMLStrZoomElement;
+        new (): HTMLStrZoomElement;
     };
     interface HTMLElementTagNameMap {
-        "stories-addon-actions": HTMLStoriesAddonActionsElement;
-        "stories-addon-controls": HTMLStoriesAddonControlsElement;
-        "stories-addons": HTMLStoriesAddonsElement;
-        "stories-app": HTMLStoriesAppElement;
-        "stories-badge": HTMLStoriesBadgeElement;
-        "stories-button": HTMLStoriesButtonElement;
-        "stories-buttons": HTMLStoriesButtonsElement;
-        "stories-checkbox": HTMLStoriesCheckboxElement;
-        "stories-col": HTMLStoriesColElement;
-        "stories-footer": HTMLStoriesFooterElement;
-        "stories-grid": HTMLStoriesGridElement;
-        "stories-icon": HTMLStoriesIconElement;
-        "stories-input": HTMLStoriesInputElement;
-        "stories-label": HTMLStoriesLabelElement;
-        "stories-preview": HTMLStoriesPreviewElement;
-        "stories-router": HTMLStoriesRouterElement;
-        "stories-row": HTMLStoriesRowElement;
-        "stories-searchbar": HTMLStoriesSearchbarElement;
-        "stories-sidebar": HTMLStoriesSidebarElement;
-        "stories-split-pane": HTMLStoriesSplitPaneElement;
-        "stories-tab": HTMLStoriesTabElement;
-        "stories-tab-bar": HTMLStoriesTabBarElement;
-        "stories-tab-button": HTMLStoriesTabButtonElement;
-        "stories-tabs": HTMLStoriesTabsElement;
-        "stories-tool-bar": HTMLStoriesToolBarElement;
-        "stories-tool-button": HTMLStoriesToolButtonElement;
-        "stories-tool-zoom": HTMLStoriesToolZoomElement;
-        "stories-zoom": HTMLStoriesZoomElement;
+        "str-addon-actions": HTMLStrAddonActionsElement;
+        "str-addon-controls": HTMLStrAddonControlsElement;
+        "str-addons": HTMLStrAddonsElement;
+        "str-app": HTMLStrAppElement;
+        "str-badge": HTMLStrBadgeElement;
+        "str-button": HTMLStrButtonElement;
+        "str-checkbox": HTMLStrCheckboxElement;
+        "str-col": HTMLStrColElement;
+        "str-dropdown": HTMLStrDropdownElement;
+        "str-footer": HTMLStrFooterElement;
+        "str-grid": HTMLStrGridElement;
+        "str-group": HTMLStrGroupElement;
+        "str-icon": HTMLStrIconElement;
+        "str-input": HTMLStrInputElement;
+        "str-label": HTMLStrLabelElement;
+        "str-menu": HTMLStrMenuElement;
+        "str-menu-divider": HTMLStrMenuDividerElement;
+        "str-menu-item": HTMLStrMenuItemElement;
+        "str-menu-label": HTMLStrMenuLabelElement;
+        "str-preview": HTMLStrPreviewElement;
+        "str-radio": HTMLStrRadioElement;
+        "str-radio-group": HTMLStrRadioGroupElement;
+        "str-router": HTMLStrRouterElement;
+        "str-row": HTMLStrRowElement;
+        "str-searchbar": HTMLStrSearchbarElement;
+        "str-select": HTMLStrSelectElement;
+        "str-sidebar": HTMLStrSidebarElement;
+        "str-spinner": HTMLStrSpinnerElement;
+        "str-split-pane": HTMLStrSplitPaneElement;
+        "str-tab": HTMLStrTabElement;
+        "str-tab-bar": HTMLStrTabBarElement;
+        "str-tab-button": HTMLStrTabButtonElement;
+        "str-tabs": HTMLStrTabsElement;
+        "str-tag": HTMLStrTagElement;
+        "str-textarea": HTMLStrTextareaElement;
+        "str-tool-bar": HTMLStrToolBarElement;
+        "str-tool-button": HTMLStrToolButtonElement;
+        "str-tool-zoom": HTMLStrToolZoomElement;
+        "str-zoom": HTMLStrZoomElement;
     }
 }
 declare namespace LocalJSX {
-    interface StoriesAddonActions {
+    interface StrAddonActions {
     }
-    interface StoriesAddonControls {
+    interface StrAddonControls {
     }
-    interface StoriesAddons {
+    interface StrAddons {
     }
-    interface StoriesApp {
+    interface StrApp {
         /**
           * Story Modules
          */
         "modules"?: StoryModules;
-        "onStoryChange"?: (event: CustomEvent<StoryComponent>) => void;
-        "onStoryContextChange"?: (event: CustomEvent<StoryContext>) => void;
+        "onStrChange"?: (event: CustomEvent<StoryComponent>) => void;
+        "onStrContextChange"?: (event: CustomEvent<StoryContext>) => void;
         /**
           * Story Modules
          */
         "store"?: AppState;
     }
-    interface StoriesBadge {
+    interface StrBadge {
         /**
-          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
+          * The badge's size.
          */
-        "color"?: Color;
+        "size"?: 'small' | 'medium' | 'large';
+        /**
+          * The badge's type.
+         */
+        "type"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
-    interface StoriesButton {
+    interface StrButton {
         /**
-          * The type of button.
+          * Set to true to draw the button with a caret for use with dropdowns, popovers, etc.
          */
-        "buttonType"?: string;
+        "caret"?: boolean;
         /**
-          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
+          * Set to true to draw a circle button.
          */
-        "color"?: Color;
+        "circle"?: boolean;
         /**
           * If `true`, the user cannot interact with the button.
          */
@@ -722,99 +1202,89 @@ declare namespace LocalJSX {
          */
         "expand"?: 'full' | 'block';
         /**
-          * Set to `"clear"` for a transparent button, to `"outline"` for a transparent button with a border, or to `"solid"`. The default style is `"solid"` except inside of a toolbar, where the default is `"clear"`.
-         */
-        "fill"?: 'clear' | 'outline' | 'solid' | 'default';
-        /**
-          * Contains a URL or a URL fragment that the hyperlink points to. If this property is set, an anchor tag will be rendered.
+          * Contains a URL or a URL fragment that the hyperlink points to.
          */
         "href"?: string | undefined;
         /**
+          * Set to true to draw the button in a loading state.
+         */
+        "loading"?: boolean;
+        /**
           * Emitted when the button loses focus.
          */
-        "onStoriesBlur"?: (event: CustomEvent<void>) => void;
-        /**
-          * Emitted when the button click.
-         */
-        "onStoriesClick"?: (event: CustomEvent<void>) => void;
+        "onStrBlur"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the button has focus.
          */
-        "onStoriesFocus"?: (event: CustomEvent<void>) => void;
+        "onStrFocus"?: (event: CustomEvent<void>) => void;
         /**
-          * When using a router, it specifies the transition direction when navigating to another page using `href`.
+          * Set to true to draw a pill-style button with rounded edges.
          */
-        "routerDirection"?: RouterDirection;
+        "pill"?: boolean;
         /**
-          * The button shape.
+          * Specifies the relationship of the target object to the link object. The value is a space-separated list of [link types](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types).
          */
-        "shape"?: 'round';
+        "rel"?: string | undefined;
         /**
-          * The button size.
+          * The button's size.
          */
-        "size"?: 'small' | 'default' | 'large';
+        "size"?: 'small' | 'medium' | 'large';
         /**
-          * If `true`, activates a button with a heavier font weight.
-         */
-        "strong"?: boolean;
-        /**
-          * Specifies where to display the linked URL. Only applies when an `href` is provided. Special keywords: `"_blank"`, `"_self"`, `"_parent"`, `"_top"`.
+          * Specifies where to display the linked URL. Special keywords: `"_blank"`, `"_self"`, `"_parent"`, `"_top"`.
          */
         "target"?: string | undefined;
         /**
           * The type of the button.
          */
         "type"?: 'submit' | 'reset' | 'button';
-    }
-    interface StoriesButtons {
         /**
-          * If true, buttons will disappear when its parent toolbar has fully collapsed if the toolbar is not the first toolbar. If the toolbar is the first toolbar, the buttons will be hidden and will only be shown once all toolbars have fully collapsed.
+          * The different variants. The options are: `"default"`, `"primary"`, `"secondary"`, `"danger"`, and `"plain"`.
          */
-        "collapse"?: boolean;
+        "variant"?: 'default' | 'primary' | 'secondary' | 'danger' | 'plain';
     }
-    interface StoriesCheckbox {
+    interface StrCheckbox {
         /**
-          * If `true`, the checkbox is selected.
+          * Set to true to draw the checkbox in a checked state.
          */
         "checked"?: boolean;
         /**
-          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
-         */
-        "color"?: Color;
-        /**
-          * If `true`, the user cannot interact with the checkbox.
+          * Set to true to disable the checkbox.
          */
         "disabled"?: boolean;
         /**
-          * If `true`, the checkbox will visually appear as indeterminate.
+          * Set to true to draw the checkbox in an indeterminate state.
          */
         "indeterminate"?: boolean;
+        /**
+          * Set to true to indicate this field is invalid. Will display the invalid text.
+         */
+        "invalid"?: boolean;
+        /**
+          * The radio group's invalid text. Alternatively, you can use the invalid-text slot.
+         */
+        "invalidText"?: string;
         /**
           * The name of the control, which is submitted with the form data.
          */
         "name"?: string;
         /**
-          * Emitted when the checkbox loses focus.
+          * Emitted when the control loses focus.
          */
-        "onStoriesBlur"?: (event: CustomEvent<void>) => void;
+        "onStrBlur"?: (event: CustomEvent<void>) => void;
         /**
-          * Emitted when the checked property has changed.
+          * Emitted when the control's checked state changes.
          */
-        "onStoriesChange"?: (event: CustomEvent<CheckboxChangeEventDetail>) => void;
+        "onStrChange"?: (event: CustomEvent<void>) => void;
         /**
-          * Emitted when the checkbox has focus.
+          * Emitted when the control gains focus.
          */
-        "onStoriesFocus"?: (event: CustomEvent<void>) => void;
+        "onStrFocus"?: (event: CustomEvent<void>) => void;
         /**
-          * Emitted when the styles change.
+          * The checkbox's value attribute.
          */
-        "onStoriesStyle"?: (event: CustomEvent<StyleEventDetail>) => void;
-        /**
-          * The value of the checkbox does not mean if it's checked or not, use the `checked` property for that.  The value of a checkbox is analogous to the value of an `<input type="checkbox">`, it's only used when the checkbox participates in a native `<form>`.
-         */
-        "value"?: any | null;
+        "value"?: string;
     }
-    interface StoriesCol {
+    interface StrCol {
         /**
           * The amount to offset the column, in terms of how many columns it should shift to the end of the total available.
          */
@@ -912,55 +1382,146 @@ declare namespace LocalJSX {
          */
         "sizeXs"?: string;
     }
-    interface StoriesFooter {
+    interface StrDropdown {
+        /**
+          * Determines whether the dropdown should hide when a menu item is selected.
+         */
+        "closeOnSelect"?: boolean;
+        /**
+          * The dropdown will close when the user interacts outside of this element (e.g. clicking).
+         */
+        "containingElement"?: HTMLElement;
+        /**
+          * The distance in pixels from which to offset the panel away from its trigger.
+         */
+        "distance"?: number;
+        /**
+          * Enable this option to prevent the panel from being clipped when the component is placed inside a container with `overflow: auto|scroll`.
+         */
+        "hoist"?: boolean;
+        /**
+          * Emitted after the dropdown closes and all transitions are complete.
+         */
+        "onStrAfterHide"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted after the dropdown opens and all transitions are complete.
+         */
+        "onStrAfterShow"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when the dropdown closes. Calling `event.preventDefault()` will prevent it from being closed.
+         */
+        "onStrHide"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when the dropdown opens. Calling `event.preventDefault()` will prevent it from being opened.
+         */
+        "onStrShow"?: (event: CustomEvent<void>) => void;
+        /**
+          * Indicates whether or not the dropdown is open. You can use this in lieu of the show/hide methods.
+         */
+        "open"?: boolean;
+        /**
+          * The preferred placement of the dropdown panel. Note that the actual placement may vary as needed to keep the panel inside of the viewport.
+         */
+        "placement"?: | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right'
+    | 'right-start'
+    | 'right-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end';
+        /**
+          * The distance in pixels from which to offset the panel along its trigger.
+         */
+        "skidding"?: number;
     }
-    interface StoriesGrid {
+    interface StrFooter {
+    }
+    interface StrGrid {
         /**
           * If `true`, the grid will have a fixed width based on the screen size.
          */
         "fixed"?: boolean;
     }
-    interface StoriesIcon {
+    interface StrGroup {
+        /**
+          * Render the fields horizontal instead of vertical
+         */
+        "horizontal"?: boolean;
+        /**
+          * The field group label. Recommended for proper accessibility. Alternatively, you can use the label slot.
+         */
+        "label"?: string;
+    }
+    interface StrIcon {
         /**
           * Icon name
          */
         "name"?: string;
     }
-    interface StoriesInput {
+    interface StrInput {
+        /**
+          * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user. Available options: `"off"`, `"none"`, `"on"`, `"sentences"`, `"words"`, `"characters"`.
+         */
+        "autocapitalize"?: string;
+        /**
+          * Indicates whether the value of the control can be automatically completed by the browser.
+         */
+        "autocomplete"?: AutocompleteTypes;
+        /**
+          * Whether auto correction should be enabled when the user is entering/editing the text value.
+         */
+        "autocorrect"?: 'on' | 'off';
         /**
           * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
          */
         "autofocus"?: boolean;
         /**
-          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
+          * Set to true to add a clear button when the input is populated.
          */
-        "clearInput"?: boolean;
+        "clearable"?: boolean;
         /**
-          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
-         */
-        "color"?: Color;
-        /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
+          * Set the amount of time, in milliseconds, to wait to trigger the `stroies-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
          */
         "debounce"?: number;
         /**
-          * If `true`, the user cannot interact with the input.
+          * Set to true to disable the input control.
          */
         "disabled"?: boolean;
         /**
-          * This is required for a WebKit bug which requires us to blur and focus an input to properly focus the input in an item with delegatesFocus. It will no longer be needed with iOS 14.
+          * A hint to the browser for which enter key to display. Possible values: `"enter"`, `"done"`, `"go"`, `"next"`, `"previous"`, `"search"`, and `"send"`.
          */
-        "fireFocusEvents"?: boolean;
+        "enterkeyhint"?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
         /**
-          * A hint to the browser for which keyboard to display. Possible values: `"none"`, `"text"`, `"tel"`, `"url"`, `"email"`, `"numeric"`, `"decimal"`, and `"search"`.
+          * The input's help text. Alternatively, you can use the help-text slot.
          */
-        "inputmode"?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
+        "helpText"?: string;
+        /**
+          * The input's inputmode attribute.
+         */
+        "inputmode"?: 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'search' | 'email' | 'url';
+        /**
+          * Set to true to indicate this field is invalid. Will display the invalid text instead of the help text
+         */
+        "invalid"?: boolean;
+        /**
+          * The input's invalid text. Alternatively, you can use the invalid-text slot.
+         */
+        "invalidText"?: string;
+        /**
+          * The inputs's label. Alternatively, you can use the label slot.
+         */
+        "label"?: string;
         /**
           * The maximum value, which must not be less than its minimum (min attribute) value.
          */
         "max"?: string;
         /**
-          * If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the maximum number of characters that the user can enter.
+          * Specifies how many characters are allowed.
          */
         "maxlength"?: number;
         /**
@@ -968,39 +1529,35 @@ declare namespace LocalJSX {
          */
         "min"?: string;
         /**
-          * If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the minimum number of characters that the user can enter.
-         */
-        "minlength"?: number;
-        /**
-          * The name of the control, which is submitted with the form data.
+          * The input's name.
          */
         "name"?: string;
         /**
-          * Emitted when the input loses focus.
+          * Emitted when the control loses focus.
          */
-        "onStoriesBlur"?: (event: CustomEvent<FocusEvent>) => void;
+        "onStroiesBlur"?: (event: CustomEvent<any>) => void;
         /**
-          * Emitted when the value has changed.
+          * Emitted when the control's value changes.
          */
-        "onStoriesChange"?: (event: CustomEvent<InputChangeEventDetail>) => void;
+        "onStroiesChange"?: (event: CustomEvent<any>) => void;
         /**
-          * Emitted when the input has focus.
+          * Emitted when the clear button is activated.
          */
-        "onStoriesFocus"?: (event: CustomEvent<FocusEvent>) => void;
+        "onStroiesClear"?: (event: CustomEvent<any>) => void;
         /**
-          * Emitted when a keyboard input occurred.
+          * Emitted when the control gains focus.
          */
-        "onStoriesInput"?: (event: CustomEvent<InputEvent>) => void;
+        "onStroiesFocus"?: (event: CustomEvent<any>) => void;
         /**
-          * Emitted when the styles change.
+          * Emitted when the control receives input.
          */
-        "onStoriesStyle"?: (event: CustomEvent<StyleEventDetail>) => void;
+        "onStroiesInput"?: (event: CustomEvent<any>) => void;
         /**
-          * A regular expression that the value is checked against. The pattern must match the entire value, not just some subset. Use the title attribute to describe the pattern to help the user. This attribute applies when the value of the type attribute is `"text"`, `"search"`, `"tel"`, `"url"`, `"email"`, `"date"`, or `"password"`, otherwise it is ignored. When the type attribute is `"date"`, `pattern` will only be used in browsers that do not support the `"date"` input type natively. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date for more information.
+          * Set to true to draw a pill-style input with rounded edges.
          */
-        "pattern"?: string;
+        "pill"?: boolean;
         /**
-          * Instructional text that shows before the input has a value. This property applies only when the `type` property is set to `"email"`, `"number"`, `"password"`, `"search"`, `"tel"`, `"text"`, or `"url"`, otherwise it is ignored.
+          * The input's placeholder text.
          */
         "placeholder"?: string;
         /**
@@ -1008,27 +1565,35 @@ declare namespace LocalJSX {
          */
         "readonly"?: boolean;
         /**
-          * If `true`, the user must fill in a value before submitting a form.
+          * Set to true to display a required indicator, adds an asterisk to label
          */
-        "required"?: boolean;
+        "requiredIndicator"?: boolean;
         /**
-          * The initial size of the control. This value is in pixels unless the value of the type attribute is `"text"` or `"password"`, in which case it is an integer number of characters. This attribute applies only when the `type` attribute is set to `"text"`, `"search"`, `"tel"`, `"url"`, `"email"`, or `"password"`, otherwise it is ignored.
+          * The input's size.
          */
-        "size"?: number;
+        "size"?: 'small' | 'medium' | 'large';
+        /**
+          * If `true`, the element will have its spelling and grammar checked.
+         */
+        "spellcheck"?: boolean;
         /**
           * Works with the min and max attributes to limit the increments at which a value can be set. Possible values are: `"any"` or a positive floating point number.
          */
         "step"?: string;
         /**
+          * Set to true to add a password toggle button for password inputs.
+         */
+        "togglePassword"?: boolean;
+        /**
           * The type of control to display. The default type is text.
          */
         "type"?: TextFieldTypes;
         /**
-          * The value of the input.
+          * The input's value attribute.
          */
-        "value"?: string | number | null;
+        "value"?: string;
     }
-    interface StoriesLabel {
+    interface StrLabel {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
          */
@@ -1038,13 +1603,97 @@ declare namespace LocalJSX {
          */
         "position"?: 'fixed' | 'stacked' | 'floating';
     }
-    interface StoriesPreview {
+    interface StrMenu {
+        /**
+          * Emitted when a menu item is selected.
+         */
+        "onStrSelect"?: (event: CustomEvent<{ item: HTMLStrMenuItemElement }>) => void;
     }
-    interface StoriesRouter {
+    interface StrMenuDivider {
     }
-    interface StoriesRow {
+    interface StrMenuItem {
+        /**
+          * Set to true to draw the item in a checked state.
+         */
+        "checked"?: boolean;
+        /**
+          * Set to true to draw the menu item in a disabled state.
+         */
+        "disabled"?: boolean;
+        /**
+          * A unique value to store in the menu item. This can be used as a way to identify menu items when selected.
+         */
+        "value"?: string;
     }
-    interface StoriesSearchbar {
+    interface StrMenuLabel {
+    }
+    interface StrPreview {
+    }
+    interface StrRadio {
+        /**
+          * Set to true to draw the radio in a checked state.
+         */
+        "checked"?: boolean;
+        /**
+          * Set to true to disable the radio.
+         */
+        "disabled"?: boolean;
+        /**
+          * Emitted when the control loses focus.
+         */
+        "onStrBlur"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the control gains focus.
+         */
+        "onStrFocus"?: (event: CustomEvent<any>) => void;
+        /**
+          * The radio's value attribute.
+         */
+        "value"?: string;
+    }
+    interface StrRadioGroup {
+        /**
+          * If `true`, the radios can be deselected.
+         */
+        "allowEmptySelection"?: boolean;
+        /**
+          * Render the radios horizontal instead of vertical
+         */
+        "horizontal"?: boolean;
+        /**
+          * Set to true to indicate this field is invalid. Will display the invalid text.
+         */
+        "invalid"?: boolean;
+        /**
+          * The radio group's invalid text. Alternatively, you can use the invalid-text slot.
+         */
+        "invalidText"?: string;
+        /**
+          * The radio group label. Required for proper accessibility. Alternatively, you can use the label slot.
+         */
+        "label"?: string;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the value has changed.
+         */
+        "onStrChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Set to true to display a required indicator, adds an asterisk to label
+         */
+        "requiredIndicator"?: boolean;
+        /**
+          * the value of the radio group.
+         */
+        "value"?: any | null;
+    }
+    interface StrRouter {
+    }
+    interface StrRow {
+    }
+    interface StrSearchbar {
         /**
           * Set the cancel button icon. Only applies to `md` mode. Defaults to `"arrow-back-sharp"`.
          */
@@ -1072,31 +1721,31 @@ declare namespace LocalJSX {
         /**
           * Emitted when the input loses focus.
          */
-        "onStoriesBlur"?: (event: CustomEvent<void>) => void;
+        "onStrBlur"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the cancel button is clicked.
          */
-        "onStoriesCancel"?: (event: CustomEvent<void>) => void;
+        "onStrCancel"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the value has changed.
          */
-        "onStoriesChange"?: (event: CustomEvent<SearchbarChangeEventDetail>) => void;
+        "onStrChange"?: (event: CustomEvent<SearchbarChangeEventDetail>) => void;
         /**
           * Emitted when the clear input button is clicked.
          */
-        "onStoriesClear"?: (event: CustomEvent<void>) => void;
+        "onStrClear"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onStoriesFocus"?: (event: CustomEvent<void>) => void;
+        "onStrFocus"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onStoriesInput"?: (event: CustomEvent<KeyboardEvent>) => void;
+        "onStrInput"?: (event: CustomEvent<KeyboardEvent>) => void;
         /**
           * Emitted when the styles change.
          */
-        "onStoriesStyle"?: (event: CustomEvent<StyleEventDetail>) => void;
+        "onStrStyle"?: (event: CustomEvent<StyleEventDetail>) => void;
         /**
           * Set the input's placeholder. `placeholder` can accept either plaintext or HTML as a string. To display characters normally reserved for HTML, they must be escaped. For example `<Stories>` would become `&lt;Stories&gt;`
          */
@@ -1122,34 +1771,110 @@ declare namespace LocalJSX {
          */
         "value"?: string | null;
     }
-    interface StoriesSidebar {
+    interface StrSelect {
+        /**
+          * Set to true to add a clear button when the select is populated.
+         */
+        "clearable"?: boolean;
+        /**
+          * Set to true to disable the select control.
+         */
+        "disabled"?: boolean;
+        /**
+          * The select's help text. Alternatively, you can use the help-text slot.
+         */
+        "helpText"?: string;
+        /**
+          * Enable this option to prevent the panel from being clipped when the component is placed inside a container with `overflow: auto|scroll`.
+         */
+        "hoist"?: boolean;
+        /**
+          * Set to true to indicate this field is invalid. Will display the invalid text instead of the help text
+         */
+        "invalid"?: boolean;
+        /**
+          * The select's invalid text. Alternatively, you can use the invalid-text slot.
+         */
+        "invalidText"?: string;
+        /**
+          * The select's label. Alternatively, you can use the label slot.
+         */
+        "label"?: string;
+        /**
+          * The maximum number of tags to show when `multiple` is true. After the maximum, "+n" will be shown to indicate the number of additional items that are selected. Set to -1 to remove the limit.
+         */
+        "maxTagsVisible"?: number;
+        /**
+          * Set to true to enable multiselect.
+         */
+        "multiple"?: boolean;
+        /**
+          * The select's name.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the control loses focus.
+         */
+        "onStrBlur"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when the control's value changes.
+         */
+        "onStrChange"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when the control gains focus.
+         */
+        "onStrFocus"?: (event: CustomEvent<void>) => void;
+        /**
+          * Set to true to draw a pill-style select with rounded edges.
+         */
+        "pill"?: boolean;
+        /**
+          * The select's placeholder text.
+         */
+        "placeholder"?: string;
+        /**
+          * Set to true to display a required indicator, adds an asterisk to label
+         */
+        "requiredIndicator"?: boolean;
+        /**
+          * The select's size.
+         */
+        "size"?: 'small' | 'medium' | 'large';
+        /**
+          * The value of the control. This will be a string or an array depending on `multiple`.
+         */
+        "value"?: string | Array<string>;
     }
-    interface StoriesSplitPane {
+    interface StrSidebar {
+    }
+    interface StrSpinner {
+    }
+    interface StrSplitPane {
         "defaultSize"?: number;
         "isResizing"?: boolean;
         "minSize"?: number;
-        "onStoriesSizeChange"?: (event: CustomEvent<number>) => void;
+        "onStrSizeChange"?: (event: CustomEvent<number>) => void;
         "split"?: "horizontal" | "vertical";
     }
-    interface StoriesTab {
+    interface StrTab {
         "active"?: boolean;
         /**
-          * A tab id must be provided for each `stories-tab`. It's used internally to reference the selected tab or by the router to switch between them.
+          * A tab id must be provided for each `str-tab`. It's used internally to reference the selected tab or by the router to switch between them.
          */
         "tab": string;
     }
-    interface StoriesTabBar {
+    interface StrTabBar {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
          */
         "color"?: Color;
-        "onStoriesTabBarChange"?: (event: CustomEvent<TabBarChangedEventDetail>) => void;
+        "onStrTabBarChange"?: (event: CustomEvent<TabBarChangedEventDetail>) => void;
         /**
           * The selected tab component
          */
         "selectedTab"?: string;
     }
-    interface StoriesTabButton {
+    interface StrTabButton {
         /**
           * If `true`, the user cannot interact with the tab button.
          */
@@ -1161,21 +1886,145 @@ declare namespace LocalJSX {
         /**
           * Emitted when the tab bar is clicked
          */
-        "onStoriesTabButtonClick"?: (event: CustomEvent<TabButtonClickEventDetail>) => void;
+        "onStrTabButtonClick"?: (event: CustomEvent<TabButtonClickEventDetail>) => void;
         /**
           * The selected tab component
          */
         "selected"?: boolean;
         /**
-          * A tab id must be provided for each `stories-tab`. It's used internally to reference the selected tab or by the router to switch between them.
+          * A tab id must be provided for each `str-tab`. It's used internally to reference the selected tab or by the router to switch between them.
          */
         "tab"?: string;
     }
-    interface StoriesTabs {
+    interface StrTabs {
     }
-    interface StoriesToolBar {
+    interface StrTag {
+        /**
+          * Set to true to make the tag clearable.
+         */
+        "clearable"?: boolean;
+        /**
+          * Emitted when the clear button is activated.
+         */
+        "onStrClear"?: (event: CustomEvent<void>) => void;
+        /**
+          * Set to true to draw a pill-style tag with rounded edges.
+         */
+        "pill"?: boolean;
+        /**
+          * The tag's size.
+         */
+        "size"?: 'small' | 'medium' | 'large';
+        /**
+          * The tag's type.
+         */
+        "type"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
-    interface StoriesToolButton {
+    interface StrTextarea {
+        /**
+          * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user. Available options: `"off"`, `"none"`, `"on"`, `"sentences"`, `"words"`, `"characters"`.
+         */
+        "autocapitalize"?: string;
+        /**
+          * Whether auto correction should be enabled when the user is entering/editing the text value.
+         */
+        "autocorrect"?: 'on' | 'off';
+        /**
+          * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
+         */
+        "autofocus"?: boolean;
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `str-change` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
+         */
+        "debounce"?: number;
+        /**
+          * Set to true to disable the textarea.
+         */
+        "disabled"?: boolean;
+        /**
+          * A hint to the browser for which enter key to display. Possible values: `"enter"`, `"done"`, `"go"`, `"next"`, `"previous"`, `"search"`, and `"send"`.
+         */
+        "enterkeyhint"?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+        /**
+          * The textarea's help text. Alternatively, you can use the help-text slot.
+         */
+        "helpText"?: string;
+        /**
+          * The textarea's inputmode attribute.
+         */
+        "inputmode"?: 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'search' | 'email' | 'url';
+        /**
+          * Set to true to indicate this field is invalid. Will display the invalid text instead of the help text
+         */
+        "invalid"?: boolean;
+        /**
+          * The input's invalid text. Alternatively, you can use the invalid-text slot.
+         */
+        "invalidText"?: string;
+        /**
+          * The textarea's label. Alternatively, you can use the label slot.
+         */
+        "label"?: string | undefined;
+        /**
+          * Specifies how many characters are allowed.
+         */
+        "maxlength"?: number;
+        /**
+          * The textarea's name attribute.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the textarea loses focus.
+         */
+        "onStrBlur"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when the textarea's value changes.
+         */
+        "onStrChange"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when the textarea has focus.
+         */
+        "onStrFocus"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when the textarea receives input.
+         */
+        "onStrInput"?: (event: CustomEvent<void>) => void;
+        /**
+          * The textarea's placeholder text.
+         */
+        "placeholder"?: string;
+        /**
+          * If `true`, the user cannot modify the value.
+         */
+        "readonly"?: boolean;
+        /**
+          * Set to true to display a required indicator, adds an asterisk to label
+         */
+        "requiredIndicator"?: boolean;
+        /**
+          * Controls how the textarea can be resized.
+         */
+        "resize"?: 'none' | 'vertical' | 'auto';
+        /**
+          * The number of rows to display by default.
+         */
+        "rows"?: number;
+        /**
+          * The textarea's size.
+         */
+        "size"?: 'small' | 'medium' | 'large';
+        /**
+          * If `true`, the element will have its spelling and grammar checked.
+         */
+        "spellcheck"?: boolean;
+        /**
+          * The textarea's value attribute.
+         */
+        "value"?: string;
+    }
+    interface StrToolBar {
+    }
+    interface StrToolButton {
         /**
           * command property
          */
@@ -1191,76 +2040,98 @@ declare namespace LocalJSX {
         /**
           * Action Event
          */
-        "onStoriesAction"?: (event: CustomEvent<ToolEvent>) => void;
+        "onStrAction"?: (event: CustomEvent<ToolEvent>) => void;
     }
-    interface StoriesToolZoom {
+    interface StrToolZoom {
     }
-    interface StoriesZoom {
+    interface StrZoom {
         "zoom"?: number;
     }
     interface IntrinsicElements {
-        "stories-addon-actions": StoriesAddonActions;
-        "stories-addon-controls": StoriesAddonControls;
-        "stories-addons": StoriesAddons;
-        "stories-app": StoriesApp;
-        "stories-badge": StoriesBadge;
-        "stories-button": StoriesButton;
-        "stories-buttons": StoriesButtons;
-        "stories-checkbox": StoriesCheckbox;
-        "stories-col": StoriesCol;
-        "stories-footer": StoriesFooter;
-        "stories-grid": StoriesGrid;
-        "stories-icon": StoriesIcon;
-        "stories-input": StoriesInput;
-        "stories-label": StoriesLabel;
-        "stories-preview": StoriesPreview;
-        "stories-router": StoriesRouter;
-        "stories-row": StoriesRow;
-        "stories-searchbar": StoriesSearchbar;
-        "stories-sidebar": StoriesSidebar;
-        "stories-split-pane": StoriesSplitPane;
-        "stories-tab": StoriesTab;
-        "stories-tab-bar": StoriesTabBar;
-        "stories-tab-button": StoriesTabButton;
-        "stories-tabs": StoriesTabs;
-        "stories-tool-bar": StoriesToolBar;
-        "stories-tool-button": StoriesToolButton;
-        "stories-tool-zoom": StoriesToolZoom;
-        "stories-zoom": StoriesZoom;
+        "str-addon-actions": StrAddonActions;
+        "str-addon-controls": StrAddonControls;
+        "str-addons": StrAddons;
+        "str-app": StrApp;
+        "str-badge": StrBadge;
+        "str-button": StrButton;
+        "str-checkbox": StrCheckbox;
+        "str-col": StrCol;
+        "str-dropdown": StrDropdown;
+        "str-footer": StrFooter;
+        "str-grid": StrGrid;
+        "str-group": StrGroup;
+        "str-icon": StrIcon;
+        "str-input": StrInput;
+        "str-label": StrLabel;
+        "str-menu": StrMenu;
+        "str-menu-divider": StrMenuDivider;
+        "str-menu-item": StrMenuItem;
+        "str-menu-label": StrMenuLabel;
+        "str-preview": StrPreview;
+        "str-radio": StrRadio;
+        "str-radio-group": StrRadioGroup;
+        "str-router": StrRouter;
+        "str-row": StrRow;
+        "str-searchbar": StrSearchbar;
+        "str-select": StrSelect;
+        "str-sidebar": StrSidebar;
+        "str-spinner": StrSpinner;
+        "str-split-pane": StrSplitPane;
+        "str-tab": StrTab;
+        "str-tab-bar": StrTabBar;
+        "str-tab-button": StrTabButton;
+        "str-tabs": StrTabs;
+        "str-tag": StrTag;
+        "str-textarea": StrTextarea;
+        "str-tool-bar": StrToolBar;
+        "str-tool-button": StrToolButton;
+        "str-tool-zoom": StrToolZoom;
+        "str-zoom": StrZoom;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "stories-addon-actions": LocalJSX.StoriesAddonActions & JSXBase.HTMLAttributes<HTMLStoriesAddonActionsElement>;
-            "stories-addon-controls": LocalJSX.StoriesAddonControls & JSXBase.HTMLAttributes<HTMLStoriesAddonControlsElement>;
-            "stories-addons": LocalJSX.StoriesAddons & JSXBase.HTMLAttributes<HTMLStoriesAddonsElement>;
-            "stories-app": LocalJSX.StoriesApp & JSXBase.HTMLAttributes<HTMLStoriesAppElement>;
-            "stories-badge": LocalJSX.StoriesBadge & JSXBase.HTMLAttributes<HTMLStoriesBadgeElement>;
-            "stories-button": LocalJSX.StoriesButton & JSXBase.HTMLAttributes<HTMLStoriesButtonElement>;
-            "stories-buttons": LocalJSX.StoriesButtons & JSXBase.HTMLAttributes<HTMLStoriesButtonsElement>;
-            "stories-checkbox": LocalJSX.StoriesCheckbox & JSXBase.HTMLAttributes<HTMLStoriesCheckboxElement>;
-            "stories-col": LocalJSX.StoriesCol & JSXBase.HTMLAttributes<HTMLStoriesColElement>;
-            "stories-footer": LocalJSX.StoriesFooter & JSXBase.HTMLAttributes<HTMLStoriesFooterElement>;
-            "stories-grid": LocalJSX.StoriesGrid & JSXBase.HTMLAttributes<HTMLStoriesGridElement>;
-            "stories-icon": LocalJSX.StoriesIcon & JSXBase.HTMLAttributes<HTMLStoriesIconElement>;
-            "stories-input": LocalJSX.StoriesInput & JSXBase.HTMLAttributes<HTMLStoriesInputElement>;
-            "stories-label": LocalJSX.StoriesLabel & JSXBase.HTMLAttributes<HTMLStoriesLabelElement>;
-            "stories-preview": LocalJSX.StoriesPreview & JSXBase.HTMLAttributes<HTMLStoriesPreviewElement>;
-            "stories-router": LocalJSX.StoriesRouter & JSXBase.HTMLAttributes<HTMLStoriesRouterElement>;
-            "stories-row": LocalJSX.StoriesRow & JSXBase.HTMLAttributes<HTMLStoriesRowElement>;
-            "stories-searchbar": LocalJSX.StoriesSearchbar & JSXBase.HTMLAttributes<HTMLStoriesSearchbarElement>;
-            "stories-sidebar": LocalJSX.StoriesSidebar & JSXBase.HTMLAttributes<HTMLStoriesSidebarElement>;
-            "stories-split-pane": LocalJSX.StoriesSplitPane & JSXBase.HTMLAttributes<HTMLStoriesSplitPaneElement>;
-            "stories-tab": LocalJSX.StoriesTab & JSXBase.HTMLAttributes<HTMLStoriesTabElement>;
-            "stories-tab-bar": LocalJSX.StoriesTabBar & JSXBase.HTMLAttributes<HTMLStoriesTabBarElement>;
-            "stories-tab-button": LocalJSX.StoriesTabButton & JSXBase.HTMLAttributes<HTMLStoriesTabButtonElement>;
-            "stories-tabs": LocalJSX.StoriesTabs & JSXBase.HTMLAttributes<HTMLStoriesTabsElement>;
-            "stories-tool-bar": LocalJSX.StoriesToolBar & JSXBase.HTMLAttributes<HTMLStoriesToolBarElement>;
-            "stories-tool-button": LocalJSX.StoriesToolButton & JSXBase.HTMLAttributes<HTMLStoriesToolButtonElement>;
-            "stories-tool-zoom": LocalJSX.StoriesToolZoom & JSXBase.HTMLAttributes<HTMLStoriesToolZoomElement>;
-            "stories-zoom": LocalJSX.StoriesZoom & JSXBase.HTMLAttributes<HTMLStoriesZoomElement>;
+            "str-addon-actions": LocalJSX.StrAddonActions & JSXBase.HTMLAttributes<HTMLStrAddonActionsElement>;
+            "str-addon-controls": LocalJSX.StrAddonControls & JSXBase.HTMLAttributes<HTMLStrAddonControlsElement>;
+            "str-addons": LocalJSX.StrAddons & JSXBase.HTMLAttributes<HTMLStrAddonsElement>;
+            "str-app": LocalJSX.StrApp & JSXBase.HTMLAttributes<HTMLStrAppElement>;
+            "str-badge": LocalJSX.StrBadge & JSXBase.HTMLAttributes<HTMLStrBadgeElement>;
+            "str-button": LocalJSX.StrButton & JSXBase.HTMLAttributes<HTMLStrButtonElement>;
+            "str-checkbox": LocalJSX.StrCheckbox & JSXBase.HTMLAttributes<HTMLStrCheckboxElement>;
+            "str-col": LocalJSX.StrCol & JSXBase.HTMLAttributes<HTMLStrColElement>;
+            "str-dropdown": LocalJSX.StrDropdown & JSXBase.HTMLAttributes<HTMLStrDropdownElement>;
+            "str-footer": LocalJSX.StrFooter & JSXBase.HTMLAttributes<HTMLStrFooterElement>;
+            "str-grid": LocalJSX.StrGrid & JSXBase.HTMLAttributes<HTMLStrGridElement>;
+            "str-group": LocalJSX.StrGroup & JSXBase.HTMLAttributes<HTMLStrGroupElement>;
+            "str-icon": LocalJSX.StrIcon & JSXBase.HTMLAttributes<HTMLStrIconElement>;
+            "str-input": LocalJSX.StrInput & JSXBase.HTMLAttributes<HTMLStrInputElement>;
+            "str-label": LocalJSX.StrLabel & JSXBase.HTMLAttributes<HTMLStrLabelElement>;
+            "str-menu": LocalJSX.StrMenu & JSXBase.HTMLAttributes<HTMLStrMenuElement>;
+            "str-menu-divider": LocalJSX.StrMenuDivider & JSXBase.HTMLAttributes<HTMLStrMenuDividerElement>;
+            "str-menu-item": LocalJSX.StrMenuItem & JSXBase.HTMLAttributes<HTMLStrMenuItemElement>;
+            "str-menu-label": LocalJSX.StrMenuLabel & JSXBase.HTMLAttributes<HTMLStrMenuLabelElement>;
+            "str-preview": LocalJSX.StrPreview & JSXBase.HTMLAttributes<HTMLStrPreviewElement>;
+            "str-radio": LocalJSX.StrRadio & JSXBase.HTMLAttributes<HTMLStrRadioElement>;
+            "str-radio-group": LocalJSX.StrRadioGroup & JSXBase.HTMLAttributes<HTMLStrRadioGroupElement>;
+            "str-router": LocalJSX.StrRouter & JSXBase.HTMLAttributes<HTMLStrRouterElement>;
+            "str-row": LocalJSX.StrRow & JSXBase.HTMLAttributes<HTMLStrRowElement>;
+            "str-searchbar": LocalJSX.StrSearchbar & JSXBase.HTMLAttributes<HTMLStrSearchbarElement>;
+            "str-select": LocalJSX.StrSelect & JSXBase.HTMLAttributes<HTMLStrSelectElement>;
+            "str-sidebar": LocalJSX.StrSidebar & JSXBase.HTMLAttributes<HTMLStrSidebarElement>;
+            "str-spinner": LocalJSX.StrSpinner & JSXBase.HTMLAttributes<HTMLStrSpinnerElement>;
+            "str-split-pane": LocalJSX.StrSplitPane & JSXBase.HTMLAttributes<HTMLStrSplitPaneElement>;
+            "str-tab": LocalJSX.StrTab & JSXBase.HTMLAttributes<HTMLStrTabElement>;
+            "str-tab-bar": LocalJSX.StrTabBar & JSXBase.HTMLAttributes<HTMLStrTabBarElement>;
+            "str-tab-button": LocalJSX.StrTabButton & JSXBase.HTMLAttributes<HTMLStrTabButtonElement>;
+            "str-tabs": LocalJSX.StrTabs & JSXBase.HTMLAttributes<HTMLStrTabsElement>;
+            "str-tag": LocalJSX.StrTag & JSXBase.HTMLAttributes<HTMLStrTagElement>;
+            "str-textarea": LocalJSX.StrTextarea & JSXBase.HTMLAttributes<HTMLStrTextareaElement>;
+            "str-tool-bar": LocalJSX.StrToolBar & JSXBase.HTMLAttributes<HTMLStrToolBarElement>;
+            "str-tool-button": LocalJSX.StrToolButton & JSXBase.HTMLAttributes<HTMLStrToolButtonElement>;
+            "str-tool-zoom": LocalJSX.StrToolZoom & JSXBase.HTMLAttributes<HTMLStrToolZoomElement>;
+            "str-zoom": LocalJSX.StrZoom & JSXBase.HTMLAttributes<HTMLStrZoomElement>;
         }
     }
 }

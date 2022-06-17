@@ -2,7 +2,7 @@
 import { Component, Host, h } from '@stencil/core';
 
 @Component({
-  tag: 'stories-row',
+  tag: 'str-row',
   styleUrl: 'row.scss',
   shadow: true,
 })

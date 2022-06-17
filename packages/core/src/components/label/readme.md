@@ -1,6 +1,6 @@
-# stories-label
+# Label
 
-The stories-label is a wrapper element displays text, icons, or both. You can position it as inline, fixed, stacked, or floating element and will usually use it with another components such stories-item, stories-input, stories-toggle, etc.
+The Label (str-label) is a wrapper element displays text, icons, or both. You can position it as inline, fixed, stacked, or floating element and will usually use it with another components.
 
 <!-- Auto Generated Below -->
 
@@ -22,4 +22,4 @@ The stories-label is a wrapper element displays text, icons, or both. You can po
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

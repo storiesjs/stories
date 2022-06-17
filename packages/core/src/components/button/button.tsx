@@ -1,40 +1,52 @@
 import type { EventEmitter } from '@stencil/core';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { Method } from '@stencil/core';
 import { Component, Host, h, Element, Prop, Event } from '@stencil/core';
 
-import { hasShadowDom, inheritAttributes } from '../../helpers';
-import type { Color, RouterDirection } from '../../types';
-import { createColorClasses, hostContext } from '../../utils';
+import { inheritAttributes } from '../../utils/helpers';
+// import type { Color, RouterDirection } from '../../types';
+// import { createColorClasses, hostContext } from '../../utils';
 
 @Component({
-  tag: 'stories-button',
+  tag: 'str-button',
   styleUrl: 'button.scss',
   shadow: true,
 })
 export class Button {
-  private inItem = false;
-  private inListHeader = false;
-  private inToolbar = false;
-  private inheritedAttributes: Record<string, string> = {};
+  private inheritedAttributes: { [k: string]: any } = {};
+  private button: HTMLElement;
 
   @Element() el!: HTMLElement;
 
   /**
-   * The color to use from your application's color palette.
-   * Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`.
-   * For more information on colors, see [theming](/docs/theming/basics).
+   * The different variants.
+   * The options are: `"default"`, `"primary"`, `"secondary"`, `"danger"`, and `"plain"`.
    */
-  @Prop({ reflect: true }) color?: Color;
-
-  /**
-   * The type of button.
-   */
-  @Prop({ mutable: true }) buttonType = 'button';
+  @Prop({ reflect: true }) variant?: 'default' | 'primary' | 'secondary' | 'danger' | 'plain' = 'default';
 
   /**
    * If `true`, the user cannot interact with the button.
    */
   @Prop({ reflect: true }) disabled = false;
+
+  /**
+   * Set to true to draw the button in a loading state.
+   */
+  @Prop({ reflect: true }) loading = false;
+
+  /**
+   * The button's size.
+   */
+  @Prop({ reflect: true }) size: 'small' | 'medium' | 'large' = 'medium';
+
+  /**
+   * Set to true to draw the button with a caret for use with dropdowns, popovers, etc.
+   */
+  @Prop() caret = false;
+
+  /**
+   * Set to true to draw a pill-style button with rounded edges.
+   */
+  @Prop({ reflect: true }) pill = false;
 
   /**
    * Set to `"block"` for a full-width button or to `"full"` for a full-width button
@@ -43,28 +55,26 @@ export class Button {
   @Prop({ reflect: true }) expand?: 'full' | 'block';
 
   /**
-   * Set to `"clear"` for a transparent button, to `"outline"` for a transparent
-   * button with a border, or to `"solid"`. The default style is `"solid"` except inside of
-   * a toolbar, where the default is `"clear"`.
+   * Set to true to draw a circle button.
    */
-  @Prop({ reflect: true, mutable: true }) fill?: 'clear' | 'outline' | 'solid' | 'default';
-
-  /**
-   * When using a router, it specifies the transition direction when navigating to
-   * another page using `href`.
-   */
-  @Prop() routerDirection: RouterDirection = 'forward';
+  @Prop({ reflect: true }) circle = false;
 
   /**
    * Contains a URL or a URL fragment that the hyperlink points to.
-   * If this property is set, an anchor tag will be rendered.
    */
   @Prop() href: string | undefined;
 
   /**
-   * The button shape.
+   * Specifies where to display the linked URL.
+   * Special keywords: `"_blank"`, `"_self"`, `"_parent"`, `"_top"`.
    */
-  @Prop({ reflect: true }) shape?: 'round';
+  @Prop() target: string | undefined;
+
+  /**
+   * Specifies the relationship of the target object to the link object.
+   * The value is a space-separated list of [link types](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types).
+   */
+  @Prop() rel: string | undefined;
 
   /**
    * The type of the button.
@@ -72,54 +82,34 @@ export class Button {
   @Prop() type: 'submit' | 'reset' | 'button' = 'button';
 
   /**
-   * The button size.
-   */
-  @Prop({ reflect: true }) size?: 'small' | 'default' | 'large';
-
-  /**
-   * If `true`, activates a button with a heavier font weight.
-   */
-  @Prop() strong = false;
-
-  /**
-   * Specifies where to display the linked URL.
-   * Only applies when an `href` is provided.
-   * Special keywords: `"_blank"`, `"_self"`, `"_parent"`, `"_top"`.
-   */
-  @Prop() target: string | undefined;
-
-  /**
    * Emitted when the button has focus.
    */
-  @Event() storiesFocus!: EventEmitter<void>;
+  @Event() strFocus!: EventEmitter<void>;
 
   /**
    * Emitted when the button loses focus.
    */
-  @Event() storiesBlur!: EventEmitter<void>;
-
-  /**
-   * Emitted when the button click.
-   */
-  @Event() storiesClick!: EventEmitter<void>;
+  @Event() strBlur!: EventEmitter<void>;
 
   componentWillLoad(): void {
-    this.inToolbar = !!this.el.closest('stories-buttons');
-    this.inListHeader = !!this.el.closest('stories-list-header');
-    this.inItem = !!this.el.closest('stories-item') || !!this.el.closest('stories-item-divider');
-    this.inheritedAttributes = inheritAttributes(this.el, ['aria-label']);
+    this.inheritedAttributes = inheritAttributes(this.el, ['aria-label', 'tabindex', 'title']);
   }
 
-  private get hasIconOnly() {
-    return !!this.el.querySelector('[slot="icon-only"]');
+  /** Sets focus on the button. */
+  @Method()
+  async setFocus(options?: FocusOptions): Promise<void> {
+    this.button.focus(options);
   }
 
-  private handleClick = (ev: Event) => {
-    if (this.type === 'button') {
-      this.storiesClick.emit();
+  /** Removes focus from the button. */
+  @Method()
+  async removeFocus(): Promise<void> {
+    this.button.blur();
+  }
 
-    } else if (hasShadowDom(this.el)) {
-      // this button wants to specifically submit a form
+  private handleClick = (ev: MouseEvent) => {
+    if (this.type !== 'button') {
+      // this button wants to specifically submit/reset a form
       // climb up the dom to see if we're in a <form>
       // and if so, then use JS to submit/reset it
       const form = this.el.closest('form');
@@ -134,58 +124,50 @@ export class Button {
         fakeButton.remove();
       }
     }
-  }
+  };
 
   private onFocus = () => {
-    this.storiesFocus.emit();
-  }
+    this.strFocus.emit();
+  };
 
   private onBlur = () => {
-    this.storiesBlur.emit();
-  }
+    this.strBlur.emit();
+  };
 
   render(): JSX.Element {
-    const { buttonType, type, disabled, target, size, href, color, expand, hasIconOnly, shape, strong, inheritedAttributes } = this;
-    const finalSize = size === undefined && this.inItem ? 'small' : size;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const TagType = href === undefined ? 'button' : 'a' as any;
-    const attrs = (TagType === 'button')
-      ? { type }
-      : {
-        href,
-        target
-      };
+    const { rel, target, href, variant, size, expand, type, inheritedAttributes, disabled } = this;
+    const TagType = href === undefined ? 'button' : ('a' as any);
+    const attrs =
+      TagType === 'button'
+        ? { type }
+        : {
+            href,
+            rel,
+            target,
+          };
 
-    let fill = this.fill;
-    if (fill === undefined) {
-      fill = this.inToolbar || this.inListHeader ? 'clear' : 'solid';
-    }
     return (
       <Host
-        aria-disabled={disabled ? 'true' : null}
-        class={createColorClasses(color, {
-          [buttonType]: true,
-          [`${buttonType}-${expand}`]: expand !== undefined,
-          [`${buttonType}-${finalSize}`]: finalSize !== undefined,
-          [`${buttonType}-${shape}`]: shape !== undefined,
-          [`${buttonType}-${fill}`]: true,
-          [`${buttonType}-strong`]: strong,
-          'in-toolbar': hostContext('stories-toolbar', this.el),
-          'in-toolbar-color': hostContext('stories-toolbar[color]', this.el),
-          'button-has-icon-only': hasIconOnly,
-          'button-disabled': disabled,
-          'stories-activatable': true,
-          'stories-focusable': true,
-        })}
         onClick={this.handleClick}
+        aria-disabled={disabled ? 'true' : null}
+        class={{
+          [`button-${variant}`]: true,
+          [`button-${size}`]: true,
+          [`button-${expand}`]: expand !== undefined,
+          'button-caret': this.caret,
+          'button-circle': this.circle,
+          'button-pill': this.pill,
+          'button-disabled': disabled,
+          'button-loading': this.loading,
+        }}
       >
         <TagType
+          ref={el => (this.button = el)}
           {...attrs}
           class="button-native"
           disabled={disabled}
-          onBlur={this.onBlur}
           onFocus={this.onFocus}
-          part="native"
+          onBlur={this.onBlur}
           {...inheritedAttributes}
         >
           <span class="button-inner">
@@ -193,10 +175,26 @@ export class Button {
             <slot name="start"></slot>
             <slot></slot>
             <slot name="end"></slot>
+            {this.caret && (
+              <span class="caret">
+                <svg role="img" aria-hidden="true" viewBox="0 0 512 512">
+                  <title>Chevron Down</title>
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="48"
+                    d="M112 184l144 144 144-144"
+                  />
+                </svg>
+              </span>
+            )}
           </span>
+
+          {this.loading && <str-spinner />}
         </TagType>
       </Host>
     );
   }
-
 }

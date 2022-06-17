@@ -2,12 +2,12 @@ import type { EventEmitter } from '@stencil/core';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Component, Host, h, Prop, Element, State, Watch, Event, Method, forceUpdate } from '@stencil/core';
 
-import { debounceEvent, raf } from '../../helpers';
 import type { Color, SearchbarChangeEventDetail, StyleEventDetail } from '../../types';
-import { createColorClasses } from '../../utils';
+import { debounceEvent, raf } from '../../utils/helpers';
+import { createColorClasses } from '../../utils/utils';
 
 @Component({
-  tag: 'stories-searchbar',
+  tag: 'str-searchbar',
   styleUrl: 'searchbar.scss',
   shadow: true,
 })
@@ -16,7 +16,7 @@ export class Searchbar {
   private nativeInput?: HTMLInputElement;
   private shouldAlignLeft = true;
 
-  @Element() el!: HTMLStoriesSearchbarElement;
+  @Element() el!: HTMLStrSearchbarElement;
 
   @State() focused = false;
 
@@ -45,7 +45,7 @@ export class Searchbar {
 
   @Watch('debounce')
   protected debounceChanged(): void {
-    this.storiesChange = debounceEvent(this.storiesChange, this.debounce);
+    this.strChange = debounceEvent(this.strChange, this.debounce);
   }
 
   /**
@@ -107,38 +107,38 @@ export class Searchbar {
   /**
    * Emitted when a keyboard input occurred.
    */
-  @Event() storiesInput!: EventEmitter<KeyboardEvent>;
+  @Event() strInput!: EventEmitter<KeyboardEvent>;
 
   /**
    * Emitted when the value has changed.
    */
-  @Event() storiesChange!: EventEmitter<SearchbarChangeEventDetail>;
+  @Event() strChange!: EventEmitter<SearchbarChangeEventDetail>;
 
   /**
    * Emitted when the cancel button is clicked.
    */
-  @Event() storiesCancel!: EventEmitter<void>;
+  @Event() strCancel!: EventEmitter<void>;
 
   /**
    * Emitted when the clear input button is clicked.
    */
-  @Event() storiesClear!: EventEmitter<void>;
+  @Event() strClear!: EventEmitter<void>;
 
   /**
    * Emitted when the input loses focus.
    */
-  @Event() storiesBlur!: EventEmitter<void>;
+  @Event() strBlur!: EventEmitter<void>;
 
   /**
    * Emitted when the input has focus.
    */
-  @Event() storiesFocus!: EventEmitter<void>;
+  @Event() strFocus!: EventEmitter<void>;
 
   /**
    * Emitted when the styles change.
    * @internal
    */
-  @Event() storiesStyle!: EventEmitter<StyleEventDetail>;
+  @Event() strStyle!: EventEmitter<StyleEventDetail>;
 
   @Watch('value')
   protected valueChanged(): void {
@@ -147,7 +147,7 @@ export class Searchbar {
     if (inputEl && inputEl.value !== value) {
       inputEl.value = value;
     }
-    this.storiesChange.emit({ value });
+    this.strChange.emit({ value });
   }
 
   @Watch('showCancelButton')
@@ -168,13 +168,13 @@ export class Searchbar {
   }
 
   private emitStyle() {
-    this.storiesStyle.emit({
+    this.strStyle.emit({
       'searchbar': true
     });
   }
 
   /**
-   * Sets focus on the specified `stories-searchbar`. Use this method instead of the global
+   * Sets focus on the specified `str-searchbar`. Use this method instead of the global
    * `input.focus()`.
    */
   @Method()
@@ -197,7 +197,7 @@ export class Searchbar {
    * Clears the input field and triggers the control change.
    */
   private onClearInput = (ev?: Event, shouldFocus?: boolean) => {
-    this.storiesClear.emit();
+    this.strClear.emit();
 
     if (ev) {
       ev.preventDefault();
@@ -209,7 +209,7 @@ export class Searchbar {
       const value = this.getValue();
       if (value !== '') {
         this.value = '';
-        this.storiesInput.emit();
+        this.strInput.emit();
 
         /**
          * When tapping clear button
@@ -232,7 +232,7 @@ export class Searchbar {
     if (input) {
       this.value = input.value;
     }
-    this.storiesInput.emit(ev as KeyboardEvent);
+    this.strInput.emit(ev as KeyboardEvent);
   }
 
   /**
@@ -241,7 +241,7 @@ export class Searchbar {
    */
   private onBlur = () => {
     this.focused = false;
-    this.storiesBlur.emit();
+    this.strBlur.emit();
     this.positionElements();
   }
 
@@ -250,7 +250,7 @@ export class Searchbar {
    */
   private onFocus = () => {
     this.focused = true;
-    this.storiesFocus.emit();
+    this.strFocus.emit();
     this.positionElements();
   }
 
@@ -368,7 +368,7 @@ export class Searchbar {
             value={this.getValue()}
           />
 
-          <stories-icon aria-hidden="true" class="searchbar-search-icon" name={searchIcon}></stories-icon>
+          <str-icon aria-hidden="true" class="searchbar-search-icon" name={searchIcon}></str-icon>
 
           <button
             aria-label="reset"
@@ -378,7 +378,7 @@ export class Searchbar {
             type="button"
             no-blur
           >
-            <stories-icon aria-hidden="true" class="searchbar-clear-icon" name={clearIcon}></stories-icon>
+            <str-icon aria-hidden="true" class="searchbar-clear-icon" name={clearIcon}></str-icon>
           </button>
         </div>
       </Host>

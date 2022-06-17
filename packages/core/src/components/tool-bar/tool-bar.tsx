@@ -2,7 +2,7 @@
 import { Component, h } from '@stencil/core';
 
 @Component({
-  tag: 'stories-tool-bar',
+  tag: 'str-tool-bar',
   styleUrl: 'tool-bar.scss',
   shadow: true,
 })

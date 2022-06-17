@@ -1,6 +1,6 @@
-# stories-tab-bar
+#  Tabbar
 
-The stories-tab-bar is a component that contains a set of [stories-tab-button's](../tab-button). Put the stories-tab-bar in the [stories-tabs](../tabs) to organize communication with every [stories-tab](../tab).
+The Tabbar (str-tab-bar) is a component that contains a set of [str-tab-button's](../tab-button). Put the str-tab-bar in the [str-tabs](../tabs) to organize communication with every [str-tab](../tab).
 
 <!-- Auto Generated Below -->
 
@@ -24,4 +24,4 @@ The stories-tab-bar is a component that contains a set of [stories-tab-button's]
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

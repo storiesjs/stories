@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
 export type Commands = "zoomIn" | "zoomOut" | "zoomReset";
 export type Icons = "zoomIn" | "zoomOut" | "zoomReset";
 export type TabButtonLayout = 'icon-top' | 'icon-start' | 'icon-end' | 'icon-bottom' | 'icon-hide' | 'label-hide';
@@ -51,7 +49,6 @@ export interface InputChangeEventDetail {
   value: string | undefined | null;
 }
 
-// eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
 export interface StyleEventDetail {
   [styleName: string]: boolean;
 }

@@ -2,18 +2,18 @@ import { newSpecPage } from '@stencil/core/testing';
 
 import { Addons } from '../addons';
 
-describe('stories-addons', () => {
+describe('str-addons', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [Addons],
-      html: `<stories-addons></stories-addons>`,
+      html: `<str-addons></str-addons>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-addons>
+      <str-addons>
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </stories-addons>
+      </str-addons>
     `);
   });
 });

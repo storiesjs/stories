@@ -1,10 +1,10 @@
-# stories-toolbar
+# Toolbar
 
-The stories-toolbar is a container for other Stories components such as stories-button, stories-toggle, etc.
+The Toolbar (str-toolbar) is a container for other Stories components such as [str-button](../button), [str-checkbox](../checkbox), etc.
 
 <!-- Auto Generated Below -->
 
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

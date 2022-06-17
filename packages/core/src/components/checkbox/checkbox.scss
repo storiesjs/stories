@@ -5,103 +5,203 @@
 
 :host {
   /**
-   * @prop --size: Size of the checkbox icon
+   * @prop --label-color: Color of the label
    *
-   * @prop --background: Background of the checkbox icon
-   * @prop --background-checked: Background of the checkbox icon when checked
+   * @prop --control-size: Size of the control
    *
-   * @prop --border-color: Border color of the checkbox icon
-   * @prop --border-radius: Border radius of the checkbox icon
-   * @prop --border-width: Border width of the checkbox icon
-   * @prop --border-style: Border style of the checkbox icon
-   * @prop --border-color-checked: Border color of the checkbox icon when checked
+   * @prop --control-border-color: Border color of the control
+   * @prop --control-background-color: Background color of the control
    *
-   * @prop --transition: Transition of the checkbox icon
+   * @prop --control-border-color-hover: Border color of the control on hover
+   * @prop --control-background-color-hover: Background color of the control on hover
    *
-   * @prop --checkmark-color: Color of the checkbox checkmark when checked
-   * @prop --checkmark-width: Stroke width of the checkbox checkmark
+   * @prop --control-color-checked: Color of the control when checked (the checkmark icon)
+   * @prop --control-border-color-checked: Border color of the control when checked
+   * @prop --control-background-color-checked: Background color of the control when checked
+   *
+   * @prop --control-border-color-checked-hover: Border color of the control when checked on hover
+   * @prop --control-background-color-checked-hover: Background color of the control when checked on hover
+   *
+   * @prop --control-border-color-checked-focus: Border color of the control when checked on focus
+   * @prop --control-background-color-checked-focus: Background color of the control when checked on focus
+   *
+   * @prop --focus-ring: The focus ring style to use when the checkbox receives focus, a `box-shadow` property.
    */
-  --background-checked: #{stories-color(primary, base)};
-  --border-color-checked: #{stories-color(primary, base)};
-  --checkmark-color: #{stories-color(primary, contrast)};
-  --checkmark-width: 1;
-  --transition: none;
+
+  --label-color: var(--str-color-dark-tint);
+
+  --control-size: var(--str-toggle-size);
+
+  --control-border-color: var(--str-color-light-shade);
+  --control-background-color: var(--str-color-white);
+
+  --control-border-color-hover: var(--str-color-medium);
+  --control-background-color-hover: var(--str-color-white);
+
+  --control-color-checked: var(--str-color-primary-contrast);
+  --control-border-color-checked: var(--str-color-primary);
+  --control-background-color-checked: var(--str-color-primary);
+
+  --control-border-color-checked-hover: var(--str-color-primary-shade);
+  --control-background-color-checked-hover: var(--str-color-primary-shade);
+
+  --control-border-color-checked-focus: var(--str-color-primary-shade);
+  --control-background-color-checked-focus: var(--str-color-primary-shade);
+
+  --focus-ring: 0 0 0 var(--str-focus-ring-width) rgb(var(--str-color-primary-rgb), 0.33);
 
   display: inline-block;
-  position: relative;
-
-  user-select: none;
-  z-index: $z-index-item-input;
-}
-
-:host(.stories-color) {
-  --background-checked: #{current-color(base)};
-  --border-color-checked: #{current-color(base)};
-  --checkmark-color: #{current-color(contrast)};
-}
-
-label {
-  @include input-cover();
-
-  display: flex;
-
-  align-items: center;
-
-  opacity: 0;
-}
-
-input {
-  @include visually-hidden();
-}
-
-.checkbox-icon {
-  @include border-radius(var(--border-radius));
-
-  display: block;
-  position: relative;
-
-  width: 100%;
-  height: 100%;
-
-  transition: var(--transition);
-
-  border-width: var(--border-width);
-  border-style: var(--border-style);
-  border-color: var(--border-color);
-
-  background: var(--background);
-
   box-sizing: border-box;
+
+  & *,
+  & *:before,
+  & *:after {
+    box-sizing: inherit;
+  }
 }
-
-.checkbox-icon path {
-  fill: none;
-  stroke: var(--checkmark-color);
-  stroke-width: var(--checkmark-width);
-
-  opacity: 0;
-}
-
-
-// Checked / Indeterminate Checkbox
-// ---------------------------------------------
-
-:host(.checkbox-checked) .checkbox-icon,
-:host(.checkbox-indeterminate) .checkbox-icon {
-  border-color: var(--border-color-checked);
-
-  background: var(--background-checked);
-}
-
-:host(.checkbox-checked) .checkbox-icon path,
-:host(.checkbox-indeterminate) .checkbox-icon path {
-  opacity: 1;
-}
-
-
-// Disabled Checkbox
-// ---------------------------------------------
 
 :host(.checkbox-disabled) {
   pointer-events: none;
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--str-font-family);
+  font-size: var(--str-form-element-font-size-medium);
+  font-weight: var(--str-font-weight-normal);
+  color: var(--label-color);
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.checkbox-icon {
+  display: inline-flex;
+  width: var(--control-size);
+  height: var(--control-size);
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.checkbox-control {
+  flex: 0 0 auto;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--control-size);
+  height: var(--control-size);
+  border: solid 1px var(--control-border-color);
+  border-radius: var(--str-form-element-border-radius-small);
+  background-color: var(--control-background-color);
+  color: transparent;
+  transition: 150ms border-color, 150ms background-color, 150ms color, 150ms box-shadow;
+
+  input[type='checkbox'] {
+    position: absolute;
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+    pointer-events: none;
+  }
+}
+
+.checkbox-control-circle {
+  border-radius: var(--border-radius-circle);
+}
+
+// Hover
+.checkbox:not(.checkbox-checked):not(.checkbox-disabled) .checkbox-control:hover {
+  border-color: var(--control-border-color-hover);
+  background-color: var(--control-background-color-hover);
+}
+
+// Focus
+.checkbox.checkbox-focused:not(.checkbox-checked):not(.checkbox-disabled) .checkbox-control {
+  border-color: var(--control-border-color-hover);
+  background-color: var(--control-background-color-hover);
+  box-shadow: var(--focus-ring);
+}
+
+// Checked/indeterminate
+.checkbox-checked .checkbox-control,
+.checkbox-indeterminate .checkbox-control {
+  color: var(--control-color-checked);
+  border-color: var(--control-border-color-checked);
+  background-color: var(--control-background-color-checked);
+}
+
+// Checked/indeterminate + hover
+.checkbox.checkbox-checked:not(.checkbox-disabled) .checkbox-control:hover,
+.checkbox.checkbox-indeterminate:not(.checkbox-disabled) .checkbox-control:hover {
+  border-color: var(--control-border-color-checked-hover);
+  background-color: var(--control-background-color-checked-hover);
+}
+
+// Checked/indeterminate + focus
+.checkbox.checkbox-checked:not(.checkbox-disabled).checkbox-focused .checkbox-control,
+.checkbox.checkbox-indeterminate:not(.checkbox-disabled).checkbox-focused .checkbox-control {
+  border-color: var(--control-border-color-checked-focus);
+  background-color: var(--control-background-color-checked-focus);
+  box-shadow: var(--focus-ring);
+}
+
+// Invalid
+.checkbox:not(.checkbox-disabled).checkbox-invalid .checkbox-control {
+  border-color: var(--str-form-element-invalid-text-color);
+}
+
+// Checked/indeterminate + invalid
+.checkbox.checkbox-checked:not(.checkbox-disabled).checkbox-invalid .checkbox-control,
+.checkbox.checkbox-indeterminate:not(.checkbox-disabled).checkbox-invalid .checkbox-control {
+  border-color: var(--str-form-element-invalid-text-color);
+  background-color: var(--str-form-element-invalid-text-color);
+}
+
+// Disabled
+.checkbox-disabled {
+  opacity: 0.5;
+}
+
+.checkbox-label {
+  line-height: var(--str-line-height-normal);
+  margin-left: 0.5em;
+  user-select: none;
+}
+
+// Invalid text
+.invalid-text {
+  display: none;
+}
+
+// Invalid text
+.checkbox-invalid-text {
+  display: none;
+}
+
+:host(.checkbox-has-invalid-text) {
+  display: block;
+
+  .checkbox-invalid-text {
+    display: flex;
+    margin-left: -2px;
+    line-height: var(--str-line-height-normal);
+    color: var(--str-form-element-invalid-text-color);
+    margin-top: var(--str-spacing-xxx-small);
+    font-size: var(--str-form-element-invalid-text-font-size-medium);
+    min-height: 1.875rem;
+
+    .icon {
+      margin-top: var(--str-spacing-xxx-small);
+      margin-right: var(--str-spacing-xx-small);
+
+      svg {
+        width: 1.4em;
+        height: 1.4em;
+      }
+    }
+  }
 }

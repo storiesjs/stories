@@ -1,11 +1,11 @@
 import { newE2EPage } from '@stencil/core/testing';
 
-describe('stories-sidebar', () => {
+describe('str-sidebar', () => {
   it('renders', async () => {
     const page = await newE2EPage();
-    await page.setContent('<stories-sidebar></stories-sidebar>');
+    await page.setContent('<str-sidebar></str-sidebar>');
 
-    const element = await page.find('stories-sidebar');
+    const element = await page.find('str-sidebar');
     expect(element).toHaveClass('hydrated');
   });
 });

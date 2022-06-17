@@ -1,6 +1,6 @@
-# stories-addon-actions
+# Actions
 
-The stories-addon-actions displays a panel with data received by event handler (callback) arguments in your stories.
+The Actions (str-addon-actions) displays a panel with data received by event handler (callback) arguments in your stories.
 
 
 <!-- Auto Generated Below -->
@@ -21,4 +21,4 @@ Type: `Promise<void>`
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

@@ -5,18 +5,18 @@ import { newSpecPage } from '@stencil/core/testing';
 import type { StoryModule, StoryModules } from '../../../types';
 import { App } from '../app';
 
-describe('stories-app', () => {
+describe('str-app', () => {
   it('renders', async () => {
     const { root } = await newSpecPage({
       components: [App],
-      html: '<stories-app></stories-app>',
+      html: '<str-app></str-app>',
     });
     expect(root).toEqualHtml(`
-      <stories-app>
+      <str-app>
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </stories-app>
+      </str-app>
     `);
   });
 
@@ -37,14 +37,14 @@ describe('stories-app', () => {
     const storyChange = jest.fn();
     const { root } = await newSpecPage({
       components: [App],
-      template: () => (<stories-app modules={storyModules} onStoryChange={storyChange}></stories-app>),
+      template: () => (<str-app modules={storyModules} onStrChange={storyChange}></str-app>),
     });
     expect(root).toEqualHtml(`
-      <stories-app>
+      <str-app>
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </stories-app>
+      </str-app>
     `);
     expect(storyChange).toHaveBeenCalled();
   });

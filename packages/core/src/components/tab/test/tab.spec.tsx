@@ -2,18 +2,18 @@ import { newSpecPage } from '@stencil/core/testing';
 
 import { Tab } from '../tab';
 
-describe('stories-tab', () => {
+describe('str-tab', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [Tab],
-      html: `<stories-tab></stories-tab>`,
+      html: `<str-tab></str-tab>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-tab aria-hidden="true" aria-labelledby="tab-button-undefined" class="stories-page tab-hidden" role="tabpanel">
+      <str-tab aria-hidden="true" aria-labelledby="tab-button-undefined" class="str-page tab-hidden" role="tabpanel">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </stories-tab>
+      </str-tab>
     `);
   });
 });

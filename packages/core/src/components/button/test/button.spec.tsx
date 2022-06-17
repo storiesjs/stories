@@ -2,16 +2,16 @@ import { newSpecPage } from '@stencil/core/testing';
 
 import { Button } from '../button';
 
-describe('stories-button', () => {
+describe('str-button', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [Button],
-      html: `<stories-button></stories-button>`,
+      html: `<str-button></str-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-button class="button button-solid stories-activatable stories-focusable">
+      <str-button class="button-default button-medium" size="medium" variant="default">
         <mock:shadow-root>
-          <button class="button-native" part="native" type="button">
+           <button class="button-native" type="button">
             <span class="button-inner">
               <slot name="icon-only"></slot>
               <slot name="start"></slot>
@@ -20,7 +20,7 @@ describe('stories-button', () => {
             </span>
           </button>
         </mock:shadow-root>
-      </stories-button>
+      </str-button>
     `);
   });
 });

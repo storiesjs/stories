@@ -8,8 +8,8 @@ module.exports = {
       .tap(options => ({
         ...options,
         compilerOptions: {
-          // treat any tag that starts with 'stories-' as custom elements
-          isCustomElement: tag => tag.startsWith("stories-")
+          // treat any tag that starts with 'str-' as custom elements
+          isCustomElement: tag => tag.startsWith("str-")
         }
       }))
   }

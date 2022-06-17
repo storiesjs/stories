@@ -2,20 +2,20 @@ import { newSpecPage } from '@stencil/core/testing';
 
 import { Zoom } from '../zoom';
 
-describe('stories-zoom', () => {
+describe('str-zoom', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [Zoom],
-      html: `<stories-zoom></stories-zoom>`,
+      html: `<str-zoom></str-zoom>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-zoom style="height: 50; transform-origin: top left; transform: scale(1);">
+      <str-zoom style="height: 50; transform-origin: top left; transform: scale(1);">
         <mock:shadow-root>
           <div class="innerZoomElementWrapper">
             <slot></slot>
           </div>
         </mock:shadow-root>
-      </stories-zoom>
+      </str-zoom>
     `);
   });
 });

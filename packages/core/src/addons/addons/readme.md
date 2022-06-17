@@ -1,6 +1,6 @@
-# stories-addons
+# Addons
 
-The stories-addons is a wrapping component implemented for helping in addons management.
+The Addons (str-addons) is a wrapping component implemented for helping in addons management.
 
 <!-- Auto Generated Below -->
 
@@ -17,7 +17,7 @@ Type: `Promise<Addon>`
 
 
 
-### `registerAddon(addon: Addon) => Promise<void>`
+### `registerAddon(addonId: string, addon: Addon) => Promise<void>`
 
 
 
@@ -37,7 +37,7 @@ Type: `Promise<void>`
 
 
 
-### `unregisterAddon(addon: Addon) => Promise<void>`
+### `unregisterAddon(addonId: string) => Promise<void>`
 
 
 
@@ -50,4 +50,4 @@ Type: `Promise<void>`
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

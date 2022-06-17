@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { AddonsAPI } from './addons';
 import type { LayoutAPI } from './layout';
 import type { NotificationsAPI } from './notifications';

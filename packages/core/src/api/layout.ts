@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { state } from '../store';
 import type { LayoutAPI, PanelPosition } from "../types";
 

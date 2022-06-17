@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stories Framework</title>
+
+    <link rel="stylesheet" href="/build/core.css" />
+    <script type="module" src="/build/core.esm.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.5.0/css/all.css" />
+
+    <style>
+      body {
+        font-family: sans-serif;
+        background-color: var(--str-color-light-tint);
+        line-height: var(--str-line-height-normal);
+        color: var(--str-color-dark);
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>Badge (str-badge)</h2>
+
+      <!-- Colors -->
+      <section>
+        <h3>Types</h3>
+        <str-badge>Default</str-badge>
+        <str-badge type="primary">Primary</str-badge>
+        <str-badge type="success">Success</str-badge>
+        <str-badge type="info">Info</str-badge>
+        <str-badge type="warning">Warning</str-badge>
+        <str-badge type="danger">Danger</str-badge>
+      </section>
+
+      <section>
+        <h3>Sizes</h3>
+        <str-badge type="success" size="small">Small</str-badge>
+        <str-badge type="info" size="medium">Medium</str-badge>
+        <str-badge type="warning" size="large">Large</str-badge>
+      </section>
+
+      <section>
+        <h3>With icons</h3>
+        <str-badge type="success" size="medium">
+          <ion-icon name="download" style="font-size: 1em; margin-right: 0.2em;" aria-hidden="true"></ion-icon>
+          Docs
+        </str-badge>
+        <str-badge type="info" size="medium">
+          <ion-icon name="git-branch" style="font-size: 1em; margin-right: 0.2em;" aria-hidden="true"></ion-icon>
+          5 branches
+        </str-badge>
+         <str-badge type="warning" size="medium">
+          <ion-icon name="battery-dead" style="font-size: 1em; margin-right: 0.2em;" aria-hidden="true"></ion-icon>
+          2% battery
+        </str-badge>
+      </section>
+    </section>
+
+    <section>
+      <h2>Spinner (str-spinner)</h2>
+
+      <str-spinner></str-spinner>
+
+      <section>
+        <h3>Size</h3>
+
+        <str-spinner></str-spinner>
+        <str-spinner style="font-size: 2rem"></str-spinner>
+        <str-spinner style="font-size: 3rem"></str-spinner>
+      </section>
+
+      <section>
+        <h3>Stroke Width</h3>
+
+        <str-spinner style="font-size: 2rem; --stroke-width: 6px"></str-spinner>
+      </section>
+
+      <section>
+        <h3>Color</h3>
+
+        <str-spinner style="font-size: 2rem; --indicator-color: tomato"></str-spinner>
+      </section>
+    </section>
+
+    <section>
+      <h2>Button (str-button)</h2>
+
+      <section>
+        <h3>Variants</h3>
+
+        <str-button>Default</str-button>
+        <str-button variant="primary" id="focusBlurExample">Primary</str-button>
+        <str-button variant="secondary">Secondary</str-button>
+        <str-button variant="danger">Danger</str-button>
+        <str-button variant="plain">Plain</str-button>
+      </section>
+
+      <script>
+        const focusBlurExampleElement = document.getElementById('focusBlurExample');
+
+        focusBlurExampleElement.addEventListener('strFocus', () => {
+          console.log('strFocus');
+        });
+
+        focusBlurExampleElement.addEventListener('strBlur', () => {
+          console.log('strBlur');
+        });
+      </script>
+
+      <section>
+        <h3>Custom</h3>
+
+        <str-button class="custom">Custom</str-button>
+        <style>
+          str-button.custom {
+            --shadow: 0px 0px 5px var(--str-color-dark);
+            --focus-ring: 0px 0px 5px var(--str-color-primary);
+          }
+        </style>
+      </section>
+      <section>
+        <h3>Sizes</h3>
+
+        <str-button size="small">Small</str-button>
+        <str-button>Medium</str-button>
+        <str-button size="large">Large</str-button>
+      </section>
+
+      <section>
+        <h3>Icons</h3>
+
+        <str-button>
+          <!-- <ion-icon name="settings-outline" slot="start" aria-hidden="true"></ion-icon> -->
+          <i class="fas fa-cog" slot="start"></i>
+          Settings
+        </str-button>
+
+        <str-button>
+          <ion-icon name="refresh-outline" slot="end" style="font-size: 1.4em" aria-hidden="true"></ion-icon>
+          Refresh
+        </str-button>
+
+        <str-button>
+          <ion-icon name="link-outline" slot="start" style="font-size: 1.3em" aria-hidden="true"></ion-icon>
+          Open
+          <ion-icon name="exit-outline" slot="end" style="font-size: 1.3em" aria-hidden="true"></ion-icon>
+        </str-button>
+      </section>
+
+      <section>
+        <h3>Circle Buttons</h3>
+
+        <str-button variant="primary" size="small" aria-label="Add" circle>
+          <ion-icon name="add-outline" slot="icon-only"></ion-icon>
+        </str-button>
+
+        <str-button variant="primary" aria-label="Add" circle>
+          <ion-icon name="add-outline" slot="icon-only"></ion-icon>
+        </str-button>
+
+        <str-button variant="primary" aria-label="Add" size="large" circle>
+          <ion-icon name="add-outline" slot="icon-only"></ion-icon>
+        </str-button>
+      </section>
+
+      <section>
+        <h3>Link Buttons</h3>
+
+        <str-button href="https://storiesjs.org" target="_blank">Stories Docs</str-button>
+      </section>
+
+      <section>
+        <h3>Block Button</h3>
+
+        <str-button expand="block">Block</str-button>
+      </section>
+
+      <section>
+        <h3>Full Button</h3>
+
+        <str-button expand="full">Full</str-button>
+      </section>
+
+      <section>
+        <h3>Caret</h3>
+
+        <str-button size="small" caret>Small</str-button>
+        <str-button size="medium" caret>Medium</str-button>
+        <str-button size="large" caret>Large</str-button>
+      </section>
+
+      <section>
+        <h3>Loading</h3>
+
+        <str-button loading>Default</str-button>
+        <str-button variant="primary" loading>Primary</str-button>
+        <str-button variant="secondary" loading>Secondary</str-button>
+        <str-button variant="danger" loading>Danger</str-button>
+        <str-button variant="plain" loading>Plain</str-button>
+      </section>
+
+      <section>
+        <h3>Pill</h3>
+
+        <str-button size="small" pill variant="danger">Small</str-button>
+        <str-button size="medium" pill>Medium</str-button>
+        <str-button size="large" pill variant="primary">Large</str-button>
+      </section>
+
+      <section>
+        <h3>Disabled</h3>
+
+        <str-button id="clickExample" disabled> Default </str-button>
+
+        <str-button variant="primary" disabled> Primary </str-button>
+
+        <str-button variant="secondary" disabled> Secondary </str-button>
+
+        <str-button variant="danger" disabled> Danger </str-button>
+
+        <str-button variant="plain" disabled> Plain </str-button>
+      </section>
+
+      <script>
+        let clickExampleElement = document.getElementById('clickExample');
+
+        clickExampleElement.addEventListener('click', () => {
+          console.log('clicked');
+        });
+      </script>
+    </section>
+
+    <section>
+      <h2>Checkbox (str-checkbox)</h2>
+
+      <section style="width: 300px">
+        <h3>Checked</h3>
+        <str-group label="Select options">
+          <str-checkbox id="checkbox-test" checked invalid aria-label="Option one">Option 1</str-checkbox>
+          <str-checkbox invalid>Option 2</str-checkbox>
+          <str-checkbox invalid-text="Select at least one option" invalid>Option 3</str-checkbox>
+        </str-group>
+      </section>
+
+      <script>
+        const checkboxTest = document.querySelector('#checkbox-test');
+
+        checkboxTest.addEventListener('strFocus', () => {
+          console.log('strFocus');
+        });
+
+        checkboxTest.addEventListener('strBlur', () => {
+          console.log('strBlur');
+        });
+      </script>
+
+      <section>
+        <h3>Horizontal</h3>
+        <str-group label="Select options" horizontal>
+          <str-checkbox>Option 1</str-checkbox>
+          <str-checkbox>Option 2</str-checkbox>
+          <str-checkbox>Option 3</str-checkbox>
+        </str-group>
+      </section>
+
+      <section>
+        <h3>Indeterminate</h3>
+        <str-checkbox indeterminate>Indeterminate</str-checkbox>
+      </section>
+
+       <section>
+        <h3>Disabled</h3>
+        <str-checkbox disabled>Disabled</str-checkbox>
+      </section>
+
+      <section>
+        <h3>Invalid</h3>
+        <str-checkbox invalid-text="You have to agree with our terms to continue" invalid>
+          I agree with the terms
+        </str-checkbox>
+      </section>
+
+    </section>
+
+    <section>
+      <h2>Input (str-input)</h2>
+
+      <section>
+        <h3>Sizes</h3>
+
+        <str-input size="small" placeholder="Small"></str-input>
+        <br />
+        <str-input size="medium" placeholder="Medium"></str-input>
+        <br />
+        <str-input size="large" placeholder="Large"></str-input>
+      </section>
+
+      <section>
+        <h3>Disabled</h3>
+
+        <str-input disabled></str-input>
+      </section>
+
+      <section>
+        <h3>Clearable</h3>
+
+        <str-input placeholder="Clearable" clearable></str-input>
+      </section>
+
+      <section>
+        <h3>Toggle Password</h3>
+
+        <str-input type="password" placeholder="Password Toggle" toggle-password></str-input>
+      </section>
+
+      <section>
+        <h3>Icons</h3>
+
+        <str-input placeholder="Medium" size="small">
+          <ion-icon name="search-outline" slot="start"></ion-icon>
+          <ion-icon name="chatbubble-outline" slot="end"></ion-icon>
+        </str-input>
+        <br />
+        <str-input placeholder="Medium" size="medium">
+          <i class="fas fa-search" slot="start"></i>
+          <ion-icon name="chatbubble-outline" slot="end"></ion-icon>
+        </str-input>
+        <br />
+        <str-input placeholder="Medium" size="large">
+          <ion-icon name="search-outline" slot="start"></ion-icon>
+          <ion-icon name="chatbubble-outline" slot="end"></ion-icon>
+        </str-input>
+      </section>
+
+      <section>
+        <h3>Pill</h3>
+
+        <str-input size="small" pill></str-input>
+        <br />
+        <str-input size="medium" pill></str-input>
+        <br />
+        <str-input size="large" pill></str-input>
+      </section>
+
+      <section>
+        <h3>Number input with min, max, step</h3>
+
+        <str-input type="number" min="0" max="100" step="2" value="34"></str-input>
+      </section>
+
+      <section>
+        <h3>Labels</h3>
+
+        <str-input type="password" label="Password"></str-input>
+      </section>
+
+      <section>
+        <h3>Required indicator</h3>
+
+        <str-input type="password" label="Password" required-indicator></str-input>
+      </section>
+
+      <section>
+        <h3>Help Text</h3>
+
+        <str-input type="password" label="Password" help-text="Passwords must be at least 8 characters."></str-input>
+      </section>
+
+      <section>
+        <h3>Invalid Text</h3>
+
+        <div style="display: flex; gap: 12px">
+          <div>
+            <str-input
+              type="password"
+              label="Password"
+              help-text="Passwords must be at least 8 characters."
+              invalid-text="Create a password with at least 8 characters."
+            ></str-input>
+            <p>Test</p>
+          </div>
+
+          <div>
+            <str-input
+              type="password"
+              label="Password"
+              help-text="Passwords must be at least 8 characters."
+              invalid-text="Create a password with at least 8 characters."
+              invalid
+            ></str-input>
+            <p>Test</p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section>
+      <h2>Radio (str-radio & str-radio-group)</h2>
+
+      <section>
+        <h3>Default (vertical)</h3>
+
+        <str-radio-group label="Select an option" value="3">
+          <str-radio value="1">Option 1</str-radio>
+          <str-radio value="2">Option 2</str-radio>
+          <str-radio value="3">Option 3</str-radio>
+        </str-radio-group>
+      </section>
+
+      <section>
+        <h3>Horizontal</h3>
+
+        <str-radio-group label="Select an option" value="3" horizontal>
+          <str-radio value="1">Option 1</str-radio>
+          <str-radio value="2">Option 2</str-radio>
+          <str-radio value="3">Option 3</str-radio>
+        </str-radio-group>
+      </section>
+
+      <section>
+        <h3>Disabled option</h3>
+
+        <str-radio-group label="Select an option" value="2">
+          <str-radio value="1">Option 1</str-radio>
+          <str-radio value="2">Option 2</str-radio>
+          <str-radio value="3">Option 3</str-radio>
+          <str-radio value="4" disabled>Disabled</str-radio>
+        </str-radio-group>
+      </section>
+
+      <section>
+        <h3>Invalid</h3>
+
+        <str-radio-group label="Select an option" invalid-text="Select an option" invalid>
+          <str-radio value="1">Option 1</str-radio>
+          <str-radio value="2">Option 2</str-radio>
+          <str-radio value="3">Option 3</str-radio>
+        </str-radio-group>
+      </section>
+
+      <section>
+        <h3>Invalid with horizontal</h3>
+
+        <str-radio-group label="Select an option" invalid-text="Select an option" horizontal invalid>
+          <str-radio value="1">Option 1</str-radio>
+          <str-radio value="2">Option 2</str-radio>
+          <str-radio value="3">Option 3</str-radio>
+        </str-radio-group>
+      </section>
+
+      <section>
+        <h3>Required indicator</h3>
+
+        <str-radio-group label="Select an option" required-indicator>
+          <str-radio value="1" aria-label="Option one">Option 1</str-radio>
+          <str-radio value="2">Option 2</str-radio>
+          <str-radio value="3">Option 3</str-radio>
+        </str-radio-group>
+      </section>
+    </section>
+
+    <section>
+      <h2>Dropdown (str-dropdown)</h2>
+
+      <section>
+        <h3>General usage</h3>
+
+        <str-dropdown>
+          <str-button slot="trigger" caret>Dropdown</str-button>
+          <str-menu>
+            <str-menu-item>Dropdown Item 1</str-menu-item>
+            <str-menu-item>Dropdown Item 2</str-menu-item>
+            <str-menu-item>Dropdown Item 3</str-menu-item>
+            <str-menu-divider></str-menu-divider>
+            <str-menu-item checked>Checked</str-menu-item>
+            <str-menu-item disabled>Disabled</str-menu-item>
+            <str-menu-divider></str-menu-divider>
+            <str-menu-item>
+              Start Icon
+              <ion-icon slot="start" name="gift-outline" aria-hidden="true"></ion-icon>
+            </str-menu-item>
+            <str-menu-item>
+              End Icon
+              <ion-icon slot="end" name="heart-outline" aria-hidden="true"></ion-icon>
+            </str-menu-item>
+          </str-menu>
+        </str-dropdown>
+      </section>
+
+      <section>
+        <h3>Placement</h3>
+        <str-dropdown placement="top-start">
+          <str-button slot="trigger" caret>Edit</str-button>
+          <str-menu>
+            <str-menu-item>Cut</str-menu-item>
+            <str-menu-item>Copy</str-menu-item>
+            <str-menu-item>Paste</str-menu-item>
+            <str-menu-divider></str-menu-divider>
+            <str-menu-item>Find</str-menu-item>
+            <str-menu-item>Replace</str-menu-item>
+          </str-menu>
+        </str-dropdown>
+      </section>
+
+      <section>
+        <h3>Distance</h3>
+        <str-dropdown distance="30">
+          <str-button slot="trigger" caret>Edit</str-button>
+          <str-menu>
+            <str-menu-item>Cut</str-menu-item>
+            <str-menu-item>Copy</str-menu-item>
+            <str-menu-item>Paste</str-menu-item>
+            <str-menu-divider></str-menu-divider>
+            <str-menu-item>Find</str-menu-item>
+            <str-menu-item>Replace</str-menu-item>
+          </str-menu>
+        </str-dropdown>
+      </section>
+
+      <section>
+        <h3>Skidding</h3>
+        <str-dropdown skidding="30">
+          <str-button slot="trigger" caret>Edit</str-button>
+          <str-menu>
+            <str-menu-item>Cut</str-menu-item>
+            <str-menu-item>Copy</str-menu-item>
+            <str-menu-item>Paste</str-menu-item>
+            <str-menu-divider></str-menu-divider>
+            <str-menu-item>Find</str-menu-item>
+            <str-menu-item>Replace</str-menu-item>
+          </str-menu>
+        </str-dropdown>
+      </section>
+
+      <section>
+        <h3>Hoisting</h3>
+        <div class="dropdown-hoist">
+          <str-dropdown>
+            <str-button slot="trigger" caret>No Hoist</str-button>
+            <str-menu>
+              <str-menu-item>Item 1</str-menu-item>
+              <str-menu-item>Item 2</str-menu-item>
+              <str-menu-item>Item 3</str-menu-item>
+            </str-menu>
+          </str-dropdown>
+
+          <str-dropdown hoist>
+            <str-button slot="trigger" caret>Hoist</str-button>
+            <str-menu>
+              <str-menu-item>Item 1</str-menu-item>
+              <str-menu-item>Item 2</str-menu-item>
+              <str-menu-item>Item 3</str-menu-item>
+            </str-menu>
+          </str-dropdown>
+        </div>
+
+        <style>
+          .dropdown-hoist {
+            border: solid 2px var(--str-panel-border-color);
+            padding: var(--str-spacing-medium);
+            overflow: hidden;
+          }
+        </style>
+      </section>
+
+      <section>
+        <h3>Getting the Selected Item</h3>
+        <div class="dropdown-selection">
+          <str-dropdown>
+            <str-button slot="trigger" caret>Edit</str-button>
+            <str-menu>
+              <str-menu-item value="cut">Cut</str-menu-item>
+              <str-menu-item value="copy">Copy</str-menu-item>
+              <str-menu-item value="paste">Paste</str-menu-item>
+            </str-menu>
+          </str-dropdown>
+        </div>
+      </section>
+
+       <script>
+          const container = document.querySelector('.dropdown-selection');
+          const dropdown = container.querySelector('str-dropdown');
+
+          dropdown.addEventListener('strSelect', (event) => {
+            const selectedItem = event.detail.item;
+            console.log(selectedItem.value);
+          });
+        </script>
+    </section>
+
+    <section>
+      <h2>Select (str-select)</h2>
+
+      <section>
+        <h3>Select one</h3>
+        <str-select label="Select one">
+          <str-menu-item value="option-1">Option 1</str-menu-item>
+          <str-menu-item value="option-2">Option 2</str-menu-item>
+          <str-menu-item value="option-3">Option 3</str-menu-item>
+          <str-menu-divider></str-menu-divider>
+          <str-menu-item value="option-4">Option 4</str-menu-item>
+          <str-menu-item value="option-5">Option 5</str-menu-item>
+          <str-menu-item value="option-6">Option 6</str-menu-item>
+        </str-select>
+      </section>
+
+      <section>
+        <h3>Placeholders</h3>
+        <str-select placeholder="Select one...">
+          <str-menu-item value="option-1">Option 1</str-menu-item>
+          <str-menu-item value="option-2">Option 2</str-menu-item>
+          <str-menu-item value="option-3">Option 3</str-menu-item>
+        </str-select>
+      </section>
+
+       <section>
+          <h3>Clearable</h3>
+          <str-select placeholder="Clearable" clearable>
+            <str-menu-item value="option-1">Option 1</str-menu-item>
+            <str-menu-item value="option-2">Option 2</str-menu-item>
+            <str-menu-item value="option-3">Option 3</str-menu-item>
+          </str-select>
+        </section>
+
+        <section>
+          <h3>Pill</h3>
+          <str-select pill>
+            <str-menu-item value="option-1">Option 1</str-menu-item>
+            <str-menu-item value="option-2">Option 2</str-menu-item>
+            <str-menu-item value="option-3">Option 3</str-menu-item>
+          </str-select>
+        </section>
+
+        <section>
+          <h3>Disabled</h3>
+          <str-select placeholder="Disabled" disabled>
+            <str-menu-item value="option-1">Option 1</str-menu-item>
+            <str-menu-item value="option-2">Option 2</str-menu-item>
+            <str-menu-item value="option-3">Option 3</str-menu-item>
+          </str-select>
+        </section>
+
+        <section>
+          <h3>Multiple</h3>
+          <str-select placeholder="Select a few" multiple clearable>
+            <str-menu-item value="option-1">Option 1</str-menu-item>
+            <str-menu-item value="option-2">Option 2</str-menu-item>
+            <str-menu-item value="option-3">Option 3</str-menu-item>
+            <str-menu-divider></str-menu-divider>
+            <str-menu-item value="option-4">Option 4</str-menu-item>
+            <str-menu-item value="option-5">Option 5</str-menu-item>
+            <str-menu-item value="option-6">Option 6</str-menu-item>
+          </str-select>
+        </section>
+
+        <section>
+          <h3>Grouping Options</h3>
+          <str-select placeholder="Select one">
+            <str-menu-label>Group 1</str-menu-label>
+            <str-menu-item value="option-1">Option 1</str-menu-item>
+            <str-menu-item value="option-2">Option 2</str-menu-item>
+            <str-menu-item value="option-3">Option 3</str-menu-item>
+            <str-menu-divider></str-menu-divider>
+            <str-menu-label>Group 2</str-menu-label>
+            <str-menu-item value="option-4">Option 4</str-menu-item>
+            <str-menu-item value="option-5">Option 5</str-menu-item>
+            <str-menu-item value="option-6">Option 6</str-menu-item>
+          </str-select>
+        </section>
+
+        <section>
+          <h3>Sizes</h3>
+          <str-select placeholder="Small" size="small" multiple>
+            <str-menu-item value="option-1">Option 1</str-menu-item>
+            <str-menu-item value="option-2">Option 2</str-menu-item>
+            <str-menu-item value="option-3">Option 3</str-menu-item>
+          </str-select>
+
+          <br />
+
+          <str-select placeholder="Medium" size="medium" multiple>
+            <str-menu-item value="option-1">Option 1</str-menu-item>
+            <str-menu-item value="option-2">Option 2</str-menu-item>
+            <str-menu-item value="option-3">Option 3</str-menu-item>
+          </str-select>
+
+          <br />
+
+          <str-select placeholder="Large" size="large" multiple>
+            <str-menu-item value="option-1">Option 1</str-menu-item>
+            <str-menu-item value="option-2">Option 2</str-menu-item>
+            <str-menu-item value="option-3">Option 3</str-menu-item>
+          </str-select>
+        </section>
+
+        <section>
+          <h3>Selecting Options Programmatically</h3>
+          <div class="selecting-example">
+            <str-select placeholder="">
+              <str-menu-item value="option-1">Option 1</str-menu-item>
+              <str-menu-item value="option-2">Option 2</str-menu-item>
+              <str-menu-item value="option-3">Option 3</str-menu-item>
+            </str-select>
+
+            <br />
+
+            <str-button data-option="option-1">Set 1</str-button>
+            <str-button data-option="option-2">Set 2</str-button>
+            <str-button data-option="option-3">Set 3</str-button>
+          </div>
+        </section>
+
+        <script>
+          const container2 = document.querySelector('.selecting-example');
+          const select = container2.querySelector('str-select');
+
+          [...container2.querySelectorAll('str-button')].map((button) => {
+            button.addEventListener('click', () => {
+              select.value = button.dataset.option;
+            });
+          });
+        </script>
+
+        <section>
+          <h3>Invalid</h3>
+          <str-select invalid>
+            <str-menu-item value="option-1">Option 1</str-menu-item>
+            <str-menu-item value="option-2">Option 2</str-menu-item>
+            <str-menu-item value="option-3">Option 3</str-menu-item>
+          </str-select>
+        </section>
+
+        <section>
+          <h3>Labels</h3>
+          <str-select label="Select one">
+            <str-menu-item value="option-1">Option 1</str-menu-item>
+            <str-menu-item value="option-2">Option 2</str-menu-item>
+            <str-menu-item value="option-3">Option 3</str-menu-item>
+          </str-select>
+        </section>
+
+        <section>
+          <h3>Required or optional</h3>
+          <str-select label="Country (optional)" placeholder="Select a country...">
+            <str-menu-item value="nl">Netherlands</str-menu-item>
+            <str-menu-item value="us">United States</str-menu-item>
+          </str-select>
+          <br />
+          <str-select label="Country (required)" placeholder="Select a country...">
+            <str-menu-item value="nl">Netherlands</str-menu-item>
+            <str-menu-item value="us">United States</str-menu-item>
+          </str-select>
+          <br />
+          <str-select label="Country" placeholder="Select a country..." required-indicator>
+            <str-menu-item value="nl">Netherlands</str-menu-item>
+            <str-menu-item value="us">United States</str-menu-item>
+          </str-select>
+        </section>
+
+        <section>
+          <h3>Help Text</h3>
+          <str-select label="Experience" help-text="Please tell us your skill level.">
+            <str-menu-item value="option-1">Novice</str-menu-item>
+            <str-menu-item value="option-2">Intermediate</str-menu-item>
+            <str-menu-item value="option-3">Advanced</str-menu-item>
+          </str-select>
+        </section>
+
+        <section>
+          <h3>Invalid Text</h3>
+          <str-select
+            label="Experience"
+            help-text="Please tell us your skill level."
+            invalid-text="Select your skill level."
+            invalid
+          >
+            <str-menu-item value="option-1">Novice</str-menu-item>
+            <str-menu-item value="option-2">Intermediate</str-menu-item>
+            <str-menu-item value="option-3">Advanced</str-menu-item>
+          </str-select>
+        </section>
+    </section>
+
+    <section>
+      <h2>Textarea</h2>
+
+      <section>
+        <h3>Basic usage</h3>
+        <str-textarea label="Feedback"></str-textarea>
+      </section>
+
+      <section>
+        <h3>Options</h3>
+
+        <section>
+          <h4>Rows</h4>
+          <str-textarea rows="2"></str-textarea>
+        </section>
+
+        <section>
+          <h4>Placeholders</h4>
+          <str-textarea placeholder="Type something"></str-textarea>
+        </section>
+
+        <section>
+          <h4>Disabled</h4>
+          <str-textarea placeholder="Textarea" disabled></str-textarea>
+        </section>
+
+        <section>
+          <h4>Sizes</h4>
+          <str-textarea placeholder="Small" size="small"></str-textarea>
+          <br />
+          <str-textarea placeholder="Medium" size="medium"></str-textarea>
+          <br />
+          <str-textarea placeholder="Large" size="large"></str-textarea>
+        </section>
+
+        <section>
+          <h4>Invalid</h4>
+          <str-textarea placeholder="Invalid" invalid></str-input>
+        </section>
+
+        <section>
+          <h4>Labels</h4>
+          <str-textarea label="Comments"></str-textarea>
+        </section>
+
+         <section>
+          <h4>Required or optional</h4>
+          <str-textarea label="Interests (required)" value="Photostoriesaphy, gardening"></str-textarea>
+          <br />
+          <str-textarea label="Interests (optional)" value="Photostoriesaphy, gardening"></str-textarea>
+          <br />
+          <str-textarea label="Interests" value="Photostoriesaphy, gardening" required-indicator></str-textarea>
+        </section>
+
+        <section>
+          <h4>Help Text</h4>
+          <str-textarea label="Feedback" help-text="Please tell us what you think."></str-textarea>
+        </section>
+
+        <section>
+          <h4>Invalid Text</h4>
+          <str-textarea
+            label="Feedback"
+            help-text="Please tell us what you think."
+            invalid-text="Tell us what you think."
+            invalid
+          ></str-textarea>
+        </section>
+
+        <section>
+          <h4>Prevent Resizing</h4>
+          <str-textarea resize="none"></str-textarea>
+        </section>
+
+        <section>
+          <h4>Expand with Content</h4>
+          <str-textarea resize="auto"></str-textarea>
+        </section>
+      </section>
+    </section>
+
+    <section>
+      <h2>Grid (str-grid)</h2>
+
+      <section>
+        <h3>Basic</h3>
+
+        <str-grid>
+          <str-row>
+            <str-col>
+              str-col
+            </str-col>
+            <str-col>
+              str-col
+            </str-col>
+            <str-col>
+              str-col
+            </str-col>
+            <str-col>
+              str-col
+            </str-col>
+          </str-row>
+
+          <str-row>
+            <str-col size="6">
+              str-col [size="6"]
+            </str-col>
+            <str-col>
+              str-col
+            </str-col>
+            <str-col>
+              str-col
+            </str-col>
+          </str-row>
+
+          <str-row>
+            <str-col size="3">
+              str-col [size="3"]
+            </str-col>
+            <str-col>
+              str-col
+            </str-col>
+            <str-col size="3">
+              str-col [size="3"]
+            </str-col>
+          </str-row>
+
+          <str-row>
+            <str-col size="3">
+              str-col [size="3"]
+            </str-col>
+            <str-col size="3" offset="3">
+              str-col [size="3"] [offset="3"]
+            </str-col>
+          </str-row>
+
+          <str-row>
+            <str-col>
+              str-col
+            </str-col>
+            <str-col>
+              str-col
+              <br>#
+            </str-col>
+            <str-col>
+              str-col
+              <br>#
+              <br>#
+            </str-col>
+            <str-col>
+              str-col
+              <br>#
+              <br>#
+              <br>#
+            </str-col>
+          </str-row>
+
+          <str-row>
+            <str-col class="str-align-self-start">
+              str-col [start]
+            </str-col>
+            <str-col class="str-align-self-center">
+              str-col [center]
+            </str-col>
+            <str-col class="str-align-self-end">
+              str-col [end]
+            </str-col>
+            <str-col>
+              str-col
+              <br>#
+              <br>#
+            </str-col>
+          </str-row>
+
+          <str-row class="str-align-items-start">
+            <str-col>
+              [start] str-col
+            </str-col>
+            <str-col>
+              [start] str-col
+            </str-col>
+            <str-col class="str-align-self-end">
+              [start] str-col [end]
+            </str-col>
+            <str-col>
+              str-col
+              <br>#
+              <br>#
+            </str-col>
+          </str-row>
+
+          <str-row class="str-align-items-center">
+            <str-col>
+              [center] str-col
+            </str-col>
+            <str-col>
+              [center] str-col
+            </str-col>
+            <str-col>
+              [center] str-col
+            </str-col>
+            <str-col>
+              str-col
+              <br>#
+              <br>#
+            </str-col>
+          </str-row>
+
+          <str-row class="str-align-items-end">
+            <str-col>
+              [end] str-col
+            </str-col>
+            <str-col class="str-align-self-start">
+              [end] str-col [start]
+            </str-col>
+            <str-col>
+              [end] str-col
+            </str-col>
+            <str-col>
+              str-col
+              <br>#
+              <br>#
+            </str-col>
+          </str-row>
+
+          <str-row>
+            <str-col size="12" size-sm>
+              str-col [size="12"] [size-sm]
+            </str-col>
+            <str-col size="12" size-sm>
+              str-col [size="12"] [size-sm]
+            </str-col>
+            <str-col size="12" size-sm>
+              str-col [size="12"] [size-sm]
+            </str-col>
+            <str-col size="12" size-sm>
+              str-col [size="12"] [size-sm]
+            </str-col>
+          </str-row>
+
+          <str-row>
+            <str-col size="12" size-md>
+              str-col [size="12"] [size-md]
+            </str-col>
+            <str-col size="12" size-md>
+              str-col [size="12"] [size-md]
+            </str-col>
+            <str-col size="12" size-md>
+              str-col [size="12"] [size-md]
+            </str-col>
+            <str-col size="12" size-md>
+              str-col [size="12"] [size-md]
+            </str-col>
+          </str-row>
+
+          <str-row>
+            <str-col size="6" size-lg offset="3">
+              str-col [size="6"] [size-lg] [offset="3"]
+            </str-col>
+            <str-col size="3" size-lg>
+              str-col [size="3"] [size-lg]
+            </str-col>
+          </str-row>
+        </str-grid>
+      </section>
+    </section>
+
+    <section>
+      <h2>Toolbar (str-toolbar)</h2>
+      <str-tool-bar>
+        <str-tool-zoom slot="left"></str-tool-zoom>
+      </str-tool-bar>
+    </section>
+
+    <section>
+      <h2>Tabs</h2>
+       <str-tabs style="height: 300px">
+         <str-tab-bar>
+          <str-tab-button tab="tab1">
+            <str-label color="primary">Tab 1</str-label>
+          </str-tab-button>
+          <str-tab-button tab="tab2">
+            <str-label color="primary">Tab 2</str-label>
+          </str-tab-button>
+        </str-tab-bar>
+        <str-tab tab="tab1">
+          <div>Tab 1 content</div>
+        </str-tab>
+        <str-tab tab="tab2">
+          <div>Tab 2 content</div>
+        </str-tab>
+       </str-tabs>
+    </section>
+
+  </body>
+</html>

@@ -1,6 +1,6 @@
 ```tsx
 import React from 'react';
-import { StoriesBadge, StoriesButton, StoriesLabel } from '@stories-js/react';
+import { StoriesBadge, StoriesButton, StoriesLabel } from '@str-js/react';
 
 export const BadgeExample: React.FC = () => (
   <div>

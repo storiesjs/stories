@@ -6,7 +6,7 @@ import { browserSupportsCssZoom, computeTransformStyle, computeZoomStyle } from 
 const zoomStyle = browserSupportsCssZoom();
 
 @Component({
-  tag: 'stories-zoom',
+  tag: 'str-zoom',
   styleUrl: 'zoom.scss',
   shadow: true,
 })

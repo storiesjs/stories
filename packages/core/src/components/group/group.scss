@@ -1,0 +1,58 @@
+@import '../../themes/stories.globals';
+
+:host {
+  /**
+   * @prop --margin-between-fields: Margin between the children
+   * @prop --margin-between-fields-horizontal: Margin between the children when layout is horizontal
+   * @prop --align-fields: Alignment of fields on cross-axis, an `align-items` Flexbox property
+   */
+  --margin-between-fields: var(--str-spacing-xx-small);
+  --margin-between-fields-horizontal: var(--str-spacing-medium);
+  --align-fields: flex-start;
+
+  display: block;
+  box-sizing: border-box;
+
+  & *,
+  & *:before,
+  & *:after {
+    box-sizing: inherit;
+  }
+}
+
+.group {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: var(--align-fields);
+  gap: var(--margin-between-fields);
+}
+
+.group-horizontal .content {
+  flex-direction: row;
+  gap: var(--margin-between-fields-horizontal);
+}
+
+.group-label {
+  display: none;
+}
+
+.group-has-label {
+  .group-label {
+    line-height: var(--str-line-height-normal);
+    color: var(--str-form-element-label-color);
+    margin-bottom: var(--str-spacing-xxx-small);
+    font-size: var(--str-form-element-label-font-size-medium);
+
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+    margin-bottom: var(--str-spacing-xxx-small);
+  }
+}

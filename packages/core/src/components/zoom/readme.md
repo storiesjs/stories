@@ -1,6 +1,6 @@
-# stories-zoom
+# Zoom
 
-The stories-zoom is a container managing visual zoom of content.
+The Zoom (str-zoom) is a container managing visual zoom of content.
 
 <!-- Auto Generated Below -->
 
@@ -16,15 +16,15 @@ The stories-zoom is a container managing visual zoom of content.
 
 ### Used by
 
- - [stories-preview](../preview)
+ - [str-preview](../preview)
 
 ### Graph
 ```mermaid
 graph TD;
-  stories-preview --> stories-zoom
-  style stories-zoom fill:#f9f,stroke:#333,stroke-width:4px
+  str-preview --> str-zoom
+  style str-zoom fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

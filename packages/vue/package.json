@@ -1,6 +1,6 @@
 {
   "name": "@stories-js/vue",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "GPL-2.0",
   "author": "StoriesJS team",
   "description": "Vue 3 Stories renderer and wrapper for custom elements of Stories to be used as first-class Vue 3 components",
@@ -35,7 +35,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/storiesjs/stories.git"
+    "url": "https://github.com/storiesjs/stories.git",
+    "directory": "packages/vue"
   },
   "scripts": {
     "lint": "echo add linter",
@@ -52,10 +53,10 @@
     "pub": "npm config set //registry.npmjs.org/:_authToken=${NPM_TOKEN} && yarn publish --access public"
   },
   "dependencies": {
-    "@stories-js/core": "0.2.0"
+    "@stories-js/core": "0.3.0"
   },
   "devDependencies": {
-    "@stencil/core": "^2.14.2",
+    "@stencil/core": "^2.15.2",
     "@vue/test-utils": "^2.0.0-rc.16",
     "change-case": "^4.1.2",
     "fs-extra": "^10.0.1",

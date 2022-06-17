@@ -5,98 +5,104 @@ import { defineContainer } from './vue-component-lib/utils';
 
 import type { JSX } from '@stories-js/core/components';
 
-import { defineCustomElement as defineStoriesAddonActions } from '@stories-js/core/components/stories-addon-actions.js';
-import { defineCustomElement as defineStoriesAddonControls } from '@stories-js/core/components/stories-addon-controls.js';
-import { defineCustomElement as defineStoriesAddons } from '@stories-js/core/components/stories-addons.js';
-import { defineCustomElement as defineStoriesApp } from '@stories-js/core/components/stories-app.js';
-import { defineCustomElement as defineStoriesBadge } from '@stories-js/core/components/stories-badge.js';
-import { defineCustomElement as defineStoriesButton } from '@stories-js/core/components/stories-button.js';
-import { defineCustomElement as defineStoriesButtons } from '@stories-js/core/components/stories-buttons.js';
-import { defineCustomElement as defineStoriesCheckbox } from '@stories-js/core/components/stories-checkbox.js';
-import { defineCustomElement as defineStoriesCol } from '@stories-js/core/components/stories-col.js';
-import { defineCustomElement as defineStoriesFooter } from '@stories-js/core/components/stories-footer.js';
-import { defineCustomElement as defineStoriesGrid } from '@stories-js/core/components/stories-grid.js';
-import { defineCustomElement as defineStoriesIcon } from '@stories-js/core/components/stories-icon.js';
-import { defineCustomElement as defineStoriesInput } from '@stories-js/core/components/stories-input.js';
-import { defineCustomElement as defineStoriesLabel } from '@stories-js/core/components/stories-label.js';
-import { defineCustomElement as defineStoriesPreview } from '@stories-js/core/components/stories-preview.js';
-import { defineCustomElement as defineStoriesRouter } from '@stories-js/core/components/stories-router.js';
-import { defineCustomElement as defineStoriesRow } from '@stories-js/core/components/stories-row.js';
-import { defineCustomElement as defineStoriesSearchbar } from '@stories-js/core/components/stories-searchbar.js';
-import { defineCustomElement as defineStoriesSidebar } from '@stories-js/core/components/stories-sidebar.js';
-import { defineCustomElement as defineStoriesSplitPane } from '@stories-js/core/components/stories-split-pane.js';
-import { defineCustomElement as defineStoriesTab } from '@stories-js/core/components/stories-tab.js';
-import { defineCustomElement as defineStoriesTabBar } from '@stories-js/core/components/stories-tab-bar.js';
-import { defineCustomElement as defineStoriesTabButton } from '@stories-js/core/components/stories-tab-button.js';
-import { defineCustomElement as defineStoriesTabs } from '@stories-js/core/components/stories-tabs.js';
-import { defineCustomElement as defineStoriesToolBar } from '@stories-js/core/components/stories-tool-bar.js';
-import { defineCustomElement as defineStoriesToolButton } from '@stories-js/core/components/stories-tool-button.js';
-import { defineCustomElement as defineStoriesToolZoom } from '@stories-js/core/components/stories-tool-zoom.js';
-import { defineCustomElement as defineStoriesZoom } from '@stories-js/core/components/stories-zoom.js';
+import { defineCustomElement as defineStrAddonActions } from '@stories-js/core/components/str-addon-actions.js';
+import { defineCustomElement as defineStrAddonControls } from '@stories-js/core/components/str-addon-controls.js';
+import { defineCustomElement as defineStrAddons } from '@stories-js/core/components/str-addons.js';
+import { defineCustomElement as defineStrApp } from '@stories-js/core/components/str-app.js';
+import { defineCustomElement as defineStrBadge } from '@stories-js/core/components/str-badge.js';
+import { defineCustomElement as defineStrButton } from '@stories-js/core/components/str-button.js';
+import { defineCustomElement as defineStrCheckbox } from '@stories-js/core/components/str-checkbox.js';
+import { defineCustomElement as defineStrCol } from '@stories-js/core/components/str-col.js';
+import { defineCustomElement as defineStrDropdown } from '@stories-js/core/components/str-dropdown.js';
+import { defineCustomElement as defineStrFooter } from '@stories-js/core/components/str-footer.js';
+import { defineCustomElement as defineStrGrid } from '@stories-js/core/components/str-grid.js';
+import { defineCustomElement as defineStrGroup } from '@stories-js/core/components/str-group.js';
+import { defineCustomElement as defineStrIcon } from '@stories-js/core/components/str-icon.js';
+import { defineCustomElement as defineStrInput } from '@stories-js/core/components/str-input.js';
+import { defineCustomElement as defineStrLabel } from '@stories-js/core/components/str-label.js';
+import { defineCustomElement as defineStrMenu } from '@stories-js/core/components/str-menu.js';
+import { defineCustomElement as defineStrMenuDivider } from '@stories-js/core/components/str-menu-divider.js';
+import { defineCustomElement as defineStrMenuItem } from '@stories-js/core/components/str-menu-item.js';
+import { defineCustomElement as defineStrMenuLabel } from '@stories-js/core/components/str-menu-label.js';
+import { defineCustomElement as defineStrPreview } from '@stories-js/core/components/str-preview.js';
+import { defineCustomElement as defineStrRadio } from '@stories-js/core/components/str-radio.js';
+import { defineCustomElement as defineStrRadioGroup } from '@stories-js/core/components/str-radio-group.js';
+import { defineCustomElement as defineStrRouter } from '@stories-js/core/components/str-router.js';
+import { defineCustomElement as defineStrRow } from '@stories-js/core/components/str-row.js';
+import { defineCustomElement as defineStrSearchbar } from '@stories-js/core/components/str-searchbar.js';
+import { defineCustomElement as defineStrSelect } from '@stories-js/core/components/str-select.js';
+import { defineCustomElement as defineStrSidebar } from '@stories-js/core/components/str-sidebar.js';
+import { defineCustomElement as defineStrSpinner } from '@stories-js/core/components/str-spinner.js';
+import { defineCustomElement as defineStrSplitPane } from '@stories-js/core/components/str-split-pane.js';
+import { defineCustomElement as defineStrTab } from '@stories-js/core/components/str-tab.js';
+import { defineCustomElement as defineStrTabBar } from '@stories-js/core/components/str-tab-bar.js';
+import { defineCustomElement as defineStrTabButton } from '@stories-js/core/components/str-tab-button.js';
+import { defineCustomElement as defineStrTabs } from '@stories-js/core/components/str-tabs.js';
+import { defineCustomElement as defineStrTag } from '@stories-js/core/components/str-tag.js';
+import { defineCustomElement as defineStrTextarea } from '@stories-js/core/components/str-textarea.js';
+import { defineCustomElement as defineStrToolBar } from '@stories-js/core/components/str-tool-bar.js';
+import { defineCustomElement as defineStrToolButton } from '@stories-js/core/components/str-tool-button.js';
+import { defineCustomElement as defineStrToolZoom } from '@stories-js/core/components/str-tool-zoom.js';
+import { defineCustomElement as defineStrZoom } from '@stories-js/core/components/str-zoom.js';
 
 
-export const StoriesAddonActions = /*@__PURE__*/ defineContainer<JSX.StoriesAddonActions>('stories-addon-actions', defineStoriesAddonActions);
+export const StrAddonActions = /*@__PURE__*/ defineContainer<JSX.StrAddonActions>('str-addon-actions', defineStrAddonActions);
 
 
-export const StoriesAddonControls = /*@__PURE__*/ defineContainer<JSX.StoriesAddonControls>('stories-addon-controls', defineStoriesAddonControls);
+export const StrAddonControls = /*@__PURE__*/ defineContainer<JSX.StrAddonControls>('str-addon-controls', defineStrAddonControls);
 
 
-export const StoriesAddons = /*@__PURE__*/ defineContainer<JSX.StoriesAddons>('stories-addons', defineStoriesAddons);
+export const StrAddons = /*@__PURE__*/ defineContainer<JSX.StrAddons>('str-addons', defineStrAddons);
 
 
-export const StoriesApp = /*@__PURE__*/ defineContainer<JSX.StoriesApp>('stories-app', defineStoriesApp, [
+export const StrApp = /*@__PURE__*/ defineContainer<JSX.StrApp>('str-app', defineStrApp, [
   'modules',
   'store',
-  'storyChange',
-  'storyContextChange'
+  'strChange',
+  'strContextChange'
 ]);
 
 
-export const StoriesBadge = /*@__PURE__*/ defineContainer<JSX.StoriesBadge>('stories-badge', defineStoriesBadge, [
-  'color'
-]);
-
-
-export const StoriesButton = /*@__PURE__*/ defineContainer<JSX.StoriesButton>('stories-button', defineStoriesButton, [
-  'color',
-  'buttonType',
-  'disabled',
-  'expand',
-  'fill',
-  'routerDirection',
-  'href',
-  'shape',
+export const StrBadge = /*@__PURE__*/ defineContainer<JSX.StrBadge>('str-badge', defineStrBadge, [
   'type',
+  'size'
+]);
+
+
+export const StrButton = /*@__PURE__*/ defineContainer<JSX.StrButton>('str-button', defineStrButton, [
+  'variant',
+  'disabled',
+  'loading',
   'size',
-  'strong',
+  'caret',
+  'pill',
+  'expand',
+  'circle',
+  'href',
   'target',
-  'storiesFocus',
-  'storiesBlur',
-  'storiesClick'
+  'rel',
+  'type',
+  'strFocus',
+  'strBlur'
 ]);
 
 
-export const StoriesButtons = /*@__PURE__*/ defineContainer<JSX.StoriesButtons>('stories-buttons', defineStoriesButtons, [
-  'collapse'
-]);
-
-
-export const StoriesCheckbox = /*@__PURE__*/ defineContainer<JSX.StoriesCheckbox>('stories-checkbox', defineStoriesCheckbox, [
-  'color',
+export const StrCheckbox = /*@__PURE__*/ defineContainer<JSX.StrCheckbox>('str-checkbox', defineStrCheckbox, [
+  'value',
+  'disabled',
   'name',
   'checked',
   'indeterminate',
-  'disabled',
-  'value',
-  'storiesChange',
-  'storiesFocus',
-  'storiesBlur',
-  'storiesStyle'
+  'invalidText',
+  'invalid',
+  'strBlur',
+  'strFocus',
+  'strChange'
 ],
-'checked', 'v-stories-change', 'storiesChange');
+'checked', 'v-str-change', 'strChange');
 
 
-export const StoriesCol = /*@__PURE__*/ defineContainer<JSX.StoriesCol>('stories-col', defineStoriesCol, [
+export const StrCol = /*@__PURE__*/ defineContainer<JSX.StrCol>('str-col', defineStrCol, [
   'offset',
   'offsetXs',
   'offsetSm',
@@ -124,65 +130,135 @@ export const StoriesCol = /*@__PURE__*/ defineContainer<JSX.StoriesCol>('stories
 ]);
 
 
-export const StoriesFooter = /*@__PURE__*/ defineContainer<JSX.StoriesFooter>('stories-footer', defineStoriesFooter);
+export const StrDropdown = /*@__PURE__*/ defineContainer<JSX.StrDropdown>('str-dropdown', defineStrDropdown, [
+  'open',
+  'placement',
+  'closeOnSelect',
+  'containingElement',
+  'distance',
+  'skidding',
+  'hoist',
+  'strShow',
+  'strAfterShow',
+  'strHide',
+  'strAfterHide'
+]);
 
 
-export const StoriesGrid = /*@__PURE__*/ defineContainer<JSX.StoriesGrid>('stories-grid', defineStoriesGrid, [
+export const StrFooter = /*@__PURE__*/ defineContainer<JSX.StrFooter>('str-footer', defineStrFooter);
+
+
+export const StrGrid = /*@__PURE__*/ defineContainer<JSX.StrGrid>('str-grid', defineStrGrid, [
   'fixed'
 ]);
 
 
-export const StoriesIcon = /*@__PURE__*/ defineContainer<JSX.StoriesIcon>('stories-icon', defineStoriesIcon, [
+export const StrGroup = /*@__PURE__*/ defineContainer<JSX.StrGroup>('str-group', defineStrGroup, [
+  'label',
+  'horizontal'
+]);
+
+
+export const StrIcon = /*@__PURE__*/ defineContainer<JSX.StrIcon>('str-icon', defineStrIcon, [
   'name'
 ]);
 
 
-export const StoriesInput = /*@__PURE__*/ defineContainer<JSX.StoriesInput>('stories-input', defineStoriesInput, [
-  'fireFocusEvents',
-  'color',
-  'autofocus',
-  'clearInput',
-  'debounce',
-  'disabled',
-  'inputmode',
-  'max',
-  'maxlength',
-  'min',
-  'minlength',
-  'name',
-  'pattern',
-  'placeholder',
-  'readonly',
-  'required',
-  'step',
-  'size',
-  'type',
+export const StrInput = /*@__PURE__*/ defineContainer<JSX.StrInput>('str-input', defineStrInput, [
   'value',
-  'storiesInput',
-  'storiesChange',
-  'storiesBlur',
-  'storiesFocus',
-  'storiesStyle'
+  'type',
+  'pill',
+  'disabled',
+  'name',
+  'placeholder',
+  'size',
+  'label',
+  'requiredIndicator',
+  'helpText',
+  'invalidText',
+  'invalid',
+  'clearable',
+  'inputmode',
+  'readonly',
+  'maxlength',
+  'spellcheck',
+  'min',
+  'max',
+  'step',
+  'enterkeyhint',
+  'autocapitalize',
+  'autocomplete',
+  'autocorrect',
+  'autofocus',
+  'debounce',
+  'togglePassword',
+  'stroiesChange',
+  'stroiesClear',
+  'stroiesInput',
+  'stroiesFocus',
+  'stroiesBlur'
 ],
-'value', 'v-stories-change', 'storiesChange');
+'value', 'v-str-change', 'strChange');
 
 
-export const StoriesLabel = /*@__PURE__*/ defineContainer<JSX.StoriesLabel>('stories-label', defineStoriesLabel, [
+export const StrLabel = /*@__PURE__*/ defineContainer<JSX.StrLabel>('str-label', defineStrLabel, [
   'color',
   'position'
 ]);
 
 
-export const StoriesPreview = /*@__PURE__*/ defineContainer<JSX.StoriesPreview>('stories-preview', defineStoriesPreview);
+export const StrMenu = /*@__PURE__*/ defineContainer<JSX.StrMenu>('str-menu', defineStrMenu, [
+  'strSelect'
+]);
 
 
-export const StoriesRouter = /*@__PURE__*/ defineContainer<JSX.StoriesRouter>('stories-router', defineStoriesRouter);
+export const StrMenuDivider = /*@__PURE__*/ defineContainer<JSX.StrMenuDivider>('str-menu-divider', defineStrMenuDivider);
 
 
-export const StoriesRow = /*@__PURE__*/ defineContainer<JSX.StoriesRow>('stories-row', defineStoriesRow);
+export const StrMenuItem = /*@__PURE__*/ defineContainer<JSX.StrMenuItem>('str-menu-item', defineStrMenuItem, [
+  'checked',
+  'value',
+  'disabled'
+]);
 
 
-export const StoriesSearchbar = /*@__PURE__*/ defineContainer<JSX.StoriesSearchbar>('stories-searchbar', defineStoriesSearchbar, [
+export const StrMenuLabel = /*@__PURE__*/ defineContainer<JSX.StrMenuLabel>('str-menu-label', defineStrMenuLabel);
+
+
+export const StrPreview = /*@__PURE__*/ defineContainer<JSX.StrPreview>('str-preview', defineStrPreview);
+
+
+export const StrRadio = /*@__PURE__*/ defineContainer<JSX.StrRadio>('str-radio', defineStrRadio, [
+  'value',
+  'disabled',
+  'checked',
+  'strBlur',
+  'strFocus'
+],
+'value', 'v-str-change', 'strChange');
+
+
+export const StrRadioGroup = /*@__PURE__*/ defineContainer<JSX.StrRadioGroup>('str-radio-group', defineStrRadioGroup, [
+  'allowEmptySelection',
+  'label',
+  'requiredIndicator',
+  'invalidText',
+  'invalid',
+  'horizontal',
+  'name',
+  'value',
+  'strChange'
+],
+'value', 'v-str-change', 'strChange');
+
+
+export const StrRouter = /*@__PURE__*/ defineContainer<JSX.StrRouter>('str-router', defineStrRouter);
+
+
+export const StrRow = /*@__PURE__*/ defineContainer<JSX.StrRow>('str-row', defineStrRow);
+
+
+export const StrSearchbar = /*@__PURE__*/ defineContainer<JSX.StrSearchbar>('str-searchbar', defineStrSearchbar, [
   'color',
   'cancelButtonIcon',
   'clearIcon',
@@ -195,69 +271,134 @@ export const StoriesSearchbar = /*@__PURE__*/ defineContainer<JSX.StoriesSearchb
   'showClearButton',
   'type',
   'value',
-  'storiesInput',
-  'storiesChange',
-  'storiesCancel',
-  'storiesClear',
-  'storiesBlur',
-  'storiesFocus',
-  'storiesStyle'
+  'strInput',
+  'strChange',
+  'strCancel',
+  'strClear',
+  'strBlur',
+  'strFocus',
+  'strStyle'
 ],
-'value', 'v-stories-change', 'storiesChange');
+'value', 'v-str-change', 'strChange');
 
 
-export const StoriesSidebar = /*@__PURE__*/ defineContainer<JSX.StoriesSidebar>('stories-sidebar', defineStoriesSidebar);
+export const StrSelect = /*@__PURE__*/ defineContainer<JSX.StrSelect>('str-select', defineStrSelect, [
+  'multiple',
+  'maxTagsVisible',
+  'disabled',
+  'name',
+  'placeholder',
+  'size',
+  'hoist',
+  'value',
+  'pill',
+  'label',
+  'requiredIndicator',
+  'helpText',
+  'invalidText',
+  'invalid',
+  'clearable',
+  'strChange',
+  'strFocus',
+  'strBlur'
+],
+'value', 'v-str-change', 'strChange');
 
 
-export const StoriesSplitPane = /*@__PURE__*/ defineContainer<JSX.StoriesSplitPane>('stories-split-pane', defineStoriesSplitPane, [
+export const StrSidebar = /*@__PURE__*/ defineContainer<JSX.StrSidebar>('str-sidebar', defineStrSidebar);
+
+
+export const StrSpinner = /*@__PURE__*/ defineContainer<JSX.StrSpinner>('str-spinner', defineStrSpinner);
+
+
+export const StrSplitPane = /*@__PURE__*/ defineContainer<JSX.StrSplitPane>('str-split-pane', defineStrSplitPane, [
   'split',
   'minSize',
   'defaultSize',
   'isResizing',
-  'storiesSizeChange'
+  'strSizeChange'
 ]);
 
 
-export const StoriesTab = /*@__PURE__*/ defineContainer<JSX.StoriesTab>('stories-tab', defineStoriesTab, [
+export const StrTab = /*@__PURE__*/ defineContainer<JSX.StrTab>('str-tab', defineStrTab, [
   'active',
   'tab'
 ]);
 
 
-export const StoriesTabBar = /*@__PURE__*/ defineContainer<JSX.StoriesTabBar>('stories-tab-bar', defineStoriesTabBar, [
+export const StrTabBar = /*@__PURE__*/ defineContainer<JSX.StrTabBar>('str-tab-bar', defineStrTabBar, [
   'color',
   'selectedTab',
-  'storiesTabBarChange'
+  'strTabBarChange'
 ]);
 
 
-export const StoriesTabButton = /*@__PURE__*/ defineContainer<JSX.StoriesTabButton>('stories-tab-button', defineStoriesTabButton, [
+export const StrTabButton = /*@__PURE__*/ defineContainer<JSX.StrTabButton>('str-tab-button', defineStrTabButton, [
   'disabled',
   'layout',
   'selected',
   'tab',
-  'storiesTabButtonClick'
+  'strTabButtonClick'
 ]);
 
 
-export const StoriesTabs = /*@__PURE__*/ defineContainer<JSX.StoriesTabs>('stories-tabs', defineStoriesTabs);
+export const StrTabs = /*@__PURE__*/ defineContainer<JSX.StrTabs>('str-tabs', defineStrTabs);
 
 
-export const StoriesToolBar = /*@__PURE__*/ defineContainer<JSX.StoriesToolBar>('stories-tool-bar', defineStoriesToolBar);
+export const StrTag = /*@__PURE__*/ defineContainer<JSX.StrTag>('str-tag', defineStrTag, [
+  'type',
+  'size',
+  'pill',
+  'clearable',
+  'strClear'
+]);
 
 
-export const StoriesToolButton = /*@__PURE__*/ defineContainer<JSX.StoriesToolButton>('stories-tool-button', defineStoriesToolButton, [
+export const StrTextarea = /*@__PURE__*/ defineContainer<JSX.StrTextarea>('str-textarea', defineStrTextarea, [
+  'size',
+  'name',
+  'value',
+  'label',
+  'requiredIndicator',
+  'helpText',
+  'invalidText',
+  'invalid',
+  'placeholder',
+  'rows',
+  'resize',
+  'disabled',
+  'readonly',
+  'maxlength',
+  'inputmode',
+  'spellcheck',
+  'enterkeyhint',
+  'autocapitalize',
+  'autocorrect',
+  'autofocus',
+  'debounce',
+  'strChange',
+  'strInput',
+  'strFocus',
+  'strBlur'
+],
+'value', 'v-str-change', 'strChange');
+
+
+export const StrToolBar = /*@__PURE__*/ defineContainer<JSX.StrToolBar>('str-tool-bar', defineStrToolBar);
+
+
+export const StrToolButton = /*@__PURE__*/ defineContainer<JSX.StrToolButton>('str-tool-button', defineStrToolButton, [
   'disabled',
   'icon',
   'command',
-  'storiesAction'
+  'strAction'
 ]);
 
 
-export const StoriesToolZoom = /*@__PURE__*/ defineContainer<JSX.StoriesToolZoom>('stories-tool-zoom', defineStoriesToolZoom);
+export const StrToolZoom = /*@__PURE__*/ defineContainer<JSX.StrToolZoom>('str-tool-zoom', defineStrToolZoom);
 
 
-export const StoriesZoom = /*@__PURE__*/ defineContainer<JSX.StoriesZoom>('stories-zoom', defineStoriesZoom, [
+export const StrZoom = /*@__PURE__*/ defineContainer<JSX.StrZoom>('str-zoom', defineStrZoom, [
   'zoom'
 ]);
 

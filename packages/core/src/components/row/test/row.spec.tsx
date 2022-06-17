@@ -2,18 +2,18 @@ import { newSpecPage } from '@stencil/core/testing';
 
 import { Row } from '../row';
 
-describe('stories-row', () => {
+describe('str-row', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [Row],
-      html: `<stories-row></stories-row>`,
+      html: `<str-row></str-row>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-row>
+      <str-row>
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </stories-row>
+      </str-row>
     `);
   });
 });

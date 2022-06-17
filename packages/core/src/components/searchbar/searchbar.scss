@@ -37,17 +37,17 @@
   box-sizing: border-box;
 }
 
-:host(.stories-color) {
+:host(.str-color) {
   color: current-color(contrast);
 }
 
-:host(.stories-color) .searchbar-input {
+:host(.str-color) .searchbar-input {
   background: current-color(base);
 }
 
-:host(.stories-color) .searchbar-clear-button,
-:host(.stories-color) .searchbar-cancel-button,
-:host(.stories-color) .searchbar-search-icon {
+:host(.str-color) .searchbar-clear-button,
+:host(.str-color) .searchbar-cancel-button,
+:host(.str-color) .searchbar-search-icon {
   color: inherit;
 }
 

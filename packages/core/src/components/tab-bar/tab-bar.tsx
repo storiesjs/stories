@@ -3,10 +3,10 @@ import type { EventEmitter } from '@stencil/core';
 import { Component, Host, h, Element, Prop, Watch, Event } from '@stencil/core';
 
 import type { Color, TabBarChangedEventDetail } from '../../types';
-import { createColorClasses } from '../../utils';
+import { createColorClasses } from '../../utils/utils';
 
 @Component({
-  tag: 'stories-tab-bar',
+  tag: 'str-tab-bar',
   styleUrl: 'tab-bar.scss',
   shadow: true,
 })
@@ -28,14 +28,14 @@ export class TabBar {
   @Watch('selectedTab')
   selectedTabChanged(): void {
     if (this.selectedTab !== undefined) {
-      this.storiesTabBarChange.emit({
+      this.strTabBarChange.emit({
         tab: this.selectedTab
       });
     }
   }
 
   /** @internal */
-  @Event() storiesTabBarChange!: EventEmitter<TabBarChangedEventDetail>;
+  @Event() strTabBarChange!: EventEmitter<TabBarChangedEventDetail>;
 
   componentWillLoad(): void {
     this.selectedTabChanged();

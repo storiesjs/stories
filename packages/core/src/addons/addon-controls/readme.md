@@ -1,6 +1,6 @@
-# stories-addon-controls
+# Controls
 
-The stories-addon-controls helps you interact with components via changing arguments.
+The Controls (str-addon-controls) helps you interact with components via changing arguments.
 
 <!-- Auto Generated Below -->
 
@@ -20,4 +20,4 @@ Type: `Promise<void>`
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

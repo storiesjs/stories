@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { state } from '../store';
 import type { NotificationsAPI, Notification } from "../types";
 

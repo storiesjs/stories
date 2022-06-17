@@ -1,6 +1,6 @@
-# stories-app
+# App
 
-The stories-app is a main Stories Framework's application.
+The App (str-app) is a main Stories Framework's application.
 
 <!-- Auto Generated Below -->
 
@@ -15,12 +15,12 @@ The stories-app is a main Stories Framework's application.
 
 ## Events
 
-| Event                | Description | Type                                                                                                                                                                                                                                                                                                       |
-| -------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `storyChange`        |             | `CustomEvent<{ storyId: string; kinds: string[]; storyName: string; storyFn: StoryFn<AnyFramework, Args>; component?: any; subcomponents?: Record<string, any>; decorators?: DecoratorFunction<AnyFramework, Args>[]; args: Partial<Args>; argTypes: Partial<ArgTypes<Args>>; parameters?: Parameters; }>` |
-| `storyContextChange` |             | `CustomEvent<{ component?: any; subcomponents?: Record<string, any>; } & StoryUpdate<Args>>`                                                                                                                                                                                                               |
+| Event              | Description | Type                                                                                                                                                                                                                                                                                                       |
+| ------------------ | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `strChange`        |             | `CustomEvent<{ storyId: string; kinds: string[]; storyName: string; storyFn: StoryFn<AnyFramework, Args>; component?: any; subcomponents?: Record<string, any>; decorators?: DecoratorFunction<AnyFramework, Args>[]; args: Partial<Args>; argTypes: Partial<ArgTypes<Args>>; parameters?: Parameters; }>` |
+| `strContextChange` |             | `CustomEvent<{ component?: any; subcomponents?: Record<string, any>; } & StoryUpdate<Args>>`                                                                                                                                                                                                               |
 
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

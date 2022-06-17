@@ -1,10 +1,10 @@
-# stories-sidebar
+# Sidebar
 
-The stories-sidebar displays collection of names of stories. Every story's name is the link your can click to navigate to story.
+The Sidebar (str-sidebar) displays collection of names of stories. Every story's name is the link your can click to navigate to story.
 
 <!-- Auto Generated Below -->
 
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

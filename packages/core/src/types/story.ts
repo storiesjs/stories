@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
 // **** COMMON Types
 
 /**
@@ -15,7 +13,7 @@ export type ComponentTitle = string;
 
 export type Parameters = Record<string, any>;
 
-// **** ARGUMENTS 
+// **** ARGUMENTS
 
 /**
  * Arg type for addons
@@ -75,7 +73,7 @@ export type StoryContext<
  * Story function with arguments and context calling from decorators
  */
 export type ArgsStoryFn<
-  TFramework extends AnyFramework = AnyFramework, 
+  TFramework extends AnyFramework = AnyFramework,
   TArgs = Args
 > = (
   args: TArgs,
@@ -88,7 +86,7 @@ export type ArgsStoryFn<
  * Decorator function
  */
 export type DecoratorFunction<
-  TFramework extends AnyFramework = AnyFramework, 
+  TFramework extends AnyFramework = AnyFramework,
   TArgs = Args
 > = (
   storyFn: ArgsStoryFn<TFramework, TArgs>,
@@ -192,7 +190,7 @@ export type StoryAnnotations<
   args?: Partial<TArgs>;
 
   /**
-   * ArgTypes encode basic metadata for args, such as `name`, `description`, `defaultValue` for an arg. 
+   * ArgTypes encode basic metadata for args, such as `name`, `description`, `defaultValue` for an arg.
    * These get automatically filled in by Stories Docs.
    */
   argTypes?: Partial<ArgTypes<TArgs>>;
@@ -209,7 +207,7 @@ export type StoryAnnotations<
  * Universal story function
  */
 export type StoryFn<
-  TFramework extends AnyFramework = AnyFramework, 
+  TFramework extends AnyFramework = AnyFramework,
   TArgs = Args
 > = (
   args?: TArgs
@@ -221,8 +219,8 @@ export type StoryFn<
 export type Story<
     TFramework extends AnyFramework = AnyFramework,
     TArgs = Args
-> = 
-    StoryFn<TFramework, TArgs> & 
+> =
+    StoryFn<TFramework, TArgs> &
     StoryAnnotations<TFramework, TArgs>;
 
 /**

@@ -2,7 +2,7 @@
 import { Component, Host, h } from '@stencil/core';
 
 @Component({
-  tag: 'stories-router',
+  tag: 'str-router',
   styleUrl: 'router.css',
   shadow: true,
 })

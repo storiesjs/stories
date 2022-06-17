@@ -5,7 +5,7 @@ import { Component, Event, h, Prop } from '@stencil/core';
 import type { Commands, ToolEvent } from '../../types';
 
 @Component({
-  tag: 'stories-tool-button',
+  tag: 'str-tool-button',
   styleUrl: 'tool-button.scss',
   shadow: true,
 })
@@ -14,7 +14,7 @@ export class ToolButton {
   /**
    * Action Event
    */
-  @Event({ bubbles: true, composed: true }) storiesAction: EventEmitter<ToolEvent>;
+  @Event({ bubbles: true, composed: true }) strAction: EventEmitter<ToolEvent>;
 
   /**
    * disabled property
@@ -36,13 +36,13 @@ export class ToolButton {
    */
   clickHandler(event: MouseEvent): void {
     event.preventDefault();
-    this.storiesAction.emit({command: this.command});
+    this.strAction.emit({command: this.command});
   }
 
   render(): JSX.Element {
     return (
       <button disabled={this.disabled} onClick={this.clickHandler.bind(this)}>
-        <stories-icon name={this.icon}></stories-icon>
+        <str-icon name={this.icon}></str-icon>
       </button>
     );
   }

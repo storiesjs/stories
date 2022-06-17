@@ -3,23 +3,23 @@ import { newSpecPage } from '@stencil/core/testing';
 import { Addons } from '../../addons/addons';
 import { AddonActions } from '../addon-actions';
 
-describe('stories-addon-actions', () => {
+describe('str-addon-actions', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [AddonActions, Addons],
-      html: `<stories-addons><stories-addon-actions></stories-addon-actions></stories-addons>`,
+      html: `<str-addons><str-addon-actions></str-addon-actions></str-addons>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-addons>
+      <str-addons>
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-        <stories-addon-actions>
+        <str-addon-actions>
           <mock:shadow-root>
             <ul></ul>
           </mock:shadow-root>
-        </stories-addon-actions>
-      </stories-addons>
+        </str-addon-actions>
+      </str-addons>
     `);
   });
 });

@@ -1,20 +1,20 @@
-# stories-tab-button
+# Tab button
 
-The stories-tab-button is a component that is placed inside of a [stories-tab-bar](../tab-bar). You can change the layout of the text and icon in the tab bar.
+The Tab button (str-tab-button) is a component that is placed inside of a [str-tab-bar](../tab-bar). You can change the layout of the text and icon in the tab bar.
 
-See the [stories-tabs](../tabs) documentation for details on configuring tabs.
+See the [str-tabs](../tabs) documentation for details on configuring tabs.
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                                                                                   | Type                                                                                       | Default        |
-| ---------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------------- |
-| `disabled` | `disabled` | If `true`, the user cannot interact with the tab button.                                                                                      | `boolean`                                                                                  | `false`        |
-| `layout`   | `layout`   | Set the layout of the text and icon in the tab bar. It defaults to `'icon-start'`.                                                            | `"icon-bottom" \| "icon-end" \| "icon-hide" \| "icon-start" \| "icon-top" \| "label-hide"` | `'icon-start'` |
-| `selected` | `selected` | The selected tab component                                                                                                                    | `boolean`                                                                                  | `false`        |
-| `tab`      | `tab`      | A tab id must be provided for each `stories-tab`. It's used internally to reference the selected tab or by the router to switch between them. | `string`                                                                                   | `undefined`    |
+| Property   | Attribute  | Description                                                                                                                               | Type                                                                                       | Default        |
+| ---------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------------- |
+| `disabled` | `disabled` | If `true`, the user cannot interact with the tab button.                                                                                  | `boolean`                                                                                  | `false`        |
+| `layout`   | `layout`   | Set the layout of the text and icon in the tab bar. It defaults to `'icon-start'`.                                                        | `"icon-bottom" \| "icon-end" \| "icon-hide" \| "icon-start" \| "icon-top" \| "label-hide"` | `'icon-start'` |
+| `selected` | `selected` | The selected tab component                                                                                                                | `boolean`                                                                                  | `false`        |
+| `tab`      | `tab`      | A tab id must be provided for each `str-tab`. It's used internally to reference the selected tab or by the router to switch between them. | `string`                                                                                   | `undefined`    |
 
 
 ## Shadow Parts
@@ -42,4 +42,4 @@ See the [stories-tabs](../tabs) documentation for details on configuring tabs.
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

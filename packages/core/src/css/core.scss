@@ -2,192 +2,192 @@
   // Theme color tokens
   // --------------------------------------------------
 
-  --gr-color-primary: #1079b2;
-  --gr-color-primary-rgb: 16, 121, 178;
-  --gr-color-primary-contrast: #ffffff;
-  --gr-color-primary-contrast-rgb: 255, 255, 255;
-  --gr-color-primary-shade: #0d6696;
-  --gr-color-primary-tint: #1499e1;
+  --str-color-primary: #1079b2;
+  --str-color-primary-rgb: 16, 121, 178;
+  --str-color-primary-contrast: #ffffff;
+  --str-color-primary-contrast-rgb: 255, 255, 255;
+  --str-color-primary-shade: #0d6696;
+  --str-color-primary-tint: #1499e1;
 
-  --gr-color-secondary: #051f2c;
-  --gr-color-secondary-rgb: 5, 31, 44;
-  --gr-color-secondary-contrast: #ffffff;
-  --gr-color-secondary-contrast-rgb: 255, 255, 255;
-  --gr-color-secondary-shade: #000000;
-  --gr-color-secondary-tint: #0a415c;
+  --str-color-secondary: #051f2c;
+  --str-color-secondary-rgb: 5, 31, 44;
+  --str-color-secondary-contrast: #ffffff;
+  --str-color-secondary-contrast-rgb: 255, 255, 255;
+  --str-color-secondary-shade: #000000;
+  --str-color-secondary-tint: #0a415c;
 
-  --gr-color-tertiary: #0c4a6e;
-  --gr-color-tertiary-rgb: 12, 74, 110;
-  --gr-color-tertiary-contrast: #ffffff;
-  --gr-color-tertiary-contrast-rgb: 255, 255, 255;
-  --gr-color-tertiary-shade: #083249;
-  --gr-color-tertiary-tint: #106393;
+  --str-color-tertiary: #0c4a6e;
+  --str-color-tertiary-rgb: 12, 74, 110;
+  --str-color-tertiary-contrast: #ffffff;
+  --str-color-tertiary-contrast-rgb: 255, 255, 255;
+  --str-color-tertiary-shade: #083249;
+  --str-color-tertiary-tint: #106393;
 
-  --gr-color-success: #0fbe78;
-  --gr-color-success-rgb: 15, 190, 120;
-  --gr-color-success-contrast: #000000;
-  --gr-color-success-contrast-rgb: 0, 0, 0;
-  --gr-color-success-shade: #057f4e;
-  --gr-color-success-tint: #12e28f;
+  --str-color-success: #0fbe78;
+  --str-color-success-rgb: 15, 190, 120;
+  --str-color-success-contrast: #000000;
+  --str-color-success-contrast-rgb: 0, 0, 0;
+  --str-color-success-shade: #057f4e;
+  --str-color-success-tint: #12e28f;
 
-  --gr-color-warning: #fbbc4e;
-  --gr-color-warning-rgb: 251, 188, 78;
-  --gr-color-warning-contrast: #051f2c;
-  --gr-color-warning-contrast-rgb: 5, 31, 44;
-  --gr-color-warning-shade: #9e6400;
-  --gr-color-warning-tint: #fdd187;
+  --str-color-warning: #fbbc4e;
+  --str-color-warning-rgb: 251, 188, 78;
+  --str-color-warning-contrast: #051f2c;
+  --str-color-warning-contrast-rgb: 5, 31, 44;
+  --str-color-warning-shade: #9e6400;
+  --str-color-warning-tint: #fdd187;
 
-  --gr-color-danger: #e60017;
-  --gr-color-danger-rgb: 230, 0, 23;
-  --gr-color-danger-contrast: #ffffff;
-  --gr-color-danger-contrast-rgb: 255, 255, 255;
-  --gr-color-danger-shade: #cc0014;
-  --gr-color-danger-tint: #ff1f35;
+  --str-color-danger: #e60017;
+  --str-color-danger-rgb: 230, 0, 23;
+  --str-color-danger-contrast: #ffffff;
+  --str-color-danger-contrast-rgb: 255, 255, 255;
+  --str-color-danger-shade: #cc0014;
+  --str-color-danger-tint: #ff1f35;
 
-  --gr-color-light: #f4f5f8;
-  --gr-color-light-rgb: 244, 245, 248;
-  --gr-color-light-contrast: #051f2c;
-  --gr-color-light-contrast-rgb: 5, 31, 44;
-  --gr-color-light-shade: #d7d8da;
-  --gr-color-light-tint: #f9fafb;
+  --str-color-light: #f4f5f8;
+  --str-color-light-rgb: 244, 245, 248;
+  --str-color-light-contrast: #051f2c;
+  --str-color-light-contrast-rgb: 5, 31, 44;
+  --str-color-light-shade: #d7d8da;
+  --str-color-light-tint: #f9fafb;
 
-  --gr-color-medium: #5e6c78;
-  --gr-color-medium-rgb: 94, 108, 120;
-  --gr-color-medium-contrast: #ffffff;
-  --gr-color-medium-contrast-rgb: 255, 255, 255;
-  --gr-color-medium-shade: #48535b;
-  --gr-color-medium-tint: #81909c;
+  --str-color-medium: #5e6c78;
+  --str-color-medium-rgb: 94, 108, 120;
+  --str-color-medium-contrast: #ffffff;
+  --str-color-medium-contrast-rgb: 255, 255, 255;
+  --str-color-medium-shade: #48535b;
+  --str-color-medium-tint: #81909c;
 
-  --gr-color-dark: #02131b;
-  --gr-color-dark-rgb: 2, 19, 27;
-  --gr-color-dark-contrast: #ffffff;
-  --gr-color-dark-contrast-rgb: 255, 255, 255;
-  --gr-color-dark-shade: #000000;
-  --gr-color-dark-tint: #222428;
+  --str-color-dark: #02131b;
+  --str-color-dark-rgb: 2, 19, 27;
+  --str-color-dark-contrast: #ffffff;
+  --str-color-dark-contrast-rgb: 255, 255, 255;
+  --str-color-dark-shade: #000000;
+  --str-color-dark-tint: #222428;
 
-  --gr-color-white: #ffffff;
-  --gr-color-black: #000000;
+  --str-color-white: #ffffff;
+  --str-color-black: #000000;
 
   // Border radius tokens
   // --------------------------------------------------
 
-  --gr-border-radius-small: 0.125rem; // 2px
-  --gr-border-radius-medium: 0.25rem; // 4px
-  --gr-border-radius-large: 0.5rem; // 8px
-  --gr-border-radius-x-large: 1rem; // 16px
+  --str-border-radius-small: 0.125rem; // 2px
+  --str-border-radius-medium: 0.25rem; // 4px
+  --str-border-radius-large: 0.5rem; // 8px
+  --str-border-radius-x-large: 1rem; // 16px
 
   // Elevation tokens
   // --------------------------------------------------
 
-  --gr-shadow-x-small: 0 1px 0 #0d131e0d;
-  --gr-shadow-small: 0 1px 2px #0d131e1a;
-  --gr-shadow-medium: 0 2px 4px #0d131e1a;
-  --gr-shadow-large: 0 2px 8px #0d131e1a;
-  --gr-shadow-x-large: 0 4px 16px #0d131e1a;
+  --str-shadow-x-small: 0 1px 0 #0d131e0d;
+  --str-shadow-small: 0 1px 2px #0d131e1a;
+  --str-shadow-medium: 0 2px 4px #0d131e1a;
+  --str-shadow-large: 0 2px 8px #0d131e1a;
+  --str-shadow-x-large: 0 4px 16px #0d131e1a;
 
   // Spacing tokens
   // --------------------------------------------------
 
-  --gr-spacing-xxx-small: 0.125rem; // 2px
-  --gr-spacing-xx-small: 0.25rem; // 4px
-  --gr-spacing-x-small: 0.5rem; // 8px
-  --gr-spacing-small: 0.75rem; // 12px
-  --gr-spacing-medium: 1rem; // 16px
-  --gr-spacing-large: 1.25rem; // 20px
-  --gr-spacing-x-large: 1.75rem; // 28px
-  --gr-spacing-xx-large: 2.25rem; // 36px
-  --gr-spacing-xxx-large: 3rem; // 48px
-  --gr-spacing-xxxx-large: 4.5rem; // 72px
+  --str-spacing-xxx-small: 0.125rem; // 2px
+  --str-spacing-xx-small: 0.25rem; // 4px
+  --str-spacing-x-small: 0.5rem; // 8px
+  --str-spacing-small: 0.75rem; // 12px
+  --str-spacing-medium: 1rem; // 16px
+  --str-spacing-large: 1.25rem; // 20px
+  --str-spacing-x-large: 1.75rem; // 28px
+  --str-spacing-xx-large: 2.25rem; // 36px
+  --str-spacing-xxx-large: 3rem; // 48px
+  --str-spacing-xxxx-large: 4.5rem; // 72px
 
   // Typography tokens
   // --------------------------------------------------
 
   // Fonts
-  --gr-font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+  --str-font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
     sans-serif;
 
   // Letter spacings
-  --gr-letter-spacing-dense: -0.015em;
-  --gr-letter-spacing-normal: normal;
-  --gr-letter-spacing-loose: 0.075em;
+  --str-letter-spacing-dense: -0.015em;
+  --str-letter-spacing-normal: normal;
+  --str-letter-spacing-loose: 0.075em;
 
   // Line heights
-  --gr-line-height-dense: 1.4;
-  --gr-line-height-normal: 1.8;
-  --gr-line-height-loose: 2.2;
+  --str-line-height-dense: 1.4;
+  --str-line-height-normal: 1.8;
+  --str-line-height-loose: 2.2;
 
   // Font sizes
-  --gr-font-size-xx-small: 0.625rem; // 10px
-  --gr-font-size-x-small: 0.75rem; // 12px
-  --gr-font-size-small: 0.875rem; // 14px
-  --gr-font-size-medium: 1rem; // 16px
-  --gr-font-size-large: 1.25rem; // 20px
-  --gr-font-size-x-large: 1.5rem; // 24px
-  --gr-font-size-xx-large: 2.25rem; // 36px
-  --gr-font-size-xxx-large: 3rem; // 48px
-  --gr-font-size-xxxx-large: 4.5rem; // 72px
+  --str-font-size-xx-small: 0.625rem; // 10px
+  --str-font-size-x-small: 0.75rem; // 12px
+  --str-font-size-small: 0.875rem; // 14px
+  --str-font-size-medium: 1rem; // 16px
+  --str-font-size-large: 1.25rem; // 20px
+  --str-font-size-x-large: 1.5rem; // 24px
+  --str-font-size-xx-large: 2.25rem; // 36px
+  --str-font-size-xxx-large: 3rem; // 48px
+  --str-font-size-xxxx-large: 4.5rem; // 72px
 
   // Font weights
-  --gr-font-weight-thin: 100;
-  --gr-font-weight-extra-light: 200;
-  --gr-font-weight-light: 300;
-  --gr-font-weight-normal: 400;
-  --gr-font-weight-medium: 500;
-  --gr-font-weight-semi-bold: 600;
-  --gr-font-weight-bold: 700;
-  --gr-font-weight-extra-bold: 800;
-  --gr-font-weight-black: 900;
+  --str-font-weight-thin: 100;
+  --str-font-weight-extra-light: 200;
+  --str-font-weight-light: 300;
+  --str-font-weight-normal: 400;
+  --str-font-weight-medium: 500;
+  --str-font-weight-semi-bold: 600;
+  --str-font-weight-bold: 700;
+  --str-font-weight-extra-bold: 800;
+  --str-font-weight-black: 900;
 
   // Form tokens
   // -------------------------------------------------
 
-  --gr-form-element-font-size-x-small: var(--gr-font-size-x-small);
-  --gr-form-element-font-size-small: var(--gr-font-size-small);
-  --gr-form-element-font-size-medium: var(--gr-font-size-medium);
-  --gr-form-element-font-size-large: var(--gr-font-size-large);
+  --str-form-element-font-size-x-small: var(--str-font-size-x-small);
+  --str-form-element-font-size-small: var(--str-font-size-small);
+  --str-form-element-font-size-medium: var(--str-font-size-medium);
+  --str-form-element-font-size-large: var(--str-font-size-large);
 
-  --gr-form-element-height-small: 2.188rem; // 35px
-  --gr-form-element-height-medium: 3.125rem; // 50px
-  --gr-form-element-height-large: 4.063rem; // 65px
+  --str-form-element-height-small: 2.188rem; // 35px
+  --str-form-element-height-medium: 3.125rem; // 50px
+  --str-form-element-height-large: 4.063rem; // 65px
 
-  --gr-form-element-border-radius-small: var(--gr-border-radius-medium);
-  --gr-form-element-border-radius-medium: var(--gr-border-radius-medium);
-  --gr-form-element-border-radius-large: var(--gr-border-radius-medium);
+  --str-form-element-border-radius-small: var(--str-border-radius-medium);
+  --str-form-element-border-radius-medium: var(--str-border-radius-medium);
+  --str-form-element-border-radius-large: var(--str-border-radius-medium);
 
   // Focus ring
-  --gr-focus-ring-width: 2px;
+  --str-focus-ring-width: 2px;
 
   // Labels
-  --gr-form-element-label-font-size-small: var(--gr-font-size-small);
-  --gr-form-element-label-font-size-medium: var(--gr-font-size-medium);
-  --gr-form-element-label-font-size-large: var(--gr-font-size-large);
+  --str-form-element-label-font-size-small: var(--str-font-size-small);
+  --str-form-element-label-font-size-medium: var(--str-font-size-medium);
+  --str-form-element-label-font-size-large: var(--str-font-size-large);
 
-  --gr-form-element-label-color: inherit;
+  --str-form-element-label-color: inherit;
 
   // Help text
-  --gr-form-element-help-text-font-size-small: var(--gr-font-size-x-small);
-  --gr-form-element-help-text-font-size-medium: var(--gr-font-size-small);
-  --gr-form-element-help-text-font-size-large: var(--gr-font-size-medium);
+  --str-form-element-help-text-font-size-small: var(--str-font-size-x-small);
+  --str-form-element-help-text-font-size-medium: var(--str-font-size-small);
+  --str-form-element-help-text-font-size-large: var(--str-font-size-medium);
 
-  --gr-form-element-help-text-color: var(--gr-color-medium);
+  --str-form-element-help-text-color: var(--str-color-medium);
 
   // Invalid text
-  --gr-form-element-invalid-text-font-size-small: var(--gr-font-size-x-small);
-  --gr-form-element-invalid-text-font-size-medium: var(--gr-font-size-small);
-  --gr-form-element-invalid-text-font-size-large: var(--gr-font-size-medium);
+  --str-form-element-invalid-text-font-size-small: var(--str-font-size-x-small);
+  --str-form-element-invalid-text-font-size-medium: var(--str-font-size-small);
+  --str-form-element-invalid-text-font-size-large: var(--str-font-size-medium);
 
-  --gr-form-element-invalid-text-color: var(--gr-color-danger);
+  --str-form-element-invalid-text-color: var(--str-color-danger);
 
   // Toggles (checkboxes, radios, switches)
-  --gr-toggle-size: 1rem;
+  --str-toggle-size: 1rem;
 
   // Panel tokens
   // -------------------------------------------------
 
-  --gr-panel-border-color: var(--gr-color-light-shade);
+  --str-panel-border-color: var(--str-color-light-shade);
 
   // Z-index tokens
   // -------------------------------------------------
 
-  --gr-z-index-dropdown: 900;
+  --str-z-index-dropdown: 900;
 }

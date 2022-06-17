@@ -2,23 +2,25 @@ import { newSpecPage } from '@stencil/core/testing';
 
 import { Checkbox } from '../checkbox';
 
-describe('stories-checkbox', () => {
+describe('str-checkbox', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [Checkbox],
-      html: `<stories-checkbox></stories-checkbox>`,
+      html: `<str-checkbox></str-checkbox>`,
     });
     expect(page.root).toEqualHtml(`
-      <stories-checkbox aria-checked="false" class="interactive" role="checkbox">
+      <str-checkbox>
         <mock:shadow-root>
-          <svg class="checkbox-icon" part="container" viewBox="0 0 24 24">
-            <path d="M5.9,12.5l3.8,3.8l8.8-8.8" part="mark"></path>
-          </svg>
-          <label htmlfor="stories-cb-0"></label>
-          <input aria-checked="false" id="stories-cb-0" type="checkbox">
+          <label class="checkbox" htmlfor="checkbox-1">
+          <span class="checkbox-control">
+             <input aria-checked="false" aria-describedby="" aria-labelledby="checkbox-label-1" id="checkbox-1" role="checkbox" type="checkbox">
+           </span>
+           <span class="checkbox-label" id="checkbox-label-1">
+             <slot></slot>
+           </span>
         </mock:shadow-root>
-        <input class="aux-input" name="stories-cb-0" type="hidden" value="">
-      </stories-checkbox>
+        <input class="aux-input" name="checkbox-1" type="hidden" value="">
+      </str-checkbox>
     `);
   });
 });

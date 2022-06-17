@@ -3,7 +3,7 @@
 // Footer
 // --------------------------------------------------
 
-stories-footer {
+str-footer {
   display: block;
   position: relative;
 
@@ -14,6 +14,6 @@ stories-footer {
   z-index: $z-index-toolbar;
 }
 
-stories-footer stories-toolbar:last-of-type {
-  padding-bottom: var(--stories-safe-area-bottom, 0);
+str-footer str-toolbar:last-of-type {
+  padding-bottom: var(--str-safe-area-bottom, 0);
 }

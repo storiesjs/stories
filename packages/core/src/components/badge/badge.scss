@@ -1,78 +1,184 @@
 @import "../../themes/stories.globals";
 
 // Badge
-// --------------------------------------------------
-
-/// @prop - Padding top of the badge
-$badge-padding-top:               3px !default;
-
-/// @prop - Padding end of the badge
-$badge-padding-end:               8px !default;
-
-/// @prop - Padding bottom of the badge
-$badge-padding-bottom:            $badge-padding-top !default;
-
-/// @prop - Padding start of the badge
-$badge-padding-start:             $badge-padding-end !default;
-
-/// @prop - Minimum width of the badge
-$badge-min-width:                 10px !default;
-
-/// @prop - Font size of the badge
-$badge-font-size:                 13px !default;
-
-/// @prop - Font weight of the badge
-$badge-font-weight:               bold !default;
-
-// Badge
-// --------------------------------------------------
-
 :host {
   /**
-   * @prop --background: Background of the badge
-   * @prop --color: Text color of the badge
+   * @prop --height: Height of the badge
+   * @prop --line-height: Line height of the badge
+   *
+   * @prop --border-radius: Border radius of the badge
+   * @prop --border-width: Border width of the badge
+   * @prop --border-style: Border style of the badge
    *
    * @prop --padding-top: Top padding of the badge
-   * @prop --padding-end: Right padding if direction is left-to-right, and left padding if direction is right-to-left of the badge
+   * @prop --padding-end: Right padding of the badge (will be left padding when we support right-to-left direction)
    * @prop --padding-bottom: Bottom padding of the badge
-   * @prop --padding-start: Left padding if direction is left-to-right, and right padding if direction is right-to-left of the badge
+   * @prop --padding-start: Left padding of the badge (will be right padding when we support right-to-left direction)
+   *
+   * @prop --font-size: Font size of the badge
+   *
+   * @prop --background-color: Background color of the badge
+   * @prop --border-color: Border color of the badge
+   * @prop --color: Text color of the badge
+   *
+   * @prop --clear-color: Color of the clear icon
+   * @prop --clear-color-hover: Color of the clear icon on hover
+   * @prop --clear-margin-left: Margin left of the clear icon
+   * @prop --clear-margin-right: Margin right of the clear icon
    */
-  --background: #{stories-color(primary, base)};
-  --color: #{stories-color(primary, contrast)};
-  --padding-top: #{$badge-padding-top};
-  --padding-end: #{$badge-padding-end};
-  --padding-bottom: #{$badge-padding-bottom};
-  --padding-start: #{$badge-padding-start};
+  --height: calc(var(--str-form-element-height-medium) * 0.5);
+  --line-height: calc(var(--str-form-element-height-medium) - 1px * 2);
 
-  @include font-smoothing();
-  @include padding(var(--padding-top), var(--padding-end), var(--padding-bottom), var(--padding-start));
+  --border-radius: var(--str-form-element-border-radius-medium);
+  --border-width: 1px;
+  --border-style: solid;
+
+  --padding-top: 0;
+  --padding-start: var(--str-spacing-small);
+  --padding-end: var(--str-spacing-small);
+  --padding-bottom: 0;
+
+  --font-size: var(--str-form-element-font-size-medium);
+
+  --background-color: rgba(var(--str-color-primary-rgb), 0.05);
+  --border-color: rgba(var(--str-color-primary-rgb), 0.2);
+  --color: var(--str-color-primary-shade);
+
+  --clear-color: var(--str-color-primary);
+  --clear-color-hover: var(--str-color-primary-shade);
+  --clear-margin-left: var(--str-spacing-xx-small);
+  --clear-margin-right: calc(-1 * var(--str-spacing-xxx-small));
 
   display: inline-block;
 
-  min-width: $badge-min-width;
+  box-sizing: border-box;
 
-  background: var(--background);
-  color: var(--color);
+  & *,
+  & *:before,
+  & *:after {
+    box-sizing: inherit;
+  }
+}
 
-  font-family: $font-family-base;
-  font-size: $badge-font-size;
-  font-weight: $badge-font-weight;
+// Types
+// --------------------------------------------------
 
-  line-height: 1;
+:host(.badge-success) {
+  --background-color: rgba(var(--str-color-success-rgb), 0.05);
+  --border-color: rgba(var(--str-color-success-rgb), 0.2);
+  --color: var(--str-color-success-shade);
 
-  text-align: center;
+  --clear-color: var(--str-color-success);
+  --clear-color-hover: var(--str-color-success-shade);
+}
+
+:host(.badge-info) {
+  --background-color: rgba(var(--str-color-medium-rgb), 0.05);
+  --border-color: rgba(var(--str-color-medium-rgb), 0.2);
+  --color: var(--str-color-medium-shade);
+
+  --clear-color: var(--str-color-medium);
+  --clear-color-hover: var(--str-color-medium-shade);
+}
+
+:host(.badge-warning) {
+  --background-color: rgba(var(--str-color-warning-rgb), 0.05);
+  --border-color: rgba(var(--str-color-warning-rgb), 0.2);
+  --color: var(--str-color-warning-shade);
+
+  --clear-color: var(--str-color-warning);
+  --clear-color-hover: var(--str-color-warning-shade);
+}
+
+:host(.badge-danger) {
+  --background-color: rgba(var(--str-color-danger-rgb), 0.05);
+  --border-color: rgba(var(--str-color-danger-rgb), 0.2);
+  --color: var(--str-color-danger-shade);
+
+  --clear-color: var(--str-color-danger);
+  --clear-color-hover: var(--str-color-danger-shade);
+}
+
+// Sizes
+// --------------------------------------------------
+
+:host(.badge-small) {
+  --font-size: var(--str-form-element-font-size-small);
+  --height: calc(var(--str-form-element-height-small) * 0.5);
+  --line-height: calc(var(--str-form-element-height-small) - 1px * 2);
+  --border-radius: var(--str-form-element-border-radius-small);
+  --padding-start: var(--str-spacing-x-small);
+  --padding-end: var(--str-spacing-x-small);
+
+  --clear-margin-left: var(--str-spacing-xx-small);
+  --clear-margin-right: calc(-1 * var(--str-spacing-xxx-small));
+}
+
+:host(.badge-large) {
+  --font-size: var(--str-form-element-font-size-large);
+  --height: calc(var(--str-form-element-height-large) * 0.5);
+  --line-height: calc(var(--str-form-element-height-large) - 1px * 2);
+  --border-radius: var(--str-form-element-border-radius-large);
+  --padding: 0 var(--str-spacing-medium);
+
+  --clear-margin-left: var(--str-spacing-xx-small);
+  --clear-margin-right: calc(-1 * var(--str-spacing-x-small));
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+
+  border-style: var(--border-style);
+  border-width: var(--border-width);
+  border-radius: var(--border-radius);
 
   white-space: nowrap;
 
-  contain: content;
-  vertical-align: baseline;
+  user-select: none;
+  cursor: default;
+
+  font-family: var(--str-font-family);
+  font-size: var(--font-size);
+  font-weight: var(--str-font-weight-normal);
+  height: var(--height);
+  line-height: var(--line-height);
+
+  padding-top: var(--padding-top);
+  padding-left: var(--padding-start);
+  padding-right: var(--padding-end);
+  padding-bottom: var(--padding-bottom);
+
+  background-color: var(--background-color);
+  border-color: var(--border-color);
+  color: var(--color);
 }
 
-:host(.stories-color) {
-  background: #{current-color(base)};
-  color: #{current-color(contrast)};
+.badge-clear {
+  --color: var(--clear-color);
+  --color-hover: var(--clear-color-hover);
+
+  --padding-start: 0;
+  --padding-end: 0;
+
+  margin-left: var(--clear-margin-left);
+  margin-right: var(--clear-margin-right);
+
+  --height: 1em;
+
+  svg {
+    font-size: 0.7em;
+  }
 }
 
-:host(:empty) {
-  display: none;
+.badge-clear svg {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+// Pill modifier
+// --------------------------------------------------
+
+:host(.badge-pill) .badge {
+  border-radius: var(--height);
 }

@@ -1,6 +1,6 @@
-# stories-split-panel
+# Split panel
 
-The stories-split-panel is a component to split content vertically or horizontally.
+The Split panel (str-split-panel) is a component to split content vertically or horizontally.
 
 <!-- Auto Generated Below -->
 
@@ -10,18 +10,18 @@ The stories-split-panel is a component to split content vertically or horizontal
 | Property      | Attribute      | Description | Type                         | Default     |
 | ------------- | -------------- | ----------- | ---------------------------- | ----------- |
 | `defaultSize` | `default-size` |             | `number`                     | `0`         |
-| `isResizing`  | `resizing`     |             | `boolean`                    | `undefined` |
+| `isResizing`  | `resizing`     |             | `boolean`                    | `false`     |
 | `minSize`     | `min-size`     |             | `number`                     | `0`         |
 | `split`       | `split`        |             | `"horizontal" \| "vertical"` | `undefined` |
 
 
 ## Events
 
-| Event               | Description | Type                  |
-| ------------------- | ----------- | --------------------- |
-| `storiesSizeChange` |             | `CustomEvent<number>` |
+| Event           | Description | Type                  |
+| --------------- | ----------- | --------------------- |
+| `strSizeChange` |             | `CustomEvent<number>` |
 
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

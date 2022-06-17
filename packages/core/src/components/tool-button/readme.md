@@ -1,6 +1,6 @@
-# stories-toolbutton
+# Tool button
 
-> Notice: Deprecated. Use stories-button instead
+> Notice: Deprecated. Use str-button instead
 
 <!-- Auto Generated Below -->
 
@@ -16,29 +16,29 @@
 
 ## Events
 
-| Event           | Description  | Type                                                |
-| --------------- | ------------ | --------------------------------------------------- |
-| `storiesAction` | Action Event | `CustomEvent<{ command: string; data?: unknown; }>` |
+| Event       | Description  | Type                                                |
+| ----------- | ------------ | --------------------------------------------------- |
+| `strAction` | Action Event | `CustomEvent<{ command: string; data?: unknown; }>` |
 
 
 ## Dependencies
 
 ### Used by
 
- - [stories-tool-zoom](../tool-zoom)
+ - [str-tool-zoom](../tool-zoom)
 
 ### Depends on
 
-- [stories-icon](../icon)
+- [str-icon](../icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  stories-tool-button --> stories-icon
-  stories-tool-zoom --> stories-tool-button
-  style stories-tool-button fill:#f9f,stroke:#333,stroke-width:4px
+  str-tool-button --> str-icon
+  str-tool-zoom --> str-tool-button
+  style str-tool-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS

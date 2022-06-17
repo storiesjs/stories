@@ -1,11 +1,11 @@
 import { newE2EPage } from '@stencil/core/testing';
 
-describe('stories-addons', () => {
+describe('str-addons', () => {
   it('renders', async () => {
     const page = await newE2EPage();
-    await page.setContent('<stories-addons></stories-addons>');
+    await page.setContent('<str-addons></str-addons>');
 
-    const element = await page.find('stories-addons');
+    const element = await page.find('str-addons');
     expect(element).toHaveClass('hydrated');
   });
 });

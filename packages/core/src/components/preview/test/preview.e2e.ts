@@ -1,11 +1,11 @@
 import { newE2EPage } from '@stencil/core/testing';
 
-describe('stories-preview', () => {
+describe('str-preview', () => {
   it('renders', async () => {
     const page = await newE2EPage();
-    await page.setContent('<stories-preview></stories-preview>');
+    await page.setContent('<str-preview></str-preview>');
 
-    const element = await page.find('stories-preview');
+    const element = await page.find('str-preview');
     expect(element).toHaveClass('hydrated');
   });
 });

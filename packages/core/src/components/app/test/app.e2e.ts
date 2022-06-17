@@ -1,20 +1,20 @@
 import { newE2EPage } from '@stencil/core/testing';
 
-describe('stories-app', () => {
+describe('str-app', () => {
   it('renders', async () => {
     const page = await newE2EPage();
 
-    await page.setContent('<stories-app></stories-app>');
-    const element = await page.find('stories-app');
+    await page.setContent('<str-app></str-app>');
+    const element = await page.find('str-app');
     expect(element).toHaveClass('hydrated');
   });
 
   // it('renders changes to the name data', async () => {
   //   const page = await newE2EPage();
 
-  //   await page.setContent('<stories-app></stories-app>');
-  //   const component = await page.find('stories-app');
-  //   const element = await page.find('stories-app >>> div');
+  //   await page.setContent('<str-app></str-app>');
+  //   const component = await page.find('str-app');
+  //   const element = await page.find('str-app >>> div');
   //   expect(element.textContent).toEqual(`Hello, World! I'm `);
 
   //   component.setProperty('first', 'James');

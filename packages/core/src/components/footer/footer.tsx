@@ -2,7 +2,7 @@
 import { Component, Host, h } from '@stencil/core';
 
 @Component({
-  tag: 'stories-footer',
+  tag: 'str-footer',
   styleUrl: 'footer.scss',
   shadow: true,
 })

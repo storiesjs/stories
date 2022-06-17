@@ -5,7 +5,7 @@ import { Component, Host, h, Element, Prop, Event, Listen } from '@stencil/core'
 import type { TabBarChangedEventDetail, TabButtonClickEventDetail, TabButtonLayout } from '../../types';
 
 @Component({
-  tag: 'stories-tab-button',
+  tag: 'str-tab-button',
   styleUrl: 'tab-button.scss',
   shadow: true,
 })
@@ -29,7 +29,7 @@ export class TabButton {
   @Prop({ mutable: true }) selected = false;
 
   /**
-   * A tab id must be provided for each `stories-tab`. It's used internally to reference
+   * A tab id must be provided for each `str-tab`. It's used internally to reference
    * the selected tab or by the router to switch between them.
    */
   @Prop() tab?: string;
@@ -38,9 +38,9 @@ export class TabButton {
    * Emitted when the tab bar is clicked
    * @internal
    */
-  @Event() storiesTabButtonClick!: EventEmitter<TabButtonClickEventDetail>;
+  @Event() strTabButtonClick!: EventEmitter<TabButtonClickEventDetail>;
 
-  @Listen('storiesTabBarChanged', { target: 'window' })
+  @Listen('strTabBarChanged', { target: 'window' })
   onTabBarChanged(ev: CustomEvent<TabBarChangedEventDetail>): void {
     const dispatchedFrom = ev.target as HTMLElement;
     const parent = this.el.parentElement as EventTarget;
@@ -53,7 +53,7 @@ export class TabButton {
   private selectTab(ev: Event): void {
     if (this.tab !== undefined) {
       if (!this.disabled) {
-        this.storiesTabButtonClick.emit({
+        this.strTabButtonClick.emit({
           tab: this.tab,
           selected: this.selected
         });
@@ -63,11 +63,11 @@ export class TabButton {
   }
 
   private get hasLabel() {
-    return !!this.el.querySelector('stories-label');
+    return !!this.el.querySelector('str-label');
   }
 
   private get hasIcon() {
-    return !!this.el.querySelector('stories-icon');
+    return !!this.el.querySelector('str-icon');
   }
 
   private get tabIndex() {

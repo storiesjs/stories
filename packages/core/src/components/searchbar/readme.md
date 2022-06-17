@@ -1,6 +1,6 @@
-# stories-searchbar
+# Search bar
 
-The stories-searchbar is a text field with an icon that can be used to search through stories.
+The Search bar (str-searchbar) is a text field with an icon that can be used to search through stories.
 
 <!-- Auto Generated Below -->
 
@@ -25,14 +25,14 @@ The stories-searchbar is a text field with an icon that can be used to search th
 
 ## Events
 
-| Event           | Description                                     | Type                                      |
-| --------------- | ----------------------------------------------- | ----------------------------------------- |
-| `storiesBlur`   | Emitted when the input loses focus.             | `CustomEvent<void>`                       |
-| `storiesCancel` | Emitted when the cancel button is clicked.      | `CustomEvent<void>`                       |
-| `storiesChange` | Emitted when the value has changed.             | `CustomEvent<SearchbarChangeEventDetail>` |
-| `storiesClear`  | Emitted when the clear input button is clicked. | `CustomEvent<void>`                       |
-| `storiesFocus`  | Emitted when the input has focus.               | `CustomEvent<void>`                       |
-| `storiesInput`  | Emitted when a keyboard input occurred.         | `CustomEvent<KeyboardEvent>`              |
+| Event       | Description                                     | Type                                      |
+| ----------- | ----------------------------------------------- | ----------------------------------------- |
+| `strBlur`   | Emitted when the input loses focus.             | `CustomEvent<void>`                       |
+| `strCancel` | Emitted when the cancel button is clicked.      | `CustomEvent<void>`                       |
+| `strChange` | Emitted when the value has changed.             | `CustomEvent<SearchbarChangeEventDetail>` |
+| `strClear`  | Emitted when the clear input button is clicked. | `CustomEvent<void>`                       |
+| `strFocus`  | Emitted when the input has focus.               | `CustomEvent<void>`                       |
+| `strInput`  | Emitted when a keyboard input occurred.         | `CustomEvent<KeyboardEvent>`              |
 
 
 ## Methods
@@ -49,7 +49,7 @@ Type: `Promise<HTMLInputElement>`
 
 ### `setFocus() => Promise<void>`
 
-Sets focus on the specified `stories-searchbar`. Use this method instead of the global
+Sets focus on the specified `str-searchbar`. Use this method instead of the global
 `input.focus()`.
 
 #### Returns
@@ -80,15 +80,15 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [stories-icon](../icon)
+- [str-icon](../icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  stories-searchbar --> stories-icon
-  style stories-searchbar fill:#f9f,stroke:#333,stroke-width:4px
+  str-searchbar --> str-icon
+  style str-searchbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
 
-Built with ❤ at StoriesJS
+Built with [StencilJS](https://stenciljs.com/) at StoriesJS
