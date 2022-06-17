@@ -57,7 +57,7 @@ export type StoryUpdate<
   args: TArgs;
   argTypes: ArgTypes<TArgs>;
   parameters: Parameters;
-  initialArgs: Args;
+  initialArgs: TArgs;
 };
 
 /**
@@ -148,7 +148,7 @@ export type ComponentAnnotations<
    *
    * Decorators defined in Meta will be applied to every story variation.
    */
-  decorators?: Array<DecoratorFunction<TFramework, Args>>;
+  decorators?: Array<DecoratorFunction<TFramework, TArgs>>;
 
   /**
    * Dynamic data that are provided (and possibly updated by) Stories and its addons.
@@ -183,7 +183,7 @@ export type StoryAnnotations<
    *
    * Decorators defined in Meta will be applied to every story variation.
    */
-  decorators?: Array<DecoratorFunction<TFramework, Args>>;
+  decorators?: Array<DecoratorFunction<TFramework, TArgs>>;
 
 
   /**
@@ -253,10 +253,10 @@ export type StoryComponent<
   storyId: string;
   kinds: string[];
   storyName: string;
-  storyFn: StoryFn<TFramework, Args>;
+  storyFn: StoryFn<TFramework, TArgs>;
   component?: TFramework['component'];
   subcomponents?: Record<string, TFramework['component']>;
-  decorators?: Array<DecoratorFunction<TFramework, Args>>;
+  decorators?: Array<DecoratorFunction<TFramework, TArgs>>;
   args: Partial<TArgs>;
   argTypes: Partial<ArgTypes<TArgs>>;
   parameters?: Parameters;
